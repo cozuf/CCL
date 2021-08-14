@@ -12,14 +12,16 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import Router from './app/Navigation';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <NavigationContainer>
-      <SafeAreaView>
+      <SafeAreaView style={{flex: 1}}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <Router />
       </SafeAreaView>
     </NavigationContainer>
   );
