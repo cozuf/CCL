@@ -3,6 +3,7 @@ const PAGES_NAMES = {
   TextPage: 'TextPage',
   IconPage: 'IconPage',
   TextInputPage: 'TextInputPage',
+  ActivityIndicatorPage: 'ActivityIndicatorPage',
 };
 
 export {PAGES_NAMES};

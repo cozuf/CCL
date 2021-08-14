@@ -21,6 +21,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'TextInput',
     navigation: 'TextInputPage',
   },
+  {
+    name: 'ActivityIndicator',
+    navigation: 'ActivityIndicatorPage',
+  },
 ];
 
 const MainPage = () => {

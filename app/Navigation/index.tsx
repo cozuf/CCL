@@ -6,6 +6,7 @@ import TextPage from '../Pages/Text';
 import MainPage from '../Pages/MainPage';
 import IconPage from '../Pages/Icon';
 import TextInputPage from '../Pages/TextInput';
+import ActivityIndicatorPage from '../Pages/ActivityIndicator';
 
 //#endregion
 
@@ -26,6 +27,10 @@ const Router = () => {
       <Stack.Screen
         name={PAGES_NAMES.TextInputPage}
         component={TextInputPage}
+      />
+      <Stack.Screen
+        name={PAGES_NAMES.ActivityIndicatorPage}
+        component={ActivityIndicatorPage}
       />
     </Stack.Navigator>
   );
