@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import {
   ActivityIndicator,
   IActivityIndicatorProps,
@@ -45,7 +45,7 @@ const ActivityIndicatorPage = () => {
         data={INDICATORS}
         renderItem={({item, index}) => {
           return (
-            <View style={{paddingVertical: 8, alignItems: 'center'}}>
+            <View style={styles.container}>
               <ActivityIndicator type={item.type} />
             </View>
           );
@@ -56,3 +56,10 @@ const ActivityIndicatorPage = () => {
 };
 
 export default ActivityIndicatorPage;
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 8,
+    alignItems: 'center',
+  },
+});
