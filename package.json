@@ -20,7 +20,7 @@
     "clear": "yarn clear_watchman && yarn clear_react && yarn clear_node_modules && yarn clear_npm && yarn clear_package && yarn clear_ios_build && yarn clear_pods && yarn clear_android_build",
     "pods": "cd ios && pod install && cd ..",
     "apk": "cd android && ./gradlew assembleRelease && open ./app/build/outputs/apk/release/",
-    "fresh": "yarn clear && yarn && yarn pods && yarn fix && npx jetifier",
+    "fresh": "yarn clear && yarn && yarn pods && npx jetifier",
     "androidRelease": "npx react-native run-android --variant=release",
     "iosRelease": "npx react-native run-ios --configuration Release",
     "iphone7plus": "npx react-native run-ios --simulator='iPhone 7 Plus'",
