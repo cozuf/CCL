@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {PAGES_NAMES} from '../Pages';
 import TextPage from '../Pages/Text';
 import MainPage from '../Pages/MainPage';
+import IconPage from '../Pages/Icon';
 
 const Stack = createStackNavigator();
 
@@ -14,6 +15,7 @@ const Router = () => {
       <Stack.Screen name={PAGES_NAMES.MainPage} component={MainPage} />
 
       <Stack.Screen name={PAGES_NAMES.TextPage} component={TextPage} />
+      <Stack.Screen name={PAGES_NAMES.IconPage} component={IconPage} />
     </Stack.Navigator>
   );
 };
