@@ -17,6 +17,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'Icon',
     navigation: 'IconPage',
   },
+  {
+    name: 'TextInput',
+    navigation: 'TextInputPage',
+  },
 ];
 
 const MainPage = () => {

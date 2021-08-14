@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import {PageContainer, Icon} from '../../../src/Components';
-import {IIconProps} from '../../../src/Components/Icon';
+import {PageContainer, Icon, IIconProps} from '../../../src/Components';
+
 const SIZE = 30;
 const COLOR = '#27190E';
 

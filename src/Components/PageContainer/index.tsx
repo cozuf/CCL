@@ -51,10 +51,12 @@ export default PageContainer;
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+    paddingVertical: TOKENS.paddings.pageVertical,
     paddingHorizontal: TOKENS.paddings.pageHorizontal,
   },
   scrollview: {
     flex: 1,
+    paddingVertical: TOKENS.paddings.pageVertical,
     paddingHorizontal: TOKENS.paddings.pageHorizontal,
   },
 });

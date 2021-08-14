@@ -20,7 +20,10 @@ const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        <StatusBar
+          backgroundColor={'#FFFFFF'}
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        />
         <Router />
       </SafeAreaView>
     </NavigationContainer>
