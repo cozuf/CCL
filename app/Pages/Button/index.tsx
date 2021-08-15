@@ -14,8 +14,11 @@ const ButtonPage = () => {
     <PageContainer type="Default">
       <Button
         clickType={CLICK_TYPES[clickTypeIndex].title}
+        title={''}
         icon={{
-          size: 24,
+          family: 'Ionicons',
+          name: 'close',
+          size: 20,
         }}
         type={TYPES[typeIndex].title}
         wrap={WRAP_TYPES[wrapIndex].title}
