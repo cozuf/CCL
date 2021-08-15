@@ -1,13 +1,5 @@
-import React, {
-  FC,
-  isValidElement,
-  ReactNode,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, {FC, isValidElement, ReactNode, useRef, useState} from 'react';
 import {
-  StyleProp,
   StyleSheet,
   TextStyle,
   View,
@@ -17,34 +9,43 @@ import {
   ColorValue,
   NativeSyntheticEvent,
   TextInputFocusEventData,
+  useColorScheme,
+  Platform,
+  Pressable,
 } from 'react-native';
-import {Icon, IIconProps, Text} from '..';
+import {Button, Icon, IIconProps, Text} from '..';
 import {TOKENS} from '../../Theme';
+import {dark, light} from '../../Theme/Variants';
 
 export interface ITextInputProps {
   type?: 'Email' | 'Password' | 'Normal';
   title?: string;
-  titleStyle?: StyleProp<TextStyle>;
+  titleStyle?: TextStyle;
   icon?: IIconProps | ReactNode;
   value: string;
   onChangeText: (text: string) => void;
   onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+  style?: TextStyle;
   warning?: string;
-  warningStyle?: StyleProp<TextStyle>;
+  warningStyle?: TextStyle;
   error?: string;
-  errorStyle?: StyleProp<TextStyle>;
-  containerStyle?: StyleProp<ViewStyle>;
+  errorStyle?: TextStyle;
+  containerStyle?: ViewStyle;
   cleanable?: boolean;
   isRequired?: boolean;
 }
 
-const NTextInput: FC<ITextInputProps & TextInputProps> = ({
+const NTextInput: FC<
+  ITextInputProps &
+    Omit<TextInputProps, 'onChangeText' | 'onFocus' | 'onBlur' | 'style'>
+> = ({
   type = 'Normal',
   title = 'Başlık',
   titleStyle,
   icon,
   value,
+  style,
   onChangeText,
   warning,
   warningStyle,
@@ -57,10 +58,40 @@ const NTextInput: FC<ITextInputProps & TextInputProps> = ({
   isRequired,
   ...props
 }) => {
-  const NativeTextInoutRef = useRef<TextInput | undefined>(null);
-  const [containerBorderColor, setContainerBorderColor] = useState<ColorValue>(
-    styles.container.backgroundColor,
-  );
+  const isDarkMode = useColorScheme() === 'dark';
+  const NativeTextInputRef = useRef<TextInput | null>(null);
+  const [isFocused, setIsFocused] = useState<boolean>();
+
+  const containerBackgroundColor = (): ColorValue => {
+    const CONTAINER_BACKGROUND = isDarkMode
+      ? dark.textInputBackground
+      : light.textInputBackground;
+
+    return CONTAINER_BACKGROUND;
+  };
+
+  const containerBorderColor = (): ColorValue => {
+    const CONTAINER_BORDER_COLOR = isFocused
+      ? isDarkMode
+        ? dark.textInputFocused
+        : light.textInputFocused
+      : isDarkMode
+      ? dark.textInputBorder
+      : light.textInputBorder;
+    return CONTAINER_BORDER_COLOR;
+  };
+
+  const inputTextColor = (): ColorValue => {
+    const INPUT_TEXT_COLOR = isFocused
+      ? isDarkMode
+        ? dark.textInputTextFocused
+        : light.textInputTextFocused
+      : isDarkMode
+      ? dark.textInputText
+      : light.textInputText;
+    return INPUT_TEXT_COLOR;
+  };
+
   const renderIcon = () => {
     if (isValidElement(icon)) {
       return icon;
@@ -86,65 +117,106 @@ const NTextInput: FC<ITextInputProps & TextInputProps> = ({
   };
 
   const changeFocus = () => {
-    if (NativeTextInoutRef.current?.isFocused()) {
-      NativeTextInoutRef.current?.blur();
+    if (NativeTextInputRef.current?.isFocused()) {
+      NativeTextInputRef.current?.blur();
+      setIsFocused(false);
     } else {
-      NativeTextInoutRef.current?.focus();
+      NativeTextInputRef.current?.focus();
+      setIsFocused(true);
     }
   };
 
   const renderClean = () => {
     return (
       <View style={styles.cleanContainer}>
-        <Icon family="Ionicons" name="close" size={20} />
+        <Button
+          wrap={'wrap'}
+          title={''}
+          type="Simplied"
+          icon={{
+            family: 'Ionicons',
+            name: 'close',
+            size: 20,
+            color: inputTextColor(),
+          }}
+          onPress={() => {
+            NativeTextInputRef.current?.clear();
+            onChangeText('');
+          }}
+        />
       </View>
     );
   };
 
   return (
-    <View
+    <Pressable
       style={[
         styles.container,
         containerStyle,
         {
-          borderColor: containerBorderColor,
+          backgroundColor: containerBackgroundColor(),
+          borderColor: containerBorderColor(),
         },
       ]}
-      onTouchStart={() => {
+      onPress={() => {
         changeFocus();
       }}>
-      <Text style={[titleStyle]}>{isRequired ? `* ${title}` : title}</Text>
+      <Text style={[titleStyle, {color: inputTextColor()}]}>
+        {isRequired ? `* ${title}` : title}
+      </Text>
       <View style={[styles.inputContainer]}>
         {icon ? renderIcon() : null}
         {
           <View style={{flex: 1}}>
             <TextInput
-              ref={NativeTextInoutRef}
+              ref={ref => {
+                NativeTextInputRef.current = ref;
+              }}
               value={value}
               onChangeText={onChangeText}
-              style={[styles.input]}
+              style={[
+                styles.input,
+                style,
+                {
+                  ...Platform.select({
+                    ios: {
+                      paddingVertical:
+                        style && style.paddingVertical
+                          ? Number(style?.paddingVertical) + 6.5
+                          : 6.5,
+                    },
+                    android: {
+                      paddingVertical:
+                        style && style.paddingVertical
+                          ? Number(style?.paddingVertical)
+                          : 0,
+                    },
+                  }),
+                },
+                {color: isDarkMode ? dark.text : light.text},
+              ]}
               secureTextEntry={type === 'Password'}
               onFocus={(e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-                setContainerBorderColor('#27190E');
+                setIsFocused(true);
                 if (typeof onFocus === 'function') {
                   onFocus(e);
                 }
               }}
               onBlur={(e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-                setContainerBorderColor(styles.container.backgroundColor);
+                setIsFocused(false);
                 if (typeof onBlur === 'function') {
                   onBlur(e);
                 }
               }}
               {...props}
             />
-            {cleanable && value.length > 0 ? renderClean() : null}
           </View>
         }
       </View>
+      {cleanable && value.length > 0 ? renderClean() : null}
       {warning ? renderWarning() : null}
       {error ? renderError() : null}
-    </View>
+    </Pressable>
   );
 };
 
@@ -152,25 +224,24 @@ export default NTextInput;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'green',
     borderRadius: TOKENS.radiuses.component,
     borderWidth: TOKENS.borders.inputContainer,
     padding: TOKENS.paddings.componentContainerVertical,
   },
   inputContainer: {
     width: '100%',
-    backgroundColor: 'red',
     flexDirection: 'row',
   },
   input: {
-    paddingVertical: 4,
-    backgroundColor: 'orange',
+    paddingVertical: 12,
+    minHeight: undefined,
   },
   cleanContainer: {
     position: 'absolute',
     top: 0,
     right: 0,
     height: '100%',
+    marginTop: TOKENS.paddings.componentContainerVertical,
     justifyContent: 'center',
   },
 });
