@@ -3,12 +3,15 @@ const TOKENS = {
     pageVertical: 8,
     pageHorizontal: 16,
     componentContainerVertical: 8,
+    componentContainerHorizontal: 16,
   },
   borders: {
     inputContainer: 2,
+    button: 2,
   },
   radiuses: {
     component: 8,
+    button: 8,
   },
 };
 
