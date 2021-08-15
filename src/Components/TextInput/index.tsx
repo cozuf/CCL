@@ -233,8 +233,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   input: {
+    paddingLeft: 0,
     paddingVertical: 12,
-    minHeight: undefined,
   },
   cleanContainer: {
     position: 'absolute',
