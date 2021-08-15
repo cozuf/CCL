@@ -45,6 +45,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'CheckBox',
     navigation: 'CheckBoxPage',
   },
+  {
+    name: 'CheckBoxGroup',
+    navigation: 'CheckBoxGroupPage',
+  },
 ];
 
 const MainPage = () => {

@@ -14,6 +14,7 @@ import TapSelectorPage from '../Pages/TapSelector';
 import RadioButtonPage from '../Pages/RadioButton';
 import RadioButtonGroupPage from '../Pages/RadioButtonGroup';
 import CheckBoxPage from '../Pages/CheckBox';
+import CheckBoxGroupPage from '../Pages/CheckBoxGroup';
 
 //#endregion
 
@@ -71,6 +72,10 @@ const Router = () => {
         component={RadioButtonGroupPage}
       />
       <Stack.Screen name={PAGES_NAMES.CheckBoxPage} component={CheckBoxPage} />
+      <Stack.Screen
+        name={PAGES_NAMES.CheckBoxGroupPage}
+        component={CheckBoxGroupPage}
+      />
     </Stack.Navigator>
   );
 };
