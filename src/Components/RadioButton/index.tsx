@@ -6,9 +6,9 @@ import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface IRadionButtonProps {
-  selected?: boolean;
+  selected: boolean;
   title?: string;
-  value: any;
+  value?: any;
   iconSet?: {
     selected: IIconProps | ReactNode;
     notSelected: IIconProps | ReactNode;
