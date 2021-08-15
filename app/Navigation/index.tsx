@@ -2,6 +2,7 @@ import React from 'react';
 import {useColorScheme} from 'react-native';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {PAGES_NAMES} from '../Pages';
+import {FONTS} from '../../src/Assets';
 //#region Pages
 import TextPage from '../Pages/Text';
 import MainPage from '../Pages/MainPage';
@@ -9,7 +10,7 @@ import IconPage from '../Pages/Icon';
 import TextInputPage from '../Pages/TextInput';
 import ActivityIndicatorPage from '../Pages/ActivityIndicator';
 import ButtonPage from '../Pages/Button';
-import {FONTS} from '../../src/Assets';
+import TapSelectorPage from '../Pages/TapSelector';
 
 //#endregion
 
@@ -54,6 +55,10 @@ const Router = () => {
         component={ActivityIndicatorPage}
       />
       <Stack.Screen name={PAGES_NAMES.ButtonPage} component={ButtonPage} />
+      <Stack.Screen
+        name={PAGES_NAMES.TapSelectorPage}
+        component={TapSelectorPage}
+      />
     </Stack.Navigator>
   );
 };

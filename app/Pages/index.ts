@@ -5,6 +5,7 @@ const PAGES_NAMES = {
   TextInputPage: 'TextInputPage',
   ActivityIndicatorPage: 'ActivityIndicatorPage',
   ButtonPage: 'ButtonPage',
+  TapSelectorPage: 'TapSelectorPage',
 };
 
 export {PAGES_NAMES};
