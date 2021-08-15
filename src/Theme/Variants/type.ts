@@ -7,10 +7,12 @@ export interface ColorShceme {
   passive: ColorValue;
   pageBackground: ColorValue;
   statusbar: ColorValue;
+  text: ColorValue;
+  textInputText: ColorValue;
+  textInputTextFocused: ColorValue;
   textInputBackground: ColorValue;
   textInputBorder: ColorValue;
   textInputFocused: ColorValue;
-  text: ColorValue;
   buttonFilledBackground: ColorValue;
   buttonOutlinedBackground: ColorValue;
   buttonSimpliedBackground: ColorValue;
