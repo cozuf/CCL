@@ -1,9 +1,31 @@
 import React, {FC} from 'react';
-import {Text as NativeText, TextProps as NativeTextProps} from 'react-native';
-interface ITextProps {}
+import {
+  StyleProp,
+  Text as NativeText,
+  TextProps as NativeTextProps,
+  TextStyle,
+  useColorScheme,
+} from 'react-native';
+import {FONTS} from '../../Assets';
+import {dark, light} from '../../Theme/Variants';
+interface ITextProps {
+  style?: StyleProp<TextStyle>;
+}
 
-const Text: FC<ITextProps & NativeTextProps> = ({children, ...props}) => {
-  return <NativeText {...props}>{children}</NativeText>;
+const Text: FC<ITextProps & NativeTextProps> = ({
+  style,
+  children,
+  ...props
+}) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const COLOR = isDarkMode ? dark.text : light.text;
+  return (
+    <NativeText
+      style={[{fontFamily: FONTS.regular, color: COLOR}, style]}
+      {...props}>
+      {children}
+    </NativeText>
+  );
 };
 
 export default Text;
