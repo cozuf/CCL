@@ -19,18 +19,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
   selected,
   title = `Check Box ${selected ? 1 : 0}`,
   value,
-  iconSet = {
-    selected: {
-      family: 'Ionicons',
-      name: 'md-checkbox',
-      size: 20,
-    },
-    notSelected: {
-      family: 'MaterialCommunityIcons',
-      name: 'checkbox-blank-outline',
-      size: 20,
-    },
-  },
+  iconSet,
   onSelect,
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(selected);
@@ -53,7 +42,29 @@ const CheckBox: FC<ICheckBoxProps> = ({
         }
       }
     } else {
-      return null;
+      return (
+        <View
+          style={[
+            styles.iconContainer,
+            {
+              borderColor: isDarkMode ? dark.active : light.active,
+              backgroundColor: isSelected
+                ? isDarkMode
+                  ? dark.active
+                  : light.active
+                : 'transparent',
+            },
+          ]}>
+          {isSelected ? (
+            <Icon
+              family="Feather"
+              name="check"
+              size={16}
+              color={isDarkMode ? dark.primary : light.primary}
+            />
+          ) : null}
+        </View>
+      );
     }
   };
 
@@ -98,5 +109,13 @@ const styles = StyleSheet.create({
     paddingVertical: TOKENS.paddings.componentContainerVertical,
     paddingHorizontal: TOKENS.paddings.componentContainerVertical,
     borderBottomWidth: TOKENS.borders.radioButton,
+  },
+  iconContainer: {
+    borderWidth: 2,
+    borderRadius: 4,
+    minHeight: 24,
+    minWidth: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
