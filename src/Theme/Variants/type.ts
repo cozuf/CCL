@@ -24,7 +24,7 @@ export interface ColorShceme {
   buttonOutlinedPressedText: ColorValue;
   buttonSimpliedPressedText: ColorValue;
   buttonFilledPressedBackgorund: ColorValue;
-  buttonOuıtlinedPressedBackgorund: ColorValue;
+  buttonOutlinedPressedBackgorund: ColorValue;
   buttonSimpliedPressedBackground: ColorValue;
   buttonFilledPressedBorder: ColorValue;
   buttonOutlinedPressedBorder: ColorValue;

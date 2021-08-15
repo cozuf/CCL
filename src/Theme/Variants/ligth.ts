@@ -1,40 +1,52 @@
 import {ColorShceme} from './type';
 
+const BLACK = '#000000';
+const WHITE = '#FFFFFF';
+const TRANSPARENT = '#FFFFFF00';
+
+// const RED = '#CC0000';
+// const RED_PALE = '#FF9999';
+// const RED_OPPOSITE = '#33FFFF';
+
+const OPEN_BLUE = '#0099CC';
+const OPEN_BLUE_PALE = '#004D66';
+const OPEN_BLUE_OPPOSITE = '#FF6633';
+
 const light: ColorShceme = {
-  primary: '#FFFFFF',
-  secondary: '#000000',
-  active: '#CC0000',
-  passive: '#FF9999',
-  pageBackground: '#FFFFFF',
-  statusbar: '#FFFFFF',
-  textInputBackground: '#FFFFFF',
-  textInputBorder: '#FFFFFF',
-  textInputFocused: '#CC0000',
-  text: '#000000',
-  buttonFilledBackground: '#CC0000',
-  buttonOutlinedBackground: '#FFFFFF',
-  buttonSimpliedBackground: 'transparent',
-  buttonFilledText: '#FFFFFF',
-  buttonOutlinedText: '#CC0000',
-  buttonSimpliedText: '#CC0000',
-  buttonFilledPressedText: '#000000',
-  buttonOutlinedPressedText: '#33FFFF',
-  buttonSimpliedPressedText: '#33FFFF',
-  buttonFilledPressedBackgorund: '#33FFFF',
-  buttonOuıtlinedPressedBackgorund: '#33FFFF',
-  buttonSimpliedPressedBackground: 'transparent',
-  buttonFilledBorder: '#CC0000',
-  buttonOutlinedBorder: '#CC0000',
-  buttonSimpliedBorder: 'transparent',
-  buttonFilledPressedBorder: '#33FFFF',
-  buttonOutlinedPressedBorder: '#33FFFF',
-  buttonSimpliedPressedBorder: 'transparent',
-  radioButtonActive: '#CC0000',
-  radioButtonPassive: '#FF9999',
-  checkBoxActive: '#CC0000',
-  checkBoxPassive: '#FF9999',
-  chipActive: '#CC0000',
-  chipPassive: '#FF9999',
+  primary: WHITE,
+  secondary: BLACK,
+  active: OPEN_BLUE,
+  passive: OPEN_BLUE_PALE,
+  pageBackground: WHITE,
+  statusbar: WHITE,
+  textInputBackground: WHITE,
+  textInputBorder: WHITE,
+  textInputFocused: OPEN_BLUE,
+  text: BLACK,
+  buttonFilledBackground: OPEN_BLUE,
+  buttonOutlinedBackground: WHITE,
+  buttonSimpliedBackground: TRANSPARENT,
+  buttonFilledText: WHITE,
+  buttonOutlinedText: OPEN_BLUE,
+  buttonSimpliedText: OPEN_BLUE,
+  buttonFilledPressedText: BLACK,
+  buttonOutlinedPressedText: OPEN_BLUE_OPPOSITE,
+  buttonSimpliedPressedText: OPEN_BLUE_OPPOSITE,
+  buttonFilledPressedBackgorund: OPEN_BLUE_OPPOSITE,
+  buttonOutlinedPressedBackgorund: BLACK,
+  buttonSimpliedPressedBackground: TRANSPARENT,
+  buttonFilledBorder: OPEN_BLUE,
+  buttonOutlinedBorder: OPEN_BLUE,
+  buttonSimpliedBorder: TRANSPARENT,
+  buttonFilledPressedBorder: OPEN_BLUE_OPPOSITE,
+  buttonOutlinedPressedBorder: OPEN_BLUE_OPPOSITE,
+  buttonSimpliedPressedBorder: TRANSPARENT,
+  radioButtonActive: OPEN_BLUE,
+  radioButtonPassive: OPEN_BLUE_PALE,
+  checkBoxActive: OPEN_BLUE,
+  checkBoxPassive: OPEN_BLUE_PALE,
+  chipActive: OPEN_BLUE,
+  chipPassive: OPEN_BLUE_PALE,
 };
 
 export default light;

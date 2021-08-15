@@ -1,40 +1,52 @@
 import {ColorShceme} from './type';
 
+const BLACK = '#000000';
+const WHITE = '#FFFFFF';
+const TRANSPARENT = '#FFFFFF00';
+
+// const TURQUAZ = '#33FFFF';
+// const TURQUAZ_PALE = '#006666';
+// const TURQUAZ_OPPOSITE = '#CC0000';
+
+const ORANGE = '#FF6633';
+const ORANGE_PALE = 'rgba(255, 102, 51,0.5)';
+const ORANGE_OPPOSITE = '#0099CC';
+
 const dark: ColorShceme = {
-  primary: '#000000',
-  secondary: '#FFFFFF',
-  active: '#33FFFF',
-  passive: '#006666',
-  pageBackground: '#000000',
-  statusbar: '#000000',
-  textInputBackground: '#000000',
-  textInputBorder: '#000000',
-  textInputFocused: '#33FFFF',
-  text: '#FFFFFF',
-  buttonFilledBackground: '#33FFFF',
-  buttonOutlinedBackground: '#000000',
-  buttonSimpliedBackground: 'transparent',
-  buttonFilledText: '#000000',
-  buttonOutlinedText: '#33FFFF',
-  buttonSimpliedText: '#33FFFF',
-  buttonFilledPressedText: '#000000',
-  buttonOutlinedPressedText: '#CC0000',
-  buttonSimpliedPressedText: '#CC0000',
-  buttonFilledPressedBackgorund: '#CC0000',
-  buttonOuıtlinedPressedBackgorund: '#CC0000',
-  buttonSimpliedPressedBackground: 'transparent',
-  buttonFilledBorder: '#33FFFF',
-  buttonOutlinedBorder: '#33FFFF',
-  buttonSimpliedBorder: 'transparent',
-  buttonFilledPressedBorder: '#CC0000',
-  buttonOutlinedPressedBorder: '#CC0000',
-  buttonSimpliedPressedBorder: 'transparent',
-  radioButtonActive: '#33FFFF',
-  radioButtonPassive: '#006666',
-  checkBoxActive: '#33FFFF',
-  checkBoxPassive: '#006666',
-  chipActive: '#33FFFF',
-  chipPassive: '#006666',
+  primary: BLACK,
+  secondary: WHITE,
+  active: ORANGE,
+  passive: ORANGE_PALE,
+  pageBackground: BLACK,
+  statusbar: BLACK,
+  textInputBackground: BLACK,
+  textInputBorder: BLACK,
+  textInputFocused: ORANGE,
+  text: WHITE,
+  buttonFilledBackground: ORANGE,
+  buttonOutlinedBackground: BLACK,
+  buttonSimpliedBackground: TRANSPARENT,
+  buttonFilledText: BLACK,
+  buttonOutlinedText: ORANGE,
+  buttonSimpliedText: ORANGE,
+  buttonFilledPressedText: WHITE,
+  buttonOutlinedPressedText: ORANGE_OPPOSITE,
+  buttonSimpliedPressedText: ORANGE_OPPOSITE,
+  buttonFilledPressedBackgorund: ORANGE_OPPOSITE,
+  buttonOutlinedPressedBackgorund: WHITE,
+  buttonSimpliedPressedBackground: TRANSPARENT,
+  buttonFilledBorder: ORANGE,
+  buttonOutlinedBorder: ORANGE,
+  buttonSimpliedBorder: TRANSPARENT,
+  buttonFilledPressedBorder: ORANGE_OPPOSITE,
+  buttonOutlinedPressedBorder: ORANGE_OPPOSITE,
+  buttonSimpliedPressedBorder: TRANSPARENT,
+  radioButtonActive: ORANGE,
+  radioButtonPassive: ORANGE_PALE,
+  checkBoxActive: ORANGE,
+  checkBoxPassive: ORANGE_PALE,
+  chipActive: ORANGE,
+  chipPassive: ORANGE_PALE,
 };
 
 export default dark;
