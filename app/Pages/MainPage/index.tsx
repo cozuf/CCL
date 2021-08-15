@@ -25,6 +25,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'ActivityIndicator',
     navigation: 'ActivityIndicatorPage',
   },
+  {
+    name: 'Button',
+    navigation: 'ButtonPage',
+  },
 ];
 
 const MainPage = () => {
