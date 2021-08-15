@@ -1,4 +1,4 @@
-import React, {FC, isValidElement, ReactNode} from 'react';
+import React, {FC, isValidElement, ReactNode, useState} from 'react';
 import {
   PressableProps,
   TouchableOpacityProps,
@@ -25,8 +25,8 @@ export interface IButtonProps {
   onPress: () => void;
   icon?: IIconProps | ReactNode;
   title?: string;
-  titleStyle: StyleProp<TextStyle>;
-  containerStyle: StyleProp<ViewStyle>;
+  titleStyle?: StyleProp<TextStyle>;
+  containerStyle?: StyleProp<ViewStyle>;
 }
 
 const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
@@ -40,15 +40,30 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
   onPress = () => {},
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
+  const [pressed, setPressed] = useState<boolean>(false);
 
   const backgroundColor = (): ColorValue => {
-    const BUTTON_FILLED_BACKGROUND = isDarkMode
+    const BUTTON_FILLED_BACKGROUND = pressed
+      ? isDarkMode
+        ? dark.buttonFilledPressedBackgorund
+        : light.buttonFilledPressedBackgorund
+      : isDarkMode
       ? dark.buttonFilledBackground
       : light.buttonFilledBackground;
-    const BUTTON_OUTLINED_BACKGROUND = isDarkMode
+
+    const BUTTON_OUTLINED_BACKGROUND = pressed
+      ? isDarkMode
+        ? dark.buttonOutlinedPressedBackgorund
+        : light.buttonOutlinedPressedBackgorund
+      : isDarkMode
       ? dark.buttonOutlinedBackground
       : light.buttonOutlinedBackground;
-    const BUTTON_SIMPLIED_BACKGROUND = isDarkMode
+
+    const BUTTON_SIMPLIED_BACKGROUND = pressed
+      ? isDarkMode
+        ? dark.buttonSimpliedPressedBackground
+        : light.buttonSimpliedPressedBackground
+      : isDarkMode
       ? dark.buttonSimpliedBackground
       : light.buttonSimpliedBackground;
     switch (type) {
@@ -62,13 +77,27 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
   };
 
   const borderColor = (): ColorValue => {
-    const BUTTON_FILLED_BORDER = isDarkMode
+    const BUTTON_FILLED_BORDER = pressed
+      ? isDarkMode
+        ? dark.buttonFilledPressedBorder
+        : light.buttonFilledPressedBorder
+      : isDarkMode
       ? dark.buttonFilledBorder
       : light.buttonFilledBorder;
-    const BUTTON_OUTLINED_BORDER = isDarkMode
+
+    const BUTTON_OUTLINED_BORDER = pressed
+      ? isDarkMode
+        ? dark.buttonOutlinedPressedBorder
+        : light.buttonOutlinedPressedBorder
+      : isDarkMode
       ? dark.buttonOutlinedBorder
       : light.buttonOutlinedBorder;
-    const BUTTON_SIMPLIED_BORDER = isDarkMode
+
+    const BUTTON_SIMPLIED_BORDER = pressed
+      ? isDarkMode
+        ? dark.buttonSimpliedPressedBorder
+        : light.buttonSimpliedPressedBorder
+      : isDarkMode
       ? dark.buttonSimpliedBorder
       : light.buttonSimpliedBorder;
     switch (type) {
@@ -82,13 +111,27 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
   };
 
   const titleColor = (): ColorValue => {
-    const BUTTON_FILLED_TEXT = isDarkMode
+    const BUTTON_FILLED_TEXT = pressed
+      ? isDarkMode
+        ? dark.buttonFilledPressedText
+        : light.buttonFilledPressedText
+      : isDarkMode
       ? dark.buttonFilledText
       : light.buttonFilledText;
-    const BUTTON_OUTLINED_TEXT = isDarkMode
+
+    const BUTTON_OUTLINED_TEXT = pressed
+      ? isDarkMode
+        ? dark.buttonOutlinedPressedText
+        : light.buttonOutlinedPressedText
+      : isDarkMode
       ? dark.buttonOutlinedText
       : light.buttonOutlinedText;
-    const BUTTON_SIMPLIED_TEXT = isDarkMode
+
+    const BUTTON_SIMPLIED_TEXT = pressed
+      ? isDarkMode
+        ? dark.buttonSimpliedPressedText
+        : light.buttonSimpliedPressedText
+      : isDarkMode
       ? dark.buttonSimpliedText
       : light.buttonSimpliedText;
     switch (type) {
@@ -115,8 +158,6 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
 
   const renderContainerStyle = (): StyleProp<ViewStyle> => {
     return {
-      flexDirection: 'row',
-      justifyContent: 'center',
       backgroundColor: backgroundColor(),
       borderRadius: TOKENS.radiuses.button,
       borderWidth: TOKENS.borders.button,
@@ -130,7 +171,12 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
       return icon;
     } else {
       const CoreIcon = icon as IIconProps;
-      return <Icon {...CoreIcon} />;
+      return (
+        <Icon
+          {...CoreIcon}
+          color={CoreIcon.color ? CoreIcon.color : titleColor()}
+        />
+      );
     }
   };
 
@@ -145,9 +191,10 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
   const renderOpacity = () => {
     return (
       <TouchableOpacity
+        activeOpacity={0.5}
         onPress={onPress}
         style={[renderContainerStyle(), styles.container, containerStyle]}>
-        {icon ? renderIcon() : null}
+        {icon && title !== 'Button' ? renderIcon() : null}
         {title ? renderTitle() : null}
       </TouchableOpacity>
     );
@@ -155,7 +202,18 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
 
   const renderChangeable = () => {
     return (
-      <Pressable onPress={onPress} style={renderContainerStyle()}></Pressable>
+      <Pressable
+        onPress={onPress}
+        onPressIn={() => {
+          setPressed(true);
+        }}
+        onPressOut={() => {
+          setPressed(false);
+        }}
+        style={[renderContainerStyle(), styles.container, containerStyle]}>
+        {icon && title !== 'Button' ? renderIcon() : null}
+        {title ? renderTitle() : null}
+      </Pressable>
     );
   };
 
@@ -173,6 +231,9 @@ export default Button;
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: TOKENS.paddings.componentContainerVertical,
     paddingHorizontal: TOKENS.paddings.componentContainerHorizontal,
   },

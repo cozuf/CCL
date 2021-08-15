@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import {Button, PageContainer, Text} from '../../../src/Components';
+import {Button, PageContainer} from '../../../src/Components';
 
 type ComponentListType = {
   name: string;
@@ -40,6 +40,7 @@ const MainPage = () => {
   return (
     <PageContainer type={'Default'}>
       <FlatList
+        bounces={false}
         keyExtractor={(item, index) => item.name + index.toString()}
         data={COMPONENTS}
         renderItem={({item, index}) => {

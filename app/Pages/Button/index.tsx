@@ -1,20 +1,47 @@
 import React, {useState} from 'react';
-import {FlatList} from 'react-native';
-import {Button, PageContainer} from '../../../src/Components';
+import {View} from 'react-native';
+import {Button, PageContainer, TapSelector} from '../../../src/Components';
+
+const CLICK_TYPES = [{title: 'Opacity'}, {title: 'Changeable'}];
+const TYPES = [{title: 'Filled'}, {title: 'Outlined'}, {title: 'Simplied'}];
+const WRAP_TYPES = [{title: 'wrap'}, {title: 'no-wrap'}, {title: 'free'}];
 
 const ButtonPage = () => {
-  const [clickType, setClickType] = useState<'Opacity' | 'Changeable'>(
-    'Opacity',
-  );
-  const [type, setType] = useState<'Filled' | 'Outlined' | 'Simplied'>(
-    'Filled',
-  );
-  const [wrap, setWrap] = useState<'wrap' | 'no-wrap' | 'free'>('free');
+  const [clickTypeIndex, setClickTypeIndex] = useState<number>(0);
+  const [typeIndex, setTypeIndex] = useState<number>(0);
+  const [wrapIndex, setWrapIndex] = useState<number>(0);
   return (
     <PageContainer type="Default">
-      <Button type="Filled" />
-      <Button type="Outlined" />
-      <Button type="Simplied" />
+      <Button
+        clickType={CLICK_TYPES[clickTypeIndex].title}
+        icon={{
+          size: 24,
+        }}
+        type={TYPES[typeIndex].title}
+        wrap={WRAP_TYPES[wrapIndex].title}
+      />
+      <View style={{paddingVertical: 8}}>
+        <TapSelector
+          data={CLICK_TYPES}
+          onTap={(item, index) => {
+            setClickTypeIndex(index);
+          }}
+        />
+        <View style={{paddingVertical: 8}} />
+        <TapSelector
+          data={TYPES}
+          onTap={(item, index) => {
+            setTypeIndex(index);
+          }}
+        />
+        <View style={{paddingVertical: 8}} />
+        <TapSelector
+          data={WRAP_TYPES}
+          onTap={(item, index) => {
+            setWrapIndex(index);
+          }}
+        />
+      </View>
     </PageContainer>
   );
 };
