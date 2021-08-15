@@ -7,6 +7,7 @@ import Button from './Button';
 import TapSelector from './TapSelector';
 import RadioButton from './RadioButton';
 import RadioButtonGroup from './RadioButtonGroup';
+import CheckBox from './CheckBox';
 
 import {IIconProps} from './Icon';
 import {ITextInputProps} from './TextInput';
@@ -15,6 +16,7 @@ import {IButtonProps} from './Button';
 import {ITapSelectorProps} from './TapSelector';
 import {IRadionButtonProps} from './RadioButton';
 import {IRadioButtonGroupProps} from './RadioButtonGroup';
+import {ICheckBoxProps} from './CheckBox';
 
 export {
   Text,
@@ -26,6 +28,7 @@ export {
   TapSelector,
   RadioButton,
   RadioButtonGroup,
+  CheckBox,
 };
 export type {
   IIconProps,
@@ -35,4 +38,5 @@ export type {
   ITapSelectorProps,
   IRadionButtonProps,
   IRadioButtonGroupProps,
+  ICheckBoxProps,
 };
