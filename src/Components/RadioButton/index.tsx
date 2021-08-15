@@ -8,6 +8,7 @@ import {dark, light} from '../../Theme/Variants';
 export interface IRadionButtonProps {
   selected?: boolean;
   title?: string;
+  value: any;
   iconSet?: {
     selected: IIconProps | ReactNode;
     notSelected: IIconProps | ReactNode;
@@ -18,6 +19,7 @@ export interface IRadionButtonProps {
 const RadioButton: FC<IRadionButtonProps> = ({
   selected = false,
   title = `Radio Button ${selected ? 1 : 0}`,
+  value = 'Radion Button',
   iconSet = {
     selected: {
       family: 'MaterialIcons',
@@ -67,6 +69,7 @@ const RadioButton: FC<IRadionButtonProps> = ({
 
   return (
     <TouchableOpacity
+      key={value}
       style={[
         styles.container,
         {

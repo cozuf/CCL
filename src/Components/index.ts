@@ -6,6 +6,7 @@ import ActivityIndicator from './ActivityIndicator';
 import Button from './Button';
 import TapSelector from './TapSelector';
 import RadioButton from './RadioButton';
+import RadioButtonGroup from './RadioButtonGroup';
 
 import {IIconProps} from './Icon';
 import {ITextInputProps} from './TextInput';
@@ -13,6 +14,7 @@ import {IActivityIndicatorProps} from './ActivityIndicator';
 import {IButtonProps} from './Button';
 import {ITapSelectorProps} from './TapSelector';
 import {IRadionButtonProps} from './RadioButton';
+import {IRadioButtonGroupProps} from './RadioButtonGroup';
 
 export {
   Text,
@@ -23,6 +25,7 @@ export {
   Button,
   TapSelector,
   RadioButton,
+  RadioButtonGroup,
 };
 export type {
   IIconProps,
@@ -31,4 +34,5 @@ export type {
   IButtonProps,
   ITapSelectorProps,
   IRadionButtonProps,
+  IRadioButtonGroupProps,
 };

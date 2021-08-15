@@ -8,7 +8,7 @@ const TOKENS = {
   borders: {
     inputContainer: 2,
     button: 2,
-    radioButton: 1,
+    radioButton: 0.3,
   },
   radiuses: {
     component: 8,

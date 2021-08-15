@@ -37,6 +37,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'RadioButton',
     navigation: 'RadioButtonPage',
   },
+  {
+    name: 'RadioButtonGroup',
+    navigation: 'RadioButtonGroupPage',
+  },
 ];
 
 const MainPage = () => {
