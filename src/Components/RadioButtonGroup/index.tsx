@@ -5,7 +5,7 @@ import {RadioButton} from '..';
 export interface IRadioButtonGroupProps<ItemT> {
   data: ReadonlyArray<ItemT>;
   onSelect: (item: ItemT, index: number) => void;
-  renderItem: (info: ListRenderItemInfo<ItemT>) => React.ReactElement | null;
+  renderItem?: (info: ListRenderItemInfo<ItemT>) => React.ReactElement | null;
 }
 
 const RadioButtonGroup: FC<IRadioButtonGroupProps<any>> = ({
@@ -19,7 +19,6 @@ const RadioButtonGroup: FC<IRadioButtonGroupProps<any>> = ({
     const tData = nData.map((v, i) => ({...v, selected: i === index}));
     setNData(tData);
     const sData = tData.filter(item => item.selected);
-    console.log({data, tData, sData});
     onSelect(sData[0], index);
   };
 
