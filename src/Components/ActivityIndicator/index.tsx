@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {ColorValue, ActivityIndicator} from 'react-native';
+import {ColorValue, ActivityIndicator, useColorScheme} from 'react-native';
 import {
   BallIndicator,
   BarIndicator,
@@ -11,6 +11,7 @@ import {
   UIActivityIndicator,
   WaveIndicator,
 } from 'react-native-indicators';
+import {dark, light} from '../../Theme/Variants';
 
 export interface IActivityIndicatorProps {
   type:
@@ -30,31 +31,33 @@ export interface IActivityIndicatorProps {
 
 const NActivityIndicator: FC<IActivityIndicatorProps> = ({
   type = 'Default',
-  color = '#27190E',
+  color,
   size = 24,
 }) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const COLOR = color ? color : isDarkMode ? dark.active : light.active;
   switch (type) {
     case 'BallIndicator':
-      return <BallIndicator color={color} size={size} />;
+      return <BallIndicator color={COLOR} size={size} />;
     case 'BarIndicator':
-      return <BarIndicator color={color} size={size} />;
+      return <BarIndicator color={COLOR} size={size} />;
     case 'DotIndicator':
-      return <DotIndicator color={color} size={size} />;
+      return <DotIndicator color={COLOR} size={size} />;
     case 'MaterialIndicator':
-      return <MaterialIndicator color={color} size={size} />;
+      return <MaterialIndicator color={COLOR} size={size} />;
     case 'PacmanIndicator':
-      return <PacmanIndicator color={color} size={size} />;
+      return <PacmanIndicator color={COLOR} size={size} />;
     case 'PulseIndicator':
-      return <PulseIndicator color={color} size={size} />;
+      return <PulseIndicator color={COLOR} size={size} />;
     case 'SkypeIndicator':
-      return <SkypeIndicator color={color} size={size} />;
+      return <SkypeIndicator color={COLOR} size={size} />;
     case 'UIActivityIndicator':
-      return <UIActivityIndicator color={color} size={size} />;
+      return <UIActivityIndicator color={COLOR} size={size} />;
     case 'WaveIndicator':
-      return <WaveIndicator color={color} size={size} />;
+      return <WaveIndicator color={COLOR} size={size} />;
     default:
       return (
-        <ActivityIndicator color={color} size={size > 15 ? 'large' : 'small'} />
+        <ActivityIndicator color={COLOR} size={size > 15 ? 'large' : 'small'} />
       );
   }
 };
