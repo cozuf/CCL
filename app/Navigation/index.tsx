@@ -11,6 +11,7 @@ import TextInputPage from '../Pages/TextInput';
 import ActivityIndicatorPage from '../Pages/ActivityIndicator';
 import ButtonPage from '../Pages/Button';
 import TapSelectorPage from '../Pages/TapSelector';
+import RadioButtonPage from '../Pages/RadioButton';
 
 //#endregion
 
@@ -58,6 +59,10 @@ const Router = () => {
       <Stack.Screen
         name={PAGES_NAMES.TapSelectorPage}
         component={TapSelectorPage}
+      />
+      <Stack.Screen
+        name={PAGES_NAMES.RadioButtonPage}
+        component={RadioButtonPage}
       />
     </Stack.Navigator>
   );

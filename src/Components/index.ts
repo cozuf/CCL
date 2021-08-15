@@ -5,12 +5,14 @@ import TextInput from './TextInput';
 import ActivityIndicator from './ActivityIndicator';
 import Button from './Button';
 import TapSelector from './TapSelector';
+import RadioButton from './RadioButton';
 
 import {IIconProps} from './Icon';
 import {ITextInputProps} from './TextInput';
 import {IActivityIndicatorProps} from './ActivityIndicator';
 import {IButtonProps} from './Button';
 import {ITapSelectorProps} from './TapSelector';
+import {IRadionButtonProps} from './RadioButton';
 
 export {
   Text,
@@ -20,6 +22,7 @@ export {
   ActivityIndicator,
   Button,
   TapSelector,
+  RadioButton,
 };
 export type {
   IIconProps,
@@ -27,4 +30,5 @@ export type {
   IActivityIndicatorProps,
   IButtonProps,
   ITapSelectorProps,
+  IRadionButtonProps,
 };

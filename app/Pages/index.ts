@@ -6,6 +6,7 @@ const PAGES_NAMES = {
   ActivityIndicatorPage: 'ActivityIndicatorPage',
   ButtonPage: 'ButtonPage',
   TapSelectorPage: 'TapSelectorPage',
+  RadioButtonPage: 'RadioButtonPage',
 };
 
 export {PAGES_NAMES};

@@ -33,6 +33,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'TapSelector',
     navigation: 'TapSelectorPage',
   },
+  {
+    name: 'RadioButton',
+    navigation: 'RadioButtonPage',
+  },
 ];
 
 const MainPage = () => {
