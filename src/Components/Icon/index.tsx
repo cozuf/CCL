@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {ColorValue} from 'react-native';
+import {ColorValue, useColorScheme} from 'react-native';
 // @ts-ignore
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // @ts-ignore
@@ -30,6 +30,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 // @ts-ignore
 import Zocial from 'react-native-vector-icons/Zocial';
+import {dark, light} from '../../Theme/Variants';
 
 export interface IIconProps {
   family?:
@@ -57,39 +58,41 @@ const Icon: FC<IIconProps> = ({
   family = 'Fontisto',
   name = 'react',
   size = 10,
-  color = '#27190E',
+  color,
 }) => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const COLOR = color ? color : isDarkMode ? dark.active : light.active;
   switch (family) {
     case 'AntDesign':
-      return <AntDesign name={name} size={size} color={color} />;
+      return <AntDesign name={name} size={size} color={COLOR} />;
     case 'Entypo':
-      return <Entypo name={name} size={size} color={color} />;
+      return <Entypo name={name} size={size} color={COLOR} />;
     case 'EvilIcons':
-      return <EvilIcons name={name} size={size} color={color} />;
+      return <EvilIcons name={name} size={size} color={COLOR} />;
     case 'Feather':
-      return <Feather name={name} size={size} color={color} />;
+      return <Feather name={name} size={size} color={COLOR} />;
     case 'FontAwesome':
-      return <FontAwesome name={name} size={size} color={color} />;
+      return <FontAwesome name={name} size={size} color={COLOR} />;
     case 'FontAwesome5':
-      return <FontAwesome5 name={name} size={size} color={color} />;
+      return <FontAwesome5 name={name} size={size} color={COLOR} />;
     case 'FontAwesome5Pro':
-      return <FontAwesome5Pro name={name} size={size} color={color} />;
+      return <FontAwesome5Pro name={name} size={size} color={COLOR} />;
     case 'Fontisto':
-      return <Fontisto name={name} size={size} color={color} />;
+      return <Fontisto name={name} size={size} color={COLOR} />;
     case 'Foundation':
-      return <Foundation name={name} size={size} color={color} />;
+      return <Foundation name={name} size={size} color={COLOR} />;
     case 'Ionicons':
-      return <Ionicons name={name} size={size} color={color} />;
+      return <Ionicons name={name} size={size} color={COLOR} />;
     case 'MaterialCommunityIcons':
-      return <MaterialCommunityIcons name={name} size={size} color={color} />;
+      return <MaterialCommunityIcons name={name} size={size} color={COLOR} />;
     case 'MaterialIcons':
-      return <MaterialIcons name={name} size={size} color={color} />;
+      return <MaterialIcons name={name} size={size} color={COLOR} />;
     case 'Octicons':
-      return <Octicons name={name} size={size} color={color} />;
+      return <Octicons name={name} size={size} color={COLOR} />;
     case 'SimpleLineIcons':
-      return <SimpleLineIcons name={name} size={size} color={color} />;
+      return <SimpleLineIcons name={name} size={size} color={COLOR} />;
     case 'Zocial':
-      return <Zocial name={name} size={size} color={color} />;
+      return <Zocial name={name} size={size} color={COLOR} />;
   }
 };
 

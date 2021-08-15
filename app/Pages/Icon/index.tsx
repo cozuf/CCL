@@ -3,86 +3,85 @@ import {FlatList} from 'react-native';
 import {PageContainer, Icon, IIconProps} from '../../../src/Components';
 
 const SIZE = 30;
-const COLOR = '#27190E';
 
 const ICONS: IIconProps[] = [
   {
     family: 'AntDesign',
     name: 'facebook-square',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'Entypo',
     name: 'facebook-with-circle',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'EvilIcons',
     name: 'sc-facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'Feather',
     name: 'facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'FontAwesome',
     name: 'facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'FontAwesome5',
     name: 'facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'Fontisto',
     name: 'facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'Foundation',
     name: 'social-facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'Ionicons',
     name: 'logo-facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'MaterialCommunityIcons',
     name: 'facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'MaterialIcons',
     name: 'facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'SimpleLineIcons',
     name: 'social-facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
   {
     family: 'Zocial',
     name: 'facebook',
     size: SIZE,
-    color: COLOR,
+    // color: COLOR,
   },
 ];
 
