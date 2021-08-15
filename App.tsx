@@ -13,6 +13,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import Router from './app/Navigation';
+import {dark, light} from './src/Theme/Variants';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,7 +22,7 @@ const App = () => {
     <NavigationContainer>
       <SafeAreaView style={{flex: 1}}>
         <StatusBar
-          backgroundColor={'#FFFFFF'}
+          backgroundColor={isDarkMode ? dark.statusbar : light.statusbar}
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         />
         <Router />
