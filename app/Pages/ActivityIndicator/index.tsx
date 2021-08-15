@@ -5,7 +5,7 @@ import {
   IActivityIndicatorProps,
   PageContainer,
 } from '../../../src/Components';
-const INDICATORS: Partial<IActivityIndicatorProps>[] = [
+const INDICATORS: IActivityIndicatorProps[] = [
   {
     type: 'BallIndicator',
   },
@@ -45,7 +45,7 @@ const ActivityIndicatorPage = () => {
         data={INDICATORS}
         renderItem={({item, index}) => {
           return (
-            <View style={styles.container}>
+            <View key={index.toString()} style={styles.container}>
               <ActivityIndicator type={item.type} />
             </View>
           );
