@@ -225,6 +225,12 @@ export interface ChipGroupColorScheme {
   };
 }
 
+export interface BadgeColorScheme {
+  border: ColorValue;
+  background: ColorValue;
+  text: ColorValue;
+  shadow: ColorValue;
+}
 export interface ColorShceme {
   common: CommonColorScheme;
   pageContainer: PageContainerColorScheme;
@@ -238,4 +244,5 @@ export interface ColorShceme {
   checkBoxGroup: CheckBoxGroupColorScheme;
   chip: ChipColorScheme;
   chipGroup: ChipGroupColorScheme;
+  badge: BadgeColorScheme;
 }

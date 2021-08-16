@@ -1,4 +1,5 @@
 import {
+  BadgeColorScheme,
   ButtonColorScheme,
   CheckBoxColorScheme,
   CheckBoxGroupColorScheme,
@@ -216,6 +217,13 @@ const chipGroup: ChipGroupColorScheme = {
   },
 };
 
+const badge: BadgeColorScheme = {
+  background: WHITE,
+  border: BLACK,
+  text: OPEN_BLUE,
+  shadow: BLACK,
+};
+
 const light: ColorShceme = {
   common,
   pageContainer,
@@ -229,6 +237,7 @@ const light: ColorShceme = {
   checkBoxGroup,
   chip,
   chipGroup,
+  badge,
 };
 
 export default light;

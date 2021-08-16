@@ -18,6 +18,7 @@ import CheckBoxGroupPage from '../Pages/CheckBoxGroup';
 import ChipPage from '../Pages/Chip';
 import {dark, light} from '../../src/Theme/Variants';
 import ChipGroupPage from '../Pages/ChipGroup';
+import BadgePage from '../Pages/Badge';
 
 //#endregion
 
@@ -86,6 +87,7 @@ const Router = () => {
         name={PAGES_NAMES.ChipGroupPage}
         component={ChipGroupPage}
       />
+      <Stack.Screen name={PAGES_NAMES.BadgePage} component={BadgePage} />
     </Stack.Navigator>
   );
 };

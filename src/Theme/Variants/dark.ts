@@ -9,6 +9,7 @@ import {
   WHITE_PALE,
 } from './palette';
 import {
+  BadgeColorScheme,
   ButtonColorScheme,
   CheckBoxColorScheme,
   CheckBoxGroupColorScheme,
@@ -216,6 +217,13 @@ const chipGroup: ChipGroupColorScheme = {
   },
 };
 
+const badge: BadgeColorScheme = {
+  background: BLACK,
+  border: WHITE,
+  text: ORANGE,
+  shadow: WHITE,
+};
+
 const dark: ColorShceme = {
   common,
   pageContainer,
@@ -229,6 +237,7 @@ const dark: ColorShceme = {
   checkBoxGroup,
   chip,
   chipGroup,
+  badge,
 };
 
 export default dark;

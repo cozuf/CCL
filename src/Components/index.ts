@@ -11,6 +11,7 @@ import CheckBox from './CheckBox';
 import CheckBoxGroup from './CheckBoxGroup';
 import Chip from './Chip';
 import ChipGroup from './ChipGroup';
+import Badge from './Badge';
 
 import {IIconProps} from './Icon';
 import {ITextInputProps} from './TextInput';
@@ -23,6 +24,7 @@ import {ICheckBoxProps} from './CheckBox';
 import {ICheckBoxGroupProps} from './CheckBoxGroup';
 import {IChipProps} from './Chip';
 import {IChipGroupProps} from './ChipGroup';
+import {IBadgeProps} from './Badge';
 
 export {
   Text,
@@ -38,6 +40,7 @@ export {
   CheckBoxGroup,
   Chip,
   ChipGroup,
+  Badge,
 };
 export type {
   IIconProps,
@@ -51,4 +54,5 @@ export type {
   ICheckBoxGroupProps,
   IChipProps,
   IChipGroupProps,
+  IBadgeProps,
 };
