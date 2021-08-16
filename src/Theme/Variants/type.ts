@@ -172,6 +172,7 @@ export interface CheckBoxColorScheme {
     icon: ColorValue;
     background: ColorValue;
     border: ColorValue;
+    iconBorder: ColorValue;
   };
   /**
    * Not pressable
@@ -181,6 +182,7 @@ export interface CheckBoxColorScheme {
     icon: ColorValue;
     background: ColorValue;
     border: ColorValue;
+    iconBorder: ColorValue;
   };
 }
 

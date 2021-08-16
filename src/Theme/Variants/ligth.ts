@@ -171,13 +171,15 @@ const checkBox: CheckBoxColorScheme = {
     text: BLACK,
     background: WHITE,
     border: BLACK,
-    icon: OPEN_BLUE,
+    icon: WHITE,
+    iconBorder: OPEN_BLUE,
   },
   passive: {
     text: BLACK_PALE,
     background: WHITE_PALE,
     border: BLACK_PALE,
-    icon: OPEN_BLUE_PALE,
+    icon: WHITE_PALE,
+    iconBorder: OPEN_BLUE_PALE,
   },
 };
 
