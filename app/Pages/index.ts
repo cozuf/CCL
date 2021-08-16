@@ -10,6 +10,7 @@ const PAGES_NAMES = {
   RadioButtonGroupPage: 'RadioButtonGroupPage',
   CheckBoxPage: 'CheckBoxPage',
   CheckBoxGroupPage: 'CheckBoxGroupPage',
+  ChipPage: 'ChipPage',
 };
 
 export {PAGES_NAMES};
