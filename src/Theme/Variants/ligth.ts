@@ -1,54 +1,232 @@
-import {ColorShceme} from './type';
+import {
+  ButtonColorScheme,
+  CheckBoxColorScheme,
+  CheckBoxGroupColorScheme,
+  ChipColorScheme,
+  ChipGroupColorScheme,
+  ColorShceme,
+  CommonColorScheme,
+  IconColorScheme,
+  PageContainerColorScheme,
+  RadioButtonColorScheme,
+  RadioButtonGroupColorScheme,
+  TextColorScheme,
+  TextInputColorScheme,
+} from './type';
+import {
+  BLACK,
+  BLACK_PALE,
+  OPEN_BLUE,
+  OPEN_BLUE_OPPOSITE,
+  OPEN_BLUE_PALE,
+  TRANSPARENT,
+  WHITE,
+  WHITE_PALE,
+} from './palette';
 
-const BLACK = '#000000';
-const WHITE = '#FFFFFF';
-const TRANSPARENT = '#FFFFFF00';
-
-// const RED = '#CC0000';
-// const RED_PALE = '#FF9999';
-// const RED_OPPOSITE = '#33FFFF';
-
-const OPEN_BLUE = '#0099CC';
-const OPEN_BLUE_PALE = '#004D66';
-const OPEN_BLUE_OPPOSITE = '#FF6633';
-
-const light: ColorShceme = {
+const common: CommonColorScheme = {
   primary: WHITE,
   secondary: BLACK,
   active: OPEN_BLUE,
   passive: OPEN_BLUE_PALE,
-  pageBackground: WHITE,
   statusbar: WHITE,
-  text: BLACK,
-  textInputText: BLACK,
-  textInputTextFocused: OPEN_BLUE,
-  textInputBackground: WHITE,
-  textInputBorder: BLACK,
-  textInputFocused: OPEN_BLUE,
-  buttonFilledBackground: OPEN_BLUE,
-  buttonOutlinedBackground: WHITE,
-  buttonSimpliedBackground: TRANSPARENT,
-  buttonFilledText: WHITE,
-  buttonOutlinedText: OPEN_BLUE,
-  buttonSimpliedText: OPEN_BLUE,
-  buttonFilledPressedText: BLACK,
-  buttonOutlinedPressedText: OPEN_BLUE_OPPOSITE,
-  buttonSimpliedPressedText: OPEN_BLUE_OPPOSITE,
-  buttonFilledPressedBackgorund: OPEN_BLUE_OPPOSITE,
-  buttonOutlinedPressedBackgorund: BLACK,
-  buttonSimpliedPressedBackground: TRANSPARENT,
-  buttonFilledBorder: OPEN_BLUE,
-  buttonOutlinedBorder: OPEN_BLUE,
-  buttonSimpliedBorder: TRANSPARENT,
-  buttonFilledPressedBorder: OPEN_BLUE_OPPOSITE,
-  buttonOutlinedPressedBorder: OPEN_BLUE_OPPOSITE,
-  buttonSimpliedPressedBorder: TRANSPARENT,
-  radioButtonActive: OPEN_BLUE,
-  radioButtonPassive: OPEN_BLUE_PALE,
-  checkBoxActive: OPEN_BLUE,
-  checkBoxPassive: OPEN_BLUE_PALE,
-  chipActive: OPEN_BLUE,
-  chipPassive: OPEN_BLUE_PALE,
+};
+
+const pageContainer: PageContainerColorScheme = {
+  background: WHITE,
+};
+
+const text: TextColorScheme = {
+  active: BLACK,
+  passive: BLACK_PALE,
+};
+
+const icon: IconColorScheme = {
+  active: OPEN_BLUE,
+  passive: OPEN_BLUE_PALE,
+};
+
+const textInput: TextInputColorScheme = {
+  active: {
+    titleText: BLACK,
+    inputText: BLACK,
+    border: BLACK,
+    background: WHITE,
+  },
+  passive: {
+    titleText: BLACK_PALE,
+    inputText: BLACK_PALE,
+    border: BLACK_PALE,
+    background: WHITE_PALE,
+  },
+  focused: {
+    titleText: OPEN_BLUE,
+    inputText: BLACK,
+    border: OPEN_BLUE,
+    background: WHITE,
+  },
+};
+
+const button: ButtonColorScheme = {
+  active: {
+    normal: {
+      filled: {
+        background: OPEN_BLUE,
+        text: WHITE,
+        border: OPEN_BLUE,
+      },
+      outlined: {
+        background: WHITE,
+        text: OPEN_BLUE,
+        border: OPEN_BLUE,
+      },
+      simplied: {
+        background: TRANSPARENT,
+        text: OPEN_BLUE,
+        border: TRANSPARENT,
+      },
+    },
+    pressed: {
+      filled: {
+        background: OPEN_BLUE_OPPOSITE,
+        text: WHITE,
+        border: OPEN_BLUE_OPPOSITE,
+      },
+      outlined: {
+        background: WHITE,
+        text: OPEN_BLUE_OPPOSITE,
+        border: OPEN_BLUE_OPPOSITE,
+      },
+      simplied: {
+        background: TRANSPARENT,
+        text: OPEN_BLUE_OPPOSITE,
+        border: TRANSPARENT,
+      },
+    },
+  },
+  passive: {
+    normal: {
+      filled: {
+        background: OPEN_BLUE_PALE,
+        text: BLACK_PALE,
+        border: OPEN_BLUE_PALE,
+      },
+      outlined: {
+        background: WHITE_PALE,
+        text: OPEN_BLUE_PALE,
+        border: OPEN_BLUE_PALE,
+      },
+      simplied: {
+        background: TRANSPARENT,
+        text: OPEN_BLUE_PALE,
+        border: TRANSPARENT,
+      },
+    },
+    pressed: {
+      filled: {
+        background: OPEN_BLUE_OPPOSITE,
+        text: WHITE,
+        border: OPEN_BLUE_OPPOSITE,
+      },
+      outlined: {
+        background: WHITE,
+        text: OPEN_BLUE_OPPOSITE,
+        border: OPEN_BLUE_OPPOSITE,
+      },
+      simplied: {
+        background: TRANSPARENT,
+        text: OPEN_BLUE_OPPOSITE,
+        border: TRANSPARENT,
+      },
+    },
+  },
+};
+
+const radioButton: RadioButtonColorScheme = {
+  active: {
+    text: BLACK,
+    background: WHITE,
+    border: BLACK,
+    icon: OPEN_BLUE,
+  },
+  passive: {
+    text: BLACK_PALE,
+    background: WHITE_PALE,
+    border: BLACK_PALE,
+    icon: OPEN_BLUE_PALE,
+  },
+};
+
+const radioButtonGroup: RadioButtonGroupColorScheme = {
+  active: {
+    background: BLACK,
+  },
+  passive: {
+    background: BLACK_PALE,
+  },
+};
+
+const checkBox: CheckBoxColorScheme = {
+  active: {
+    text: BLACK,
+    background: WHITE,
+    border: BLACK,
+    icon: OPEN_BLUE,
+  },
+  passive: {
+    text: BLACK_PALE,
+    background: WHITE_PALE,
+    border: BLACK_PALE,
+    icon: OPEN_BLUE_PALE,
+  },
+};
+
+const checkBoxGroup: CheckBoxGroupColorScheme = {
+  active: {
+    background: BLACK,
+  },
+  passive: {
+    background: BLACK_PALE,
+  },
+};
+
+const chip: ChipColorScheme = {
+  active: {
+    text: BLACK,
+    background: WHITE,
+    border: BLACK,
+    icon: OPEN_BLUE,
+  },
+  passive: {
+    text: BLACK_PALE,
+    background: WHITE_PALE,
+    border: BLACK_PALE,
+    icon: OPEN_BLUE_PALE,
+  },
+};
+
+const chipGroup: ChipGroupColorScheme = {
+  active: {
+    background: BLACK,
+  },
+  passive: {
+    background: BLACK_PALE,
+  },
+};
+
+const light: ColorShceme = {
+  common,
+  pageContainer,
+  text,
+  icon,
+  textInput,
+  button,
+  radioButton,
+  radioButtonGroup,
+  checkBox,
+  checkBoxGroup,
+  chip,
+  chipGroup,
 };
 
 export default light;
