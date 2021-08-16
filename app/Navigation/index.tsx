@@ -17,6 +17,7 @@ import CheckBoxPage from '../Pages/CheckBox';
 import CheckBoxGroupPage from '../Pages/CheckBoxGroup';
 import ChipPage from '../Pages/Chip';
 import {dark, light} from '../../src/Theme/Variants';
+import ChipGroupPage from '../Pages/ChipGroup';
 
 //#endregion
 
@@ -81,6 +82,10 @@ const Router = () => {
         component={CheckBoxGroupPage}
       />
       <Stack.Screen name={PAGES_NAMES.ChipPage} component={ChipPage} />
+      <Stack.Screen
+        name={PAGES_NAMES.ChipGroupPage}
+        component={ChipGroupPage}
+      />
     </Stack.Navigator>
   );
 };

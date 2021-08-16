@@ -1,6 +1,6 @@
 import React from 'react';
 import {PageContainer} from '../../../src/Components';
-import CheckBoxGroup from '../../../src/Components/CheckBoxGroup';
+import {CheckBoxGroup} from '../../../src/Components';
 const DATA = [
   {
     selected: false,

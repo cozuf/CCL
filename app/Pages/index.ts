@@ -11,6 +11,7 @@ const PAGES_NAMES = {
   CheckBoxPage: 'CheckBoxPage',
   CheckBoxGroupPage: 'CheckBoxGroupPage',
   ChipPage: 'ChipPage',
+  ChipGroupPage: 'ChipGroupPage',
 };
 
 export {PAGES_NAMES};

@@ -10,6 +10,7 @@ import RadioButtonGroup from './RadioButtonGroup';
 import CheckBox from './CheckBox';
 import CheckBoxGroup from './CheckBoxGroup';
 import Chip from './Chip';
+import ChipGroup from './ChipGroup';
 
 import {IIconProps} from './Icon';
 import {ITextInputProps} from './TextInput';
@@ -21,6 +22,7 @@ import {IRadioButtonGroupProps} from './RadioButtonGroup';
 import {ICheckBoxProps} from './CheckBox';
 import {ICheckBoxGroupProps} from './CheckBoxGroup';
 import {IChipProps} from './Chip';
+import {IChipGroupProps} from './ChipGroup';
 
 export {
   Text,
@@ -35,6 +37,7 @@ export {
   CheckBox,
   CheckBoxGroup,
   Chip,
+  ChipGroup,
 };
 export type {
   IIconProps,
@@ -47,4 +50,5 @@ export type {
   ICheckBoxProps,
   ICheckBoxGroupProps,
   IChipProps,
+  IChipGroupProps,
 };

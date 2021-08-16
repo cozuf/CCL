@@ -38,6 +38,7 @@ const CheckBoxGroup: FC<ICheckBoxGroupProps<any>> = ({
     return (
       <CheckBox
         key={index.toString()}
+        active={item.active}
         selected={item.selected}
         title={item.title}
         onSelect={selected => {

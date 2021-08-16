@@ -29,6 +29,7 @@ const RadioButtonGroup: FC<IRadioButtonGroupProps<any>> = ({
     return (
       <RadioButton
         key={index.toString()}
+        active={item.active}
         selected={item.selected}
         title={item.title}
         value={item.value}

@@ -53,6 +53,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'Chip',
     navigation: 'ChipPage',
   },
+  {
+    name: 'ChipGroup',
+    navigation: 'ChipGroupPage',
+  },
 ];
 
 const MainPage = () => {
