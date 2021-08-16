@@ -27,7 +27,9 @@ const App = () => {
     <NavigationContainer>
       <SafeAreaView style={styles.safeAreaContainer}>
         <StatusBar
-          backgroundColor={isDarkMode ? dark.statusbar : light.statusbar}
+          backgroundColor={
+            isDarkMode ? dark.common.statusbar : light.common.statusbar
+          }
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         />
         <Router />
