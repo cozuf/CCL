@@ -1,6 +1,11 @@
 import React from 'react';
 import {useColorScheme} from 'react-native';
-import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  StackHeaderLeftButtonProps,
+  StackNavigationOptions,
+  TransitionPresets,
+} from '@react-navigation/stack';
 import {PAGES_NAMES} from '../Pages';
 import {FONTS} from '../../src/Assets';
 //#region Pages
@@ -19,6 +24,9 @@ import ChipPage from '../Pages/Chip';
 import {dark, light} from '../../src/Theme/Variants';
 import ChipGroupPage from '../Pages/ChipGroup';
 import BadgePage from '../Pages/Badge';
+import {Button} from '../../src/Components';
+import {NavigationProp} from '@react-navigation/core';
+import {ParamListBase} from '@react-navigation/routers';
 
 //#endregion
 
@@ -26,9 +34,35 @@ const Stack = createStackNavigator();
 
 const Router = () => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  const renderHaderLeft = (
+    props: StackHeaderLeftButtonProps,
+    navigation: NavigationProp<ParamListBase>,
+  ): React.ReactNode => {
+    if (!props.canGoBack) {
+      return null;
+    }
+    return (
+      <Button
+        title=""
+        wrap="wrap"
+        type="Simplied"
+        icon={{
+          family: 'AntDesign',
+          name: 'arrowleft',
+          color: isDarkMode ? dark.common.secondary : light.common.secondary,
+          size: 24,
+        }}
+        onPress={() => {
+          navigation.goBack();
+        }}
+      />
+    );
+  };
+
   return (
     <Stack.Navigator
-      screenOptions={{
+      screenOptions={({navigation}): StackNavigationOptions => ({
         ...TransitionPresets.SlideFromRightIOS,
         headerTitleAlign: 'center',
         headerTitleStyle: {
@@ -49,7 +83,10 @@ const Router = () => {
             width: 0,
           },
         },
-      }}
+        headerLeft: (props: StackHeaderLeftButtonProps) => {
+          return renderHaderLeft(props, navigation);
+        },
+      })}
       headerMode="screen"
       initialRouteName={PAGES_NAMES.MainPage}>
       <Stack.Screen name={PAGES_NAMES.MainPage} component={MainPage} />

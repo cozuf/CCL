@@ -71,6 +71,7 @@ const MainPage = () => {
         bounces={false}
         keyExtractor={(item, index) => item.name + index.toString()}
         data={COMPONENTS}
+        showsVerticalScrollIndicator={false}
         renderItem={({item, index}) => {
           return (
             <View key={item.name + index.toString()}>
