@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
 });
 
 // TODO: Tüm comoponentlere testID ekle
+// TODO: Tüm comoponentlerde eksikleri tamamla (containerStyle vs.)
 // TODO: Tüm padding, borderWidth, borderRadius belirle color scheme gibi
 // TODO: Örnek Sayfalar da varyantları ekle
 // TODO: Düzenlemsi gerekn componentleri unutma
