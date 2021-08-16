@@ -1,6 +1,22 @@
-import React from 'react';
-import {FlatList} from 'react-native';
-import {PageContainer, Icon, IIconProps} from '../../../src/Components';
+import React, {useState} from 'react';
+import {FlatList, View} from 'react-native';
+import {
+  PageContainer,
+  Icon,
+  IIconProps,
+  TapSelector,
+} from '../../../src/Components';
+
+const ACTIVE_DATA = [
+  {
+    title: 'Active',
+    value: true,
+  },
+  {
+    title: 'Passive',
+    value: false,
+  },
+];
 
 const SIZE = 30;
 
@@ -86,6 +102,7 @@ const ICONS: IIconProps[] = [
 ];
 
 const IconPage = () => {
+  const [active, setActive] = useState<boolean>(true);
   return (
     <PageContainer type="Default">
       <FlatList
@@ -95,6 +112,7 @@ const IconPage = () => {
           return (
             <Icon
               key={index.toString()}
+              active={active}
               family={item.family}
               name={item.name}
               size={item.size}
@@ -103,6 +121,15 @@ const IconPage = () => {
           );
         }}
       />
+
+      <View style={{paddingVertical: 16}}>
+        <TapSelector
+          data={ACTIVE_DATA}
+          onTap={(sItem, sIndex) => {
+            setActive(!active);
+          }}
+        />
+      </View>
     </PageContainer>
   );
 };

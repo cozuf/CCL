@@ -1,17 +1,48 @@
-import React from 'react';
-import {StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, View} from 'react-native';
 import {FONTS} from '../../../src/Assets';
-import {PageContainer, Text} from '../../../src/Components';
+import {PageContainer, TapSelector, Text} from '../../../src/Components';
+
+const ACTIVE_DATA = [
+  {
+    title: 'Active',
+    value: true,
+  },
+  {
+    title: 'Passive',
+    value: false,
+  },
+];
 
 const TextPage = () => {
+  const [active, setActive] = useState<boolean>(true);
   return (
     <PageContainer type="Scroll" bounces={false}>
-      {/* <Text style={styles.default}>{'Default'}</Text> */}
-      <Text style={[styles.light, styles.common]}>{'Light'}</Text>
-      <Text style={[styles.regular, styles.common]}>{'Regular'}</Text>
-      <Text style={[styles.medium, styles.common]}>{'Medium'}</Text>
-      <Text style={[styles.semibold, styles.common]}>{'SemiBold'}</Text>
-      <Text style={[styles.bold, styles.common]}>{'Bold'}</Text>
+      <View>
+        <Text active={active} style={[styles.light, styles.common]}>
+          {'Light'}
+        </Text>
+        <Text active={active} style={[styles.regular, styles.common]}>
+          {'Regular'}
+        </Text>
+        <Text active={active} style={[styles.medium, styles.common]}>
+          {'Medium'}
+        </Text>
+        <Text active={active} style={[styles.semibold, styles.common]}>
+          {'SemiBold'}
+        </Text>
+        <Text active={active} style={[styles.bold, styles.common]}>
+          {'Bold'}
+        </Text>
+      </View>
+      <View style={{paddingVertical: 16}}>
+        <TapSelector
+          data={ACTIVE_DATA}
+          onTap={(sItem, sIndex) => {
+            setActive(!active);
+          }}
+        />
+      </View>
     </PageContainer>
   );
 };

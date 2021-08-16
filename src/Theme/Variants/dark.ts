@@ -146,7 +146,7 @@ const radioButton: RadioButtonColorScheme = {
   active: {
     text: WHITE,
     background: BLACK,
-    border: BLACK,
+    border: WHITE,
     icon: ORANGE,
   },
   passive: {

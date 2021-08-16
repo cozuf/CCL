@@ -70,8 +70,8 @@ const Icon: FC<IIconProps> = ({
       ? dark.icon?.active
       : light.icon?.active
     : isDarkMode
-    ? dark.icon?.active
-    : light.icon?.active;
+    ? dark.icon?.passive
+    : light.icon?.passive;
   switch (family) {
     case 'AntDesign':
       return <AntDesign name={name} size={size} color={COLOR} />;

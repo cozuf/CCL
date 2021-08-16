@@ -16,6 +16,7 @@ import RadioButtonGroupPage from '../Pages/RadioButtonGroup';
 import CheckBoxPage from '../Pages/CheckBox';
 import CheckBoxGroupPage from '../Pages/CheckBoxGroup';
 import ChipPage from '../Pages/Chip';
+import {dark, light} from '../../src/Theme/Variants';
 
 //#endregion
 
@@ -31,10 +32,12 @@ const Router = () => {
         headerTitleStyle: {
           fontFamily: FONTS.semibold,
           fontWeight: undefined,
-          color: isDarkMode ? '#FFFFFF' : '#000000',
+          color: isDarkMode ? dark.text.active : light.text.active,
         },
         headerStyle: {
-          backgroundColor: isDarkMode ? '#000000' : '#FFFFFF',
+          backgroundColor: isDarkMode
+            ? dark.pageContainer.background
+            : light.pageContainer.background,
           elevation: 0,
           shadowColor: 'transparent',
           shadowOpacity: undefined,

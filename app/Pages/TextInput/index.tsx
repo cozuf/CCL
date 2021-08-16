@@ -1,11 +1,38 @@
 import React, {useState} from 'react';
-import {PageContainer, TextInput} from '../../../src/Components';
+import {View} from 'react-native';
+import {PageContainer, TapSelector, TextInput} from '../../../src/Components';
+
+const ACTIVE_DATA = [
+  {
+    title: 'Active',
+    value: true,
+  },
+  {
+    title: 'Passive',
+    value: false,
+  },
+];
 
 const TextInputPage = () => {
   const [value, setValue] = useState<string>('');
+  const [active, setActive] = useState<boolean>(true);
   return (
     <PageContainer type="Default">
-      <TextInput value={value} onChangeText={setValue} cleanable={true} />
+      <TextInput
+        active={active}
+        value={value}
+        onChangeText={setValue}
+        cleanable={true}
+      />
+
+      <View style={{paddingVertical: 16}}>
+        <TapSelector
+          data={ACTIVE_DATA}
+          onTap={(sItem, sIndex) => {
+            setActive(!active);
+          }}
+        />
+      </View>
     </PageContainer>
   );
 };

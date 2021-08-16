@@ -87,7 +87,7 @@ const RadioButton: FC<IRadionButtonProps> = ({
         {
           borderBottomColor: isDarkMode
             ? dark.radioButton[active ? 'active' : 'passive'].border
-            : dark.radioButton[active ? 'active' : 'passive'].border,
+            : light.radioButton[active ? 'active' : 'passive'].border,
         },
       ]}
       onPress={() => {

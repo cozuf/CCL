@@ -184,6 +184,7 @@ const NTextInput: FC<
               ref={ref => {
                 NativeTextInputRef.current = ref;
               }}
+              editable={active}
               value={value}
               onChangeText={onChangeText}
               style={[
@@ -225,7 +226,7 @@ const NTextInput: FC<
           </View>
         }
       </View>
-      {cleanable && value.length > 0 ? renderClean() : null}
+      {cleanable && value.length > 0 && active ? renderClean() : null}
       {warning ? renderWarning() : null}
       {error ? renderError() : null}
     </Pressable>

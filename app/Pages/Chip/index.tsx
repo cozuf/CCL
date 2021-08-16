@@ -7,7 +7,7 @@ const ChipPage = () => {
     <PageContainer type="Default">
       <Chip
         selected={selected}
-        active={false}
+        active={true}
         onSelect={() => {
           setSelected(!selected);
         }}
