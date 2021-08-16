@@ -1,4 +1,5 @@
 import React, {FC, useState} from 'react';
+import {Omit} from 'react-native';
 import {Button, IButtonProps} from '..';
 
 export interface ITapSelectorProps<ItemT> {

@@ -11,8 +11,8 @@ import {
   useColorScheme,
   ColorValue,
   TextStyle,
+  Omit,
 } from 'react-native';
-import {} from 'react-native-gesture-handler';
 import {Icon, IIconProps, Text} from '..';
 import {FONTS} from '../../Assets';
 import {TOKENS} from '../../Theme';
@@ -29,7 +29,13 @@ export interface IButtonProps {
   containerStyle?: StyleProp<ViewStyle>;
 }
 
-const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
+const Button: FC<
+  IButtonProps &
+    (
+      | Omit<TouchableOpacityProps, 'onPress' | 'style'>
+      | Omit<PressableProps, 'onPress' | 'style'>
+    )
+> = ({
   clickType = 'Opacity',
   type = 'Filled',
   wrap = 'no-wrap',
@@ -38,34 +44,36 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
   titleStyle,
   containerStyle,
   onPress = () => {},
+  ...props
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
   const [pressed, setPressed] = useState<boolean>(false);
 
   const backgroundColor = (): ColorValue => {
-    const BUTTON_FILLED_BACKGROUND = pressed
-      ? isDarkMode
-        ? dark.buttonFilledPressedBackgorund
-        : light.buttonFilledPressedBackgorund
-      : isDarkMode
-      ? dark.buttonFilledBackground
-      : light.buttonFilledBackground;
+    const BUTTON_FILLED_BACKGROUND = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].filled.background
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].filled.background;
 
-    const BUTTON_OUTLINED_BACKGROUND = pressed
-      ? isDarkMode
-        ? dark.buttonOutlinedPressedBackgorund
-        : light.buttonOutlinedPressedBackgorund
-      : isDarkMode
-      ? dark.buttonOutlinedBackground
-      : light.buttonOutlinedBackground;
+    const BUTTON_OUTLINED_BACKGROUND = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].outlined.background
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].outlined.background;
 
-    const BUTTON_SIMPLIED_BACKGROUND = pressed
-      ? isDarkMode
-        ? dark.buttonSimpliedPressedBackground
-        : light.buttonSimpliedPressedBackground
-      : isDarkMode
-      ? dark.buttonSimpliedBackground
-      : light.buttonSimpliedBackground;
+    const BUTTON_SIMPLIED_BACKGROUND = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].simplied.background
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].simplied.background;
+
     switch (type) {
       case 'Filled':
         return BUTTON_FILLED_BACKGROUND;
@@ -77,29 +85,29 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
   };
 
   const borderColor = (): ColorValue => {
-    const BUTTON_FILLED_BORDER = pressed
-      ? isDarkMode
-        ? dark.buttonFilledPressedBorder
-        : light.buttonFilledPressedBorder
-      : isDarkMode
-      ? dark.buttonFilledBorder
-      : light.buttonFilledBorder;
+    const BUTTON_FILLED_BORDER = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].filled.border
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].filled.border;
 
-    const BUTTON_OUTLINED_BORDER = pressed
-      ? isDarkMode
-        ? dark.buttonOutlinedPressedBorder
-        : light.buttonOutlinedPressedBorder
-      : isDarkMode
-      ? dark.buttonOutlinedBorder
-      : light.buttonOutlinedBorder;
+    const BUTTON_OUTLINED_BORDER = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].outlined.border
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].outlined.border;
 
-    const BUTTON_SIMPLIED_BORDER = pressed
-      ? isDarkMode
-        ? dark.buttonSimpliedPressedBorder
-        : light.buttonSimpliedPressedBorder
-      : isDarkMode
-      ? dark.buttonSimpliedBorder
-      : light.buttonSimpliedBorder;
+    const BUTTON_SIMPLIED_BORDER = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].simplied.border
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].simplied.border;
     switch (type) {
       case 'Filled':
         return BUTTON_FILLED_BORDER;
@@ -111,29 +119,29 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
   };
 
   const titleColor = (): ColorValue => {
-    const BUTTON_FILLED_TEXT = pressed
-      ? isDarkMode
-        ? dark.buttonFilledPressedText
-        : light.buttonFilledPressedText
-      : isDarkMode
-      ? dark.buttonFilledText
-      : light.buttonFilledText;
+    const BUTTON_FILLED_TEXT = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].filled.text
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].filled.text;
 
-    const BUTTON_OUTLINED_TEXT = pressed
-      ? isDarkMode
-        ? dark.buttonOutlinedPressedText
-        : light.buttonOutlinedPressedText
-      : isDarkMode
-      ? dark.buttonOutlinedText
-      : light.buttonOutlinedText;
+    const BUTTON_OUTLINED_TEXT = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].outlined.text
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].outlined.text;
 
-    const BUTTON_SIMPLIED_TEXT = pressed
-      ? isDarkMode
-        ? dark.buttonSimpliedPressedText
-        : light.buttonSimpliedPressedText
-      : isDarkMode
-      ? dark.buttonSimpliedText
-      : light.buttonSimpliedText;
+    const BUTTON_SIMPLIED_TEXT = isDarkMode
+      ? dark.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].simplied.text
+      : light.button[props.disabled ? 'passive' : 'active'][
+          pressed ? 'pressed' : 'normal'
+        ].simplied.text;
     switch (type) {
       case 'Filled':
         return BUTTON_FILLED_TEXT;
@@ -190,10 +198,12 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
 
   const renderOpacity = () => {
     return (
+      // @ts-ignore
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={onPress}
-        style={[renderContainerStyle(), styles.container, containerStyle]}>
+        style={[renderContainerStyle(), styles.container, containerStyle]}
+        {...props}>
         {icon && title !== 'Button' ? renderIcon() : null}
         {title ? renderTitle() : null}
       </TouchableOpacity>
@@ -210,7 +220,8 @@ const Button: FC<IButtonProps & (TouchableOpacityProps | PressableProps)> = ({
         onPressOut={() => {
           setPressed(false);
         }}
-        style={[renderContainerStyle(), styles.container, containerStyle]}>
+        style={[renderContainerStyle(), styles.container, containerStyle]}
+        {...props}>
         {icon && title !== 'Button' ? renderIcon() : null}
         {title ? renderTitle() : null}
       </Pressable>

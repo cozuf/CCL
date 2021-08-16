@@ -6,6 +6,7 @@ import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface IRadionButtonProps {
+  active?: boolean;
   selected: boolean;
   title?: string;
   value?: any;
@@ -17,6 +18,7 @@ export interface IRadionButtonProps {
 }
 
 const RadioButton: FC<IRadionButtonProps> = ({
+  active = true,
   selected = false,
   title = `Radio Button ${selected ? 1 : 0}`,
   value = 'Radion Button',
@@ -44,14 +46,20 @@ const RadioButton: FC<IRadionButtonProps> = ({
           return iconSet.selected;
         } else {
           const coreIcon = iconSet.selected as IIconProps;
-          return <Icon {...coreIcon} />;
+          const ICON_COLOR = isDarkMode
+            ? dark.radioButton[active ? 'active' : 'passive'].icon
+            : light.radioButton[active ? 'active' : 'passive'].icon;
+          return <Icon {...coreIcon} color={ICON_COLOR} />;
         }
       } else {
         if (isValidElement(iconSet.notSelected)) {
           return iconSet.notSelected;
         } else {
           const coreIcon = iconSet.notSelected as IIconProps;
-          return <Icon {...coreIcon} />;
+          const ICON_COLOR = isDarkMode
+            ? dark.radioButton[active ? 'active' : 'passive'].icon
+            : light.radioButton[active ? 'active' : 'passive'].icon;
+          return <Icon {...coreIcon} color={ICON_COLOR} />;
         }
       }
     } else {
@@ -61,7 +69,10 @@ const RadioButton: FC<IRadionButtonProps> = ({
 
   const renderTitle = (): React.ReactElement | null => {
     if (title) {
-      return <Text>{title}</Text>;
+      const TEXT_COLOR = isDarkMode
+        ? dark.radioButton[active ? 'active' : 'passive'].text
+        : light.radioButton[active ? 'active' : 'passive'].text;
+      return <Text style={{color: TEXT_COLOR}}>{title}</Text>;
     } else {
       return null;
     }
@@ -69,11 +80,14 @@ const RadioButton: FC<IRadionButtonProps> = ({
 
   return (
     <TouchableOpacity
+      disabled={!active}
       key={value}
       style={[
         styles.container,
         {
-          borderBottomColor: isDarkMode ? dark.secondary : light.secondary,
+          borderBottomColor: isDarkMode
+            ? dark.radioButton[active ? 'active' : 'passive'].border
+            : dark.radioButton[active ? 'active' : 'passive'].border,
         },
       ]}
       onPress={() => {

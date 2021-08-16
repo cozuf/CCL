@@ -5,6 +5,7 @@ import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface ICheckBoxProps {
+  active: boolean;
   selected: boolean;
   title?: string;
   value?: any;
@@ -16,6 +17,7 @@ export interface ICheckBoxProps {
 }
 
 const CheckBox: FC<ICheckBoxProps> = ({
+  active = true,
   selected,
   title = `Check Box ${selected ? 1 : 0}`,
   value,
@@ -47,11 +49,13 @@ const CheckBox: FC<ICheckBoxProps> = ({
           style={[
             styles.iconContainer,
             {
-              borderColor: isDarkMode ? dark.active : light.active,
+              borderColor: isDarkMode
+                ? dark.checkBox[active ? 'active' : 'passive'].iconBorder
+                : light.checkBox[active ? 'active' : 'passive'].iconBorder,
               backgroundColor: isSelected
                 ? isDarkMode
-                  ? dark.active
-                  : light.active
+                  ? dark.checkBox[active ? 'active' : 'passive'].iconBorder
+                  : light.checkBox[active ? 'active' : 'passive'].iconBorder
                 : 'transparent',
             },
           ]}>
@@ -60,7 +64,11 @@ const CheckBox: FC<ICheckBoxProps> = ({
               family="Feather"
               name="check"
               size={16}
-              color={isDarkMode ? dark.primary : light.primary}
+              color={
+                isDarkMode
+                  ? dark.checkBox[active ? 'active' : 'passive'].icon
+                  : light.checkBox[active ? 'active' : 'passive'].icon
+              }
             />
           ) : null}
         </View>
@@ -79,10 +87,13 @@ const CheckBox: FC<ICheckBoxProps> = ({
   return (
     <TouchableOpacity
       key={value}
+      disabled={!active}
       style={[
         styles.container,
         {
-          borderBottomColor: isDarkMode ? dark.secondary : light.secondary,
+          borderBottomColor: isDarkMode
+            ? dark.checkBox[active ? 'active' : 'passive'].border
+            : light.checkBox[active ? 'active' : 'passive'].border,
         },
       ]}
       onPress={() => {

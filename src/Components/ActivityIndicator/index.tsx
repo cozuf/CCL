@@ -35,7 +35,11 @@ const NActivityIndicator: FC<IActivityIndicatorProps> = ({
   size = 24,
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
-  const COLOR = color ? color : isDarkMode ? dark.active : light.active;
+  const COLOR = color
+    ? color
+    : isDarkMode
+    ? dark.common.active
+    : light.common.active;
   switch (type) {
     case 'BallIndicator':
       return <BallIndicator color={COLOR} size={size} />;

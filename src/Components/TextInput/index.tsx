@@ -12,12 +12,14 @@ import {
   useColorScheme,
   Platform,
   Pressable,
+  Omit,
 } from 'react-native';
 import {Button, Icon, IIconProps, Text} from '..';
 import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface ITextInputProps {
+  active?: boolean;
   type?: 'Email' | 'Password' | 'Normal';
   title?: string;
   titleStyle?: TextStyle;
@@ -40,6 +42,7 @@ const NTextInput: FC<
   ITextInputProps &
     Omit<TextInputProps, 'onChangeText' | 'onFocus' | 'onBlur' | 'style'>
 > = ({
+  active = true,
   type = 'Normal',
   title = 'Başlık',
   titleStyle,
@@ -64,32 +67,40 @@ const NTextInput: FC<
 
   const containerBackgroundColor = (): ColorValue => {
     const CONTAINER_BACKGROUND = isDarkMode
-      ? dark.textInputBackground
-      : light.textInputBackground;
+      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .background
+      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .background;
 
     return CONTAINER_BACKGROUND;
   };
 
   const containerBorderColor = (): ColorValue => {
-    const CONTAINER_BORDER_COLOR = isFocused
-      ? isDarkMode
-        ? dark.textInputFocused
-        : light.textInputFocused
-      : isDarkMode
-      ? dark.textInputBorder
-      : light.textInputBorder;
+    const CONTAINER_BORDER_COLOR = isDarkMode
+      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .border
+      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .border;
     return CONTAINER_BORDER_COLOR;
   };
 
   const inputTextColor = (): ColorValue => {
-    const INPUT_TEXT_COLOR = isFocused
-      ? isDarkMode
-        ? dark.textInputTextFocused
-        : light.textInputTextFocused
-      : isDarkMode
-      ? dark.textInputText
-      : light.textInputText;
+    const INPUT_TEXT_COLOR = isDarkMode
+      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .inputText
+      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .inputText;
     return INPUT_TEXT_COLOR;
+  };
+
+  const titleTextColor = (): ColorValue => {
+    const TITLE_TEXT_COLOR = isDarkMode
+      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .titleText
+      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+          .titleText;
+
+    return TITLE_TEXT_COLOR;
   };
 
   const renderIcon = () => {
@@ -150,6 +161,7 @@ const NTextInput: FC<
 
   return (
     <Pressable
+      disabled={!active}
       style={[
         styles.container,
         containerStyle,
@@ -161,7 +173,7 @@ const NTextInput: FC<
       onPress={() => {
         changeFocus();
       }}>
-      <Text style={[titleStyle, {color: inputTextColor()}]}>
+      <Text style={[titleStyle, {color: titleTextColor()}]}>
         {isRequired ? `* ${title}` : title}
       </Text>
       <View style={[styles.inputContainer]}>
@@ -193,7 +205,7 @@ const NTextInput: FC<
                     },
                   }),
                 },
-                {color: isDarkMode ? dark.text : light.text},
+                {color: inputTextColor()},
               ]}
               secureTextEntry={type === 'Password'}
               onFocus={(e: NativeSyntheticEvent<TextInputFocusEventData>) => {

@@ -22,7 +22,9 @@ interface IPageContainerProps {
 const PageContainer: FC<IPageContainerProps & (ViewProps | ScrollViewProps)> =
   ({type = 'Default', style, contentContainerStyle, children, ...props}) => {
     const isDarkMode = useColorScheme() === 'dark';
-    const COLOR = isDarkMode ? dark.pageBackground : light.pageBackground;
+    const COLOR = isDarkMode
+      ? dark.pageContainer?.background
+      : light.pageContainer?.background;
     switch (type) {
       case 'SafeArea':
         return (

@@ -52,6 +52,7 @@ export interface IIconProps {
   name: string;
   size?: number;
   color?: ColorValue;
+  active?: boolean;
 }
 
 const Icon: FC<IIconProps> = ({
@@ -59,9 +60,18 @@ const Icon: FC<IIconProps> = ({
   name = 'react',
   size = 10,
   color,
+  active = true,
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
-  const COLOR = color ? color : isDarkMode ? dark.active : light.active;
+  const COLOR = color
+    ? color
+    : active
+    ? isDarkMode
+      ? dark.icon?.active
+      : light.icon?.active
+    : isDarkMode
+    ? dark.icon?.active
+    : light.icon?.active;
   switch (family) {
     case 'AntDesign':
       return <AntDesign name={name} size={size} color={COLOR} />;

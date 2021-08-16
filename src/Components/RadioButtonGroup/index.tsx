@@ -32,7 +32,7 @@ const RadioButtonGroup: FC<IRadioButtonGroupProps<any>> = ({
         selected={item.selected}
         title={item.title}
         value={item.value}
-        onSelect={(selected: boolean) => {
+        onSelect={() => {
           onButtonSelect(index);
         }}
       />
