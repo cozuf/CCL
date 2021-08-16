@@ -259,4 +259,4 @@ const styles = StyleSheet.create({
   },
 });
 
-//  TODO: Buton ve loading den sonra geliştirlmeye devam edilecek devam edilecek
+//  TODO: Loading den sonra geliştirlmeye devam edilecek devam edilecek
