@@ -33,6 +33,9 @@ import Zocial from 'react-native-vector-icons/Zocial';
 import {dark, light} from '../../Theme/Variants';
 
 export interface IIconProps {
+  /**
+   *
+   */
   family?:
     | 'AntDesign'
     | 'Entypo'
@@ -49,9 +52,24 @@ export interface IIconProps {
     | 'Octicons'
     | 'SimpleLineIcons'
     | 'Zocial';
+  /**
+   * @see https://oblador.github.io/react-native-vector-icons/
+   */
   name: string;
+
+  /**
+   *
+   */
   size?: number;
+
+  /**
+   *
+   */
   color?: ColorValue;
+
+  /**
+   * @default true
+   */
   active?: boolean;
 }
 
