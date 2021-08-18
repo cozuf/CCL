@@ -10,7 +10,7 @@ export interface IRadioButtonGroupProps<ItemT> {
    */
   data: ReadonlyArray<ItemT>;
   /**
-   * callback when click the option
+   * invokes when click the option
    */
   onSelect: (item: ItemT, index: number) => void;
   /**
@@ -80,3 +80,5 @@ const RadioButtonGroup: FC<
 };
 
 export default RadioButtonGroup;
+
+// TODO: onSubnit eklenecek
