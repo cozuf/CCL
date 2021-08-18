@@ -10,10 +10,14 @@ import {
   SkypeIndicator,
   UIActivityIndicator,
   WaveIndicator,
+  // @ts-ignore
 } from 'react-native-indicators';
 import {dark, light} from '../../Theme/Variants';
 
 export interface IActivityIndicatorProps {
+  /**
+   *
+   */
   type:
     | 'Default'
     | 'BallIndicator'
@@ -25,7 +29,15 @@ export interface IActivityIndicatorProps {
     | 'SkypeIndicator'
     | 'UIActivityIndicator'
     | 'WaveIndicator';
+
+  /**
+   *
+   */
   color?: ColorValue;
+
+  /**
+   *
+   */
   size?: number;
 }
 
