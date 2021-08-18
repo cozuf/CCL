@@ -9,10 +9,12 @@ export interface IRadioButtonGroupProps<ItemT> {
    * it is better to include {active} and {selected} keys.
    */
   data: ReadonlyArray<ItemT>;
+
   /**
    * invokes when click the option
    */
   onSelect: (item: ItemT, index: number) => void;
+
   /**
    * callback if you want render custom item
    */
