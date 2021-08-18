@@ -3,9 +3,26 @@ import {View} from 'react-native';
 import {Chip} from '..';
 
 export interface IChipGroupProps<ItemT> {
+  /**
+   * Array of selectable options.
+   * it must contain {title} and {value} keys.
+   * it is better to include {active} and {selected} keys.
+   */
   data: ReadonlyArray<ItemT>;
+
+  /**
+   * invokes when click the option
+   */
   onSelect: (item: ItemT, index: number) => void;
+
+  /**
+   * invokes when selection complete and press submit button
+   */
   onSubmit?: (selectedData: ReadonlyArray<ItemT>) => void;
+
+  /**
+   * callback if you want render custom item
+   */
   renderItem?: (
     value: ItemT,
     index: number,
@@ -38,7 +55,6 @@ const ChipGroup: FC<IChipGroupProps<any>> = ({
   const customRenderItem = (
     item: any,
     index: number,
-    array: readonly any[],
   ): React.ReactElement | null => {
     return (
       <Fragment key={index.toString()}>
@@ -46,7 +62,7 @@ const ChipGroup: FC<IChipGroupProps<any>> = ({
           active={item.active}
           selected={item.selected}
           title={item.title}
-          onSelect={selected => {
+          onSelect={() => {
             onButtonSelect(index);
           }}
         />
