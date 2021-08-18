@@ -1,18 +1,30 @@
-import React from 'react';
-import {PageContainer, TapSelector} from '../../../src/Components';
+import React, {useState} from 'react';
+import {View} from 'react-native';
+import {PageContainer, TapSelector, Text} from '../../../src/Components';
+
+const DATA = [
+  {title: 'Sade', value: 0},
+  {title: 'Orta', value: 1},
+  {title: 'Şekerli', value: 2},
+];
 
 const TapSelectorPage = () => {
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+
   return (
     <PageContainer type="Default">
-      <TapSelector
-        data={[
-          {title: '0', value: 0},
-          {title: '1', value: 1},
-        ]}
-        onTap={(index, item) => {
-          console.warn(item, index);
-        }}
-      />
+      <Text
+        style={{
+          textAlign: 'center',
+        }}>{`value = ${DATA[selectedIndex].value}`}</Text>
+      <View style={{paddingTop: 16}}>
+        <TapSelector
+          data={DATA}
+          onTap={(_, index) => {
+            setSelectedIndex(index);
+          }}
+        />
+      </View>
     </PageContainer>
   );
 };

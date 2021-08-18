@@ -3,7 +3,14 @@ import {Omit} from 'react-native';
 import {Button, IButtonProps} from '..';
 
 export interface ITapSelectorProps<ItemT> {
+  /**
+   *it must contain 'title' and 'value' key
+   */
   data: ReadonlyArray<ItemT>;
+
+  /**
+   * invokes press the component
+   */
   onTap: (selectedItem: ItemT, selectedIndex: number) => void;
 }
 
