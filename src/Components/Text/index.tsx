@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
 import {
+  Omit,
+  StyleProp,
   Text as NativeText,
   TextProps as NativeTextProps,
   TextStyle,
@@ -7,12 +9,26 @@ import {
 } from 'react-native';
 import {FONTS} from '../../Assets';
 import {dark, light} from '../../Theme/Variants';
+
 interface ITextProps {
+  /**
+   * Text Sizes
+   */
+  size?: 'XS' | 'XXS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
+
+  /**
+   * enable or disable
+   * @default true
+   */
   active?: boolean;
-  style?: TextStyle;
+
+  /**
+   * @see https://reactnative.dev/docs/text#style
+   */
+  style?: StyleProp<TextStyle>;
 }
 
-const Text: FC<ITextProps & NativeTextProps> = ({
+const Text: FC<ITextProps & Omit<NativeTextProps, 'style'>> = ({
   active = true,
   style,
   children,
@@ -36,3 +52,5 @@ const Text: FC<ITextProps & NativeTextProps> = ({
 };
 
 export default Text;
+
+// TODO: pasif durum için tıklanmayı engelle

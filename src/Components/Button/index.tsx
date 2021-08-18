@@ -12,6 +12,7 @@ import {
   ColorValue,
   TextStyle,
   Omit,
+  GestureResponderEvent,
 } from 'react-native';
 import {Icon, IIconProps, Text} from '..';
 import {FONTS} from '../../Assets';
@@ -19,24 +20,65 @@ import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface IButtonProps {
+  /**
+   * @enum 'Opacity' | 'Changeable'
+   * @default Opacity
+   */
   clickType?: 'Opacity' | 'Changeable';
+
+  /**
+   * @enum 'Text' | 'Icon' | 'Both'
+   * @default Text
+   */
+  childTye?: 'Text' | 'Icon' | 'Both';
+
+  /**
+   * @enum 'Filled' | 'Outlined' | 'Simplied'
+   * @default Filled
+   */
   type?: 'Filled' | 'Outlined' | 'Simplied';
+
+  /**
+   * @enum 'wrap' | 'no-wrap' | 'free'
+   * @default no-wrap
+   */
   wrap?: 'wrap' | 'no-wrap' | 'free';
+
+  /**
+   * invokes when press
+   */
   onPress: () => void;
+
+  /**
+   *
+   */
   icon?: IIconProps | ReactNode;
+
+  /**
+   * @default Button
+   */
   title?: string;
-  titleStyle?: TextStyle;
+
+  /**
+   * @see https://reactnative.dev/docs/text#style
+   */
+  titleStyle?: StyleProp<TextStyle>;
+
+  /**
+   *
+   */
   containerStyle?: ViewStyle;
 }
 
-const Button: FC<
-  IButtonProps &
-    (
-      | Omit<TouchableOpacityProps, 'onPress' | 'style'>
-      | Omit<PressableProps, 'onPress' | 'style'>
-    )
-> = ({
+type ButtonType = IButtonProps &
+  (
+    | Omit<TouchableOpacityProps, 'onPress' | 'style'>
+    | Omit<PressableProps, 'onPress' | 'style'>
+  );
+
+const Button: FC<ButtonType> = ({
   clickType = 'Opacity',
+  childTye = 'Text',
   type = 'Filled',
   wrap = 'no-wrap',
   title = 'Button',
@@ -196,6 +238,22 @@ const Button: FC<
     );
   };
 
+  const renderChildren = (): ReactNode => {
+    switch (childTye) {
+      case 'Text':
+        return renderTitle();
+      case 'Icon':
+        return renderIcon();
+      case 'Both':
+        return (
+          <>
+            {renderIcon()}
+            {renderTitle()}
+          </>
+        );
+    }
+  };
+
   const renderOpacity = () => {
     return (
       // @ts-ignore
@@ -204,8 +262,7 @@ const Button: FC<
         onPress={onPress}
         style={[renderContainerStyle(), styles.container, containerStyle]}
         {...props}>
-        {icon && title !== 'Button' ? renderIcon() : null}
-        {title ? renderTitle() : null}
+        {renderChildren()}
       </TouchableOpacity>
     );
   };
@@ -214,16 +271,21 @@ const Button: FC<
     return (
       <Pressable
         onPress={onPress}
-        onPressIn={() => {
+        onPressIn={(e: GestureResponderEvent) => {
           setPressed(true);
+          if (typeof props.onPressIn === 'function') {
+            props.onPressIn(e);
+          }
         }}
-        onPressOut={() => {
+        onPressOut={(e: GestureResponderEvent) => {
           setPressed(false);
+          if (typeof props.onPressOut === 'function') {
+            props.onPressOut(e);
+          }
         }}
         style={[renderContainerStyle(), styles.container, containerStyle]}
         {...props}>
-        {icon && title !== 'Button' ? renderIcon() : null}
-        {title ? renderTitle() : null}
+        {renderChildren()}
       </Pressable>
     );
   };

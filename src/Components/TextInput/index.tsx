@@ -13,6 +13,7 @@ import {
   Platform,
   Pressable,
   Omit,
+  StyleProp,
 } from 'react-native';
 import {Button, Icon, IIconProps, Text} from '..';
 import {TOKENS} from '../../Theme';
@@ -22,17 +23,17 @@ export interface ITextInputProps {
   active?: boolean;
   type?: 'Email' | 'Password' | 'Normal';
   title?: string;
-  titleStyle?: TextStyle;
+  titleStyle?: StyleProp<TextStyle>;
   icon?: IIconProps | ReactNode;
   value: string;
   onChangeText: (text: string) => void;
   onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
   warning?: string;
-  warningStyle?: TextStyle;
+  warningStyle?: StyleProp<TextStyle>;
   error?: string;
-  errorStyle?: TextStyle;
+  errorStyle?: StyleProp<TextStyle>;
   containerStyle?: ViewStyle;
   cleanable?: boolean;
   isRequired?: boolean;

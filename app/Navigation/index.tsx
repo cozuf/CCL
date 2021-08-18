@@ -44,7 +44,7 @@ const Router = () => {
     }
     return (
       <Button
-        title=""
+        childTye="Icon"
         wrap="wrap"
         type="Simplied"
         icon={{
