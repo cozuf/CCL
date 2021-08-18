@@ -28,7 +28,7 @@ const TextInputPage = () => {
       <View style={{paddingVertical: 16}}>
         <TapSelector
           data={ACTIVE_DATA}
-          onTap={(sItem, sIndex) => {
+          onTap={() => {
             setActive(!active);
           }}
         />
