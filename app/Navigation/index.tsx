@@ -27,6 +27,7 @@ import BadgePage from '../Pages/Badge';
 import {Button} from '../../src/Components';
 import {NavigationProp} from '@react-navigation/core';
 import {ParamListBase} from '@react-navigation/routers';
+import ImagePage from '../Pages/Image';
 
 //#endregion
 
@@ -125,6 +126,7 @@ const Router = () => {
         component={ChipGroupPage}
       />
       <Stack.Screen name={PAGES_NAMES.BadgePage} component={BadgePage} />
+      <Stack.Screen name={PAGES_NAMES.ImagePage} component={ImagePage} />
     </Stack.Navigator>
   );
 };

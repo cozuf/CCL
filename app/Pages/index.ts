@@ -13,6 +13,7 @@ const PAGES_NAMES = {
   ChipPage: 'ChipPage',
   ChipGroupPage: 'ChipGroupPage',
   BadgePage: 'BadgePage',
+  ImagePage: 'ImagePage',
 };
 
 export {PAGES_NAMES};

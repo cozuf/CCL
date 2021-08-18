@@ -58,8 +58,12 @@ const COMPONENTS: ComponentListType[] = [
     navigation: 'ChipGroupPage',
   },
   {
-    name: 'BadgePage',
+    name: 'Badge',
     navigation: 'BadgePage',
+  },
+  {
+    name: 'Image',
+    navigation: 'ImagePage',
   },
 ];
 
