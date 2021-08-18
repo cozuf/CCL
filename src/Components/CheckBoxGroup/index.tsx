@@ -3,9 +3,26 @@ import {FlatList, ListRenderItemInfo} from 'react-native';
 import {CheckBox} from '..';
 
 export interface ICheckBoxGroupProps<ItemT> {
+  /**
+   * Array of selectable options.
+   * it must contain {title} and {value} keys.
+   * it is better to include {active} and {selected} keys.
+   */
   data: ReadonlyArray<ItemT>;
+
+  /**
+   * invokes when click the option
+   */
   onSelect: (item: ItemT, index: number) => void;
+
+  /**
+   * invokes when selection complete and press submit button
+   */
   onSubmit?: (selectedData: ReadonlyArray<ItemT>) => void;
+
+  /**
+   * callback if you want render custom item
+   */
   renderItem?: (info: ListRenderItemInfo<ItemT>) => React.ReactElement | null;
 }
 
@@ -41,7 +58,7 @@ const CheckBoxGroup: FC<ICheckBoxGroupProps<any>> = ({
         active={item.active}
         selected={item.selected}
         title={item.title}
-        onSelect={selected => {
+        onSelect={() => {
           onButtonSelect(index);
         }}
       />
