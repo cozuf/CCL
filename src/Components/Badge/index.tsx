@@ -5,7 +5,14 @@ import {FONTS} from '../../Assets';
 import {dark, light} from '../../Theme/Variants';
 
 export interface IBadgeProps {
+  /**
+   *
+   */
   size?: number;
+
+  /**
+   *
+   */
   value: number | string;
 }
 
@@ -70,3 +77,5 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.bold,
   },
 });
+
+// TODO: Tekrar bak
