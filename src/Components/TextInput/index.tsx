@@ -20,29 +20,96 @@ import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface ITextInputProps {
+  /**
+   *
+   */
   active?: boolean;
+
+  /**
+   *
+   */
   type?: 'Email' | 'Password' | 'Normal';
+
+  /**
+   *
+   */
   title?: string;
-  titleStyle?: StyleProp<TextStyle>;
+
+  /**
+   *
+   */
+  titleStyle?: TextStyle;
+
+  /**
+   *
+   */
   icon?: IIconProps | ReactNode;
+
+  /**
+   *
+   */
   value: string;
+
+  /**
+   *
+   */
   onChangeText: (text: string) => void;
+
+  /**
+   *
+   */
   onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+
+  /**
+   *
+   */
   onBlur?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
-  style?: StyleProp<TextStyle>;
+
+  /**
+   *
+   */
+  style?: TextStyle;
+
+  /**
+   *
+   */
   warning?: string;
-  warningStyle?: StyleProp<TextStyle>;
+
+  /**
+   *
+   */
+  warningStyle?: TextStyle;
+
+  /**
+   *
+   */
   error?: string;
-  errorStyle?: StyleProp<TextStyle>;
-  containerStyle?: ViewStyle;
+
+  /**
+   *
+   */
+  errorStyle?: TextStyle;
+
+  /**
+   *
+   */
+  containerStyle?: StyleProp<ViewStyle>;
+
+  /**
+   *
+   */
   cleanable?: boolean;
+
+  /**
+   *
+   */
   isRequired?: boolean;
 }
 
-const NTextInput: FC<
-  ITextInputProps &
-    Omit<TextInputProps, 'onChangeText' | 'onFocus' | 'onBlur' | 'style'>
-> = ({
+type ITextInputTypes = ITextInputProps &
+  Omit<TextInputProps, 'onChangeText' | 'onFocus' | 'onBlur' | 'style'>;
+
+const NTextInput: FC<ITextInputTypes> = ({
   active = true,
   type = 'Normal',
   title = 'Başlık',
