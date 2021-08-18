@@ -5,14 +5,37 @@ import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface ICheckBoxProps {
+  /**
+   * @default true
+   */
   active: boolean;
+
+  /**
+   * @default false
+   */
   selected: boolean;
+
+  /**
+   * to show value
+   */
   title?: string;
+
+  /**
+   * unique value
+   */
   value?: any;
+
+  /**
+   *
+   */
   iconSet?: {
     selected: IIconProps | React.ReactNode;
     notSelected: IIconProps | React.ReactNode;
   };
+
+  /**
+   * invokes select item
+   */
   onSelect?: (selected: boolean) => void;
 }
 
