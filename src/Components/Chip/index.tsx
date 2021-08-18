@@ -2,9 +2,24 @@ import React, {FC, useState} from 'react';
 import {Button} from '..';
 
 export interface IChipProps {
+  /**
+   * @default false
+   */
   selected: boolean;
+
+  /**
+   *
+   */
   title: string;
+
+  /**
+   * @default true
+   */
   active?: boolean;
+
+  /**
+   * invokes when select option
+   */
   onSelect: (selected: boolean) => void;
 }
 
@@ -33,3 +48,5 @@ const Chip: FC<IChipProps> = ({
 };
 
 export default Chip;
+
+// TODO: Tekrar bi bak belki butondan türetmezsin
