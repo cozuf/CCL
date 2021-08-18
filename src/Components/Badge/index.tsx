@@ -79,3 +79,4 @@ const styles = StyleSheet.create({
 });
 
 // TODO: Tekrar bak
+// size small | medium | large | number olsun
