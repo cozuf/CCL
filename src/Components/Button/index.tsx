@@ -25,8 +25,8 @@ export interface IButtonProps {
   onPress: () => void;
   icon?: IIconProps | ReactNode;
   title?: string;
-  titleStyle?: StyleProp<TextStyle>;
-  containerStyle?: StyleProp<ViewStyle>;
+  titleStyle?: TextStyle;
+  containerStyle?: ViewStyle;
 }
 
 const Button: FC<

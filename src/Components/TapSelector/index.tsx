@@ -38,3 +38,5 @@ const TapSelector: FC<
 };
 
 export default TapSelector;
+
+// TODO: Tekrar bak belki butondan türetmezsin

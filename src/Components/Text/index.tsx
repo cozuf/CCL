@@ -1,6 +1,5 @@
 import React, {FC} from 'react';
 import {
-  StyleProp,
   Text as NativeText,
   TextProps as NativeTextProps,
   TextStyle,
@@ -10,7 +9,7 @@ import {FONTS} from '../../Assets';
 import {dark, light} from '../../Theme/Variants';
 interface ITextProps {
   active?: boolean;
-  style?: StyleProp<TextStyle>;
+  style?: TextStyle;
 }
 
 const Text: FC<ITextProps & NativeTextProps> = ({

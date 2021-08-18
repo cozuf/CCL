@@ -1,5 +1,5 @@
 import React, {FC, Fragment, useState} from 'react';
-import {FlatList, ListRenderItemInfo, View} from 'react-native';
+import {View} from 'react-native';
 import {Chip} from '..';
 
 export interface IChipGroupProps<ItemT> {
@@ -62,3 +62,5 @@ const ChipGroup: FC<IChipGroupProps<any>> = ({
 };
 
 export default ChipGroup;
+
+// TODO: Buraya tekrar bak

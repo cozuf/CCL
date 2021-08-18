@@ -3,7 +3,6 @@ import {
   ViewProps,
   ScrollViewProps,
   View,
-  StyleProp,
   ViewStyle,
   StyleSheet,
   useColorScheme,
@@ -15,8 +14,8 @@ import {dark, light} from '../../Theme/Variants';
 
 interface IPageContainerProps {
   type: 'SafeArea' | 'Default' | 'Scroll';
-  style?: StyleProp<ViewStyle>;
-  contentContainerStyle?: StyleProp<ViewStyle>;
+  style?: ViewStyle;
+  contentContainerStyle?: ViewStyle;
 }
 
 const PageContainer: FC<IPageContainerProps & (ViewProps | ScrollViewProps)> =
