@@ -6,14 +6,37 @@ import {TOKENS} from '../../Theme';
 import {dark, light} from '../../Theme/Variants';
 
 export interface IRadionButtonProps {
+  /**
+   *@default true
+   */
   active?: boolean;
+
+  /**
+   * @default false
+   */
   selected: boolean;
+
+  /**
+   * to show value
+   */
   title?: string;
+
+  /**
+   * unique value
+   */
   value?: any;
+
+  /**
+   *
+   */
   iconSet?: {
     selected: IIconProps | ReactNode;
     notSelected: IIconProps | ReactNode;
   };
+
+  /**
+   * invokes select the item
+   */
   onSelect: (selected: boolean) => void;
 }
 
