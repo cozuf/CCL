@@ -6,7 +6,12 @@ export interface ICheckBoxGroupProps<ItemT> {
   /**
    * Array of selectable options.
    * it must contain {title} and {value} keys.
+   * {title} to show
+   * {value} to operate
+   *
    * it is better to include {active} and {selected} keys.
+   * {active} to be selectable
+   * {selected} to show selected before
    */
   data: ReadonlyArray<ItemT>;
 
