@@ -1,30 +1,17 @@
 import Text from './Text';
 import PageContainer from './PageContainer';
-import Icon from './Icon';
-import TextInput from './TextInput';
-import ActivityIndicator from './ActivityIndicator';
-import Button from './Button';
-import TapSelector from './TapSelector';
-import RadioButton from './RadioButton';
-import RadioButtonGroup from './RadioButtonGroup';
-import CheckBox from './CheckBox';
-import CheckBoxGroup from './CheckBoxGroup';
-import Chip from './Chip';
-import ChipGroup from './ChipGroup';
-import Badge from './Badge';
-
-import {IIconProps} from './Icon';
-import {ITextInputProps} from './TextInput';
-import {IActivityIndicatorProps} from './ActivityIndicator';
-import {IButtonProps} from './Button';
-import {ITapSelectorProps} from './TapSelector';
-import {IRadionButtonProps} from './RadioButton';
-import {IRadioButtonGroupProps} from './RadioButtonGroup';
-import {ICheckBoxProps} from './CheckBox';
-import {ICheckBoxGroupProps} from './CheckBoxGroup';
-import {IChipProps} from './Chip';
-import {IChipGroupProps} from './ChipGroup';
-import {IBadgeProps} from './Badge';
+import Icon, {IIconProps} from './Icon';
+import TextInput, {ITextInputProps} from './TextInput';
+import ActivityIndicator, {IActivityIndicatorProps} from './ActivityIndicator';
+import Button, {IButtonProps} from './Button';
+import TapSelector, {ITapSelectorProps} from './TapSelector';
+import RadioButton, {IRadionButtonProps} from './RadioButton';
+import RadioButtonGroup, {IRadioButtonGroupProps} from './RadioButtonGroup';
+import CheckBox, {ICheckBoxProps} from './CheckBox';
+import CheckBoxGroup, {ICheckBoxGroupProps} from './CheckBoxGroup';
+import Chip, {IChipProps} from './Chip';
+import ChipGroup, {IChipGroupProps} from './ChipGroup';
+import Badge, {IBadgeProps} from './Badge';
 
 export {
   Text,
