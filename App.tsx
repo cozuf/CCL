@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
 });
 
 // TODO: Tüm comoponentlere testID ekle
-// TODO: Listelemeli componentlerde title ve value zorunlu kıl
+// TODO: Listelemeli componentlerde searchable'yi unutma
 // TODO: Tüm comoponentlerde eksikleri tamamla (containerStyle vs.)
 // TODO: Tüm padding, borderWidth, borderRadius belirle color scheme gibi
 // TODO: Örnek Sayfalar da varyantları ekle
