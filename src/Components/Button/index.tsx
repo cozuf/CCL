@@ -70,13 +70,13 @@ export interface IButtonProps {
   containerStyle?: ViewStyle;
 }
 
-type ButtonType = IButtonProps &
+export type IButtonTypes = IButtonProps &
   (
     | Omit<TouchableOpacityProps, 'onPress' | 'style'>
     | Omit<PressableProps, 'onPress' | 'style'>
   );
 
-const Button: FC<ButtonType> = ({
+const Button: FC<IButtonTypes> = ({
   clickType = 'Opacity',
   childTye = 'Text',
   type = 'Filled',

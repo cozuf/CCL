@@ -26,9 +26,14 @@ export interface IRadioButtonGroupProps<ItemT> {
   renderItem?: (info: ListRenderItemInfo<ItemT>) => React.ReactElement | null;
 }
 
-const RadioButtonGroup: FC<
-  IRadioButtonGroupProps<any> & Omit<FlatListProps<any>, 'data' | 'renderItem'>
-> = ({data, onSelect, renderItem}) => {
+export type IRadioButtonGroupTypes = IRadioButtonGroupProps<any> &
+  Omit<FlatListProps<any>, 'data' | 'renderItem'>;
+
+const RadioButtonGroup: FC<IRadioButtonGroupTypes> = ({
+  data,
+  onSelect,
+  renderItem,
+}) => {
   const [nData, setNData] = useState(data);
 
   const onButtonSelect = (index: number) => {

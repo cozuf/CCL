@@ -106,7 +106,7 @@ export interface ITextInputProps {
   isRequired?: boolean;
 }
 
-type ITextInputTypes = ITextInputProps &
+export type ITextInputTypes = ITextInputProps &
   Omit<TextInputProps, 'onChangeText' | 'onFocus' | 'onBlur' | 'style'>;
 
 const NTextInput: FC<ITextInputTypes> = ({

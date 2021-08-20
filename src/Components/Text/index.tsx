@@ -10,11 +10,11 @@ import {
 import {FONTS} from '../../Assets';
 import {dark, light} from '../../Theme/Variants';
 
-interface ITextProps {
+export interface ITextProps {
   /**
    * Text Sizes
    */
-  size?: 'XS' | 'XXS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
+  size?: 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
 
   /**
    * enable or disable
@@ -28,12 +28,9 @@ interface ITextProps {
   style?: StyleProp<TextStyle>;
 }
 
-const Text: FC<ITextProps & Omit<NativeTextProps, 'style'>> = ({
-  active = true,
-  style,
-  children,
-  ...props
-}) => {
+export type ITextTypes = ITextProps & Omit<NativeTextProps, 'style'>;
+
+const Text: FC<ITextTypes> = ({active = true, style, children, ...props}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const COLOR = isDarkMode
     ? active

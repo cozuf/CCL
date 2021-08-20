@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {FlatList, ListRenderItemInfo} from 'react-native';
+import {FlatList, FlatListProps, ListRenderItemInfo, Omit} from 'react-native';
 import {CheckBox} from '..';
 
 export interface ICheckBoxGroupProps<ItemT> {
@@ -31,7 +31,10 @@ export interface ICheckBoxGroupProps<ItemT> {
   renderItem?: (info: ListRenderItemInfo<ItemT>) => React.ReactElement | null;
 }
 
-const CheckBoxGroup: FC<ICheckBoxGroupProps<any>> = ({
+export type ICheckBoxGroupTypes = ICheckBoxGroupProps<any> &
+  Omit<FlatListProps<any>, 'data' | 'renderItem'>;
+
+const CheckBoxGroup: FC<ICheckBoxGroupTypes> = ({
   data,
   onSelect,
   onSubmit,
@@ -80,3 +83,5 @@ const CheckBoxGroup: FC<ICheckBoxGroupProps<any>> = ({
 };
 
 export default CheckBoxGroup;
+
+// TODO: maxchoice minchoice ekle

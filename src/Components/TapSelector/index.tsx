@@ -14,9 +14,10 @@ export interface ITapSelectorProps<ItemT> {
   onTap: (selectedItem: ItemT, selectedIndex: number) => void;
 }
 
-const TapSelector: FC<
-  ITapSelectorProps<any> & Omit<IButtonProps, 'onPress' | 'title'>
-> = ({data, onTap, ...props}) => {
+export type ITapSelectorTypes = ITapSelectorProps<any> &
+  Omit<IButtonProps, 'onPress' | 'title'>;
+
+const TapSelector: FC<ITapSelectorTypes> = ({data, onTap, ...props}) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
   const onButtonTap = (index: number) => {

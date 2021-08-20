@@ -1,5 +1,5 @@
 import React, {FC, Fragment, useState} from 'react';
-import {View} from 'react-native';
+import {FlatListProps, Omit, View} from 'react-native';
 import {Chip} from '..';
 
 export interface IChipGroupProps<ItemT> {
@@ -34,8 +34,10 @@ export interface IChipGroupProps<ItemT> {
     array: readonly ItemT[],
   ) => React.ReactElement | null;
 }
+export type IChipGroupTypes = IChipGroupProps<any> &
+  Omit<FlatListProps<any>, 'data' | 'renderItem'>;
 
-const ChipGroup: FC<IChipGroupProps<any>> = ({
+const ChipGroup: FC<IChipGroupTypes> = ({
   data,
   onSelect,
   onSubmit,
@@ -85,3 +87,5 @@ const ChipGroup: FC<IChipGroupProps<any>> = ({
 export default ChipGroup;
 
 // TODO: Buraya tekrar bak
+// TODO: maxchoice minchoice ekle
+
