@@ -65,6 +65,7 @@ const textInput: TextInputColorScheme = {
     titleText: ORANGE,
     border: ORANGE,
     background: BLACK,
+    selection: ORANGE,
   },
 };
 

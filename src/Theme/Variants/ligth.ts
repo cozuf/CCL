@@ -65,6 +65,7 @@ const textInput: TextInputColorScheme = {
     inputText: BLACK,
     border: OPEN_BLUE,
     background: WHITE,
+    selection: OPEN_BLUE,
   },
 };
 

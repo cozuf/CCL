@@ -49,6 +49,7 @@ export interface TextInputColorScheme {
     border: ColorValue;
     titleText: ColorValue;
     inputText: ColorValue;
+    selection: ColorValue;
   };
 }
 
