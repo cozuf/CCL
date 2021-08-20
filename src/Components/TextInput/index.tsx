@@ -289,6 +289,11 @@ const NTextInput: FC<ITextInputTypes> = ({
                   onBlur(e);
                 }
               }}
+              selectionColor={
+                isDarkMode
+                  ? dark.textInput.focused.selection
+                  : light.textInput.focused.selection
+              }
               {...props}
             />
           </View>
