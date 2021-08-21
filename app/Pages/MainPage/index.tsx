@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
-import React from 'react';
+import React, {useState} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import {Button, PageContainer} from '../../../src/Components';
+import {Button, PageContainer, SearchBar} from '../../../src/Components';
 
 type ComponentListType = {
   name: string;
@@ -73,12 +73,39 @@ const COMPONENTS: ComponentListType[] = [
 
 const MainPage = () => {
   const navigation = useNavigation();
+  const [searchText, setSearchText] = useState<string>('');
+  const [componentList, setComponentList] =
+    useState<ComponentListType[]>(COMPONENTS);
   return (
     <PageContainer type={'Default'}>
+      <View style={{paddingBottom: 16}}>
+        <SearchBar
+          placeholder={'Ara'}
+          icon={{
+            family: 'Ionicons',
+            name: 'search',
+            size: 24,
+          }}
+          cleanable={true}
+          value={searchText}
+          onSearch={(text: string) => {
+            setSearchText(text);
+            if (text.length > 0) {
+              const nComponentList: ComponentListType[] = COMPONENTS.filter(
+                component =>
+                  component.name.toLowerCase().includes(text.toLowerCase()),
+              );
+              setComponentList(nComponentList);
+            } else {
+              setComponentList(COMPONENTS);
+            }
+          }}
+        />
+      </View>
       <FlatList
         bounces={false}
         keyExtractor={(item, index) => item.name + index.toString()}
-        data={COMPONENTS}
+        data={componentList}
         showsVerticalScrollIndicator={false}
         renderItem={({item, index}) => {
           return (
