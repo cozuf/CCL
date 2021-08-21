@@ -256,12 +256,21 @@ const Button: FC<IButtonTypes> = ({
 
   const renderOpacity = () => {
     return (
-      // @ts-ignore
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={onPress}
-        style={[renderContainerStyle(), styles.container, containerStyle]}
-        {...props}>
+        style={[
+          renderContainerStyle(),
+          wrap !== 'free'
+            ? {
+                paddingVertical: TOKENS.paddings.componentContainerVertical,
+                paddingHorizontal: TOKENS.paddings.componentContainerHorizontal,
+              }
+            : {},
+          wrap !== 'free' ? styles.container : {},
+          containerStyle,
+        ]}
+        {...(props as TouchableOpacityProps)}>
         {renderChildren()}
       </TouchableOpacity>
     );
@@ -283,8 +292,18 @@ const Button: FC<IButtonTypes> = ({
             props.onPressOut(e);
           }
         }}
-        style={[renderContainerStyle(), styles.container, containerStyle]}
-        {...props}>
+        style={[
+          renderContainerStyle(),
+          wrap !== 'free'
+            ? {
+                paddingVertical: TOKENS.paddings.componentContainerVertical,
+                paddingHorizontal: TOKENS.paddings.componentContainerHorizontal,
+              }
+            : {},
+          wrap !== 'free' ? styles.container : {},
+          containerStyle,
+        ]}
+        {...(props as PressableProps)}>
         {renderChildren()}
       </Pressable>
     );
@@ -307,8 +326,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: TOKENS.paddings.componentContainerVertical,
-    paddingHorizontal: TOKENS.paddings.componentContainerHorizontal,
   },
   title: {
     fontFamily: FONTS.semibold,
