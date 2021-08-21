@@ -13,7 +13,6 @@ import {
   Platform,
   Pressable,
   Omit,
-  StyleProp,
 } from 'react-native';
 import {Button, Icon, IIconProps, Text} from '..';
 import {TOKENS} from '../../Theme';
@@ -93,7 +92,7 @@ export interface ITextInputProps {
   /**
    *
    */
-  containerStyle?: StyleProp<ViewStyle>;
+  containerStyle?: ViewStyle;
 
   /**
    *
@@ -181,7 +180,7 @@ const NTextInput: FC<ITextInputTypes> = ({
           family={CoreIcon.family}
           name={CoreIcon.name}
           size={CoreIcon.size}
-          color={CoreIcon.color}
+          color={CoreIcon.color || titleTextColor()}
         />
       );
     }
@@ -207,10 +206,10 @@ const NTextInput: FC<ITextInputTypes> = ({
 
   const renderClean = () => {
     return (
-      <View style={styles.cleanContainer}>
+      <View>
         <Button
-          wrap={'wrap'}
-          title={''}
+          wrap={'free'}
+          childTye={'Icon'}
           type="Simplied"
           icon={{
             family: 'Ionicons',
@@ -241,11 +240,14 @@ const NTextInput: FC<ITextInputTypes> = ({
       onPress={() => {
         changeFocus();
       }}>
-      <Text style={[titleStyle, {color: titleTextColor()}]}>
-        {isRequired ? `* ${title}` : title}
-      </Text>
+      {title ? (
+        <Text style={[titleStyle, {color: titleTextColor()}]}>
+          {isRequired ? `* ${title}` : title}
+        </Text>
+      ) : null}
       <View style={[styles.inputContainer]}>
         {icon ? renderIcon() : null}
+        {icon ? <View style={{width: 8}} /> : null}
         {
           <View style={{flex: 1}}>
             <TextInput
@@ -298,8 +300,8 @@ const NTextInput: FC<ITextInputTypes> = ({
             />
           </View>
         }
+        {cleanable && value.length > 0 && active ? renderClean() : null}
       </View>
-      {cleanable && value.length > 0 && active ? renderClean() : null}
       {warning ? renderWarning() : null}
       {error ? renderError() : null}
     </Pressable>
@@ -315,21 +317,14 @@ const styles = StyleSheet.create({
     padding: TOKENS.paddings.componentContainerVertical,
   },
   inputContainer: {
-    width: '100%',
+    alignItems: 'center',
     flexDirection: 'row',
   },
   input: {
     paddingLeft: 0,
     paddingVertical: 12,
   },
-  cleanContainer: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    height: '100%',
-    marginTop: TOKENS.paddings.componentContainerVertical,
-    justifyContent: 'center',
-  },
+  cleanContainer: {},
 });
 
 //  TODO: Loading den sonra geliştirlmeye devam edilecek devam edilecek
