@@ -209,7 +209,7 @@ const NTextInput: FC<ITextInputTypes> = ({
       <View>
         <Button
           wrap={'free'}
-          childTye={'Icon'}
+          childType={'Icon'}
           type="Simplied"
           icon={{
             family: 'Ionicons',

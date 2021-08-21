@@ -30,7 +30,7 @@ export interface IButtonProps {
    * @enum 'Text' | 'Icon' | 'Both'
    * @default Text
    */
-  childTye?: 'Text' | 'Icon' | 'Both';
+  childType?: 'Text' | 'Icon' | 'Both';
 
   /**
    * @enum 'Filled' | 'Outlined' | 'Simplied'
@@ -78,7 +78,7 @@ export type IButtonTypes = IButtonProps &
 
 const Button: FC<IButtonTypes> = ({
   clickType = 'Opacity',
-  childTye = 'Text',
+  childType = 'Text',
   type = 'Filled',
   wrap = 'no-wrap',
   title = 'Button',
@@ -239,7 +239,7 @@ const Button: FC<IButtonTypes> = ({
   };
 
   const renderChildren = (): ReactNode => {
-    switch (childTye) {
+    switch (childType) {
       case 'Text':
         return renderTitle();
       case 'Icon':

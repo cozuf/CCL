@@ -27,7 +27,9 @@ const ButtonPage = () => {
     <PageContainer type="Default">
       <Button
         disabled={!active}
-        childTye={CHILD_TYPES[childTypeIndex].title as 'Text' | 'Icon' | 'Both'}
+        childType={
+          CHILD_TYPES[childTypeIndex].title as 'Text' | 'Icon' | 'Both'
+        }
         clickType={
           CLICK_TYPES[clickTypeIndex].title as 'Opacity' | 'Changeable'
         }
