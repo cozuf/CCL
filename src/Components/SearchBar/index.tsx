@@ -2,7 +2,20 @@ import React, {FC} from 'react';
 import {Omit} from 'react-native';
 import {ITextInputTypes, TextInput} from '..';
 export interface ISearchBarProps {
+  /**
+   *
+   */
   value: string;
+
+  /**
+   * minimum character to invoke onSearch prop
+   * @default 1
+   */
+  minimumCharToInvoke?: number;
+
+  /**
+   * invokes when text change
+   */
   onSearch: (text: string) => void;
 }
 
@@ -11,6 +24,7 @@ export type ISearchBarTypes = ISearchBarProps &
 
 const SearchBar: FC<ISearchBarTypes> = ({
   title = '',
+  minimumCharToInvoke = 1,
   value,
   onSearch,
   ...props
@@ -19,7 +33,11 @@ const SearchBar: FC<ISearchBarTypes> = ({
     <TextInput
       title={title}
       value={value}
-      onChangeText={onSearch}
+      onChangeText={text => {
+        if (text.length >= minimumCharToInvoke) {
+          onSearch(text);
+        }
+      }}
       icon={{
         family: 'Ionicons',
         name: 'search',
