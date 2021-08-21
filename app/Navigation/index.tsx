@@ -28,6 +28,7 @@ import {Button} from '../../src/Components';
 import {NavigationProp} from '@react-navigation/core';
 import {ParamListBase} from '@react-navigation/routers';
 import ImagePage from '../Pages/Image';
+import SearchBarPage from '../Pages/SearchBar';
 
 //#endregion
 
@@ -127,6 +128,10 @@ const Router = () => {
       />
       <Stack.Screen name={PAGES_NAMES.BadgePage} component={BadgePage} />
       <Stack.Screen name={PAGES_NAMES.ImagePage} component={ImagePage} />
+      <Stack.Screen
+        name={PAGES_NAMES.SearchBarPage}
+        component={SearchBarPage}
+      />
     </Stack.Navigator>
   );
 };

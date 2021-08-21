@@ -14,6 +14,7 @@ const PAGES_NAMES = {
   ChipGroupPage: 'ChipGroupPage',
   BadgePage: 'BadgePage',
   ImagePage: 'ImagePage',
+  SearchBarPage: 'SearchBarPage',
 };
 
 export {PAGES_NAMES};
