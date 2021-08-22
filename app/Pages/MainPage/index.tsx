@@ -66,8 +66,12 @@ const COMPONENTS: ComponentListType[] = [
     navigation: 'ImagePage',
   },
   {
-    name: 'SearchBarPage',
+    name: 'SearchBar',
     navigation: 'SearchBarPage',
+  },
+  {
+    name: 'Modal',
+    navigation: 'ModalPage',
   },
 ];
 

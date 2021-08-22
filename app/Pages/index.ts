@@ -15,6 +15,7 @@ const PAGES_NAMES = {
   BadgePage: 'BadgePage',
   ImagePage: 'ImagePage',
   SearchBarPage: 'SearchBarPage',
+  ModalPage: 'ModalPage',
 };
 
 export {PAGES_NAMES};

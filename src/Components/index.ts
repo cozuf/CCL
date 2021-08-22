@@ -18,7 +18,8 @@ import CheckBoxGroup, {
 import Chip, {IChipProps} from './Chip';
 import ChipGroup, {IChipGroupProps, IChipGroupTypes} from './ChipGroup';
 import Badge, {IBadgeProps} from './Badge';
-import SearchBar, {ISearchBarProps} from './SearchBar';
+import SearchBar, {ISearchBarProps, ISearchBarTypes} from './SearchBar';
+import Modal, {IModalProps, IModalTypes} from './Modal';
 
 export {
   Text,
@@ -36,6 +37,7 @@ export {
   ChipGroup,
   Badge,
   SearchBar,
+  Modal,
 };
 export type {
   ITextProps,
@@ -59,4 +61,7 @@ export type {
   IChipGroupTypes,
   IBadgeProps,
   ISearchBarProps,
+  ISearchBarTypes,
+  IModalProps,
+  IModalTypes,
 };

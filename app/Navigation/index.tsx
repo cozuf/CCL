@@ -29,6 +29,7 @@ import {NavigationProp} from '@react-navigation/core';
 import {ParamListBase} from '@react-navigation/routers';
 import ImagePage from '../Pages/Image';
 import SearchBarPage from '../Pages/SearchBar';
+import ModalPage from '../Pages/Modal';
 
 //#endregion
 
@@ -46,7 +47,7 @@ const Router = () => {
     }
     return (
       <Button
-        childTye="Icon"
+        childType="Icon"
         wrap="wrap"
         type="Simplied"
         icon={{
@@ -132,6 +133,7 @@ const Router = () => {
         name={PAGES_NAMES.SearchBarPage}
         component={SearchBarPage}
       />
+      <Stack.Screen name={PAGES_NAMES.ModalPage} component={ModalPage} />
     </Stack.Navigator>
   );
 };
