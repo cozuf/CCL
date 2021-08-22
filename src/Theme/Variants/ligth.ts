@@ -16,6 +16,7 @@ import {
 } from './type';
 import {
   BLACK,
+  BLACK_20,
   BLACK_PALE,
   OPEN_BLUE,
   OPEN_BLUE_OPPOSITE,
@@ -225,6 +226,12 @@ const badge: BadgeColorScheme = {
   shadow: BLACK,
 };
 
+const modal: ModalColorScheme = {
+  outsideBackground: BLACK_20,
+  containerBackground: WHITE,
+  shadow: BLACK,
+};
+
 const light: ColorShceme = {
   common,
   pageContainer,
@@ -239,6 +246,7 @@ const light: ColorShceme = {
   chip,
   chipGroup,
   badge,
+  modal,
 };
 
 export default light;

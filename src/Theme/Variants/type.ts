@@ -232,6 +232,13 @@ export interface BadgeColorScheme {
   text: ColorValue;
   shadow: ColorValue;
 }
+
+export interface ModalColorScheme {
+  outsideBackground: ColorValue;
+  containerBackground: ColorValue;
+  shadow: ColorValue;
+}
+
 export interface ColorShceme {
   common: CommonColorScheme;
   pageContainer: PageContainerColorScheme;
@@ -246,4 +253,5 @@ export interface ColorShceme {
   chip: ChipColorScheme;
   chipGroup: ChipGroupColorScheme;
   badge: BadgeColorScheme;
+  modal: ModalColorScheme;
 }

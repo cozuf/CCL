@@ -6,6 +6,7 @@ import {
   ORANGE_PALE,
   TRANSPARENT,
   WHITE,
+  WHITE_20,
   WHITE_PALE,
 } from './palette';
 import {
@@ -18,6 +19,7 @@ import {
   ColorShceme,
   CommonColorScheme,
   IconColorScheme,
+  ModalColorScheme,
   PageContainerColorScheme,
   RadioButtonColorScheme,
   RadioButtonGroupColorScheme,
@@ -225,6 +227,12 @@ const badge: BadgeColorScheme = {
   shadow: WHITE,
 };
 
+const modal: ModalColorScheme = {
+  outsideBackground: WHITE_20,
+  containerBackground: BLACK,
+  shadow: WHITE,
+};
+
 const dark: ColorShceme = {
   common,
   pageContainer,
@@ -239,6 +247,7 @@ const dark: ColorShceme = {
   chip,
   chipGroup,
   badge,
+  modal,
 };
 
 export default dark;

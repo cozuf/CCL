@@ -1,6 +1,8 @@
 const BLACK = 'rgba(0, 0, 0, 1)';
+const BLACK_20 = 'rgba(0, 0, 0, 0.2)';
 const BLACK_PALE = 'rgba(0, 0, 0, 0.5)';
 const WHITE = 'rgba(255, 255, 255, 1)';
+const WHITE_20 = 'rgba(255, 255, 255, 0.2)';
 const WHITE_PALE = 'rgba(255, 255, 255, 0.5)';
 const TRANSPARENT = 'rgba(255, 255, 255, 0)';
 
@@ -23,8 +25,10 @@ const OPEN_BLUE_OPPOSITE = 'rgba(255, 102, 51, 1)';
 
 export {
   BLACK,
+  BLACK_20,
   BLACK_PALE,
   WHITE,
+  WHITE_20,
   WHITE_PALE,
   TRANSPARENT,
   TURQUAZ,
