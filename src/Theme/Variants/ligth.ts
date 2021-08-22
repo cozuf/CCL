@@ -8,6 +8,7 @@ import {
   ColorShceme,
   CommonColorScheme,
   IconColorScheme,
+  ModalColorScheme,
   PageContainerColorScheme,
   RadioButtonColorScheme,
   RadioButtonGroupColorScheme,
