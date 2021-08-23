@@ -110,4 +110,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// TODO: Loading Modal Yapılacak
+// TODO: Loading Modal Yapılacak spinner text
