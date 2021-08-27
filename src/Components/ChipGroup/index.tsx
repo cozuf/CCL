@@ -20,10 +20,10 @@ export interface IChipGroupProps<ItemT> {
    */
   onSelect: (item: ItemT, index: number) => void;
 
-  /**
-   * invokes when selection complete and press submit button
-   */
-  onSubmit?: (selectedData: ReadonlyArray<ItemT>) => void;
+  // /**
+  //  * invokes when selection complete and press submit button
+  //  */
+  // onSubmit?: (selectedData: ReadonlyArray<ItemT>) => void;
 
   /**
    * callback if you want render custom item
@@ -40,7 +40,7 @@ export type IChipGroupTypes = IChipGroupProps<any> &
 const ChipGroup: FC<IChipGroupTypes> = ({
   data,
   onSelect,
-  onSubmit,
+  // onSubmit,
   renderItem,
 }) => {
   const [nData, setNData] = useState(data);
@@ -51,13 +51,13 @@ const ChipGroup: FC<IChipGroupTypes> = ({
       selected: i === index ? !v.selected : v.selected,
     }));
     setNData(tData);
-    const sData = tData.filter(item => item.selected);
+    // const sData = tData.filter(item => item.selected);
     if (typeof onSelect === 'function') {
       onSelect(tData[index], index);
     }
-    if (typeof onSubmit === 'function') {
-      onSubmit(sData);
-    }
+    // if (typeof onSubmit === 'function') {
+    //   onSubmit(sData);
+    // }
   };
   const customRenderItem = (
     item: any,
@@ -88,4 +88,3 @@ export default ChipGroup;
 
 // TODO: Buraya tekrar bak
 // TODO: maxchoice minchoice ekle
-
