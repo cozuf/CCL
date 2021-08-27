@@ -40,8 +40,16 @@ const RadioButtonGroup: FC<IRadioButtonGroupTypes> = ({
     const tData = nData.map((v, i) => ({...v, selected: i === index}));
     setNData(tData);
     const sData = tData.filter(item => item.selected);
-    onSelect(sData[0], index);
+    if (typeof onSelect === 'function') {
+      onSelect(sData[0], index);
+    } else {
+      console.error("'onSelect' is undefined");
+    }
   };
+
+  // useEffect(() => {
+  //   setNData(data);
+  // }, [data]);
 
   /**
    * warning useeffect
