@@ -34,7 +34,7 @@ const SearchBar: FC<ISearchBarTypes> = ({
       title={title}
       value={value}
       onChangeText={text => {
-        if (text.length >= minimumCharToInvoke) {
+        if (text.length >= minimumCharToInvoke || text.length === 0) {
           onSearch(text);
         }
       }}
@@ -50,3 +50,5 @@ const SearchBar: FC<ISearchBarTypes> = ({
 };
 
 export default SearchBar;
+
+// TODO: Belki onClear ayırılabilir
