@@ -16,17 +16,16 @@ const Vertical: FC<IVerticalProps> = ({
     if (typeof width === 'number') {
       return width;
     }
-    if (typeof width === 'string') {
-      return width;
-    }
     switch (width) {
       case 'small':
-      default:
         return 2;
       case 'medium':
         return 4;
       case 'high':
         return 8;
+    }
+    if (typeof width === 'string') {
+      return width;
     }
   };
   return (

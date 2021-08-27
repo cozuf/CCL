@@ -16,17 +16,16 @@ const Horizontal: FC<IHorizontalProps> = ({
     if (typeof height === 'number') {
       return height;
     }
-    if (typeof height === 'string') {
-      return height;
-    }
     switch (height) {
       case 'small':
-      default:
         return 2;
       case 'medium':
         return 4;
       case 'high':
         return 8;
+    }
+    if (typeof height === 'string') {
+      return height;
     }
   };
   return (
