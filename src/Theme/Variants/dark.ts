@@ -23,6 +23,7 @@ import {
   PageContainerColorScheme,
   RadioButtonColorScheme,
   RadioButtonGroupColorScheme,
+  SelectBoxColorScheme,
   TextColorScheme,
   TextInputColorScheme,
 } from './type';
@@ -233,6 +234,21 @@ const modal: ModalColorScheme = {
   shadow: WHITE,
 };
 
+const selectBox: SelectBoxColorScheme = {
+  active: {
+    background: BLACK,
+    border: WHITE,
+    title: WHITE,
+    placeholder: WHITE,
+  },
+  passive: {
+    background: BLACK_PALE,
+    border: WHITE_PALE,
+    title: WHITE_PALE,
+    placeholder: WHITE_PALE,
+  },
+};
+
 const dark: ColorShceme = {
   common,
   pageContainer,
@@ -248,6 +264,7 @@ const dark: ColorShceme = {
   chipGroup,
   badge,
   modal,
+  selectBox,
 };
 
 export default dark;

@@ -239,6 +239,21 @@ export interface ModalColorScheme {
   shadow: ColorValue;
 }
 
+export interface SelectBoxColorScheme {
+  active: {
+    background: ColorValue;
+    border: ColorValue;
+    title: ColorValue;
+    placeholder: ColorValue;
+  };
+  passive: {
+    background: ColorValue;
+    border: ColorValue;
+    title: ColorValue;
+    placeholder: ColorValue;
+  };
+}
+
 export interface ColorShceme {
   common: CommonColorScheme;
   pageContainer: PageContainerColorScheme;
@@ -254,4 +269,5 @@ export interface ColorShceme {
   chipGroup: ChipGroupColorScheme;
   badge: BadgeColorScheme;
   modal: ModalColorScheme;
+  selectBox: SelectBoxColorScheme;
 }
