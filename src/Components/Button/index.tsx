@@ -52,7 +52,7 @@ export interface IButtonProps {
   /**
    * invokes when long press
    */
-  onLongPress: () => void;
+  onLongPress?: () => void;
 
   /**
    *
