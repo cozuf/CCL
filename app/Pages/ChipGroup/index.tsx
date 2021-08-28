@@ -111,9 +111,6 @@ const ChipGroupPage = () => {
         onSelect={(item, index) => {
           console.log({item, index});
         }}
-        onSubmit={selectedData => {
-          console.log({selectedData});
-        }}
       />
     </PageContainer>
   );
