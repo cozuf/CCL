@@ -35,7 +35,7 @@ export interface IDateTimePickerProps {
    */
   onDateChange: (date: Date) => void;
 
-  onSubmit: (date: Date) => void;
+  onSubmit?: (date: Date) => void;
 }
 
 type IDateTimePickerTypes = IDateTimePickerProps &
