@@ -26,11 +26,22 @@ export interface ITextProps {
    * @see https://reactnative.dev/docs/text#style
    */
   style?: StyleProp<TextStyle>;
+
+  onPress?: () => void;
+  onLongPress?: () => void;
 }
 
-export type ITextTypes = ITextProps & Omit<NativeTextProps, 'style'>;
+export type ITextTypes = ITextProps &
+  Omit<NativeTextProps, 'style' | 'onPress' | 'onLongPress'>;
 
-const Text: FC<ITextTypes> = ({active = true, style, children, ...props}) => {
+const Text: FC<ITextTypes> = ({
+  active = true,
+  style,
+  onPress,
+  onLongPress,
+  children,
+  ...props
+}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const COLOR = isDarkMode
     ? active
@@ -41,6 +52,16 @@ const Text: FC<ITextTypes> = ({active = true, style, children, ...props}) => {
     : light.text?.passive;
   return (
     <NativeText
+      onPress={() => {
+        if (active && typeof onPress === 'function') {
+          onPress();
+        }
+      }}
+      onLongPress={() => {
+        if (active && typeof onLongPress === 'function') {
+          onLongPress();
+        }
+      }}
       style={[{fontFamily: FONTS.regular, color: COLOR}, style]}
       {...props}>
       {children}

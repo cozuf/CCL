@@ -16,22 +16,51 @@ const ACTIVE_DATA = [
 
 const TextPage = () => {
   const [active, setActive] = useState<boolean>(true);
+
+  const onPress = () => {
+    console.warn('onPress');
+  };
+
+  const onLongPress = () => {
+    console.warn('onLongPress');
+  };
+
   return (
     <PageContainer type="Scroll" bounces={false}>
       <View>
-        <Text active={active} style={[styles.light, styles.common]}>
+        <Text
+          onPress={onPress}
+          onLongPress={onLongPress}
+          active={active}
+          style={[styles.light, styles.common]}>
           {'Light'}
         </Text>
-        <Text active={active} style={[styles.regular, styles.common]}>
+        <Text
+          onPress={onPress}
+          onLongPress={onLongPress}
+          active={active}
+          style={[styles.regular, styles.common]}>
           {'Regular'}
         </Text>
-        <Text active={active} style={[styles.medium, styles.common]}>
+        <Text
+          onPress={onPress}
+          onLongPress={onLongPress}
+          active={active}
+          style={[styles.medium, styles.common]}>
           {'Medium'}
         </Text>
-        <Text active={active} style={[styles.semibold, styles.common]}>
+        <Text
+          onPress={onPress}
+          onLongPress={onLongPress}
+          active={active}
+          style={[styles.semibold, styles.common]}>
           {'SemiBold'}
         </Text>
-        <Text active={active} style={[styles.bold, styles.common]}>
+        <Text
+          onPress={onPress}
+          onLongPress={onLongPress}
+          active={active}
+          style={[styles.bold, styles.common]}>
           {'Bold'}
         </Text>
       </View>

@@ -50,6 +50,11 @@ export interface IButtonProps {
   onPress: () => void;
 
   /**
+   * invokes when long press
+   */
+  onLongPress: () => void;
+
+  /**
    *
    */
   icon?: IIconProps | ReactNode;
@@ -72,8 +77,8 @@ export interface IButtonProps {
 
 export type IButtonTypes = IButtonProps &
   (
-    | Omit<TouchableOpacityProps, 'onPress' | 'style'>
-    | Omit<PressableProps, 'onPress' | 'style'>
+    | Omit<TouchableOpacityProps, 'onPress' | 'style' | 'onLongPress'>
+    | Omit<PressableProps, 'onPress' | 'style' | 'onLongPress'>
   );
 
 const Button: FC<IButtonTypes> = ({
@@ -86,6 +91,7 @@ const Button: FC<IButtonTypes> = ({
   titleStyle,
   containerStyle,
   onPress = () => {},
+  onLongPress = () => {},
   ...props
 }) => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -232,7 +238,10 @@ const Button: FC<IButtonTypes> = ({
 
   const renderTitle = () => {
     return (
-      <Text style={[{color: titleColor()}, styles.title, titleStyle]}>
+      <Text
+        onPress={onPress}
+        onLongPress={onLongPress}
+        style={[{color: titleColor()}, styles.title, titleStyle]}>
         {title}
       </Text>
     );
@@ -259,6 +268,7 @@ const Button: FC<IButtonTypes> = ({
       <TouchableOpacity
         activeOpacity={0.5}
         onPress={onPress}
+        onLongPress={onLongPress}
         style={[
           renderContainerStyle(),
           wrap !== 'free'
@@ -292,6 +302,7 @@ const Button: FC<IButtonTypes> = ({
             props.onPressOut(e);
           }
         }}
+        onLongPress={onLongPress}
         style={[
           renderContainerStyle(),
           wrap !== 'free'
