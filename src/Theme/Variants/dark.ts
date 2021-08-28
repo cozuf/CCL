@@ -18,6 +18,7 @@ import {
   ChipGroupColorScheme,
   ColorShceme,
   CommonColorScheme,
+  DateTimePickerColorScheme,
   IconColorScheme,
   ModalColorScheme,
   PageContainerColorScheme,
@@ -249,6 +250,22 @@ const selectBox: SelectBoxColorScheme = {
   },
 };
 
+const dateTimePicker: DateTimePickerColorScheme = {
+  active: {
+    background: BLACK,
+    border: WHITE,
+    title: WHITE,
+    placeholder: WHITE,
+    pickerText: WHITE,
+  },
+  passive: {
+    background: BLACK_PALE,
+    border: WHITE_PALE,
+    title: WHITE_PALE,
+    placeholder: WHITE_PALE,
+  },
+};
+
 const dark: ColorShceme = {
   common,
   pageContainer,
@@ -265,6 +282,7 @@ const dark: ColorShceme = {
   badge,
   modal,
   selectBox,
+  dateTimePicker,
 };
 
 export default dark;

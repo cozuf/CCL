@@ -32,6 +32,7 @@ import SearchBarPage from '../Pages/SearchBar';
 import ModalPage from '../Pages/Modal';
 import SelectBoxPage from '../Pages/SelectBox';
 import SelectBoxSelectPage from '../../src/Components/SelectBox/Page';
+import DateTimePickerPage from '../Pages/DateTimePicker';
 
 //#endregion
 
@@ -143,6 +144,10 @@ const Router = () => {
       <Stack.Screen
         name={PAGES_NAMES.SelectPage}
         component={SelectBoxSelectPage}
+      />
+      <Stack.Screen
+        name={PAGES_NAMES.DateTimePickerPage}
+        component={DateTimePickerPage}
       />
     </Stack.Navigator>
   );

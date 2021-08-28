@@ -18,6 +18,7 @@ const PAGES_NAMES = {
   ModalPage: 'ModalPage',
   SelectBoxPage: 'SelectBoxPage',
   SelectPage: 'SelectPage',
+  DateTimePickerPage: 'DateTimePickerPage',
 };
 
 export {PAGES_NAMES};

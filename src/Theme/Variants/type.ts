@@ -254,6 +254,22 @@ export interface SelectBoxColorScheme {
   };
 }
 
+export interface DateTimePickerColorScheme {
+  active: {
+    background: ColorValue;
+    border: ColorValue;
+    title: ColorValue;
+    placeholder: ColorValue;
+    pickerText: ColorValue;
+  };
+  passive: {
+    background: ColorValue;
+    border: ColorValue;
+    title: ColorValue;
+    placeholder: ColorValue;
+  };
+}
+
 export interface ColorShceme {
   common: CommonColorScheme;
   pageContainer: PageContainerColorScheme;
@@ -270,4 +286,5 @@ export interface ColorShceme {
   badge: BadgeColorScheme;
   modal: ModalColorScheme;
   selectBox: SelectBoxColorScheme;
+  dateTimePicker: DateTimePickerColorScheme;
 }
