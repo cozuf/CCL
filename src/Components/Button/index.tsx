@@ -238,10 +238,7 @@ const Button: FC<IButtonTypes> = ({
 
   const renderTitle = () => {
     return (
-      <Text
-        onPress={onPress}
-        onLongPress={onLongPress}
-        style={[{color: titleColor()}, styles.title, titleStyle]}>
+      <Text style={[{color: titleColor()}, styles.title, titleStyle]}>
         {title}
       </Text>
     );
