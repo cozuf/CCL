@@ -73,6 +73,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'Modal',
     navigation: 'ModalPage',
   },
+  {
+    name: 'SelectBox',
+    navigation: 'SelectBoxPage',
+  },
 ];
 
 const MainPage = () => {

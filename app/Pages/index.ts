@@ -16,6 +16,8 @@ const PAGES_NAMES = {
   ImagePage: 'ImagePage',
   SearchBarPage: 'SearchBarPage',
   ModalPage: 'ModalPage',
+  SelectBoxPage: 'SelectBoxPage',
+  SelectPage: 'SelectPage',
 };
 
 export {PAGES_NAMES};

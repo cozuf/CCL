@@ -30,6 +30,8 @@ import {ParamListBase} from '@react-navigation/routers';
 import ImagePage from '../Pages/Image';
 import SearchBarPage from '../Pages/SearchBar';
 import ModalPage from '../Pages/Modal';
+import SelectBoxPage from '../Pages/SelectBox';
+import SelectBoxSelectPage from '../../src/Components/SelectBox/Page';
 
 //#endregion
 
@@ -134,6 +136,14 @@ const Router = () => {
         component={SearchBarPage}
       />
       <Stack.Screen name={PAGES_NAMES.ModalPage} component={ModalPage} />
+      <Stack.Screen
+        name={PAGES_NAMES.SelectBoxPage}
+        component={SelectBoxPage}
+      />
+      <Stack.Screen
+        name={PAGES_NAMES.SelectPage}
+        component={SelectBoxSelectPage}
+      />
     </Stack.Navigator>
   );
 };

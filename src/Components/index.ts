@@ -20,6 +20,8 @@ import ChipGroup, {IChipGroupProps, IChipGroupTypes} from './ChipGroup';
 import Badge, {IBadgeProps} from './Badge';
 import SearchBar, {ISearchBarProps, ISearchBarTypes} from './SearchBar';
 import Modal, {IModalProps, IModalTypes} from './Modal';
+import SelectBox, {ISelectBoxProps, ISelectBoxTypes} from './SelectBox';
+import Seperator from './Seperator';
 
 export {
   Text,
@@ -38,6 +40,8 @@ export {
   Badge,
   SearchBar,
   Modal,
+  SelectBox,
+  Seperator,
 };
 export type {
   ITextProps,
@@ -64,4 +68,6 @@ export type {
   ISearchBarTypes,
   IModalProps,
   IModalTypes,
+  ISelectBoxProps,
+  ISelectBoxTypes,
 };
