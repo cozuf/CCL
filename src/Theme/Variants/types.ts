@@ -270,7 +270,7 @@ export interface DateTimePickerColorScheme {
   };
 }
 
-export interface SwitchColorScheme {
+export interface SwitchComponentColorScheme {
   active: {
     border: ColorValue;
     background: ColorValue;
@@ -304,5 +304,5 @@ export interface ColorShceme {
   modal: ModalColorScheme;
   selectBox: SelectBoxColorScheme;
   dateTimePicker: DateTimePickerColorScheme;
-  switch: SwitchColorScheme;
+  switchComponent: SwitchComponentColorScheme;
 }

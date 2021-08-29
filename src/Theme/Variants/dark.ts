@@ -28,7 +28,7 @@ import {
   RadioButtonColorScheme,
   RadioButtonGroupColorScheme,
   SelectBoxColorScheme,
-  SwitchColorScheme,
+  SwitchComponentColorScheme,
   TextColorScheme,
   TextInputColorScheme,
 } from './types';
@@ -270,7 +270,7 @@ const dateTimePicker: DateTimePickerColorScheme = {
   },
 };
 
-const switchColors: SwitchColorScheme = {
+const switchColors: SwitchComponentColorScheme = {
   active: {
     border: WHITE,
     background: BLACK,
@@ -304,7 +304,7 @@ const dark: ColorShceme = {
   modal,
   selectBox,
   dateTimePicker,
-  switch: switchColors,
+  switchComponent: switchColors,
 };
 
 export default dark;
