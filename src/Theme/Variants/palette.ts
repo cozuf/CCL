@@ -5,6 +5,7 @@ const WHITE = 'rgba(255, 255, 255, 1)';
 const WHITE_20 = 'rgba(255, 255, 255, 0.2)';
 const WHITE_PALE = 'rgba(255, 255, 255, 0.5)';
 const TRANSPARENT = 'rgba(255, 255, 255, 0)';
+const GREY = 'rgba(191, 191, 191, 1)';
 
 const TURQUAZ = 'rgba(51, 255, 255, 1)';
 const TURQUAZ_PALE = 'rgba(51, 255, 255, 0.5)';
@@ -22,6 +23,10 @@ const RED_OPPOSITE = 'rgba(51, 255, 255, 1)';
 const OPEN_BLUE = 'rgba(0, 153, 204, 1)';
 const OPEN_BLUE_PALE = 'rgba(0, 153, 204, 0.5)';
 const OPEN_BLUE_OPPOSITE = 'rgba(255, 102, 51, 1)';
+const OPEN_BLUE_OPPOSITE_PALE = 'rgba(255, 102, 51, 0.5)';
+
+const GREEN = 'rgba(0, 128, 0, 1)';
+const GREEN_PALE = 'rgba(0, 128, 0, 0.5)';
 
 export {
   BLACK,
@@ -31,6 +36,7 @@ export {
   WHITE_20,
   WHITE_PALE,
   TRANSPARENT,
+  GREY,
   TURQUAZ,
   TURQUAZ_PALE,
   TURQUAZ_OPPOSITE,
@@ -44,4 +50,7 @@ export {
   OPEN_BLUE,
   OPEN_BLUE_PALE,
   OPEN_BLUE_OPPOSITE,
+  OPEN_BLUE_OPPOSITE_PALE,
+  GREEN,
+  GREEN_PALE,
 };

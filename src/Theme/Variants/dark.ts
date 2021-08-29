@@ -1,6 +1,9 @@
 import {
   BLACK,
   BLACK_PALE,
+  GREEN,
+  GREEN_PALE,
+  GREY,
   ORANGE,
   ORANGE_OPPOSITE,
   ORANGE_PALE,
@@ -25,9 +28,10 @@ import {
   RadioButtonColorScheme,
   RadioButtonGroupColorScheme,
   SelectBoxColorScheme,
+  SwitchColorScheme,
   TextColorScheme,
   TextInputColorScheme,
-} from './type';
+} from './types';
 
 const common: CommonColorScheme = {
   primary: BLACK,
@@ -266,6 +270,23 @@ const dateTimePicker: DateTimePickerColorScheme = {
   },
 };
 
+const switchColors: SwitchColorScheme = {
+  active: {
+    border: WHITE,
+    background: BLACK,
+    backgroundOn: GREEN,
+    backgroundOff: GREY,
+    thumb: ORANGE,
+  },
+  passive: {
+    border: WHITE_PALE,
+    background: BLACK_PALE,
+    backgroundOn: GREEN_PALE,
+    backgroundOff: GREY,
+    thumb: ORANGE_PALE,
+  },
+};
+
 const dark: ColorShceme = {
   common,
   pageContainer,
@@ -283,6 +304,7 @@ const dark: ColorShceme = {
   modal,
   selectBox,
   dateTimePicker,
+  switch: switchColors,
 };
 
 export default dark;

@@ -16,11 +16,15 @@ import {
   SelectBoxColorScheme,
   TextColorScheme,
   TextInputColorScheme,
-} from './type';
+  SwitchColorScheme,
+} from './types';
 import {
   BLACK,
   BLACK_20,
   BLACK_PALE,
+  GREEN,
+  GREEN_PALE,
+  GREY,
   OPEN_BLUE,
   OPEN_BLUE_OPPOSITE,
   OPEN_BLUE_PALE,
@@ -266,6 +270,23 @@ const dateTimePicker: DateTimePickerColorScheme = {
   },
 };
 
+const switchColors: SwitchColorScheme = {
+  active: {
+    border: BLACK,
+    background: WHITE,
+    backgroundOn: GREEN,
+    backgroundOff: GREY,
+    thumb: OPEN_BLUE,
+  },
+  passive: {
+    border: BLACK_PALE,
+    background: WHITE_PALE,
+    backgroundOn: GREEN_PALE,
+    backgroundOff: GREY,
+    thumb: OPEN_BLUE_PALE,
+  },
+};
+
 const light: ColorShceme = {
   common,
   pageContainer,
@@ -283,6 +304,7 @@ const light: ColorShceme = {
   modal,
   selectBox,
   dateTimePicker,
+  switch: switchColors,
 };
 
 export default light;
