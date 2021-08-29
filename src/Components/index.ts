@@ -23,6 +23,7 @@ import Modal, {IModalProps, IModalTypes} from './Modal';
 import SelectBox, {ISelectBoxProps, ISelectBoxTypes} from './SelectBox';
 import Seperator from './Seperator';
 import DateTimePicker from './DateTimePicker';
+import Switch, {ISwitchProps, ISwitchTypes} from './Switch';
 
 export {
   Text,
@@ -44,6 +45,7 @@ export {
   SelectBox,
   Seperator,
   DateTimePicker,
+  Switch,
 };
 export type {
   ITextProps,
@@ -72,4 +74,6 @@ export type {
   IModalTypes,
   ISelectBoxProps,
   ISelectBoxTypes,
+  ISwitchProps,
+  ISwitchTypes,
 };

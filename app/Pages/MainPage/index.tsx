@@ -81,6 +81,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'DateTimePicker',
     navigation: 'DateTimePickerPage',
   },
+  {
+    name: 'Switch',
+    navigation: 'SwitchPage',
+  },
 ];
 
 const MainPage = () => {

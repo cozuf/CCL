@@ -33,6 +33,7 @@ import ModalPage from '../Pages/Modal';
 import SelectBoxPage from '../Pages/SelectBox';
 import SelectBoxSelectPage from '../../src/Components/SelectBox/Page';
 import DateTimePickerPage from '../Pages/DateTimePicker';
+import SwitchPage from '../Pages/Switch';
 
 //#endregion
 
@@ -149,6 +150,7 @@ const Router = () => {
         name={PAGES_NAMES.DateTimePickerPage}
         component={DateTimePickerPage}
       />
+      <Stack.Screen name={PAGES_NAMES.SwitchPage} component={SwitchPage} />
     </Stack.Navigator>
   );
 };
