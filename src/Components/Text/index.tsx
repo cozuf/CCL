@@ -1,11 +1,14 @@
 import React, {FC} from 'react';
 import {
   Omit,
+  StyleProp,
   Text as NativeText,
   TextProps as NativeTextProps,
-  TextStyle,
+  TextStyle as NativeTextStyle,
 } from 'react-native';
 import {useThemeContext} from '../../Context/ThemeContext';
+
+type TextStyle = Omit<NativeTextStyle, 'fontFamily' | 'fontWeight'>;
 
 export interface ITextProps {
   /**
@@ -27,7 +30,7 @@ export interface ITextProps {
   /**
    * @see https://reactnative.dev/docs/text#style
    */
-  style?: Omit<TextStyle, 'fontFamily' | 'fontWeight'>;
+  style?: StyleProp<TextStyle>;
 
   onPress?: () => void;
   onLongPress?: () => void;
