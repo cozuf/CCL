@@ -5,6 +5,7 @@ import {
   SwitchProps,
   Omit,
   StyleSheet,
+  ViewStyle,
 } from 'react-native';
 import {Text} from '..';
 import {useThemeContext} from '../../Context/ThemeContext';
@@ -14,6 +15,7 @@ export interface ISwitchProps {
   title: string;
   value: boolean;
   onValueChange: (value: boolean) => void;
+  containerStyle?: ViewStyle;
   //   backgroundColorOn?: ColorValue;
   //   backgroundColorOff?: ColorValue;
   //   thumbcolor?: ColorValue;
@@ -35,6 +37,7 @@ const Switch: FC<ISwitchTypes> = ({
   title = 'Başlık',
   value = false,
   onValueChange = () => {},
+  containerStyle,
   //   backgroundColorOn,
   //   backgroundColorOff,
   //   thumbcolor,
@@ -46,6 +49,7 @@ const Switch: FC<ISwitchTypes> = ({
     <View
       style={[
         styles.container,
+        containerStyle,
         {
           backgroundColor:
             switchComponent[active ? 'active' : 'passive'].background,
