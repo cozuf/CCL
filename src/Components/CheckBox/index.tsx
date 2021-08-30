@@ -1,8 +1,8 @@
 import React, {FC, isValidElement, useState} from 'react';
-import {StyleSheet, TouchableOpacity, useColorScheme, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Icon, IIconProps, Text} from '..';
+import {useThemeContext} from '../../Context/ThemeContext';
 import {TOKENS} from '../../Theme';
-import {dark, light} from '../../Theme/Variants';
 
 export interface ICheckBoxProps {
   /**
@@ -48,7 +48,9 @@ const CheckBox: FC<ICheckBoxProps> = ({
   onSelect,
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(selected);
-  const isDarkMode = useColorScheme() === 'dark';
+  const [theme] = useThemeContext();
+  const {checkBox} = theme.colors;
+
   const renderIcon = (): React.ReactElement | null => {
     if (iconSet) {
       if (selected) {
@@ -72,13 +74,9 @@ const CheckBox: FC<ICheckBoxProps> = ({
           style={[
             styles.iconContainer,
             {
-              borderColor: isDarkMode
-                ? dark.checkBox[active ? 'active' : 'passive'].iconBorder
-                : light.checkBox[active ? 'active' : 'passive'].iconBorder,
+              borderColor: checkBox[active ? 'active' : 'passive'].iconBorder,
               backgroundColor: isSelected
-                ? isDarkMode
-                  ? dark.checkBox[active ? 'active' : 'passive'].iconBorder
-                  : light.checkBox[active ? 'active' : 'passive'].iconBorder
+                ? checkBox[active ? 'active' : 'passive'].iconBorder
                 : 'transparent',
             },
           ]}>
@@ -87,11 +85,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
               family="Feather"
               name="check"
               size={16}
-              color={
-                isDarkMode
-                  ? dark.checkBox[active ? 'active' : 'passive'].icon
-                  : light.checkBox[active ? 'active' : 'passive'].icon
-              }
+              color={checkBox[active ? 'active' : 'passive'].icon}
             />
           ) : null}
         </View>
@@ -114,9 +108,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
       style={[
         styles.container,
         {
-          borderBottomColor: isDarkMode
-            ? dark.checkBox[active ? 'active' : 'passive'].border
-            : light.checkBox[active ? 'active' : 'passive'].border,
+          borderBottomColor: checkBox[active ? 'active' : 'passive'].border,
         },
       ]}
       onPress={() => {
