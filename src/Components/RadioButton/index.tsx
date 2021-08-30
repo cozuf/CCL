@@ -1,9 +1,9 @@
 import React, {FC, isValidElement, ReactNode, useState} from 'react';
-import {StyleSheet, useColorScheme, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Icon, IIconProps, Text} from '..';
+import {useThemeContext} from '../../Context/ThemeContext';
 import {TOKENS} from '../../Theme';
-import {dark, light} from '../../Theme/Variants';
 
 export interface IRadionButtonProps {
   /**
@@ -60,7 +60,8 @@ const RadioButton: FC<IRadionButtonProps> = ({
   onSelect,
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(selected);
-  const isDarkMode = useColorScheme() === 'dark';
+  const [theme] = useThemeContext();
+  const {radioButton} = theme.colors;
 
   const renderIcon = (): React.ReactElement | null => {
     if (iconSet) {
@@ -69,9 +70,7 @@ const RadioButton: FC<IRadionButtonProps> = ({
           return iconSet.selected;
         } else {
           const coreIcon = iconSet.selected as IIconProps;
-          const ICON_COLOR = isDarkMode
-            ? dark.radioButton[active ? 'active' : 'passive'].icon
-            : light.radioButton[active ? 'active' : 'passive'].icon;
+          const ICON_COLOR = radioButton[active ? 'active' : 'passive'].icon;
           return <Icon {...coreIcon} color={ICON_COLOR} />;
         }
       } else {
@@ -79,9 +78,7 @@ const RadioButton: FC<IRadionButtonProps> = ({
           return iconSet.notSelected;
         } else {
           const coreIcon = iconSet.notSelected as IIconProps;
-          const ICON_COLOR = isDarkMode
-            ? dark.radioButton[active ? 'active' : 'passive'].icon
-            : light.radioButton[active ? 'active' : 'passive'].icon;
+          const ICON_COLOR = radioButton[active ? 'active' : 'passive'].icon;
           return <Icon {...coreIcon} color={ICON_COLOR} />;
         }
       }
@@ -92,9 +89,7 @@ const RadioButton: FC<IRadionButtonProps> = ({
 
   const renderTitle = (): React.ReactElement | null => {
     if (title) {
-      const TEXT_COLOR = isDarkMode
-        ? dark.radioButton[active ? 'active' : 'passive'].text
-        : light.radioButton[active ? 'active' : 'passive'].text;
+      const TEXT_COLOR = radioButton[active ? 'active' : 'passive'].text;
       return <Text style={{color: TEXT_COLOR}}>{title}</Text>;
     } else {
       return null;
@@ -108,9 +103,7 @@ const RadioButton: FC<IRadionButtonProps> = ({
       style={[
         styles.container,
         {
-          borderBottomColor: isDarkMode
-            ? dark.radioButton[active ? 'active' : 'passive'].border
-            : light.radioButton[active ? 'active' : 'passive'].border,
+          borderBottomColor: radioButton[active ? 'active' : 'passive'].border,
         },
       ]}
       onPress={() => {
