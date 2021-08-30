@@ -8,13 +8,12 @@ import {
   Omit,
   StyleSheet,
   TouchableOpacity,
-  useColorScheme,
 } from 'react-native';
 import {Seperator, Text} from '..';
-import {dark, light} from '../../Theme/Variants';
 import {NavigationProp} from '@react-navigation/core';
 import {ParamListBase} from '@react-navigation/routers';
 import SelectBoxModal from './Modal';
+import {useThemeContext} from '../../Context/ThemeContext';
 
 export interface ISelectBoxProps<ItemT> {
   /**
@@ -116,11 +115,11 @@ const SelectBox: FC<ISelectBoxTypes> = ({
   navigation,
   page = 'SelectPage',
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
   const [dataList, setDataList] = useState<any[]>(data as any[]);
   const [value, setValue] = useState<string>(searchText || '');
   const [visible, setVisible] = useState<boolean>(false);
-
+  const [theme] = useThemeContext();
+  const {selectBox} = theme.colors;
   const renderModal = () => {
     return (
       <SelectBoxModal
@@ -243,21 +242,15 @@ const SelectBox: FC<ISelectBoxTypes> = ({
       onPress={onPress}
       style={[
         {
-          backgroundColor: isDarkMode
-            ? dark.selectBox[active ? 'active' : 'passive'].background
-            : light.selectBox[active ? 'active' : 'passive'].background,
-          borderColor: isDarkMode
-            ? dark.selectBox[active ? 'active' : 'passive'].border
-            : light.selectBox[active ? 'active' : 'passive'].border,
+          backgroundColor: selectBox[active ? 'active' : 'passive'].background,
+          borderColor: selectBox[active ? 'active' : 'passive'].border,
         },
         styles.container,
       ]}>
       {
         <Text
           style={{
-            color: isDarkMode
-              ? dark.selectBox[active ? 'active' : 'passive'].title
-              : light.selectBox[active ? 'active' : 'passive'].title,
+            color: selectBox[active ? 'active' : 'passive'].title,
           }}>
           {title}
         </Text>
@@ -267,9 +260,7 @@ const SelectBox: FC<ISelectBoxTypes> = ({
         <Text
           numberOfLines={1}
           style={{
-            color: isDarkMode
-              ? dark.selectBox[active ? 'active' : 'passive'].placeholder
-              : light.selectBox[active ? 'active' : 'passive'].placeholder,
+            color: selectBox[active ? 'active' : 'passive'].placeholder,
           }}>
           {renderPlaceholder()}
         </Text>
