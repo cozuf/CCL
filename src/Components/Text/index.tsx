@@ -1,20 +1,22 @@
 import React, {FC} from 'react';
 import {
   Omit,
-  StyleProp,
   Text as NativeText,
   TextProps as NativeTextProps,
   TextStyle,
-  useColorScheme,
 } from 'react-native';
-import {FONTS} from '../../Assets';
-import {dark, light} from '../../Theme/Variants';
+import {useThemeContext} from '../../Context/ThemeContext';
 
 export interface ITextProps {
   /**
    * Text Sizes
    */
   size?: 'XXS' | 'XS' | 'S' | 'M' | 'L' | 'XL' | 'XXL';
+
+  /**
+   *
+   */
+  weigth?: 'Light' | 'Regular' | 'Medium' | 'SemiBold' | 'Bold';
 
   /**
    * enable or disable
@@ -25,7 +27,7 @@ export interface ITextProps {
   /**
    * @see https://reactnative.dev/docs/text#style
    */
-  style?: StyleProp<TextStyle>;
+  style?: Omit<TextStyle, 'fontFamily' | 'fontWeight'>;
 
   onPress?: () => void;
   onLongPress?: () => void;
@@ -34,24 +36,47 @@ export interface ITextProps {
 export type ITextTypes = ITextProps &
   Omit<NativeTextProps, 'style' | 'onPress' | 'onLongPress'>;
 
-const Text: FC<ITextTypes> = ({active = true, style, children, ...props}) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const COLOR = isDarkMode
-    ? active
-      ? dark.text?.active
-      : dark.text?.passive
-    : active
-    ? light.text?.active
-    : light.text?.passive;
+const Regular: FC<ITextTypes> = ({
+  active = true,
+  weigth = 'Regular',
+  style,
+  children,
+  ...props
+}) => {
+  const [theme] = useThemeContext();
+  const {colors, fonts} = theme;
+  const {text} = colors;
+
+  const defineFont = (): string => {
+    switch (weigth) {
+      case 'Light':
+        return fonts.light;
+      case 'Regular':
+        return fonts.regular;
+      case 'Medium':
+        return fonts.medium;
+      case 'SemiBold':
+        return fonts.semibold;
+      case 'Bold':
+        return fonts.bold;
+    }
+  };
+
   return (
     <NativeText
-      style={[{fontFamily: FONTS.regular, color: COLOR}, style]}
+      style={[
+        {
+          fontFamily: defineFont(),
+          color: text[active ? 'active' : 'passive'],
+        },
+        style,
+      ]}
       {...props}>
       {children}
     </NativeText>
   );
 };
 
-export default Text;
+export default Regular;
 
 // TODO: pasif durum için tıklanmayı engelle

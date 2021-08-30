@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {FONTS} from '../../../src/Assets';
 import {PageContainer, TapSelector, Text} from '../../../src/Components';
 
 const ACTIVE_DATA = [
@@ -32,35 +31,40 @@ const TextPage = () => {
           onPress={onPress}
           onLongPress={onLongPress}
           active={active}
-          style={[styles.light, styles.common]}>
+          style={[styles.common]}
+          weigth="Light">
           {'Light'}
         </Text>
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
           active={active}
-          style={[styles.regular, styles.common]}>
+          style={[styles.common]}
+          weigth="Regular">
           {'Regular'}
         </Text>
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
           active={active}
-          style={[styles.medium, styles.common]}>
+          style={[styles.common]}
+          weigth="Medium">
           {'Medium'}
         </Text>
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
           active={active}
-          style={[styles.semibold, styles.common]}>
+          style={[styles.common]}
+          weigth="SemiBold">
           {'SemiBold'}
         </Text>
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
           active={active}
-          style={[styles.bold, styles.common]}>
+          style={[styles.common]}
+          weigth="Bold">
           {'Bold'}
         </Text>
       </View>
@@ -77,24 +81,6 @@ const TextPage = () => {
 };
 
 const styles = StyleSheet.create({
-  default: {
-    fontFamily: FONTS.default,
-  },
-  light: {
-    fontFamily: FONTS.light,
-  },
-  regular: {
-    fontFamily: FONTS.regular,
-  },
-  medium: {
-    fontFamily: FONTS.medium,
-  },
-  semibold: {
-    fontFamily: FONTS.semibold,
-  },
-  bold: {
-    fontFamily: FONTS.bold,
-  },
   common: {
     fontSize: 40,
     textAlign: 'center',
