@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {ColorValue, useColorScheme} from 'react-native';
+import {ColorValue} from 'react-native';
 // @ts-ignore
 import AntDesign from 'react-native-vector-icons/AntDesign';
 // @ts-ignore
@@ -30,7 +30,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 // @ts-ignore
 import Zocial from 'react-native-vector-icons/Zocial';
-import {dark, light} from '../../Theme/Variants';
+import {useThemeContext} from '../../Context/ThemeContext';
 
 export interface IIconProps {
   /**
@@ -80,16 +80,9 @@ const Icon: FC<IIconProps> = ({
   color,
   active = true,
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const COLOR = color
-    ? color
-    : active
-    ? isDarkMode
-      ? dark.icon?.active
-      : light.icon?.active
-    : isDarkMode
-    ? dark.icon?.passive
-    : light.icon?.passive;
+  const [theme] = useThemeContext();
+  const {icon} = theme.colors;
+  const COLOR = color ? color : icon[active ? 'active' : 'passive'];
   switch (family) {
     case 'AntDesign':
       return <AntDesign name={name} size={size} color={COLOR} />;
