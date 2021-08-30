@@ -96,6 +96,7 @@ const Button: FC<IButtonTypes> = ({
   const [pressed, setPressed] = useState<boolean>(false);
   const [theme] = useThemeContext();
   const {button} = theme.colors;
+
   const backgroundColor = (): ColorValue => {
     const BUTTON_FILLED_BACKGROUND =
       button[props.disabled ? 'passive' : 'active'][
