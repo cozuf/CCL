@@ -8,7 +8,6 @@ import {
   ViewStyle,
   StyleSheet,
   FlexAlignType,
-  useColorScheme,
   ColorValue,
   TextStyle,
   Omit,
@@ -16,8 +15,8 @@ import {
 } from 'react-native';
 import {Icon, IIconProps, Text} from '..';
 import {FONTS} from '../../Assets';
+import {useThemeContext} from '../../Context/ThemeContext';
 import {TOKENS} from '../../Theme';
-import {dark, light} from '../../Theme/Variants';
 
 export interface IButtonProps {
   /**
@@ -94,33 +93,24 @@ const Button: FC<IButtonTypes> = ({
   onLongPress = () => {},
   ...props
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
   const [pressed, setPressed] = useState<boolean>(false);
-
+  const [theme] = useThemeContext();
+  const {button} = theme.colors;
   const backgroundColor = (): ColorValue => {
-    const BUTTON_FILLED_BACKGROUND = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].filled.background
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].filled.background;
+    const BUTTON_FILLED_BACKGROUND =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].filled.background;
 
-    const BUTTON_OUTLINED_BACKGROUND = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].outlined.background
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].outlined.background;
+    const BUTTON_OUTLINED_BACKGROUND =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].outlined.background;
 
-    const BUTTON_SIMPLIED_BACKGROUND = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].simplied.background
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].simplied.background;
+    const BUTTON_SIMPLIED_BACKGROUND =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].simplied.background;
 
     switch (type) {
       case 'Filled':
@@ -133,29 +123,21 @@ const Button: FC<IButtonTypes> = ({
   };
 
   const borderColor = (): ColorValue => {
-    const BUTTON_FILLED_BORDER = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].filled.border
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].filled.border;
+    const BUTTON_FILLED_BORDER =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].filled.border;
 
-    const BUTTON_OUTLINED_BORDER = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].outlined.border
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].outlined.border;
+    const BUTTON_OUTLINED_BORDER =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].outlined.border;
 
-    const BUTTON_SIMPLIED_BORDER = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].simplied.border
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].simplied.border;
+    const BUTTON_SIMPLIED_BORDER =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].simplied.border;
+
     switch (type) {
       case 'Filled':
         return BUTTON_FILLED_BORDER;
@@ -167,29 +149,21 @@ const Button: FC<IButtonTypes> = ({
   };
 
   const titleColor = (): ColorValue => {
-    const BUTTON_FILLED_TEXT = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].filled.text
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].filled.text;
+    const BUTTON_FILLED_TEXT =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].filled.text;
 
-    const BUTTON_OUTLINED_TEXT = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].outlined.text
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].outlined.text;
+    const BUTTON_OUTLINED_TEXT =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].outlined.text;
 
-    const BUTTON_SIMPLIED_TEXT = isDarkMode
-      ? dark.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].simplied.text
-      : light.button[props.disabled ? 'passive' : 'active'][
-          pressed ? 'pressed' : 'normal'
-        ].simplied.text;
+    const BUTTON_SIMPLIED_TEXT =
+      button[props.disabled ? 'passive' : 'active'][
+        pressed ? 'pressed' : 'normal'
+      ].simplied.text;
+
     switch (type) {
       case 'Filled':
         return BUTTON_FILLED_TEXT;
