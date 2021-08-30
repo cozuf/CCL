@@ -5,13 +5,12 @@ import {
   View,
   ViewStyle,
   StyleSheet,
-  useColorScheme,
   Omit,
 } from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {useThemeContext} from '../../Context/ThemeContext';
 import {TOKENS} from '../../Theme';
-import {dark, light} from '../../Theme/Variants';
 
 interface IPageContainerProps {
   /**
@@ -43,15 +42,17 @@ const PageContainer: FC<IPageContainerTypes> = ({
   children,
   ...props
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const COLOR = isDarkMode
-    ? dark.pageContainer?.background
-    : light.pageContainer?.background;
+  const [theme] = useThemeContext();
+  const {pageContainer} = theme.colors;
   switch (type) {
     case 'SafeArea':
       return (
         <SafeAreaView
-          style={[styles.view, {backgroundColor: COLOR}, style]}
+          style={[
+            styles.view,
+            {backgroundColor: pageContainer.background},
+            style,
+          ]}
           {...props}>
           {children}
         </SafeAreaView>
@@ -63,7 +64,7 @@ const PageContainer: FC<IPageContainerTypes> = ({
           style={[style]}
           contentContainerStyle={[
             styles.scrollview,
-            {backgroundColor: COLOR},
+            {backgroundColor: pageContainer.background},
             contentContainerStyle,
           ]}
           {...props}>
@@ -73,7 +74,13 @@ const PageContainer: FC<IPageContainerTypes> = ({
     case 'Default':
     default:
       return (
-        <View style={[styles.view, {backgroundColor: COLOR}, style]} {...props}>
+        <View
+          style={[
+            styles.view,
+            {backgroundColor: pageContainer.background},
+            style,
+          ]}
+          {...props}>
           {children}
         </View>
       );
