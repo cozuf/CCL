@@ -22,7 +22,7 @@ import CheckBoxGroupPage from '../Pages/CheckBoxGroup';
 import ChipPage from '../Pages/Chip';
 import ChipGroupPage from '../Pages/ChipGroup';
 import BadgePage from '../Pages/Badge';
-import {Button} from '../../src/Components';
+import {Button, Switch} from '../../src/Components';
 import {NavigationProp} from '@react-navigation/core';
 import {ParamListBase} from '@react-navigation/routers';
 import ImagePage from '../Pages/Image';
@@ -33,16 +33,17 @@ import SelectBoxSelectPage from '../../src/Components/SelectBox/Page';
 import DateTimePickerPage from '../Pages/DateTimePicker';
 import SwitchPage from '../Pages/Switch';
 import {useThemeContext} from '../../src/Context/ThemeContext';
+import {dark, light} from '../../src/Theme/Variants';
 
 //#endregion
 
 const Stack = createStackNavigator();
 
 const Router = () => {
-  const [theme] = useThemeContext();
+  const [theme, setTheme] = useThemeContext();
   const {common, text, pageContainer} = theme.colors;
 
-  const renderHaderLeft = (
+  const renderHeaderLeft = (
     props: StackHeaderLeftButtonProps,
     navigation: NavigationProp<ParamListBase>,
   ): React.ReactNode => {
@@ -89,7 +90,23 @@ const Router = () => {
           },
         },
         headerLeft: (props: StackHeaderLeftButtonProps) => {
-          return renderHaderLeft(props, navigation);
+          return renderHeaderLeft(props, navigation);
+        },
+        headerRight: () => {
+          return (
+            <Switch
+              title={'Koyu Tema'}
+              value={theme.name === 'Dark'}
+              onValueChange={v => {
+                if (v) {
+                  setTheme({name: 'Dark', colors: dark});
+                } else {
+                  setTheme({name: 'Light', colors: light});
+                }
+              }}
+              containerStyle={{paddingVertical: 2}}
+            />
+          );
         },
       })}
       headerMode="screen"

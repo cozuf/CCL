@@ -1,14 +1,7 @@
 import {useNavigation} from '@react-navigation/core';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {FlatList, StyleSheet, View} from 'react-native';
-import {
-  Button,
-  PageContainer,
-  SearchBar,
-  Switch,
-} from '../../../src/Components';
-import {useThemeContext} from '../../../src/Context/ThemeContext';
-import {dark, light} from '../../../src/Theme/Variants';
+import {Button, PageContainer, SearchBar} from '../../../src/Components';
 
 type ComponentListType = {
   name: string;
@@ -100,8 +93,6 @@ const MainPage = () => {
   const [componentList, setComponentList] =
     useState<ComponentListType[]>(COMPONENTS);
 
-  const [theme, setTheme] = useThemeContext();
-  useEffect(() => {}, [theme]);
   return (
     <PageContainer type={'Default'}>
       <View style={{paddingBottom: 16}}>
@@ -128,19 +119,7 @@ const MainPage = () => {
           }}
         />
       </View>
-      <View style={{paddingBottom: 16}}>
-        <Switch
-          title={'Koyu Tema'}
-          value={theme.name === 'Dark'}
-          onValueChange={v => {
-            if (v) {
-              setTheme({name: 'Dark', colors: dark});
-            } else {
-              setTheme({name: 'Light', colors: light});
-            }
-          }}
-        />
-      </View>
+
       <FlatList
         bounces={false}
         keyExtractor={(item, index) => item.name + index.toString()}
