@@ -7,10 +7,9 @@ import {
   Pressable,
   StyleProp,
   StyleSheet,
-  useColorScheme,
   ViewStyle,
 } from 'react-native';
-import {dark, light} from '../../Theme/Variants';
+import {useThemeContext} from '../../Context/ThemeContext';
 
 export interface IModalProps {
   visible: boolean;
@@ -33,7 +32,8 @@ const Modal: FC<IModalTypes> = ({
 }) => {
   const ModalRef = useRef<NativeModal | null>(null);
   const [isVisible, setIsVisible] = useState<boolean>(visible);
-  const isDarkMode = useColorScheme() === 'dark';
+  const [theme] = useThemeContext();
+  const {modal} = theme.colors;
 
   useEffect(() => {
     setIsVisible(visible);
@@ -52,9 +52,7 @@ const Modal: FC<IModalTypes> = ({
         style={[
           styles.outside,
           {
-            backgroundColor: isDarkMode
-              ? dark.modal.outsideBackground
-              : light.modal.outsideBackground,
+            backgroundColor: modal.outsideBackground,
           },
           outsideStyle,
         ]}
@@ -68,10 +66,8 @@ const Modal: FC<IModalTypes> = ({
           style={[
             styles.container,
             {
-              backgroundColor: isDarkMode
-                ? dark.modal.containerBackground
-                : light.modal.containerBackground,
-              shadowColor: isDarkMode ? dark.modal.shadow : light.modal.shadow,
+              backgroundColor: modal.containerBackground,
+              shadowColor: modal.shadow,
             },
             containerStyle,
           ]}>
