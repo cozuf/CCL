@@ -87,4 +87,5 @@ const ChipGroup: FC<IChipGroupTypes> = ({
 export default ChipGroup;
 
 // TODO: Buraya tekrar bak
+// TODO: Styleile ilgili
 // TODO: maxchoice minchoice ekle

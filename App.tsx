@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 // TODO: Tüm comoponentlere testID ekle
 // TODO: Inner Style'ları kaldır
 // TODO: Listelemeli componentlerde searchable'yi unutma
-// TODO: SelectBox componentini tekrar gözden geçir
+// TODO: SelectBox componentini tekrar gözden geçir navigationProps ile ilgili
 // TODO: Tüm comoponentlerde eksikleri tamamla (containerStyle vs.)
 // TODO: Tüm padding, borderWidth, borderRadius belirle color scheme gibi
 // TODO: CheckBoxGroup ve RadioButtonGroup alt borderları kaldır seperator olarak ver
