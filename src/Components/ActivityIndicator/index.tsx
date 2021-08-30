@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {ColorValue, ActivityIndicator, useColorScheme} from 'react-native';
+import {ColorValue, ActivityIndicator} from 'react-native';
 import {
   BallIndicator,
   BarIndicator,
@@ -12,7 +12,7 @@ import {
   WaveIndicator,
   // @ts-ignore
 } from 'react-native-indicators';
-import {dark, light} from '../../Theme/Variants';
+import {useThemeContext} from '../../Context/ThemeContext';
 
 export interface IActivityIndicatorProps {
   /**
@@ -46,12 +46,9 @@ const NActivityIndicator: FC<IActivityIndicatorProps> = ({
   color,
   size = 24,
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
-  const COLOR = color
-    ? color
-    : isDarkMode
-    ? dark.common.active
-    : light.common.active;
+  const [theme] = useThemeContext();
+  const {common} = theme.colors;
+  const COLOR = color ? color : common.active;
   switch (type) {
     case 'BallIndicator':
       return <BallIndicator color={COLOR} size={size} />;
