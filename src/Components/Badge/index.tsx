@@ -1,9 +1,8 @@
 import React, {FC} from 'react';
-import {Platform, StyleSheet, useColorScheme, View} from 'react-native';
+import {Platform, StyleSheet, View} from 'react-native';
 import {Text} from '..';
 import {FONTS} from '../../Assets';
-import {dark, light} from '../../Theme/Variants';
-
+import {useThemeContext} from '../../Context/ThemeContext';
 export interface IBadgeProps {
   /**
    *
@@ -17,7 +16,8 @@ export interface IBadgeProps {
 }
 
 const Badge: FC<IBadgeProps> = ({size = 20, value = 1}) => {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [theme] = useThemeContext();
+  const {badge} = theme.colors;
   const nSize = size < 20 ? 20 : size > 30 ? 30 : size;
   const nValue = typeof value === 'number' ? (value > 9 ? '9+' : value) : value;
   return (
@@ -28,13 +28,11 @@ const Badge: FC<IBadgeProps> = ({size = 20, value = 1}) => {
           height: Platform.OS === 'android' ? nSize : nSize + 6,
           width: Platform.OS === 'android' ? nSize : nSize + 6,
           borderRadius: Platform.OS === 'android' ? nSize / 2 : (nSize + 6) / 2,
-          borderColor: isDarkMode ? dark.badge.border : light.badge.border,
-          backgroundColor: isDarkMode
-            ? dark.badge.background
-            : light.badge.background,
+          borderColor: badge.border,
+          backgroundColor: badge.background,
           ...Platform.select({
             ios: {
-              shadowColor: isDarkMode ? dark.badge.shadow : light.badge.shadow,
+              shadowColor: badge.shadow,
             },
           }),
         },
@@ -44,7 +42,7 @@ const Badge: FC<IBadgeProps> = ({size = 20, value = 1}) => {
           styles.text,
           {
             fontSize: Number(((nSize / 3) * 2).toFixed(0)),
-            color: isDarkMode ? dark.badge.text : light.badge.text,
+            color: badge.text,
           },
         ]}>
         {nValue}
