@@ -12,14 +12,13 @@ import {
   WHITE_20,
   WHITE_PALE,
 } from './palette';
-import {
+import ColorScheme, {
   BadgeColorScheme,
   ButtonColorScheme,
   CheckBoxColorScheme,
   CheckBoxGroupColorScheme,
   ChipColorScheme,
   ChipGroupColorScheme,
-  ColorShceme,
   CommonColorScheme,
   DateTimePickerColorScheme,
   IconColorScheme,
@@ -287,7 +286,7 @@ const switchColors: SwitchComponentColorScheme = {
   },
 };
 
-const dark: ColorShceme = {
+const dark: ColorScheme = {
   common,
   pageContainer,
   text,

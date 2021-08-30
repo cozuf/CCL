@@ -1,11 +1,10 @@
-import {
+import ColorScheme, {
   BadgeColorScheme,
   ButtonColorScheme,
   CheckBoxColorScheme,
   CheckBoxGroupColorScheme,
   ChipColorScheme,
   ChipGroupColorScheme,
-  ColorShceme,
   CommonColorScheme,
   DateTimePickerColorScheme,
   IconColorScheme,
@@ -287,7 +286,7 @@ const switchColors: SwitchComponentColorScheme = {
   },
 };
 
-const light: ColorShceme = {
+const light: ColorScheme = {
   common,
   pageContainer,
   text,

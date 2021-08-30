@@ -287,7 +287,7 @@ export interface SwitchComponentColorScheme {
   };
 }
 
-export default interface ColorShceme {
+export default interface ColorScheme {
   common: CommonColorScheme;
   pageContainer: PageContainerColorScheme;
   text: TextColorScheme;
