@@ -9,14 +9,13 @@ import {
   ColorValue,
   NativeSyntheticEvent,
   TextInputFocusEventData,
-  useColorScheme,
   Platform,
   Pressable,
   Omit,
 } from 'react-native';
 import {Button, Icon, IIconProps, Text} from '..';
+import {useThemeContext} from '../../Context/ThemeContext';
 import {TOKENS} from '../../Theme';
-import {dark, light} from '../../Theme/Variants';
 
 export interface ITextInputProps {
   /**
@@ -128,44 +127,36 @@ const NTextInput: FC<ITextInputTypes> = ({
   isRequired,
   ...props
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [theme] = useThemeContext();
+  const {textInput} = theme.colors;
   const NativeTextInputRef = useRef<TextInput | null>(null);
   const [isFocused, setIsFocused] = useState<boolean>();
 
   const containerBackgroundColor = (): ColorValue => {
-    const CONTAINER_BACKGROUND = isDarkMode
-      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .background
-      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .background;
+    const CONTAINER_BACKGROUND =
+      textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+        .background;
 
     return CONTAINER_BACKGROUND;
   };
 
   const containerBorderColor = (): ColorValue => {
-    const CONTAINER_BORDER_COLOR = isDarkMode
-      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .border
-      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .border;
+    const CONTAINER_BORDER_COLOR =
+      textInput[active ? (isFocused ? 'focused' : 'active') : 'passive'].border;
     return CONTAINER_BORDER_COLOR;
   };
 
   const inputTextColor = (): ColorValue => {
-    const INPUT_TEXT_COLOR = isDarkMode
-      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .inputText
-      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .inputText;
+    const INPUT_TEXT_COLOR =
+      textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+        .inputText;
     return INPUT_TEXT_COLOR;
   };
 
   const titleTextColor = (): ColorValue => {
-    const TITLE_TEXT_COLOR = isDarkMode
-      ? dark.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .titleText
-      : light.textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
-          .titleText;
+    const TITLE_TEXT_COLOR =
+      textInput[active ? (isFocused ? 'focused' : 'active') : 'passive']
+        .titleText;
 
     return TITLE_TEXT_COLOR;
   };
@@ -291,11 +282,7 @@ const NTextInput: FC<ITextInputTypes> = ({
                   onBlur(e);
                 }
               }}
-              selectionColor={
-                isDarkMode
-                  ? dark.textInput.focused.selection
-                  : light.textInput.focused.selection
-              }
+              selectionColor={textInput.focused.selection}
               {...props}
             />
           </View>
@@ -327,4 +314,5 @@ const styles = StyleSheet.create({
   cleanContainer: {},
 });
 
+//  TODO: Warning Button oluştur snackbar ile
 //  TODO: Loading den sonra geliştirlmeye devam edilecek devam edilecek
