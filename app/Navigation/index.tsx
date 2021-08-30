@@ -1,5 +1,4 @@
 import React from 'react';
-import {useColorScheme} from 'react-native';
 import {
   createStackNavigator,
   StackHeaderLeftButtonProps,
@@ -21,7 +20,6 @@ import RadioButtonGroupPage from '../Pages/RadioButtonGroup';
 import CheckBoxPage from '../Pages/CheckBox';
 import CheckBoxGroupPage from '../Pages/CheckBoxGroup';
 import ChipPage from '../Pages/Chip';
-import {dark, light} from '../../src/Theme/Variants';
 import ChipGroupPage from '../Pages/ChipGroup';
 import BadgePage from '../Pages/Badge';
 import {Button} from '../../src/Components';
@@ -34,13 +32,15 @@ import SelectBoxPage from '../Pages/SelectBox';
 import SelectBoxSelectPage from '../../src/Components/SelectBox/Page';
 import DateTimePickerPage from '../Pages/DateTimePicker';
 import SwitchPage from '../Pages/Switch';
+import {useThemeContext} from '../../src/Context/ThemeContext';
 
 //#endregion
 
 const Stack = createStackNavigator();
 
 const Router = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  const [theme] = useThemeContext();
+  const {common, text, pageContainer} = theme.colors;
 
   const renderHaderLeft = (
     props: StackHeaderLeftButtonProps,
@@ -57,7 +57,7 @@ const Router = () => {
         icon={{
           family: 'AntDesign',
           name: 'arrowleft',
-          color: isDarkMode ? dark.common.secondary : light.common.secondary,
+          color: common.secondary,
           size: 24,
         }}
         onPress={() => {
@@ -75,12 +75,10 @@ const Router = () => {
         headerTitleStyle: {
           fontFamily: FONTS.semibold,
           fontWeight: undefined,
-          color: isDarkMode ? dark.text.active : light.text.active,
+          color: text.active,
         },
         headerStyle: {
-          backgroundColor: isDarkMode
-            ? dark.pageContainer.background
-            : light.pageContainer.background,
+          backgroundColor: pageContainer.background,
           elevation: 0,
           shadowColor: 'transparent',
           shadowOpacity: undefined,

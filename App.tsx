@@ -9,39 +9,39 @@
  */
 
 import 'react-native-gesture-handler';
-import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import Router from './app/Navigation';
-import {dark, light} from './src/Theme/Variants';
-import ThemeProvider from './src/Context/ThemeContext';
+import ThemeProvider, {useThemeContext} from './src/Context/ThemeContext';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
   return (
     <ThemeProvider>
       <NavigationContainer>
-        <SafeAreaView style={styles.safeAreaContainer}>
-          <StatusBar
-            backgroundColor={
-              isDarkMode ? dark.common.statusbar : light.common.statusbar
-            }
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          />
-          <Router />
-        </SafeAreaView>
+        <Child />
       </NavigationContainer>
     </ThemeProvider>
   );
 };
 
 export default App;
+
+const Child = () => {
+  const [theme] = useThemeContext();
+  const {common} = theme.colors;
+
+  return (
+    <SafeAreaView
+      style={[styles.safeAreaContainer, {backgroundColor: common.statusbar}]}>
+      <StatusBar
+        backgroundColor={common.statusbar}
+        barStyle={theme.name === 'Dark' ? 'light-content' : 'dark-content'}
+      />
+      <Router />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   safeAreaContainer: {
