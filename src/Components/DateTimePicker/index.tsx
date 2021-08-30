@@ -1,8 +1,8 @@
 import React, {FC, useState} from 'react';
-import {Omit, StyleSheet, TouchableOpacity, useColorScheme} from 'react-native';
+import {Omit, StyleSheet, TouchableOpacity} from 'react-native';
 import RNDatePicker, {DatePickerProps} from 'react-native-date-picker';
 import {Button, Modal, Text} from '..';
-import {dark, light} from '../../Theme/Variants';
+import {useThemeContext} from '../../Context/ThemeContext';
 
 export interface IDateTimePickerProps {
   active?: boolean;
@@ -51,8 +51,9 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
   onSubmit = () => {},
   ...props
 }) => {
-  const isDarkMode = useColorScheme() === 'dark';
   const [visible, setVisible] = useState<boolean>(false);
+  const [theme] = useThemeContext();
+  const {dateTimePicker} = theme.colors;
 
   const renderSubmit = () => {
     return (
@@ -77,11 +78,7 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
           date={date}
           onDateChange={onDateChange}
           mode={mode}
-          textColor={
-            isDarkMode
-              ? (dark.dateTimePicker.active.pickerText as string)
-              : (light.dateTimePicker.active.pickerText as string)
-          }
+          textColor={dateTimePicker.active.pickerText as string}
           {...props}
         />
         {renderSubmit()}
@@ -102,12 +99,9 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
       onPress={onPress}
       style={[
         {
-          backgroundColor: isDarkMode
-            ? dark.dateTimePicker[active ? 'active' : 'passive'].background
-            : light.dateTimePicker[active ? 'active' : 'passive'].background,
-          borderColor: isDarkMode
-            ? dark.dateTimePicker[active ? 'active' : 'passive'].border
-            : light.dateTimePicker[active ? 'active' : 'passive'].border,
+          backgroundColor:
+            dateTimePicker[active ? 'active' : 'passive'].background,
+          borderColor: dateTimePicker[active ? 'active' : 'passive'].border,
         },
         styles.container,
       ]}>
