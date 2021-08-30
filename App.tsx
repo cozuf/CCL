@@ -9,7 +9,7 @@
  */
 
 import 'react-native-gesture-handler';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import Router from './app/Navigation';
