@@ -19,22 +19,25 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import Router from './app/Navigation';
 import {dark, light} from './src/Theme/Variants';
+import ThemeProvider from './src/Context/ThemeContext';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <NavigationContainer>
-      <SafeAreaView style={styles.safeAreaContainer}>
-        <StatusBar
-          backgroundColor={
-            isDarkMode ? dark.common.statusbar : light.common.statusbar
-          }
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        />
-        <Router />
-      </SafeAreaView>
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <SafeAreaView style={styles.safeAreaContainer}>
+          <StatusBar
+            backgroundColor={
+              isDarkMode ? dark.common.statusbar : light.common.statusbar
+            }
+            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          />
+          <Router />
+        </SafeAreaView>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 };
 
@@ -47,6 +50,7 @@ const styles = StyleSheet.create({
 });
 
 // TODO: Tüm comoponentlere testID ekle
+// TODO: Inner Style'ları kaldır
 // TODO: Listelemeli componentlerde searchable'yi unutma
 // TODO: SelectBox componentini tekrar gözden geçir
 // TODO: Tüm comoponentlerde eksikleri tamamla (containerStyle vs.)
@@ -59,3 +63,7 @@ const styles = StyleSheet.create({
 // TODO: Tema Context
 // TODO: Style Context
 // TODO: Language Context
+/**
+ * theme.colors|styles|fonts
+ * setTheme({colors,styles,fonts})
+ */
