@@ -283,6 +283,9 @@ const NTextInput: FC<ITextInputTypes> = ({
                 }
               }}
               selectionColor={textInput.focused.selection}
+              placeholderTextColor={
+                textInput[active ? 'active' : 'passive'].placeholder
+              }
               {...props}
             />
           </View>
@@ -315,5 +318,4 @@ const styles = StyleSheet.create({
 });
 
 //  TODO: Warning Button oluştur snackbar ile
-//  TODO: Temaya placeholder text color ekle
 //  TODO: Loading den sonra geliştirlmeye devam edilecek devam edilecek

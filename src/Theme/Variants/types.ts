@@ -31,6 +31,7 @@ export interface TextInputColorScheme {
     border: ColorValue;
     titleText: ColorValue;
     inputText: ColorValue;
+    placeholder: ColorValue;
   };
   /**
    * Not pressable
@@ -40,6 +41,7 @@ export interface TextInputColorScheme {
     border: ColorValue;
     titleText: ColorValue;
     inputText: ColorValue;
+    placeholder: ColorValue;
   };
   /**
    * focused

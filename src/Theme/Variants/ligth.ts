@@ -60,12 +60,14 @@ const textInput: TextInputColorScheme = {
     inputText: BLACK,
     border: BLACK,
     background: WHITE,
+    placeholder: GREY,
   },
   passive: {
     titleText: BLACK_PALE,
     inputText: BLACK_PALE,
     border: BLACK_PALE,
     background: WHITE_PALE,
+    placeholder: GREY,
   },
   focused: {
     titleText: OPEN_BLUE,
