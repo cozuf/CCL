@@ -1,17 +1,3 @@
-import {
-  BLACK,
-  BLACK_PALE,
-  GREEN,
-  GREEN_PALE,
-  GREY,
-  ORANGE,
-  ORANGE_OPPOSITE,
-  ORANGE_PALE,
-  TRANSPARENT,
-  WHITE,
-  WHITE_20,
-  WHITE_PALE,
-} from './palette';
 import ColorScheme, {
   BadgeColorScheme,
   ButtonColorScheme,
@@ -31,6 +17,20 @@ import ColorScheme, {
   TextColorScheme,
   TextInputColorScheme,
 } from './types';
+import {
+  BLACK,
+  BLACK_PALE,
+  GREEN,
+  GREEN_PALE,
+  GREY,
+  ORANGE,
+  ORANGE_OPPOSITE,
+  ORANGE_PALE,
+  TRANSPARENT,
+  WHITE,
+  WHITE_20,
+  WHITE_PALE,
+} from './palette';
 
 const common: CommonColorScheme = {
   primary: BLACK,
