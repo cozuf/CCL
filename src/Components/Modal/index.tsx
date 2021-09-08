@@ -107,3 +107,5 @@ const styles = StyleSheet.create({
 });
 
 // TODO: Loading Modal Yapılacak spinner text
+// TODO: Yes/No Modal
+// TODO: Warning Modal Only OK
