@@ -34,6 +34,7 @@ import DateTimePickerPage from '../Pages/DateTimePicker';
 import SwitchPage from '../Pages/Switch';
 import {useThemeContext} from '../../src/Context/ThemeContext';
 import {dark, light} from '../../src/Theme/Variants';
+import ColorsPage from '../Pages/Colors';
 
 //#endregion
 
@@ -166,6 +167,7 @@ const Router = () => {
         component={DateTimePickerPage}
       />
       <Stack.Screen name={PAGES_NAMES.SwitchPage} component={SwitchPage} />
+      <Stack.Screen name={PAGES_NAMES.ColorsPage} component={ColorsPage} />
     </Stack.Navigator>
   );
 };

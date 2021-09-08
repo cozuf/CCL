@@ -85,6 +85,10 @@ const COMPONENTS: ComponentListType[] = [
     name: 'Switch',
     navigation: 'SwitchPage',
   },
+  {
+    name: 'Colors',
+    navigation: 'ColorsPage',
+  },
 ];
 
 const MainPage = () => {

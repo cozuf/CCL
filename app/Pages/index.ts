@@ -20,6 +20,7 @@ const PAGES_NAMES = {
   SelectPage: 'SelectPage',
   DateTimePickerPage: 'DateTimePickerPage',
   SwitchPage: 'SwitchPage',
+  ColorsPage: 'ColorsPage',
 };
 
 export {PAGES_NAMES};
