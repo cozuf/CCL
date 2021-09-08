@@ -308,3 +308,6 @@ export default interface ColorScheme {
   dateTimePicker: DateTimePickerColorScheme;
   switchComponent: SwitchComponentColorScheme;
 }
+
+// TODO: SelectBox'a text color ekle placeholder ile text'in rengi farklı olsun
+// TODO: DateTimePicker'a text color ekle placeholder ile text'in rengi farklı olsun
