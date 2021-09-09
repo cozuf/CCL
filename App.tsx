@@ -14,14 +14,17 @@ import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import Router from './app/Navigation';
 import ThemeProvider, {useThemeContext} from './src/Context/ThemeContext';
+import GlobalStateProvider from './src/Context/GlobalStateContext';
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <NavigationContainer>
-        <Child />
-      </NavigationContainer>
-    </ThemeProvider>
+    <GlobalStateProvider>
+      <ThemeProvider>
+        <NavigationContainer>
+          <Child />
+        </NavigationContainer>
+      </ThemeProvider>
+    </GlobalStateProvider>
   );
 };
 
@@ -30,7 +33,6 @@ export default App;
 const Child = () => {
   const [theme] = useThemeContext();
   const {common} = theme.colors;
-
   return (
     <SafeAreaView
       style={[styles.safeAreaContainer, {backgroundColor: common.statusbar}]}>
