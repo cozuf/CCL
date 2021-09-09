@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Switch as RNSwitch} from 'react-native';
 import {PageContainer, Switch} from '../../../src/Components';
 
 const SwitchPage = () => {
@@ -13,6 +14,7 @@ const SwitchPage = () => {
         // backgroundColorOff={'grey'}
         // thumbcolor={'green'}
       />
+      <RNSwitch value={value} onValueChange={setValue} />
     </PageContainer>
   );
 };
