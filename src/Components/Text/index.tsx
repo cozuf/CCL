@@ -41,6 +41,7 @@ export type ITextTypes = ITextProps &
 
 const Regular: FC<ITextTypes> = ({
   active = true,
+  size = 'M',
   weigth = 'Regular',
   style,
   children,
@@ -49,6 +50,25 @@ const Regular: FC<ITextTypes> = ({
   const [theme] = useThemeContext();
   const {colors, fonts} = theme;
   const {text} = colors;
+
+  const defineSize = (): number => {
+    switch (size) {
+      case 'XXS':
+        return 8;
+      case 'XS':
+        return 10;
+      case 'S':
+        return 12;
+      case 'M':
+        return 14;
+      case 'L':
+        return 16;
+      case 'XL':
+        return 18;
+      case 'XXL':
+        return 20;
+    }
+  };
 
   const defineFont = (): string => {
     switch (weigth) {
@@ -70,6 +90,7 @@ const Regular: FC<ITextTypes> = ({
       style={[
         {
           fontFamily: defineFont(),
+          fontSize: defineSize(),
           color: text[active ? 'active' : 'passive'],
         },
         style,

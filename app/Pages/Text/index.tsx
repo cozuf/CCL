@@ -1,6 +1,65 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {PageContainer, TapSelector, Text} from '../../../src/Components';
+import {
+  PageContainer,
+  Seperator,
+  TapSelector,
+  Text,
+} from '../../../src/Components';
+
+const SIZES = [
+  {
+    title: 'XXS',
+    size: 'XXS',
+  },
+  {
+    title: 'XS',
+    size: 'XS',
+  },
+  {
+    title: 'S',
+    size: 'S',
+  },
+  {
+    title: 'M',
+    size: 'M',
+  },
+  {
+    title: 'L',
+    size: 'L',
+  },
+  {
+    title: 'XL',
+    size: 'XL',
+  },
+  {
+    title: 'XXL',
+    size: 'XXL',
+  },
+];
+
+const WEIGHTS = [
+  {
+    title: 'Light',
+    weight: 'Light',
+  },
+  {
+    title: 'Regular',
+    weight: 'Regular',
+  },
+  {
+    title: 'Medium',
+    weight: 'Medium',
+  },
+  {
+    title: 'SemiBold',
+    weight: 'SemiBold',
+  },
+  {
+    title: 'Bold',
+    weight: 'Bold',
+  },
+];
 
 const ACTIVE_DATA = [
   {
@@ -14,7 +73,9 @@ const ACTIVE_DATA = [
 ];
 
 const TextPage = () => {
-  const [active, setActive] = useState<boolean>(true);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [sizeIndex, setSizeIndex] = useState<number>(0);
+  const [weightIndex, setWeightIndex] = useState<number>(0);
 
   const onPress = () => {
     console.warn('onPress');
@@ -30,15 +91,32 @@ const TextPage = () => {
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
-          active={active}
+          size={
+            SIZES[sizeIndex].size as
+              | 'XXS'
+              | 'XS'
+              | 'S'
+              | 'M'
+              | 'L'
+              | 'XL'
+              | 'XXL'
+          }
+          active={ACTIVE_DATA[activeIndex].value}
           style={[styles.common]}
-          weigth="Light">
-          {'Light'}
+          weigth={
+            WEIGHTS[weightIndex].weight as
+              | 'Light'
+              | 'Regular'
+              | 'Medium'
+              | 'SemiBold'
+              | 'Bold'
+          }>
+          {WEIGHTS[weightIndex].title}
         </Text>
-        <Text
+        {/* <Text
           onPress={onPress}
           onLongPress={onLongPress}
-          active={active}
+          active={ACTIVE_DATA[activeIndex].value}
           style={[styles.common]}
           weigth="Regular">
           {'Regular'}
@@ -46,7 +124,7 @@ const TextPage = () => {
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
-          active={active}
+          active={ACTIVE_DATA[activeIndex].value}
           style={[styles.common]}
           weigth="Medium">
           {'Medium'}
@@ -54,7 +132,7 @@ const TextPage = () => {
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
-          active={active}
+          active={ACTIVE_DATA[activeIndex].value}
           style={[styles.common]}
           weigth="SemiBold">
           {'SemiBold'}
@@ -62,17 +140,31 @@ const TextPage = () => {
         <Text
           onPress={onPress}
           onLongPress={onLongPress}
-          active={active}
+          active={ACTIVE_DATA[activeIndex].value}
           style={[styles.common]}
           weigth="Bold">
           {'Bold'}
-        </Text>
+        </Text> */}
       </View>
       <View style={{paddingVertical: 16}}>
         <TapSelector
           data={ACTIVE_DATA}
-          onTap={() => {
-            setActive(!active);
+          onTap={(_, index) => {
+            setActiveIndex(index);
+          }}
+        />
+        <Seperator.Vertical />
+        <TapSelector
+          data={SIZES}
+          onTap={(_, index) => {
+            setSizeIndex(index);
+          }}
+        />
+        <Seperator.Vertical />
+        <TapSelector
+          data={WEIGHTS}
+          onTap={(_, index) => {
+            setWeightIndex(index);
           }}
         />
       </View>
@@ -82,7 +174,6 @@ const TextPage = () => {
 
 const styles = StyleSheet.create({
   common: {
-    fontSize: 40,
     textAlign: 'center',
   },
 });
