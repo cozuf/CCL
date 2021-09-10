@@ -135,7 +135,7 @@ const SelectBoxModal: FC<SelectBoxModalTypes<any>> = ({
   };
 
   return (
-    <Modal
+    <Modal.Default
       visible={visible}
       onTouchOutSide={v => {
         setVisible(v);
@@ -145,7 +145,7 @@ const SelectBoxModal: FC<SelectBoxModalTypes<any>> = ({
       {searchable ? <View style={{height: 8}} /> : null}
       {renderChildren()}
       {renderSubmit()}
-    </Modal>
+    </Modal.Default>
   );
 };
 

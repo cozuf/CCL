@@ -68,7 +68,7 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
 
   const renderModal = () => {
     return (
-      <Modal
+      <Modal.Default
         visible={visible}
         onTouchOutSide={() => {
           setVisible(false);
@@ -82,7 +82,7 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
           {...props}
         />
         {renderSubmit()}
-      </Modal>
+      </Modal.Default>
     );
   };
 
@@ -122,3 +122,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
 });
+
+// TODO: android dark theme düzenle
