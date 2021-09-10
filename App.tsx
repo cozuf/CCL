@@ -61,8 +61,8 @@ const styles = StyleSheet.create({
 // TODO: Örnek Sayfalar da varyantları ekle
 // TODO: Düzenlemsi gereken componentleri unutma
 // TODO: Yapılacak componentler var (modal vs.)
-// TODO: Context Yapısını oluştur
-// TODO: Tema Context
+// Context Yapısını oluştur √
+// Tema Context √
 // TODO: Style Context
 // TODO: Language Context
 /**
