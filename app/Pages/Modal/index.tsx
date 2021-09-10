@@ -1,15 +1,26 @@
 import React, {useState} from 'react';
-import {Button, Modal, PageContainer, Text} from '../../../src/Components';
+import {
+  Button,
+  Modal,
+  PageContainer,
+  Seperator,
+  Text,
+} from '../../../src/Components';
 
 const ModalPage = () => {
-  const [visible, setVisible] = useState<boolean>(false);
-  const renderModal = () => {
+  const [visibleDefault, setVisibleDefault] = useState<boolean>(false);
+  const [visibleLoading, setVisibleLoading] = useState<boolean>(false);
+  const [visibleWarning, setVisibleWarning] = useState<boolean>(false);
+  const [visibleFault, setVisibleFault] = useState<boolean>(false);
+  const [visibleYesNo, setVisibleYesNo] = useState<boolean>(false);
+
+  const renderDefaultModal = () => {
     return (
-      <Modal
-        visible={visible}
+      <Modal.Default
+        visible={visibleDefault}
         containerStyle={{flex: 1}}
         onTouchOutSide={v => {
-          setVisible(v);
+          setVisibleDefault(v);
         }}>
         <Text
           onPress={() => {
@@ -17,19 +28,108 @@ const ModalPage = () => {
           }}>
           Yusuf
         </Text>
-      </Modal>
+      </Modal.Default>
     );
   };
+
+  const renderLoadingModal = () => {
+    return (
+      <Modal.Loading
+        type="UIActivityIndicator"
+        visible={visibleLoading}
+        containerStyle={{flex: 1}}
+      />
+    );
+  };
+
+  const renderWarningModal = () => {
+    return (
+      <Modal.Warning
+        visible={visibleWarning}
+        containerStyle={{flex: 1}}
+        onButtonPress={() => {
+          setVisibleWarning(false);
+        }}
+      />
+    );
+  };
+
+  const renderFaultModal = () => {
+    return (
+      <Modal.Fault
+        visible={visibleFault}
+        containerStyle={{flex: 1}}
+        onButtonPress={() => {
+          setVisibleFault(false);
+        }}
+      />
+    );
+  };
+
+  const renderYesNoModal = () => {
+    return (
+      <Modal.YesNo
+        visible={visibleYesNo}
+        containerStyle={{flex: 1}}
+        onYesButtonPress={() => {
+          setVisibleYesNo(false);
+        }}
+        onNoButtonPress={() => {
+          setVisibleYesNo(false);
+        }}
+      />
+    );
+  };
+
   return (
     <PageContainer type="Default">
       <Button
         childType="Text"
-        title={'ShowModal'}
+        title={'Show Default Modal'}
         onPress={() => {
-          setVisible(true);
+          setVisibleDefault(true);
         }}
       />
-      {renderModal()}
+      <Seperator.Vertical />
+      <Button
+        childType="Text"
+        title={'Show Loading Modal'}
+        onPress={() => {
+          setVisibleLoading(true);
+          setTimeout(() => {
+            setVisibleLoading(false);
+          }, 2000);
+        }}
+      />
+      <Seperator.Vertical />
+      <Button
+        childType="Text"
+        title={'Show Warning Modal'}
+        onPress={() => {
+          setVisibleWarning(true);
+        }}
+      />
+      <Seperator.Vertical />
+      <Button
+        childType="Text"
+        title={'Show Fault Modal'}
+        onPress={() => {
+          setVisibleFault(true);
+        }}
+      />
+      <Seperator.Vertical />
+      <Button
+        childType="Text"
+        title={'Show Yes No Modal'}
+        onPress={() => {
+          setVisibleYesNo(true);
+        }}
+      />
+      {renderDefaultModal()}
+      {renderLoadingModal()}
+      {renderWarningModal()}
+      {renderFaultModal()}
+      {renderYesNoModal()}
     </PageContainer>
   );
 };
