@@ -1,8 +1,8 @@
-import React, {FC, useState} from 'react';
-import {Omit, StyleSheet, TouchableOpacity} from 'react-native';
-import RNDatePicker, {DatePickerProps} from 'react-native-date-picker';
-import {Button, Modal, Text} from '..';
-import {useThemeContext} from '../../Context/ThemeContext';
+import React, { FC, useState } from 'react';
+import { Omit, StyleSheet, TouchableOpacity, useColorScheme } from 'react-native';
+import RNDatePicker, { DatePickerProps } from 'react-native-date-picker';
+import { Button, Modal, Text } from '..';
+import { useThemeContext } from '../../Context/ThemeContext';
 
 export interface IDateTimePickerProps {
   active?: boolean;
@@ -47,13 +47,13 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
   date = new Date(),
   display = 'Modal',
   mode = 'datetime',
-  onDateChange = () => {},
-  onSubmit = () => {},
+  onDateChange = () => { },
+  onSubmit = () => { },
   ...props
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const [theme] = useThemeContext();
-  const {dateTimePicker} = theme.colors;
+  const { dateTimePicker } = theme.colors;
 
   const renderSubmit = () => {
     return (
@@ -73,13 +73,14 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
         onTouchOutSide={() => {
           setVisible(false);
         }}
-        containerStyle={{alignItems: 'center'}}>
+        containerStyle={{ alignItems: 'center' }}>
         <RNDatePicker
           date={date}
           onDateChange={onDateChange}
           mode={mode}
           textColor={dateTimePicker.active.pickerText as string}
           {...props}
+          fadeToColor={theme.name === "Dark" ? "black" : "white"}
         />
         {renderSubmit()}
       </Modal.Default>
