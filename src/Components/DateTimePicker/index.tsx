@@ -17,6 +17,11 @@ export interface IDateTimePickerProps {
   title?: string;
 
   /**
+   *
+   */
+  placeholder?: string;
+
+  /**
    * The currently selected date.
    */
   date?: Date;
@@ -44,7 +49,8 @@ type IDateTimePickerTypes = IDateTimePickerProps &
 const DateTimePicker: FC<IDateTimePickerTypes> = ({
   active = true,
   title = 'Başlık',
-  date = new Date(),
+  placeholder = "Placeholder",
+  date,
   display = 'Modal',
   mode = 'datetime',
   onDateChange = () => { },
@@ -52,6 +58,7 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
   ...props
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
+  const [_date, _setDate] = useState<Date>(date || new Date())
   const [theme] = useThemeContext();
   const { dateTimePicker } = theme.colors;
 
@@ -59,7 +66,7 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
     return (
       <Button
         onPress={() => {
-          onSubmit(date);
+          onSubmit(date || _date);
           setVisible(false);
         }}
       />
@@ -75,8 +82,11 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
         }}
         containerStyle={{ alignItems: 'center' }}>
         <RNDatePicker
-          date={date}
-          onDateChange={onDateChange}
+          date={_date}
+          onDateChange={(nDate: Date) => {
+            _setDate(nDate);
+            onDateChange(nDate)
+          }}
           mode={mode}
           textColor={dateTimePicker.active.pickerText as string}
           {...props}
@@ -107,7 +117,7 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
         styles.container,
       ]}>
       <Text>{title}</Text>
-      <Text>{date.toLocaleString()}</Text>
+      <Text>{date ? date.toLocaleString() : placeholder}</Text>
       {renderModal()}
     </TouchableOpacity>
   );

@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
-import {DateTimePicker, PageContainer} from '../../../src/Components';
+import React, { useState } from 'react';
+import { DateTimePicker, PageContainer } from '../../../src/Components';
 
 const DateTimePickerPage = () => {
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState<Date | undefined>(undefined);
   return (
     <PageContainer type="Default">
       <DateTimePicker
