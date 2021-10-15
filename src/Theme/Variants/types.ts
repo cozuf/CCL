@@ -1,4 +1,4 @@
-import {ColorValue} from 'react-native';
+import { ColorValue } from 'react-native';
 
 export interface CommonColorScheme {
   primary: ColorValue;
@@ -247,12 +247,14 @@ export interface SelectBoxColorScheme {
     border: ColorValue;
     title: ColorValue;
     placeholder: ColorValue;
+    value: ColorValue;
   };
   passive: {
     background: ColorValue;
     border: ColorValue;
     title: ColorValue;
     placeholder: ColorValue;
+    value: ColorValue;
   };
 }
 
@@ -262,6 +264,7 @@ export interface DateTimePickerColorScheme {
     border: ColorValue;
     title: ColorValue;
     placeholder: ColorValue;
+    value: ColorValue;
     pickerText: ColorValue;
   };
   passive: {
@@ -269,6 +272,7 @@ export interface DateTimePickerColorScheme {
     border: ColorValue;
     title: ColorValue;
     placeholder: ColorValue;
+    value: ColorValue;
   };
 }
 
@@ -308,6 +312,3 @@ export default interface ColorScheme {
   dateTimePicker: DateTimePickerColorScheme;
   switchComponent: SwitchComponentColorScheme;
 }
-
-// TODO: SelectBox'a text color ekle placeholder ile text'in rengi farklı olsun
-// TODO: DateTimePicker'a text color ekle placeholder ile text'in rengi farklı olsun

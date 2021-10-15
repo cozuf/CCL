@@ -6,6 +6,7 @@ const WHITE_20 = 'rgba(255, 255, 255, 0.2)';
 const WHITE_PALE = 'rgba(255, 255, 255, 0.5)';
 const TRANSPARENT = 'rgba(255, 255, 255, 0)';
 const GREY = 'rgba(191, 191, 191, 1)';
+const GREY_PALE = 'rgba(191, 191, 191, 0.5)';
 
 const TURQUAZ = 'rgba(51, 255, 255, 1)';
 const TURQUAZ_PALE = 'rgba(51, 255, 255, 0.5)';
@@ -37,6 +38,7 @@ export {
   WHITE_PALE,
   TRANSPARENT,
   GREY,
+  GREY_PALE,
   TURQUAZ,
   TURQUAZ_PALE,
   TURQUAZ_OPPOSITE,

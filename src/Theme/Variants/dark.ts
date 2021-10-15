@@ -23,6 +23,7 @@ import {
   GREEN,
   GREEN_PALE,
   GREY,
+  GREY_PALE,
   ORANGE,
   ORANGE_OPPOSITE,
   ORANGE_PALE,
@@ -245,13 +246,15 @@ const selectBox: SelectBoxColorScheme = {
     background: BLACK,
     border: WHITE,
     title: WHITE,
-    placeholder: WHITE,
+    placeholder: GREY,
+    value: WHITE
   },
   passive: {
     background: BLACK_PALE,
     border: WHITE_PALE,
     title: WHITE_PALE,
-    placeholder: WHITE_PALE,
+    placeholder: GREY_PALE,
+    value: WHITE_PALE
   },
 };
 
@@ -260,14 +263,16 @@ const dateTimePicker: DateTimePickerColorScheme = {
     background: BLACK,
     border: WHITE,
     title: WHITE,
-    placeholder: WHITE,
+    placeholder: GREY,
     pickerText: WHITE,
+    value: WHITE
   },
   passive: {
     background: BLACK_PALE,
     border: WHITE_PALE,
     title: WHITE_PALE,
-    placeholder: WHITE_PALE,
+    placeholder: GREY_PALE,
+    value: WHITE_PALE
   },
 };
 

@@ -1,7 +1,7 @@
 // TODO:3 tür yapılır "MODAL" | "BOTTOMSHEET" | "PAGE"
 // TODO: Searchable olabilir Searchable ise BottomSheet olamaz
 
-import React, {FC, useState} from 'react';
+import React, { FC, useState } from 'react';
 import {
   FlatListProps,
   ListRenderItemInfo,
@@ -9,11 +9,11 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import {Seperator, Text} from '..';
-import {NavigationProp} from '@react-navigation/core';
-import {ParamListBase} from '@react-navigation/routers';
+import { Seperator, Text } from '..';
+import { NavigationProp } from '@react-navigation/core';
+import { ParamListBase } from '@react-navigation/routers';
 import SelectBoxModal from './Modal';
-import {useThemeContext} from '../../Context/ThemeContext';
+import { useThemeContext } from '../../Context/ThemeContext';
 
 export interface ISelectBoxProps<ItemT> {
   /**
@@ -119,7 +119,7 @@ const SelectBox: FC<ISelectBoxTypes> = ({
   const [value, setValue] = useState<string>(searchText || '');
   const [visible, setVisible] = useState<boolean>(false);
   const [theme] = useThemeContext();
-  const {selectBox} = theme.colors;
+  const { selectBox } = theme.colors;
   const renderModal = () => {
     return (
       <SelectBoxModal
@@ -194,7 +194,7 @@ const SelectBox: FC<ISelectBoxTypes> = ({
             if (typeof setValue === 'function') {
               setValue(text);
             }
-            _navigation.setParams({searchText: text});
+            _navigation.setParams({ searchText: text });
           },
           onSelect: (
             _navigation: NavigationProp<ParamListBase>,
@@ -209,7 +209,7 @@ const SelectBox: FC<ISelectBoxTypes> = ({
               selected: index === i ? !v.selected : v.selected,
             }));
             setDataList(nData);
-            _navigation.setParams({data: nData});
+            _navigation.setParams({ data: nData });
           },
           onSubmit: (selectedData: any[]) => {
             if (typeof onSubmit === 'function') {
@@ -260,7 +260,7 @@ const SelectBox: FC<ISelectBoxTypes> = ({
         <Text
           numberOfLines={1}
           style={{
-            color: selectBox[active ? 'active' : 'passive'].placeholder,
+            color: renderPlaceholder() === placeholder ? selectBox[active ? 'active' : 'passive'].placeholder : selectBox[active ? 'active' : 'passive'].value,
           }}>
           {renderPlaceholder()}
         </Text>
