@@ -107,7 +107,7 @@ const DateTimePicker: FC<IDateTimePickerTypes> = ({
         styles.container,
       ]}>
       <Text>{title}</Text>
-      <Text>{date.toDateString()}</Text>
+      <Text>{date.toLocaleString()}</Text>
       {renderModal()}
     </TouchableOpacity>
   );
@@ -123,5 +123,3 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
 });
-
-// TODO: android dark theme düzenle
