@@ -10,11 +10,11 @@
 
 import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import Router from './app/Navigation';
-import ThemeProvider, {useThemeContext} from './src/Context/ThemeContext';
-import GlobalStateProvider from './src/Context/GlobalStateContext';
+import ThemeProvider, { useThemeContext } from './src/Context/ThemeContext';
+import GlobalStateProvider, { UseGlobalState } from './src/Context/GlobalStateContext';
 
 const App = () => {
   return (
@@ -32,10 +32,11 @@ export default App;
 
 const Child = () => {
   const [theme] = useThemeContext();
-  const {common} = theme.colors;
+  const { common } = theme.colors;
+  const [state, setState] = UseGlobalState();
   return (
     <SafeAreaView
-      style={[styles.safeAreaContainer, {backgroundColor: common.statusbar}]}>
+      style={[styles.safeAreaContainer, { backgroundColor: common.statusbar }]}>
       <StatusBar
         backgroundColor={common.statusbar}
         barStyle={theme.name === 'Dark' ? 'light-content' : 'dark-content'}

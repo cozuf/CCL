@@ -12,26 +12,26 @@ interface GlobalStateInterface {
 
 const GlaobalStateContext = createContext<{
   state: GlobalStateInterface;
-}>({state: {token: ''}});
+}>({ state: { token: '' } });
 const GlobalStateDispatchContext = createContext<{
   setState: Dispatch<GlobalStateInterface>;
 }>({
-  setState: () => {},
+  setState: () => { },
 });
 
 const reducer = (
   state: GlobalStateInterface,
   newState: GlobalStateInterface,
 ): GlobalStateInterface => {
-  return {...state, ...newState};
+  return { ...state, ...newState };
 };
 
-const GlobalStateProvider: FC<any> = ({children}) => {
-  const [state, setState] = useReducer(reducer, {token: ''});
+const GlobalStateProvider: FC<any> = ({ children }) => {
+  const [state, setState] = useReducer(reducer, { token: '' });
 
   return (
-    <GlaobalStateContext.Provider value={{state: state}}>
-      <GlobalStateDispatchContext.Provider value={{setState: setState}}>
+    <GlaobalStateContext.Provider value={{ state }}>
+      <GlobalStateDispatchContext.Provider value={{ setState }}>
         {children}
       </GlobalStateDispatchContext.Provider>
     </GlaobalStateContext.Provider>
@@ -44,6 +44,6 @@ export const UseGlobalState = (): [
   GlobalStateInterface,
   Dispatch<GlobalStateInterface>,
 ] => [
-  useContext(GlaobalStateContext).state,
-  useContext(GlobalStateDispatchContext).setState,
-];
+    useContext(GlaobalStateContext).state,
+    useContext(GlobalStateDispatchContext).setState,
+  ];
