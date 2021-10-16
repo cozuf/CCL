@@ -1,13 +1,13 @@
-import React, {FC} from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
-import {Text} from '..';
-import {FONTS} from '../../Assets';
-import {useThemeContext} from '../../Context/ThemeContext';
+import React, { FC } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+import { Text } from '..';
+import { FONTS } from '../../Assets';
+import { useThemeContext } from '../../Context/ThemeContext';
 export interface IBadgeProps {
   /**
    *
    */
-  size?: number;
+  size?: "small" | "medium" | "large" | number;
 
   /**
    *
@@ -15,19 +15,41 @@ export interface IBadgeProps {
   value: number | string;
 }
 
-const Badge: FC<IBadgeProps> = ({size = 20, value = 1}) => {
+const Badge: FC<IBadgeProps> = ({ size = 20, value = 1 }) => {
   const [theme] = useThemeContext();
-  const {badge} = theme.colors;
-  const nSize = size < 20 ? 20 : size > 30 ? 30 : size;
-  const nValue = typeof value === 'number' ? (value > 9 ? '9+' : value) : value;
+  const { badge } = theme.colors;
+
+
+  const calculateSize = (): number => {
+    switch (size) {
+      case "small":
+        return 16
+      case "medium":
+        return 20
+      case "large":
+        return 24
+      default:
+        return size < 20 ? 20 : size > 30 ? 30 : size;
+    }
+  }
+
+  const getValue = (): string | undefined => {
+    if (typeof value === 'number' && value > 9) {
+      return "9+"
+
+    } else {
+      return value.toString()
+    }
+  }
+
   return (
     <View
       style={[
         styles.container,
         {
-          height: Platform.OS === 'android' ? nSize : nSize + 6,
-          width: Platform.OS === 'android' ? nSize : nSize + 6,
-          borderRadius: Platform.OS === 'android' ? nSize / 2 : (nSize + 6) / 2,
+          height: Platform.OS === 'android' ? calculateSize() : calculateSize() + 6,
+          width: Platform.OS === 'android' ? calculateSize() : calculateSize() + 6,
+          borderRadius: Platform.OS === 'android' ? calculateSize() / 2 : (calculateSize() + 6) / 2,
           borderColor: badge.border,
           backgroundColor: badge.background,
           ...Platform.select({
@@ -41,11 +63,11 @@ const Badge: FC<IBadgeProps> = ({size = 20, value = 1}) => {
         style={[
           styles.text,
           {
-            fontSize: Number(((nSize / 3) * 2).toFixed(0)),
+            fontSize: Number(((calculateSize() / 3) * 2).toFixed(0)),
             color: badge.text,
           },
         ]}>
-        {nValue}
+        {getValue()}
       </Text>
     </View>
   );
@@ -77,4 +99,3 @@ const styles = StyleSheet.create({
 });
 
 // TODO: Tekrar bak
-// size small | medium | large | number olsun
