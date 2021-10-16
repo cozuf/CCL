@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 // TODO: CheckBoxGroup ve RadioButtonGroup alt borderları kaldır seperator olarak ver
 // TODO: Örnek Sayfalar da varyantları ekle
 // TODO: Düzenlemsi gereken componentleri unutma
-// TODO: Yapılacak componentler var (modal vs.)
+// TODO: Yapılacak componentler var (bottomsheet vs.)
 // Context Yapısını oluştur √
 // Tema Context √
 // TODO: Style Context
