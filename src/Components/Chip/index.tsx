@@ -1,5 +1,6 @@
-import React, {FC, useState} from 'react';
-import {Button} from '..';
+import React, { FC, useState } from 'react';
+import { ViewStyle } from 'react-native';
+import { Button } from '..';
 
 export interface IChipProps {
   /**
@@ -21,13 +22,19 @@ export interface IChipProps {
    * invokes when select option
    */
   onSelect: (selected: boolean) => void;
+
+  /**
+   *
+   */
+  containerStyle?: ViewStyle;
 }
 
 const Chip: FC<IChipProps> = ({
   selected = false,
   title = `Chip ${selected}`,
   active = true,
-  onSelect = () => {},
+  onSelect = () => { },
+  containerStyle = {}
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(selected);
   return (
@@ -43,6 +50,7 @@ const Chip: FC<IChipProps> = ({
           onSelect(!isSelected);
         }
       }}
+      containerStyle={containerStyle}
     />
   );
 };

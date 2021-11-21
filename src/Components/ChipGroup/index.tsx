@@ -1,6 +1,6 @@
-import React, {FC, Fragment, useState} from 'react';
-import {FlatListProps, Omit, View} from 'react-native';
-import {Chip} from '..';
+import React, { FC, Fragment, useState } from 'react';
+import { FlatListProps, Omit, View } from 'react-native';
+import { Chip } from '..';
 
 export interface IChipGroupProps<ItemT> {
   /**
@@ -72,13 +72,14 @@ const ChipGroup: FC<IChipGroupTypes> = ({
           onSelect={() => {
             onButtonSelect(index);
           }}
+          containerStyle={{ marginBottom: 4 }}
         />
-        <View style={{width: 8}} />
+        <View style={{ width: 8 }} />
       </Fragment>
     );
   };
   return (
-    <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
       {nData.map(renderItem || customRenderItem)}
     </View>
   );

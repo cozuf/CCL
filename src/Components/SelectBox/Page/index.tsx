@@ -1,6 +1,6 @@
-import React, {FC, useLayoutEffect} from 'react';
-import {NavigationProp, RouteProp} from '@react-navigation/core';
-import {ParamListBase} from '@react-navigation/routers';
+import React, { FC, useLayoutEffect } from 'react';
+import { NavigationProp, RouteProp } from '@react-navigation/core';
+import { ParamListBase } from '@react-navigation/routers';
 import {
   Button,
   CheckBoxGroup,
@@ -8,7 +8,7 @@ import {
   RadioButtonGroup,
   SearchBar,
 } from '../..';
-import {ListRenderItemInfo, View} from 'react-native';
+import { ListRenderItemInfo, View } from 'react-native';
 
 export type PageParamsList<ItemT> = {
   base: {
@@ -70,6 +70,16 @@ export type PageParamsList<ItemT> = {
      * callback if you want render custom item
      */
     renderItem?: (info: ListRenderItemInfo<ItemT>) => React.ReactElement | null;
+
+    /**
+     * 
+     */
+    maxChoice?: number
+
+    /**
+     * 
+     */
+    minChoice?: number
   };
 };
 
@@ -78,20 +88,22 @@ export interface ISelectBoxPageProps {
   route: RouteProp<PageParamsList<any>, 'base'>;
 }
 
-const SelectPage: FC<ISelectBoxPageProps> = ({navigation, route}) => {
+const SelectPage: FC<ISelectBoxPageProps> = ({ navigation, route }) => {
   const {
     title = 'Başlık',
     searchable,
     data,
-    setData = () => {},
+    setData = () => { },
     searchText,
     selectionType = 'SingleSelect',
-    onSearch = () => {},
-    onSelect = () => {},
-    onSubmit = () => {},
+    onSearch = () => { },
+    onSelect = () => { },
+    onSubmit = () => { },
     renderItem,
+    maxChoice = 0,
+    minChoice = 0
   } = route.params;
-
+  console.log({ data })
   useLayoutEffect(() => {
     navigation.setOptions({
       title,
@@ -117,7 +129,7 @@ const SelectPage: FC<ISelectBoxPageProps> = ({navigation, route}) => {
           if (typeof onSelect === 'function') {
             onSelect(navigation, item, index);
           }
-          const nData = data.map((v, i) => ({...v, selected: index === i}));
+          const nData = data.map((v, i) => ({ ...v, selected: index === i }));
           setData(nData);
         }}
         renderItem={renderItem || undefined}
@@ -137,7 +149,26 @@ const SelectPage: FC<ISelectBoxPageProps> = ({navigation, route}) => {
             ...v,
             selected: index === i ? !v.selected : v.selected,
           }));
-          setData(nData);
+          if (maxChoice !== 0) {
+            const selectedData = nData.filter((v, i) => v.selected);
+            console.log({ maxChoice, selectedData: selectedData.length, case: maxChoice === selectedData.length })
+            if (selectedData.length === maxChoice) {
+              const mData = nData.map((v, i) => ({
+                ...v,
+                active: v.selected
+              }));
+              console.log({ mData })
+              setData(mData)
+            } else {
+              const mData = nData.map((v, i) => ({
+                ...v,
+                active: true
+              }));
+              setData(mData)
+            }
+          } else {
+            setData(nData);
+          }
         }}
         renderItem={renderItem || undefined}
       />
@@ -153,10 +184,25 @@ const SelectPage: FC<ISelectBoxPageProps> = ({navigation, route}) => {
     }
   };
 
+  const isButtonDisabled = (): boolean => {
+    if (minChoice !== 0 || maxChoice !== 0) {
+      const selectedCount = data.filter((v, i) => v.selected).length;
+      console.log({ selectedCount })
+      if (selectedCount < minChoice) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
+
   const renderSubmit = () => {
     return (
       <Button
         title={'Tamam'}
+        disabled={isButtonDisabled()}
         onPress={() => {
           if (typeof onSubmit === 'function') {
             onSubmit(data.filter(v => v.selected));
@@ -170,7 +216,7 @@ const SelectPage: FC<ISelectBoxPageProps> = ({navigation, route}) => {
   return (
     <PageContainer type="Default">
       {searchable ? renderSearch() : null}
-      {searchable ? <View style={{height: 8}} /> : null}
+      {searchable ? <View style={{ height: 8 }} /> : null}
       {renderChildren()}
       {renderSubmit()}
     </PageContainer>

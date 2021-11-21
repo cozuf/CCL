@@ -1,6 +1,6 @@
-import React, {FC, useEffect, useState} from 'react';
-import {FlatList, FlatListProps, ListRenderItemInfo, Omit} from 'react-native';
-import {CheckBox} from '..';
+import React, { FC, useEffect, useState } from 'react';
+import { FlatList, FlatListProps, ListRenderItemInfo, Omit } from 'react-native';
+import { CheckBox } from '..';
 
 export interface ICheckBoxGroupProps<ItemT> {
   /**
@@ -20,11 +20,6 @@ export interface ICheckBoxGroupProps<ItemT> {
    */
   onSelect: (item: ItemT, index: number) => void;
 
-  // /**
-  //  * invokes when selection complete and press submit button
-  //  */
-  // onSubmit?: (selectedData: ReadonlyArray<ItemT>) => void;
-
   /**
    * callback if you want render custom item
    */
@@ -37,42 +32,29 @@ export type ICheckBoxGroupTypes = ICheckBoxGroupProps<any> &
 const CheckBoxGroup: FC<ICheckBoxGroupTypes> = ({
   data,
   onSelect,
-  // onSubmit,
   renderItem,
 }) => {
-  const [nData, setNData] = useState(data);
-
+  console.log("CheckBoxGroup",{ data })
   const onButtonSelect = (index: number) => {
-    const tData = nData.map((v, i) => ({
+    const nData = data.map((v, i) => ({
       ...v,
       selected: i === index ? !v.selected : v.selected,
     }));
-    setNData(tData);
-    // const sData = tData.filter(item => item.selected);
     if (typeof onSelect === 'function') {
-      onSelect(tData[index], index);
+      onSelect(nData[index], index);
     } else {
       console.error("'onSelect' is undefined");
     }
-    // if (typeof onSubmit === 'function') {
-    //   onSubmit(sData);
-    // } else {
-    //   console.error("'onSubmit' is undefined");
-    // }
   };
-
-  // useEffect(() => {
-  //   setNData(data);
-  // }, [data]);
 
   /**
    * warning useeffect
    */
   useEffect(() => {
-    if (data.some(v => !v.active)) {
+    if (data.some(v => v.active === undefined)) {
       console.warn("It would be good if items of data contain 'active' key");
     }
-    if (data.some(v => !v.selected)) {
+    if (data.some(v => v.active === undefined)) {
       console.warn(
         'It would be good to define selected item at the begining, to show them.',
       );
@@ -82,7 +64,7 @@ const CheckBoxGroup: FC<ICheckBoxGroupTypes> = ({
   const customRenderItem = (
     info: ListRenderItemInfo<any>,
   ): React.ReactElement | null => {
-    const {item, index} = info;
+    const { item, index } = info;
     return (
       <CheckBox
         key={index.toString()}
@@ -99,7 +81,7 @@ const CheckBoxGroup: FC<ICheckBoxGroupTypes> = ({
   return (
     <FlatList
       keyExtractor={(item, index) => index.toString()}
-      data={nData}
+      data={data}
       renderItem={renderItem || customRenderItem}
     />
   );

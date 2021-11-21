@@ -94,6 +94,16 @@ export interface ISelectBoxProps<ItemT> {
    *
    */
   page?: string;
+
+  /**
+   * 
+   */
+  maxChoice?: number
+
+  /**
+   * 
+   */
+  minChoice?: number
 }
 
 export type ISelectBoxTypes = ISelectBoxProps<any> &
@@ -114,12 +124,15 @@ const SelectBox: FC<ISelectBoxTypes> = ({
   renderItem,
   navigation,
   page = 'SelectPage',
+  maxChoice,
+  minChoice
 }) => {
   const [dataList, setDataList] = useState<any[]>(data as any[]);
   const [value, setValue] = useState<string>(searchText || '');
   const [visible, setVisible] = useState<boolean>(false);
   const [theme] = useThemeContext();
   const { selectBox } = theme.colors;
+
   const renderModal = () => {
     return (
       <SelectBoxModal
@@ -145,6 +158,8 @@ const SelectBox: FC<ISelectBoxTypes> = ({
         data={dataList}
         setData={setDataList}
         selectionType={selectionType}
+        minChoice={minChoice}
+        maxChoice={maxChoice}
       />
     );
   };
@@ -217,6 +232,8 @@ const SelectBox: FC<ISelectBoxTypes> = ({
             }
           },
           renderItem,
+          minChoice: minChoice,
+          maxChoice: maxChoice
         });
 
         break;

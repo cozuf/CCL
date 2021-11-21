@@ -1,8 +1,8 @@
-import React, {FC, isValidElement, useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {Icon, IIconProps, Text} from '..';
-import {useThemeContext} from '../../Context/ThemeContext';
-import {TOKENS} from '../../Theme';
+import React, { FC, isValidElement, useState } from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Icon, IIconProps, Text } from '..';
+import { useThemeContext } from '../../Context/ThemeContext';
+import { TOKENS } from '../../Theme';
 
 export interface ICheckBoxProps {
   /**
@@ -49,7 +49,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
 }) => {
   const [isSelected, setIsSelected] = useState<boolean>(selected);
   const [theme] = useThemeContext();
-  const {checkBox} = theme.colors;
+  const { checkBox } = theme.colors;
 
   const renderIcon = (): React.ReactElement | null => {
     if (iconSet) {
@@ -119,7 +119,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
       }}>
       {renderIcon()}
       {renderIcon() !== null ? (
-        <View style={{width: TOKENS.paddings.componentContainerVertical}} />
+        <View style={{ width: TOKENS.paddings.componentContainerVertical }} />
       ) : null}
       {renderTitle()}
     </TouchableOpacity>

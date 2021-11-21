@@ -1,6 +1,6 @@
-import {useNavigation} from '@react-navigation/core';
-import React, {useState} from 'react';
-import {View} from 'react-native';
+import { useNavigation } from '@react-navigation/core';
+import React, { useState } from 'react';
+import { View } from 'react-native';
 import {
   PageContainer,
   SelectBox,
@@ -46,12 +46,12 @@ const DATA = [
   },
 ];
 const DISPLAY_TYPE_DATA = [
-  {title: 'Modal', value: 'Modal'},
-  {title: 'Page', value: 'Page'},
+  { title: 'Modal', value: 'Modal' },
+  { title: 'Page', value: 'Page' },
 ];
 const SELECT_TYPE_DATA = [
-  {title: 'Multi Select', value: 'MultiSelect'},
-  {title: 'Single Select', value: 'SingleSelect'},
+  { title: 'Multi Select', value: 'MultiSelect' },
+  { title: 'Single Select', value: 'SingleSelect' },
 ];
 
 const SelectBoxPage = () => {
@@ -65,8 +65,8 @@ const SelectBoxPage = () => {
       <SelectBox
         selectionType={
           SELECT_TYPE_DATA[selectTypeIndex].value as
-            | 'SingleSelect'
-            | 'MultiSelect'
+          | 'SingleSelect'
+          | 'MultiSelect'
         }
         displayType={
           DISPLAY_TYPE_DATA[displayTypeIndex].value as 'Modal' | 'Page'
@@ -89,8 +89,10 @@ const SelectBoxPage = () => {
           }
           setAreas(nAreas);
         }}
+        minChoice={2}
+        maxChoice={4}
       />
-      <View style={{paddingTop: 16}}>
+      <View style={{ paddingTop: 16 }}>
         <TapSelector
           data={SELECT_TYPE_DATA}
           onTap={(_, index) => {
