@@ -20,7 +20,7 @@
     "clear": "yarn clear_watchman && yarn clear_react && yarn clear_node_modules && yarn clear_npm && yarn clear_package && yarn clear_ios_build && yarn clear_pods && yarn clear_android_build",
     "pods": "cd ios && pod install && cd ..",
     "apk": "cd android && ./gradlew assembleRelease && open ./app/build/outputs/apk/release/",
-    "fresh": "yarn clear && yarn && yarn pods && yarn fix && npx jetifier",
+    "fresh": "yarn clear && yarn && yarn pods && npx jetifier",
     "androidRelease": "npx react-native run-android --variant=release",
     "iosRelease": "npx react-native run-ios --configuration Release",
     "iphone7plus": "npx react-native run-ios --simulator='iPhone 7 Plus'",
@@ -28,8 +28,19 @@
     "ipad4thgeneration": "npx react-native run-ios --simulator='iPad Pro (12.9-inch) (4th generation)'"
   },
   "dependencies": {
+    "@react-native-community/masked-view": "0.1.11",
+    "@react-navigation/native": "5.x",
+    "@react-navigation/stack": "5.x",
     "react": "17.0.1",
-    "react-native": "0.64.1"
+    "react-native": "0.64.1",
+    "react-native-date-picker": "3.4.2",
+    "react-native-gesture-handler": "1.10.3",
+    "react-native-indicators": "0.17.0",
+    "react-native-modalize": "2.0.8",
+    "react-native-reanimated": "2.2.0",
+    "react-native-safe-area-context": "3.3.0",
+    "react-native-screens": "3.5.0",
+    "react-native-vector-icons": "8.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
