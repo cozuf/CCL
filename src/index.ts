@@ -1,6 +1,6 @@
-export type { IPageContainerProps, ISeparatorProps, ITextProps } from "./components"
+export type { IDividerProps, IPageContainerProps, ISeparatorProps, ITextProps } from "./components"
 
-export { PageContainer, Separator, Text } from "./components"
+export { Divider, PageContainer, Separator, Text } from "./components"
 
 export {
     ThemeProvider, useTheme, useSetTheme, withTheme,

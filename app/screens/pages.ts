@@ -6,6 +6,7 @@ import CheckBox from "./CheckBox";
 import CheckBoxGroup from "./CheckBoxGroup";
 import Chip from "./Chip";
 import ChipGroup from "./ChipGroup";
+import Divider from "./Divider";
 import PageContainer from "./PageContainer";
 import RadioButton from "./RadioButton";
 import RadioButtonGroup from "./RadioButtonGroup";
@@ -23,6 +24,7 @@ const PAGES = {
     Card,
     CheckBox, CheckBoxGroup,
     Chip, ChipGroup,
+    Divider,
     PageContainer,
     RadioButton, RadioButtonGroup,
     SegmentedButton,

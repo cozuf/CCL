@@ -6,3 +6,6 @@ export { Separator } from "./Separator";
 
 export type { ITextProps } from "./Text"
 export { Text } from "./Text"
+
+export type { IDividerProps } from "./Divider"
+export { Divider } from "./Divider"

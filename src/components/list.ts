@@ -6,6 +6,7 @@ const COMPONENT_LIST = [
     "CheckBoxGroup",
     "Chip",
     "ChipGroup",
+    "Divider",
     "PageContainer",
     "RadioButton",
     "RadioButtonGroup",
