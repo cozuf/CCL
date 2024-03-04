@@ -28,9 +28,9 @@ const App = (): JSX.Element => {
   };
 
   useEffect(() => {
-    StatusBarManager.getHeight((statusBarHeight: any) => {
-      // console.warn(statusBarHeight)
-    })
+    // StatusBarManager.getHeight((statusBarHeight: any) => {
+    //   // console.warn(statusBarHeight)
+    // })
   }, [])
 
   return (
