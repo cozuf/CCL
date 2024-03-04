@@ -34,8 +34,6 @@ const Text: FC<PropsWithChildren<ITextProps>> = ({ fontFamily = "regular", fontS
         }
     }
 
-    console.log({})
-
     return (
         <RNText
             {...props}
