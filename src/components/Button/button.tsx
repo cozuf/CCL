@@ -1,12 +1,12 @@
 import React, { FC, PropsWithChildren } from "react";
 import IButtonProps from "./props";
-import { ColorValue, TouchableOpacity } from "react-native";
+import { ColorValue, FlexStyle, TouchableOpacity } from "react-native";
 import { useTheme } from "../../context";
 import { Text } from "../Text";
 
 
 
-const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "filled", title, children, containerStyle, ...props }) => {
+const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "filled", title, alignment = "no-wrap", children, containerStyle, ...props }) => {
     const { colors, tokens } = useTheme()
 
     const BACKGROUND_COLOR: IDictionary<NonNullable<IButtonProps["type"]>, ColorValue> = {
@@ -33,6 +33,36 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
         "simplified": 0
     }
 
+    const ALIGN_SELF: IDictionary<NonNullable<IButtonProps["alignment"]>, FlexStyle["alignSelf"]> = {
+        "no-wrap": "stretch",
+        "wrap": "baseline",
+        "free": undefined
+    }
+
+    const ALIGN_ITEMS: IDictionary<NonNullable<IButtonProps["alignment"]>, FlexStyle["alignItems"]> = {
+        "no-wrap": "center",
+        "wrap": "center",
+        "free": undefined
+    }
+
+    const BORDER_RADIUS: IDictionary<NonNullable<IButtonProps["alignment"]>, number> = {
+        "no-wrap": tokens.radiuses.component,
+        "wrap": tokens.radiuses.component,
+        "free": 0
+    }
+
+    const PADDING_VERTICAL: IDictionary<NonNullable<IButtonProps["alignment"]>, number> = {
+        "no-wrap": tokens.spaces.componentVertical,
+        "wrap": tokens.spaces.componentVertical,
+        "free": 0
+    }
+
+    const PADDING_HORIZONTAL: IDictionary<NonNullable<IButtonProps["alignment"]>, number> = {
+        "no-wrap": tokens.spaces.componentHorizontal,
+        "wrap": tokens.spaces.componentHorizontal,
+        "free": 0
+    }
+
     return (
         <TouchableOpacity
             style={[
@@ -40,10 +70,11 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
                     backgroundColor: BACKGROUND_COLOR[type],
                     borderWidth: BORDER_WIDTH[type],
                     borderColor: BORDER_COLOR[type],
-                    borderRadius: tokens.radiuses.component,
-                    paddingVertical: tokens.spaces.componentVertical,
-                    paddingHorizontal: tokens.spaces.componentHorizontal,
-                    alignItems: "center"
+                    borderRadius: BORDER_RADIUS[alignment],
+                    paddingVertical: PADDING_VERTICAL[alignment],
+                    paddingHorizontal: PADDING_HORIZONTAL[alignment],
+                    alignItems: ALIGN_ITEMS[alignment],
+                    alignSelf: ALIGN_SELF[alignment]
                 },
                 containerStyle
             ]}

@@ -15,6 +15,11 @@ interface IButtonProps extends Omit<TouchableOpacityProps, "style"> {
     /**
      * 
      */
+    alignment?: "no-wrap" | "wrap" | "free"
+
+    /**
+     * 
+     */
     containerStyle?: StyleProp<ViewStyle>
 }
 
