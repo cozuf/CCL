@@ -74,6 +74,10 @@ declare global {
             theme: ThemeScheme
         }
     }
+
+    type IDictionary<K extends string | number | symbol, V extends any> = {
+        [key in K]: V
+    }
 }
 
 export { }
