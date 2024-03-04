@@ -37,7 +37,7 @@ const Text: FC<PropsWithChildren<ITextProps>> = ({ fontFamily = "regular", fontS
     return (
         <RNText
             {...props}
-            style={[{ color: colors.text, fontFamily: fonts[fontFamily] || fontFamily, fontSize }, defineStyle(style)]}>
+            style={[{ color: colors.text, fontFamily: fonts[fontFamily] || fontFamily, fontSize, includeFontPadding: false }, defineStyle(style)]}>
             {children}
         </RNText>
     )
