@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren, useReducer } from "react";
+import React, { FC, PropsWithChildren, useEffect, useReducer } from "react";
 import { tokens as DefaultTokens, fonts as DefaultFonts, light, dark } from "../../theme";
 import { ThemeContext, ThemeContextDispatch } from "./context";
 
@@ -31,6 +31,9 @@ const ThemeProvider: FC<PropsWithChildren<IThemeProvider>> = ({ name = "light", 
 
     const [theme, setTheme] = useReducer(reducer, initial);
 
+    useEffect(() => {
+        setTheme(initial)
+    }, [name, colors, fonts, tokens])
 
     return (
         <ThemeContext.Provider value={theme}>
