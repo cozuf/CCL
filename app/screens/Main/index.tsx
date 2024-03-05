@@ -9,7 +9,8 @@ const Main = () => {
 
     const items = COMPONENT_LIST.map((v) => ({
         label: v,
-        path: v.toUpperCase()
+        isInput: v.includes("input"),
+        path: v.replace(" - input", "").toUpperCase()
     }))
 
     const onPressComponent = (path: string) => {
@@ -24,7 +25,8 @@ const Main = () => {
                 renderItem={({ item, index }) => {
                     return (
                         <Button
-                            title={` ${item.label} - ${item.path}`}
+                            type={item.isInput ? "outlined" : "filled"}
+                            title={` ${item.label}`}
                             onPress={() => onPressComponent(item.path)}
                         />
                     )

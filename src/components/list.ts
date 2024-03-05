@@ -8,14 +8,14 @@ const COMPONENT_LIST = [
     "ChipGroup",
     "Divider",
     "PageContainer",
-    "RadioButton",
-    "RadioButtonGroup",
-    "SegmentedButton",
-    "SelectBox",
+    "RadioButton - input",
+    "RadioButtonGroup - input",
+    "SegmentedButton - input",
+    "SelectBox - input",
     "Separator",
     "TapSelector",
     "Text",
-    "TextInput"
+    "TextInput - input"
 ]
 
 export default COMPONENT_LIST
