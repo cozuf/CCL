@@ -78,6 +78,16 @@ declare global {
     type IDictionary<K extends string | number | symbol, V extends any> = {
         [key in K]: V
     }
+
+    interface IData<T> {
+        title: string
+        value: T
+    }
+
+    interface IList<T> {
+        key: string | number
+        value: T
+    }
 }
 
 export { }

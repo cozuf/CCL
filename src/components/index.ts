@@ -10,5 +10,8 @@ export { PageContainer } from "./PageContainer";
 export type { ISeparatorProps } from "./Separator";
 export { Separator } from "./Separator";
 
+export type { ITapSelectorProps } from "./TapSelector"
+export { TapSelector } from "./TapSelector"
+
 export type { ITextProps } from "./Text"
 export { Text } from "./Text"

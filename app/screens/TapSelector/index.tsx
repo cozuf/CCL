@@ -1,7 +1,32 @@
 import React from "react";
+import { PageContainer, TapSelector } from "../../../src";
 
-const TapSelector = () => {
-    return null
+const DATA: Array<IData<number>> = [
+    {
+        title: "Sade",
+        value: 0
+    },
+    {
+        title: "Orta",
+        value: 1
+    },
+    {
+        title: "Şekerli",
+        value: 2
+    }
+]
+
+const TapSelectorPage = () => {
+
+    const onTap = (selectedItem: IData<number>, selectedIndex: number) => {
+        console.warn({ selectedItem, selectedIndex })
+    }
+
+    return (
+        <PageContainer>
+            <TapSelector data={DATA} onTap={onTap} />
+        </PageContainer>
+    )
 }
 
-export default TapSelector
+export default TapSelectorPage

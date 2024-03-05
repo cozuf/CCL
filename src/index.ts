@@ -1,6 +1,20 @@
-export type { IButtonProps, IDividerProps, IPageContainerProps, ISeparatorProps, ITextProps } from "./components"
+export type {
+    IButtonProps,
+    IDividerProps,
+    IPageContainerProps,
+    ISeparatorProps,
+    ITapSelectorProps,
+    ITextProps
+} from "./components"
 
-export { Button, Divider, PageContainer, Separator, Text } from "./components"
+export {
+    Button,
+    Divider,
+    PageContainer,
+    Separator,
+    TapSelector,
+    Text
+} from "./components"
 
 export {
     ThemeProvider, useTheme, useSetTheme, withTheme,
