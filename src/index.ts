@@ -1,6 +1,7 @@
 export type {
     IBadgeProps,
     IButtonProps,
+    ICardProps,
     IDividerProps,
     IPageContainerProps,
     ISeparatorProps,
@@ -13,6 +14,7 @@ export type {
 export {
     Badge,
     Button,
+    Card,
     Divider,
     PageContainer,
     Separator,
