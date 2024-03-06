@@ -82,7 +82,7 @@ declare global {
         }
     }
 
-    type IDictionary<K extends string | number | symbol, V extends any> = {
+    type IDictionary<K extends string | number | symbol | boolean, V extends any> = {
         [key in K]: V
     }
 

@@ -7,6 +7,9 @@ export { Button } from "./Button"
 export type { ICardProps } from "./Card"
 export { Card } from "./Card"
 
+export type { ICheckBoxProps } from "./CheckBox"
+export { CheckBox } from "./CheckBox"
+
 export type { IDividerProps } from "./Divider"
 export { Divider } from "./Divider"
 
