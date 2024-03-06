@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { SafeAreaView, StatusBar, useColorScheme, NativeModules } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native';
-import Router from './app/screens';
+import Router from './app/navigation';
 import { CCLProvider, darkColors, lightColors, tokens, fonts } from './src';
 
 const { StatusBarManager } = NativeModules

@@ -2,7 +2,7 @@ import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import PAGE_NAMES from "./pageNames"
 import PAGES from "./pages"
-import { useTheme } from "../../src/context"
+import { useTheme } from "../../src"
 
 const Stack = createNativeStackNavigator()
 
