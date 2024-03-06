@@ -22,7 +22,7 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
     }
 
     const CONTENT_COLOR: IDictionary<NonNullable<IButtonProps["type"]>, ColorValue> = {
-        "filled": colors.text,
+        "filled": colors.buttonText,
         "outlined": colors.primary,
         "simplified": colors.primary
     }
