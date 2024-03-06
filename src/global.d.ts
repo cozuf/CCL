@@ -1,3 +1,5 @@
+import { ColorValue } from "react-native"
+
 declare global {
     namespace CCL {
 
@@ -9,6 +11,7 @@ declare global {
             pageBackground: ColorValue
 
             text: ColorValue
+            buttonText: ColorValue
 
             componentBackground: ColorValue
             componentBorder: ColorValue
@@ -19,6 +22,8 @@ declare global {
             card: ColorValue
 
             error: ColorValue
+
+            shadow: ColorValue
         }
 
         interface FontScheme {

@@ -1,3 +1,6 @@
+export type { IBadgeProps } from "./Badge"
+export { Badge } from "./Badge"
+
 export type { IButtonProps } from "./Button"
 export { Button } from "./Button"
 

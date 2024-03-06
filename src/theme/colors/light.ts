@@ -8,7 +8,9 @@ const light: CCL.ColorScheme = {
     card: "rgb(255, 255, 255)",
     primary: "rgb(0, 122, 255)",
     text: "rgb(28, 28, 30)",
-    error: "rgb(255, 0, 0)"
+    buttonText: "rgb(255, 255, 255)",
+    error: "rgb(255, 0, 0)",
+    shadow: "rgb(0, 0, 0)"
 }
 
 export default light

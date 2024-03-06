@@ -1,4 +1,5 @@
 export type {
+    IBadgeProps,
     IButtonProps,
     IDividerProps,
     IPageContainerProps,
@@ -10,6 +11,7 @@ export type {
 } from "./components"
 
 export {
+    Badge,
     Button,
     Divider,
     PageContainer,
