@@ -65,6 +65,7 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
 
     return (
         <TouchableOpacity
+            activeOpacity={0.5}
             style={[
                 {
                     backgroundColor: BACKGROUND_COLOR[type],
@@ -74,7 +75,8 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
                     paddingVertical: PADDING_VERTICAL[alignment],
                     paddingHorizontal: PADDING_HORIZONTAL[alignment],
                     alignItems: ALIGN_ITEMS[alignment],
-                    alignSelf: ALIGN_SELF[alignment]
+                    alignSelf: ALIGN_SELF[alignment],
+                    opacity: props.disabled ? 0.5 : 1
                 },
                 containerStyle
             ]}

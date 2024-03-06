@@ -1,33 +1,122 @@
-import React from "react";
-import { Button, PageContainer, Separator, Text } from "../../../src";
+import React, { useState } from "react";
+import { Button, PageContainer, Separator, TapSelector, Text } from "../../../src";
+import { View } from "react-native";
+
+const TYPE = [
+    {
+        title: "Filled",
+        value: "filled"
+    },
+    {
+        title: "Outlined",
+        value: "outlined"
+    },
+    {
+        title: "Simplified",
+        value: "simplified"
+    }
+]
+
+const ALIGNMENT = [
+    {
+        title: "No-wrap",
+        value: "no-wrap"
+    },
+    {
+        title: "Wrap",
+        value: "wrap"
+    },
+    {
+        title: "Free",
+        value: "free"
+    }
+]
+
+const CONTENT = [
+    {
+        title: "Title",
+        value: "title"
+    },
+    {
+        title: "Custom",
+        value: "custom"
+    }
+]
+
+const DISABLED = [
+    {
+        title: "Active",
+        value: false
+    },
+    {
+        title: "Disabled",
+        value: true
+    }
+]
 
 const ButtonPage = () => {
+
+    const [typeIndex, setTypeIndex] = useState<number>(0)
+    const [alignmentIndex, setAlignmentIndex] = useState<number>(0)
+    const [contentIndex, setContentIndex] = useState<number>(0)
+    const [activeIndex, setActiveIndex] = useState<number>(0)
+
+    const isCustom = CONTENT[contentIndex].value === "custom"
+
+    const onPressButton = () => { console.warn("pressed") }
+
     return (
         <PageContainer>
-            <Button type="filled" title="Button" alignment="free" />
+            <View style={{ height: 200, justifyContent: "center" }}>
+                {
+                    isCustom ?
+                        <Button
+                            type={TYPE[typeIndex].value as any}
+                            title="Button"
+                            alignment={ALIGNMENT[alignmentIndex].value as any}
+                            disabled={DISABLED[activeIndex].value}
+                            onPress={onPressButton}
+                        >
+                            <Text>
+                                Yusuf
+                            </Text>
+                        </Button>
+                        :
+                        <Button
+                            type={TYPE[typeIndex].value as any}
+                            title="Button"
+                            alignment={ALIGNMENT[alignmentIndex].value as any}
+                            disabled={DISABLED[activeIndex].value}
+                            onPress={onPressButton}
+                        />
+                }
+            </View>
             <Separator />
-            <Button type="outlined" title="Button" alignment="free" />
-            <Separator />
-            <Button type="simplified" title="Button" alignment="free" />
-            <Separator distance={20} />
-            <Button type="filled" >
-                <Text>
-                    Yusuf
-                </Text>
-            </Button>
-            <Separator />
-            <Button type="outlined" >
-                <Text>
-                    Yusuf
-                </Text>
-            </Button>
-            <Separator />
-            <Button type="simplified" >
-                <Text>
-                    Yusuf
-                </Text>
-            </Button>
-
+            <View>
+                <TapSelector
+                    initialIndex={typeIndex}
+                    data={TYPE}
+                    onTap={(v, i) => { setTypeIndex(i) }}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={alignmentIndex}
+                    data={ALIGNMENT}
+                    onTap={(v, i) => { setAlignmentIndex(i) }}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={contentIndex}
+                    data={CONTENT}
+                    onTap={(v, i) => { setContentIndex(i) }}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={activeIndex}
+                    data={DISABLED}
+                    onTap={(v, i) => { setActiveIndex(i) }}
+                />
+            </View>
         </PageContainer>
     )
 }
