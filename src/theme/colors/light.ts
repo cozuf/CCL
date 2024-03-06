@@ -7,7 +7,8 @@ const light: CCL.ColorScheme = {
     componentValue: "rgb(28, 28, 30)",
     card: "rgb(255, 255, 255)",
     primary: "rgb(0, 122, 255)",
-    text: "rgb(28, 28, 30)"
+    text: "rgb(28, 28, 30)",
+    error: "rgb(255, 0, 0)"
 }
 
 export default light

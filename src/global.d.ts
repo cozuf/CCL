@@ -17,6 +17,8 @@ declare global {
             componentValue: ColorValue
 
             card: ColorValue
+
+            error: ColorValue
         }
 
         interface FontScheme {

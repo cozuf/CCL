@@ -7,7 +7,8 @@ const dark: CCL.ColorScheme = {
     componentBorder: "rgb(39, 39, 41)",
     componentTitle: "rgb(229, 229, 231)",
     componentValue: "rgb(229, 229, 231)",
-    text: "rgb(229, 229, 231)"
+    text: "rgb(229, 229, 231)",
+    error: "rgb(255, 0, 0)"
 }
 
 export default dark

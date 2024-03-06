@@ -15,3 +15,6 @@ export { TapSelector } from "./TapSelector"
 
 export type { ITextProps } from "./Text"
 export { Text } from "./Text"
+
+export type { ITextInputProps, ITextInputRef } from "./TextInput"
+export { TextInput } from "./TextInput"

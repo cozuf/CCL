@@ -4,7 +4,9 @@ export type {
     IPageContainerProps,
     ISeparatorProps,
     ITapSelectorProps,
-    ITextProps
+    ITextProps,
+    ITextInputProps,
+    ITextInputRef
 } from "./components"
 
 export {
@@ -13,7 +15,8 @@ export {
     PageContainer,
     Separator,
     TapSelector,
-    Text
+    Text,
+    TextInput
 } from "./components"
 
 export {
