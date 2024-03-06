@@ -4,19 +4,14 @@ import { ITextProps } from "../Text";
 
 interface IBadgeProps {
     /**
-     * 
+     * @default undefined
      */
     value?: number | string
 
     /**
-     * 
+     * @default 16
      */
     size?: number
-
-    /**
-     * 
-     */
-    color?: keyof CCL.ColorScheme | ColorValue
 
     /**
      * 

@@ -3,7 +3,7 @@ import { SafeAreaViewProps } from "react-native-safe-area-context"
 
 interface IPageContainerProps extends ViewProps, SafeAreaViewProps, ScrollViewProps {
     /**
-     * default safeView
+     * @default safeView
      */
     type?: "safeArea" | "view" | "safeView" | "scroll" | "safeScroll"
 }

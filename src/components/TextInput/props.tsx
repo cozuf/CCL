@@ -15,7 +15,7 @@ interface ITextInputProps extends TextInputProps {
     title?: string
 
     /**
-     * 
+     * @default "bold"
      */
     fontFamily?: keyof CCL.FontScheme
 

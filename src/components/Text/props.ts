@@ -2,12 +2,12 @@ import { TextStyle, TextProps, StyleProp } from "react-native"
 
 interface ITextProps extends Omit<TextProps, 'style'> {
     /**
-     * 
+     * @default "regular"
      */
     fontFamily?: keyof CCL.FontScheme
 
     /**
-     * 
+     * @default 14
      */
     fontSize?: TextStyle["fontSize"]
 

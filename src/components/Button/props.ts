@@ -3,7 +3,7 @@ import { StyleProp, TouchableOpacityProps, ViewStyle } from "react-native";
 
 interface IButtonProps extends Omit<TouchableOpacityProps, "style"> {
     /**
-     * default filled
+     * @default filled
      */
     type?: "filled" | "outlined" | "simplified"
 
@@ -13,7 +13,7 @@ interface IButtonProps extends Omit<TouchableOpacityProps, "style"> {
     title?: string
 
     /**
-     * 
+     * @default "no-wrap"
      */
     alignment?: "no-wrap" | "wrap" | "free"
 
