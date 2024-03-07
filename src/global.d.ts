@@ -97,6 +97,14 @@ declare global {
         key: string | number
         value: T
     }
+
+    interface IListData<T> {
+        title: string | number
+        value: T
+        selectable: boolean
+        selected: boolean
+    }
+
 }
 
 export { }
