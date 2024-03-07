@@ -16,6 +16,9 @@ export { Divider } from "./Divider"
 export type { IPageContainerProps } from "./PageContainer";
 export { PageContainer } from "./PageContainer";
 
+export type { IRadioButtonProps } from "./RadioButton";
+export { RadioButton } from "./RadioButton";
+
 export type { ISeparatorProps } from "./Separator";
 export { Separator } from "./Separator";
 
