@@ -7,7 +7,7 @@ interface ISeparatorProps {
     direction?: "vertical" | "horizontal"
 
     /**
-     * @default 4
+     * @default 8
      */
     distance?: ViewStyle["height"] | ViewStyle["width"]
 }
