@@ -1,16 +1,16 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import ITapSelectorProps from "./props";
 import { Button } from "../Button";
 
 const TapSelector: FC<ITapSelectorProps<any>> = ({ initialIndex = 0, data, onTap = () => { } }) => {
     const [selectedIndex, setSelectedIndex] = useState<number>(initialIndex)
 
+    useEffect(() => {
+        onTap(data[selectedIndex], selectedIndex)
+    }, [selectedIndex])
+
     const onTapButton = () => {
-        setSelectedIndex((old) => {
-            const nextIndex = (old + 1) % data.length
-            onTap(data[nextIndex], nextIndex)
-            return nextIndex
-        })
+        setSelectedIndex((old) => (old + 1) % data.length)
     }
 
     return (
