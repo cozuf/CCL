@@ -24,6 +24,8 @@ declare global {
             error: ColorValue
 
             shadow: ColorValue
+
+            disabled: ColorValue
         }
 
         interface FontScheme {

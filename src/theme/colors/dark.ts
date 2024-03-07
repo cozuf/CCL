@@ -10,7 +10,8 @@ const dark: CCL.ColorScheme = {
     text: "rgb(229, 229, 231)",
     buttonText: "rgb(255, 255, 255)",
     error: "rgb(255, 0, 0)",
-    shadow: "rgb(255, 255, 255)"
+    shadow: "rgb(255, 255, 255)",
+    disabled: "rgb(191, 191, 191)"
 }
 
 export default dark

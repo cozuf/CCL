@@ -10,6 +10,9 @@ export { Card } from "./Card"
 export type { ICheckBoxProps } from "./CheckBox"
 export { CheckBox } from "./CheckBox"
 
+export type { IChipProps } from "./Chip"
+export { Chip } from "./Chip"
+
 export type { IDividerProps } from "./Divider"
 export { Divider } from "./Divider"
 
