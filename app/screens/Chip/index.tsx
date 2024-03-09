@@ -90,11 +90,11 @@ const ChipPage = () => {
     const renderSuffix = WITH_SUFFIX[suffixIndex].value ? (s: boolean, d: boolean) => {
         if (s) {
             return (
-                <Image source={require("../../../src/assets/images/CheckWhite.png")} />
+                <Image source={require("../../../src/assets/images/CheckThinWhite.png")} />
             )
         }
         return (
-            <Image source={require("../../../src/assets/images/CheckBlack.png")} />
+            <Image source={require("../../../src/assets/images/CheckThinBlack.png")} />
         )
     } : undefined
 
