@@ -49,6 +49,37 @@ const CheckBoxPage = () => {
     const [customIconIndex, setCustomIconIndex] = useState<number>(0)
     const [customContentIndex, setCustomContentIndex] = useState<number>(0)
 
+    const onPressComponent = (v: any, s: boolean) => {
+        console.error({ v, s })
+    }
+
+    const renderPrefixComponent = CUSTOM_ICON[customIconIndex].value ?
+        (s: boolean, a: boolean) => {
+
+            if (s) {
+                return (
+                    <Image source={require("../../../src/assets/images/ChevronUpWhite.png")} />
+                )
+            }
+            return (
+                <Image source={require("../../../src/assets/images/ChevronUpBlack.png")} />
+            )
+        }
+        :
+        undefined
+
+    const renderContentComponent = CUSTOM_CONTENT[customContentIndex].value ?
+        <View>
+            <Text fontFamily="bold" fontSize={18}>
+                Title
+            </Text>
+            <Text fontFamily="medium" fontSize={10}>
+                SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle
+            </Text>
+        </View>
+        :
+        undefined
+
     return (
         <PageContainer>
             <View style={{ height: 200, justifyContent: "center" }}>
@@ -56,36 +87,9 @@ const CheckBoxPage = () => {
                     disabled={DISABLED[activeIndex].value}
                     selected={SELECTED[selectedIndex].value}
                     value={"1"}
-                    onSelect={(v, s) => { console.error({ v, s }) }}
-                    prefixComponent={
-                        CUSTOM_ICON[customIconIndex].value ?
-                            (s: boolean, a: boolean) => {
-
-                                if (s) {
-                                    return (
-                                        <Image source={require("../../../src/assets/images/ChevronUpWhite.png")} />
-                                    )
-                                }
-                                return (
-                                    <Image source={require("../../../src/assets/images/ChevronUpBlack.png")} />
-                                )
-                            }
-                            :
-                            undefined
-                    }
-                    contentComponent={
-                        CUSTOM_CONTENT[customContentIndex].value ?
-                            <View>
-                                <Text fontFamily="bold" fontSize={18}>
-                                    Title
-                                </Text>
-                                <Text fontFamily="medium" fontSize={10}>
-                                    SubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitleSubtitle
-                                </Text>
-                            </View>
-                            :
-                            undefined
-                    }
+                    onSelect={onPressComponent}
+                    prefixComponent={renderPrefixComponent}
+                    contentComponent={renderContentComponent}
                 />
             </View>
             <View>
