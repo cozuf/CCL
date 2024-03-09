@@ -25,6 +25,9 @@ export { PageContainer } from "./PageContainer";
 export type { IRadioButtonProps } from "./RadioButton";
 export { RadioButton } from "./RadioButton";
 
+export type { IRadioButtonGroupProps } from "./RadioButtonGroup";
+export { RadioButtonGroup } from "./RadioButtonGroup";
+
 export type { ISegmentedButtonProps } from "./SegmentedButton";
 export { SegmentedButton } from "./SegmentedButton";
 
