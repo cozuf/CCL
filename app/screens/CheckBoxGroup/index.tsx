@@ -144,7 +144,7 @@ const CheckBoxGroupPage = () => {
     const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
 
     const onSelectItem = (selectedValue: Product, selected: boolean, newList: Array<IListData<Product>>) => {
-        console.log({ selectedValue, selected, newList })
+        // console.log({ selectedValue, selected, newList })
         setRegions(newList)
     }
 

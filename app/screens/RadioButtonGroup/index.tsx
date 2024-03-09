@@ -144,7 +144,7 @@ const RadioButtonGroupPage = () => {
     const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
 
     const onSelectItem = (selectedValue: Product, newList: Array<IListData<Product>>) => {
-        console.log({ selectedValue, newList })
+        // console.log({ selectedValue, newList })
         setRegions(newList)
     }
 
