@@ -10,6 +10,9 @@ export { Card } from "./Card"
 export type { ICheckBoxProps } from "./CheckBox"
 export { CheckBox } from "./CheckBox"
 
+export type { ICheckBoxGroupProps } from "./CheckBoxGroup"
+export { CheckBoxGroup } from "./CheckBoxGroup"
+
 export type { IChipProps } from "./Chip"
 export { Chip } from "./Chip"
 
