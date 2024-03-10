@@ -38,12 +38,14 @@ const Main = () => {
     return (
         <PageContainer>
             <FlatList
+                keyExtractor={(_, i) => `${i}`}
                 bounces={false}
                 data={items}
                 ListHeaderComponent={renderHeader}
                 renderItem={({ item, index }) => {
                     return (
                         <Button
+                            key={`${index}`}
                             type={item.isInput ? "outlined" : "filled"}
                             title={` ${item.label}`}
                             onPress={() => onPressComponent(item.path)}
