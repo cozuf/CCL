@@ -13,7 +13,8 @@ const Chip: FC<IChipProps> = ({
     title = "Başlık",
     prefixComponent = () => null,
     contentComponent,
-    suffixComponent = () => null
+    suffixComponent = () => null,
+    containerStyle
 }) => {
     const { colors } = useTheme()
 
@@ -25,15 +26,20 @@ const Chip: FC<IChipProps> = ({
         <TouchableOpacity
             activeOpacity={0.5}
             disabled={disabled}
-            style={{
-                flexDirection: "row",
-                alignSelf: "baseline",
-                opacity: disabled ? 0.5 : 1,
-                borderWidth: 2,
-                backgroundColor: selected ? colors.primary : colors.componentBackground,
-                borderColor: selected ? "transparent" : colors.primary,
-                borderRadius: 50
-            }}
+            style={
+                [
+                    {
+                        flexDirection: "row",
+                        alignSelf: "baseline",
+                        opacity: disabled ? 0.5 : 1,
+                        borderWidth: 2,
+                        backgroundColor: selected ? colors.primary : colors.componentBackground,
+                        borderColor: selected ? "transparent" : colors.primary,
+                        borderRadius: 50
+                    },
+                    containerStyle
+                ]
+            }
             onPress={onPressComponent}
         >
             <View style={{ alignItems: "center", justifyContent: "center" }}>

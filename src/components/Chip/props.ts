@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { StyleProp, ViewStyle } from "react-native";
 
 interface IChipProps {
 
@@ -41,6 +42,11 @@ interface IChipProps {
      * 
      */
     suffixComponent?: (selected: boolean, disabled: boolean) => ReactNode
+
+    /**
+     * 
+     */
+    containerStyle?: StyleProp<ViewStyle>
 }
 
 export default IChipProps
