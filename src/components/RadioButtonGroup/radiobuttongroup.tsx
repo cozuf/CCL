@@ -15,10 +15,11 @@ const RadioButtonGroup: FC<IRadioButtonGroupProps<any>> = ({ data, onSelect = ()
 
     const renderListItem: ListRenderItem<IListData<any>> = (info) => {
         if (typeof renderItem === "function") {
-            const { item } = info
-            const { value, selected } = item
+            const { item, index } = info
+            const { value } = item
             return (
                 <TouchableOpacity
+                    key={`${index}`}
                     activeOpacity={0.5}
                     disabled={!item.selectable}
                     style={{ opacity: item.selectable ? 1 : 0.5 }}
@@ -31,11 +32,12 @@ const RadioButtonGroup: FC<IRadioButtonGroupProps<any>> = ({ data, onSelect = ()
         return renderDefaultListItem(info)
     }
 
-    const renderDefaultListItem: ListRenderItem<IListData<any>> = ({ item }) => {
+    const renderDefaultListItem: ListRenderItem<IListData<any>> = ({ item, index }) => {
 
         const { value, title, selectable, selected } = item
         return (
             <RadioButton
+                key={`${index}`}
                 value={value}
                 title={`${title}`}
                 disabled={!selectable}
@@ -47,6 +49,7 @@ const RadioButtonGroup: FC<IRadioButtonGroupProps<any>> = ({ data, onSelect = ()
 
     return (
         <FlatList
+            keyExtractor={(_, i) => `${i}`}
             data={list}
             renderItem={renderListItem}
             ItemSeparatorComponent={() => <Separator />}
