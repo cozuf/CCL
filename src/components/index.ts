@@ -16,6 +16,9 @@ export { CheckBoxGroup } from "./CheckBoxGroup"
 export type { IChipProps } from "./Chip"
 export { Chip } from "./Chip"
 
+export type { IChipGroupProps } from "./ChipGroup"
+export { ChipGroup } from "./ChipGroup"
+
 export type { IDividerProps } from "./Divider"
 export { Divider } from "./Divider"
 
