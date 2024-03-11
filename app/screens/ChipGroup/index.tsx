@@ -157,7 +157,7 @@ const ChipGroupPage = () => {
 
     const renderSelectedItemList = (v: IListData<Product>, i: number, a: Array<IListData<Product>>) => {
         return (
-            <View>
+            <View key={`${i}`}>
                 <Text>
                     {v.value.id} - {v.value.name}
                 </Text>
