@@ -34,6 +34,9 @@ export { RadioButtonGroup } from "./RadioButtonGroup";
 export type { ISegmentedButtonProps } from "./SegmentedButton";
 export { SegmentedButton } from "./SegmentedButton";
 
+export type { ISelectBoxProps } from "./SelectBox";
+export { SelectBox } from "./SelectBox";
+
 export type { ISeparatorProps } from "./Separator";
 export { Separator } from "./Separator";
 

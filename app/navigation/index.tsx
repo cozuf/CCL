@@ -2,7 +2,7 @@ import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import PAGE_NAMES from "./pageNames"
 import PAGES from "./pages"
-import { useTheme } from "../../src"
+import { useTheme, CCL_PAGE_NAMES, CCL_PAGES } from "../../src"
 
 const Stack = createNativeStackNavigator()
 
@@ -32,6 +32,8 @@ const Router = () => {
             <Stack.Screen name={PAGE_NAMES.TAPSELECTOR} component={PAGES.TapSelector} />
             <Stack.Screen name={PAGE_NAMES.TEXT} component={PAGES.Text} />
             <Stack.Screen name={PAGE_NAMES.TEXTINPUT} component={PAGES.TextInput} />
+
+            <Stack.Screen name={CCL_PAGE_NAMES.SELECT_BOX_PAGE} component={CCL_PAGES.SelectBoxPage} />
         </Stack.Navigator>
     )
 }
