@@ -32,7 +32,7 @@ const ChipGroup: FC<IChipGroupProps<any>> = ({ data, onSelect, renderItem, conta
             </Fragment>
         )
     }
-    console.log("render")
+
     return (
         <ScrollView
             bounces={false}
