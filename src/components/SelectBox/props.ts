@@ -2,6 +2,8 @@ import { NavigationProp, ParamListBase } from "@react-navigation/native";
 import React, { ReactNode } from "react";
 import { StyleProp, ViewStyle } from "react-native";
 
+// TODO display type kelenebilir modal, bottomSheet, page gibi
+
 interface ISelectBoxProps<ItemT> {
     /**
      * @default singleSelect
