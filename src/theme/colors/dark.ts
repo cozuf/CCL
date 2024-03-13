@@ -3,7 +3,7 @@ const dark: CCL.ColorScheme = {
     pageBackground: "rgb(1, 1, 1)",
     card: "rgb(18, 18, 18)",
     componentIcon: "rgb(10, 132, 255)",
-    componentBackground: "rgb(18, 18, 18)",
+    componentBackground: "rgb(28, 28, 30)",
     componentBorder: "rgb(39, 39, 41)",
     componentTitle: "rgb(229, 229, 231)",
     componentValue: "rgb(229, 229, 231)",
@@ -11,7 +11,7 @@ const dark: CCL.ColorScheme = {
     buttonText: "rgb(255, 255, 255)",
     error: "rgb(255, 0, 0)",
     shadow: "rgb(255, 255, 255)",
-    disabled: "rgb(191, 191, 191)"
+    modalOutside: "rgba(255, 255, 255, 0.3)"
 }
 
 export default dark

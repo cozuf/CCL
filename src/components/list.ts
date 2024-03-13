@@ -1,6 +1,7 @@
 const COMPONENT_LIST = [
     "Badge",
     "Button",
+    "BottomSheet",
     "Card",
     "CheckBox - input",
     "CheckBoxGroup - input",

@@ -1,6 +1,8 @@
 export type {
     IBadgeProps,
     IButtonProps,
+    IBottomSheetProps,
+    IBottomSheetRef,
     ICardProps,
     ICheckBoxProps,
     ICheckBoxGroupProps,
@@ -22,6 +24,7 @@ export type {
 export {
     Badge,
     Button,
+    BottomSheet,
     Card,
     CheckBox,
     CheckBoxGroup,

@@ -11,7 +11,7 @@ const light: CCL.ColorScheme = {
     buttonText: "rgb(255, 255, 255)",
     error: "rgb(255, 0, 0)",
     shadow: "rgb(0, 0, 0)",
-    disabled: "rgb(191, 191, 191)"
+    modalOutside: "rgba(0, 0, 0, 0.3)"
 }
 
 export default light

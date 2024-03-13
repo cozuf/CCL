@@ -1,6 +1,7 @@
 const MAIN = "MAIN"
 const BADGE = "BADGE"
 const BUTTON = "BUTTON"
+const BOTTOMSHEET = "BOTTOMSHEET"
 const CARD = "CARD"
 const CHECKBOX = "CHECKBOX"
 const CHECKBOXGROUP = "CHECKBOXGROUP"
@@ -21,6 +22,7 @@ const PAGE_NAMES = {
     MAIN,
     BADGE,
     BUTTON,
+    BOTTOMSHEET,
     CARD,
     CHECKBOX,
     CHECKBOXGROUP,

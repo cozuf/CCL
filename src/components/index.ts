@@ -4,6 +4,9 @@ export { Badge } from "./Badge"
 export type { IButtonProps } from "./Button"
 export { Button } from "./Button"
 
+export type { IBottomSheetProps, IBottomSheetRef } from "./BottomSheet"
+export { BottomSheet } from "./BottomSheet"
+
 export type { ICardProps } from "./Card"
 export { Card } from "./Card"
 

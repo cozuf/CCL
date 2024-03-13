@@ -17,6 +17,7 @@ const Router = () => {
             <Stack.Screen name={PAGE_NAMES.MAIN} component={PAGES.Main} />
             <Stack.Screen name={PAGE_NAMES.BADGE} component={PAGES.Badge} />
             <Stack.Screen name={PAGE_NAMES.BUTTON} component={PAGES.Button} />
+            <Stack.Screen name={PAGE_NAMES.BOTTOMSHEET} component={PAGES.BottomSheet} />
             <Stack.Screen name={PAGE_NAMES.CARD} component={PAGES.Card} />
             <Stack.Screen name={PAGE_NAMES.CHECKBOX} component={PAGES.CheckBox} />
             <Stack.Screen name={PAGE_NAMES.CHECKBOXGROUP} component={PAGES.CheckBoxGroup} />

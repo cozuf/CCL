@@ -1,6 +1,7 @@
 import Main from "../screens/Main";
 import Badge from "../screens/Badge";
 import Button from "../screens/Button";
+import BottomSheet from "../screens/BottomSheet";
 import Card from "../screens/Card";
 import CheckBox from "../screens/CheckBox";
 import CheckBoxGroup from "../screens/CheckBoxGroup";
@@ -21,6 +22,7 @@ const PAGES = {
     Main,
     Badge,
     Button,
+    BottomSheet,
     Card,
     CheckBox, CheckBoxGroup,
     Chip, ChipGroup,
