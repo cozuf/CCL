@@ -8,14 +8,17 @@ import { useTheme } from "../../context";
  * to show bottomSheet use ref.current.open()
  * to shut bottomSheet use ref.current.close()
  */
+
+// FIXME açılırken bazen takılma yapıyor
+
 const BottomSheet = forwardRef<IBottomSheetRef, PropsWithChildren<IBottomSheetProps>>((props, ref) => {
     const { onOpened = () => { }, onClosed = () => { }, children } = props
-    const { height, width } = useWindowDimensions()
+    const { height: windowHeight, width: windowWidth } = useWindowDimensions()
     const { colors, tokens } = useTheme()
 
     const [visible, setVisible] = useState<boolean>(false)
 
-    const animatedBottom = useRef(new Animated.Value(-height)).current
+    const animatedBottom = useRef(new Animated.Value(-windowHeight)).current
     const [contentHeight, setContentHeight] = useState(0)
 
     useImperativeHandle(ref, () => {
@@ -46,7 +49,9 @@ const BottomSheet = forwardRef<IBottomSheetRef, PropsWithChildren<IBottomSheetPr
     }
 
     const onAnimatedLayout = (event: LayoutChangeEvent) => {
-        setContentHeight(event.nativeEvent.layout.height)
+        const { height } = event.nativeEvent.layout
+        const _Height = height > windowHeight ? windowHeight * 0.8 : height
+        setContentHeight(_Height)
     }
 
     return (
@@ -71,7 +76,8 @@ const BottomSheet = forwardRef<IBottomSheetRef, PropsWithChildren<IBottomSheetPr
                     style={{
                         zIndex: 1,
                         position: "absolute",
-                        width: width,
+                        maxHeight: windowHeight * 0.8,
+                        width: windowWidth,
                         bottom: animatedBottom,
                         backgroundColor: colors.pageBackground,
                         borderTopLeftRadius: tokens.radiuses.semiLarge,
@@ -89,7 +95,7 @@ const BottomSheet = forwardRef<IBottomSheetRef, PropsWithChildren<IBottomSheetPr
                     <View style={{ flexDirection: "row", justifyContent: "center", paddingVertical: tokens.spaces.extraSmall }}>
                         <View style={{ width: 40, height: 5, borderRadius: tokens.radiuses.extraSmall, backgroundColor: "grey" }} />
                     </View>
-                    <View style={{ flex: 1, padding: 16 }}>
+                    <View style={{ height: "94%", padding: tokens.spaces.regular }}>
                         {children}
                     </View>
                     {/* @ts-ignore */}

@@ -125,9 +125,73 @@ const DATA: Array<IListData<Product>> = [
         },
         selected: false,
         selectable: true
+    },
+    {
+        title: 'Eflak',
+        value: {
+            id: 14,
+            name: "Eflak Bölgesi"
+        },
+        selected: false,
+        selectable: true
+    },
+    {
+        title: 'Boğdan',
+        value: {
+            id: 15,
+            name: "Boğdan Bölgesi"
+        },
+        selected: false,
+        selectable: true
+    },
+    {
+        title: 'Arnavutluk',
+        value: {
+            id: 16,
+            name: "Arnavutluk Bölgesi"
+        },
+        selected: false,
+        selectable: true
+    },
+    {
+        title: 'Kafkaslar',
+        value: {
+            id: 17,
+            name: "Kafkasya Bölgesi"
+        },
+        selected: false,
+        selectable: true
+    },
+    {
+        title: 'Cezayir',
+        value: {
+            id: 18,
+            name: "Cezayir Bölgesi"
+        },
+        selected: false,
+        selectable: true
+    },
+    {
+        title: 'Fas',
+        value: {
+            id: 19,
+            name: "Fas Bölgesi"
+        },
+        selected: false,
+        selectable: true
     }
 ]
 
+const DISPLAY_TYPE = [
+    {
+        title: "BottomSheet",
+        value: "bottomSheet"
+    },
+    {
+        title: "Navigation",
+        value: "navigate"
+    }
+]
 const SELECTION_TYPE = [
     {
         title: "Single Select",
@@ -204,10 +268,11 @@ const SelectBoxPage = () => {
 
     const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
 
+    const [displayTypeIndex, setDisplayTypeIndex] = useState<number>(0)
     const [selectionTypeIndex, setSelectionTypeIndex] = useState<number>(0)
     const [disabledIndex, setDisabledIndex] = useState<number>(0)
-    const [withTitleIndex, setWithTitleIndex] = useState<number>(0)
-    const [withPlaceholderIndex, setWithPlaceholderIndex] = useState<number>(0)
+    const [withTitleIndex, setWithTitleIndex] = useState<number>(1)
+    const [withPlaceholderIndex, setWithPlaceholderIndex] = useState<number>(1)
     const [withPrefixIndex, setWithPrefixIndex] = useState<number>(0)
     const [withSuffixIndex, setWithSuffixIndex] = useState<number>(0)
     const [withErrorIndex, setWithErrorIndex] = useState<number>(0)
@@ -222,6 +287,7 @@ const SelectBoxPage = () => {
         <PageContainer>
             <View style={{ height: 200, justifyContent: "center" }}>
                 <SelectBox
+                    displayType={DISPLAY_TYPE[displayTypeIndex].value as any}
                     navigation={navigation}
                     selectionType={SELECTION_TYPE[selectionTypeIndex].value as any}
                     data={regions}
@@ -235,6 +301,12 @@ const SelectBoxPage = () => {
                 />
             </View>
             <View>
+                <TapSelector
+                    initialIndex={displayTypeIndex}
+                    data={DISPLAY_TYPE}
+                    onTap={(v, i) => { setDisplayTypeIndex(i) }}
+                />
+                <Separator />
                 <TapSelector
                     initialIndex={selectionTypeIndex}
                     data={SELECTION_TYPE}

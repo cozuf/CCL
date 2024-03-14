@@ -11,6 +11,11 @@ interface ISelectBoxProps<ItemT> {
     selectionType: "singleSelect" | "multiSelect"
 
     /**
+     * @default bottomSheet
+     */
+    displayType?: "bottomSheet" | "navigate"
+
+    /**
      * @requires Array of { title, value, selected, selectable }
      */
     data: Array<IListData<ItemT>>
