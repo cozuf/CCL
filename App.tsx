@@ -10,6 +10,7 @@ const { StatusBarManager } = NativeModules
 const Child: FC<any> = ({ }) => {
   const { name } = useTheme()
   const isDarkMode = name === "dark"
+  
   const backgroundStyle = {
     flex: 1,
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
