@@ -1,11 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { SafeAreaView, StatusBar, useColorScheme, NativeModules } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { DarkTheme, DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import Router from './app/navigation';
-import { CCLProvider, darkColors, lightColors, tokens, fonts } from './src';
+import { CCLProvider, darkColors, lightColors, tokens, fonts, useTheme } from './src';
 
 const { StatusBarManager } = NativeModules
+
+const Child: FC<any> = ({ }) => {
+  const { name } = useTheme()
+  const isDarkMode = name === "dark"
+  const backgroundStyle = {
+    flex: 1,
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
+  return (
+    <NavigationContainer
+      theme={isDarkMode ? DarkTheme : DefaultTheme}>
+      {/* <SafeAreaView style={backgroundStyle}> */}
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <Router />
+      {/* </SafeAreaView> */}
+    </NavigationContainer>
+  )
+}
 
 const App = (): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -22,11 +44,6 @@ const App = (): JSX.Element => {
   //   },
   // };
 
-  const backgroundStyle = {
-    flex: 1,
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   useEffect(() => {
     // StatusBarManager.getHeight((statusBarHeight: any) => {
     //   // console.warn(statusBarHeight)
@@ -41,16 +58,7 @@ const App = (): JSX.Element => {
         fonts,
         tokens
       }}>
-      <NavigationContainer
-        theme={isDarkMode ? DarkTheme : DefaultTheme}>
-        {/* <SafeAreaView style={backgroundStyle}> */}
-        <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-          backgroundColor={backgroundStyle.backgroundColor}
-        />
-        <Router />
-        {/* </SafeAreaView> */}
-      </NavigationContainer>
+      <Child />
     </CCLProvider>
   );
 }
