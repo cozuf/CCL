@@ -60,6 +60,7 @@ const BottomSheet = forwardRef<IBottomSheetRef, PropsWithChildren<IBottomSheetPr
             animationType="fade"
             transparent={true}
             statusBarTranslucent={true}
+            onRequestClose={closeModal}
         >
             <View
                 style={{
