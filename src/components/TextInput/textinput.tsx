@@ -6,7 +6,7 @@ import { Text } from "../Text";
 import { useTheme } from "../../context";
 
 const TextInput = forwardRef<ITextInputRef, ITextInputProps>((props, ref) => {
-    const { title, disabled, fontFamily = "bold", prefixComponent, suffixComponent, error, containerStyle, ...rest } = props
+    const { title, disabled, fontFamily = "bold", prefixComponent, suffixComponent, error, containerStyle, style, ...rest } = props
     const { colors, tokens, fonts } = useTheme()
     const isError = !!error
 
@@ -82,14 +82,25 @@ const TextInput = forwardRef<ITextInputRef, ITextInputProps>((props, ref) => {
         return (
             <RNTextInput
                 ref={NativeTextInputRef}
-                value="value lara sdkfdas"
-                style={{
-                    fontFamily: fonts[fontFamily] || fontFamily,
-                    color: colors.componentValue,
-                    padding: 0,
-                    paddingVertical: 0,
-                    includeFontPadding: false
-                }}
+                editable={!disabled}
+                style={
+                    [
+                        {
+                            fontFamily: fonts[fontFamily] || fontFamily,
+                            color: colors.componentValue,
+                            height: rest.multiline ? "auto" : 20,
+                            margin: 0,
+                            padding: 0,
+                            paddingVertical: 0,
+                            marginVertical: 0,
+                            borderWidth: 0,
+                            lineHeight: undefined,
+                            includeFontPadding: false
+                        }
+                        ,
+                        style
+                    ]
+                }
                 {...rest}
             />
         )
