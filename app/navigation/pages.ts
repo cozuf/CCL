@@ -8,6 +8,7 @@ import CheckBoxGroup from "../screens/CheckBoxGroup";
 import Chip from "../screens/Chip";
 import ChipGroup from "../screens/ChipGroup";
 import Divider from "../screens/Divider";
+import Modal from "../screens/Modal";
 import PageContainer from "../screens/PageContainer";
 import RadioButton from "../screens/RadioButton";
 import RadioButtonGroup from "../screens/RadioButtonGroup";
@@ -27,6 +28,7 @@ const PAGES = {
     CheckBox, CheckBoxGroup,
     Chip, ChipGroup,
     Divider,
+    Modal,
     PageContainer,
     RadioButton, RadioButtonGroup,
     SegmentedButton,

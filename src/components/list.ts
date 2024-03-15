@@ -8,6 +8,7 @@ const COMPONENT_LIST = [
     "Chip - input",
     "ChipGroup - input",
     "Divider",
+    "Modal",
     "PageContainer",
     "RadioButton - input",
     "RadioButtonGroup - input",

@@ -11,6 +11,7 @@ const Router = () => {
     return (
         <Stack.Navigator
             screenOptions={{
+                animation: "ios",
                 headerTitleStyle: { fontFamily: fonts.bold },
                 headerBackTitleStyle: { fontFamily: fonts.semibold }
             }}>
@@ -24,6 +25,7 @@ const Router = () => {
             <Stack.Screen name={PAGE_NAMES.CHIP} component={PAGES.Chip} />
             <Stack.Screen name={PAGE_NAMES.CHIPGROUP} component={PAGES.ChipGroup} />
             <Stack.Screen name={PAGE_NAMES.DIVIDER} component={PAGES.Divider} />
+            <Stack.Screen name={PAGE_NAMES.MODAL} component={PAGES.Modal} />
             <Stack.Screen name={PAGE_NAMES.PAGECONTAINER} component={PAGES.PageContainer} />
             <Stack.Screen name={PAGE_NAMES.RADIOBUTTON} component={PAGES.RadioButton} />
             <Stack.Screen name={PAGE_NAMES.RADIOBUTTONGROUP} component={PAGES.RadioButtonGroup} />
