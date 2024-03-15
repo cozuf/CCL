@@ -87,7 +87,7 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
                     ?
                     children
                     :
-                    <Text fontFamily="medium" fontSize={18} style={{ color: CONTENT_COLOR[type] }}>
+                    <Text fontFamily="medium" fontSize={14} style={{ color: CONTENT_COLOR[type] }}>
                         {title}
                     </Text>
             }
