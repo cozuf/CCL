@@ -46,6 +46,9 @@ export { SelectBox } from "./SelectBox";
 export type { ISeparatorProps } from "./Separator";
 export { Separator } from "./Separator";
 
+export type { ISnackBarProps, ISnackBarRef } from "./SnackBar";
+export { SnackBar } from "./SnackBar";
+
 export type { ITapSelectorProps } from "./TapSelector"
 export { TapSelector } from "./TapSelector"
 

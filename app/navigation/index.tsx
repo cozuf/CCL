@@ -32,6 +32,7 @@ const Router = () => {
             <Stack.Screen name={PAGE_NAMES.SEGMENTEDBUTTON} component={PAGES.SegmentedButton} />
             <Stack.Screen name={PAGE_NAMES.SELECTBOX} component={PAGES.SelectBox} />
             <Stack.Screen name={PAGE_NAMES.SEPARATOR} component={PAGES.Separator} />
+            <Stack.Screen name={PAGE_NAMES.SNACKBAR} component={PAGES.SnackBar} />
             <Stack.Screen name={PAGE_NAMES.TAPSELECTOR} component={PAGES.TapSelector} />
             <Stack.Screen name={PAGE_NAMES.TEXT} component={PAGES.Text} />
             <Stack.Screen name={PAGE_NAMES.TEXTINPUT} component={PAGES.TextInput} />

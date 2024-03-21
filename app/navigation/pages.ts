@@ -15,6 +15,7 @@ import RadioButtonGroup from "../screens/RadioButtonGroup";
 import SegmentedButton from "../screens/SegmentedButton";
 import SelectBox from "../screens/SelectBox";
 import Separator from "../screens/Separator";
+import SnackBar from "../screens/SnackBar";
 import TapSelector from "../screens/TapSelector";
 import Text from "../screens/Text";
 import TextInput from "../screens/TextInput";
@@ -34,6 +35,7 @@ const PAGES = {
     SegmentedButton,
     SelectBox,
     Separator,
+    SnackBar,
     TapSelector,
     Text,
     TextInput

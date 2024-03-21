@@ -16,6 +16,8 @@ export type {
     ISegmentedButtonProps,
     ISelectBoxProps,
     ISeparatorProps,
+    ISnackBarProps,
+    ISnackBarRef,
     ITapSelectorProps,
     ITextProps,
     ITextInputProps,
@@ -39,6 +41,7 @@ export {
     SegmentedButton,
     SelectBox,
     Separator,
+    SnackBar,
     TapSelector,
     Text,
     TextInput

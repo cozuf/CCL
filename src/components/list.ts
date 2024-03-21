@@ -15,6 +15,7 @@ const COMPONENT_LIST = [
     "SegmentedButton - input",
     "SelectBox - input",
     "Separator",
+    "SnackBar",
     "TapSelector",
     "Text",
     "TextInput - input"

@@ -49,6 +49,18 @@ const Main = () => {
                             type={item.isInput ? "outlined" : "filled"}
                             title={` ${item.label}`}
                             onPress={() => onPressComponent(item.path)}
+                            containerStyle={
+                                {
+                                    shadowColor: "red",
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 12,
+                                    },
+                                    shadowOpacity: 0.58,
+                                    shadowRadius: 16.00,
+
+                                    elevation: 0,
+                                }}
                         />
                     )
                 }}
