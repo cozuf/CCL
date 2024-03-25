@@ -105,6 +105,20 @@ declare global {
         selected: boolean
     }
 
+    type DeepPartial<T> = T extends Function
+        ? T
+        : T extends Array<infer InferredArrayMemeber>
+        ? DeepPartialArray<InferredArrayMemeber>
+        : T extends object
+        ? DeepPartialObject<T>
+        : T | undefined
+
+    interface DeepPartialArray<T> extends Array<DeepPartial<T>> { }
+
+    type DeepPartialObject<T> = {
+        [Key in keyof T]?: DeepPartial<T[Key]>
+    }
+
 }
 
 export { }
