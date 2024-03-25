@@ -2,7 +2,6 @@ import { ReactNode } from "react"
 import { ScrollViewProps, ViewProps } from "react-native"
 import { SafeAreaViewProps } from "react-native-safe-area-context"
 
-// TODO: loading ve loading component
 interface IPageContainerProps extends ViewProps, SafeAreaViewProps, ScrollViewProps {
     /**
      * @default safeView
