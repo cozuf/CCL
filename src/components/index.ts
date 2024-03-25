@@ -25,11 +25,14 @@ export { ChipGroup } from "./ChipGroup"
 export type { IDividerProps } from "./Divider"
 export { Divider } from "./Divider"
 
+export type { IErrorBoundaryProps } from "./ErrorBoundary"
+export { ErrorBoundary, FallbackComponent, withErrorBoundary } from "./ErrorBoundary"
+
 export type { IModalProps } from "./Modal"
 export { Modal } from "./Modal"
 
 export type { IPageContainerProps } from "./PageContainer";
-export { PageContainer } from "./PageContainer";
+export { PageContainer, LoadingComponent } from "./PageContainer";
 
 export type { IRadioButtonProps } from "./RadioButton";
 export { RadioButton } from "./RadioButton";

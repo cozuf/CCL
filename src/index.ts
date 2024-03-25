@@ -9,6 +9,7 @@ export type {
     IChipProps,
     IChipGroupProps,
     IDividerProps,
+    IErrorBoundaryProps,
     IModalProps,
     IPageContainerProps,
     IRadioButtonProps,
@@ -34,8 +35,12 @@ export {
     Chip,
     ChipGroup,
     Divider,
+    ErrorBoundary,
+    FallbackComponent,
+    withErrorBoundary,
     Modal,
     PageContainer,
+    LoadingComponent,
     RadioButton,
     RadioButtonGroup,
     SegmentedButton,
@@ -58,3 +63,5 @@ export {
 } from "./context"
 
 export { fonts, tokens, dark as darkColors, light as lightColors } from "./theme"
+
+export { createReducer } from "./utils"

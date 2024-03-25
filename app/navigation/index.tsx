@@ -2,7 +2,7 @@ import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import PAGE_NAMES from "./pageNames"
 import PAGES from "./pages"
-import { useTheme, CCL_PAGE_NAMES, CCL_PAGES } from "../../src"
+import { useTheme, CCL_PAGE_NAMES, CCL_PAGES, withErrorBoundary } from "../../src"
 
 const Stack = createNativeStackNavigator()
 
@@ -25,7 +25,7 @@ const Router = () => {
             <Stack.Screen name={PAGE_NAMES.CHIP} component={PAGES.Chip} />
             <Stack.Screen name={PAGE_NAMES.CHIPGROUP} component={PAGES.ChipGroup} />
             <Stack.Screen name={PAGE_NAMES.DIVIDER} component={PAGES.Divider} />
-            <Stack.Screen name={PAGE_NAMES.MODAL} component={PAGES.Modal} />
+            <Stack.Screen name={PAGE_NAMES.MODAL} component={withErrorBoundary(PAGES.Modal)} />
             <Stack.Screen name={PAGE_NAMES.PAGECONTAINER} component={PAGES.PageContainer} />
             <Stack.Screen name={PAGE_NAMES.RADIOBUTTON} component={PAGES.RadioButton} />
             <Stack.Screen name={PAGE_NAMES.RADIOBUTTONGROUP} component={PAGES.RadioButtonGroup} />
