@@ -31,7 +31,9 @@
     "fresh": "yarn clear && yarn && yarn pods && npx jetifier",
     "open-android-dev-menu": "adb shell input keyevent 82",
     "apk": "cd android && ./gradlew clean && ./gradlew assembleRelease && open ./app/build/outputs/apk/release/",
-    "bundle": "cd android && ./gradlew clean && ./gradlew bundleRelease && open ./app/build/outputs/bundle/release/"
+    "bundle": "cd android && ./gradlew clean && ./gradlew bundleRelease && open ./app/build/outputs/bundle/release/",
+    "release:android": "npx react-native run-android --mode=release",
+    "release:ios": "npx react-native run-ios --mode Release"
   },
   "dependencies": {
     "@react-navigation/native": "6.1.10",
