@@ -4,6 +4,7 @@ import IErrorBoundaryProps, { IErrorBoundaryState } from "./props";
 /**
  * Bir yapı bu component ile sarılırsa child'daki hataları yakalayıp, fallback gösterir
  * dışındaki yapıda çalışmaz mesela sayfalarda onun @withErrorBoudary kullanmak gerek
+ * dev modda hata ekranını açıyor fakat release modda hata vermiyor
  */
 // TODO onRefresh durumunu düşün
 class ErrorBoundary extends Component<PropsWithChildren<IErrorBoundaryProps>, IErrorBoundaryState>{
