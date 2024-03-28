@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { PageContainer, Separator, TapSelector, Text } from "../../../src/components";
+import { ITextProps, PageContainer, Separator, TapSelector, Text } from "../../../src/components";
 import { View } from "react-native";
 
-const FONT_FAMILY = [
+const FONT_FAMILY: Array<IData<NonNullable<ITextProps["fontFamily"]>>> = [
     {
         title: "light",
         value: "light"
@@ -57,7 +57,7 @@ const TextPage = () => {
         <PageContainer>
             <View style={{ height: 200, alignItems: "center", justifyContent: "center" }}>
                 <Text
-                    fontFamily={FONT_FAMILY[familyIndex].value as any}
+                    fontFamily={FONT_FAMILY[familyIndex].value}
                     fontSize={FONT_SIZE[sizeIndex].value}>
                     Some Text
                 </Text>

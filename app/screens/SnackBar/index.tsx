@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Button, ISnackBarRef, PageContainer, Separator, SnackBar, TapSelector } from "../../../src";
+import { Button, ISnackBarProps, ISnackBarRef, PageContainer, Separator, SnackBar, TapSelector } from "../../../src";
 import { View } from "react-native";
 
-const DURATION = [
+const DURATION: Array<IData<NonNullable<ISnackBarProps["duration"]>>> = [
     {
         title: "SHORT",
         value: "short"
@@ -20,7 +20,7 @@ const DURATION = [
         value: "infinite"
     }
 ]
-const POSITION = [
+const POSITION: Array<IData<NonNullable<ISnackBarProps["position"]>>> = [
     {
         title: "TOP",
         value: "top"
@@ -30,7 +30,7 @@ const POSITION = [
         value: "bottom"
     }
 ]
-const DISPLAY = [
+const DISPLAY: Array<IData<NonNullable<ISnackBarProps["displayForm"]>>> = [
     {
         title: "HIDE TO SHOW",
         value: "hideToShow"
@@ -52,7 +52,7 @@ const DISPLAY = [
         value: "bottomToTop"
     }
 ]
-const TYPE = [
+const TYPE: Array<IData<NonNullable<ISnackBarProps["type"]>>> = [
     {
         title: "DEFAULT",
         value: "default"
@@ -123,10 +123,10 @@ const SnackBarPage = () => {
             </View>
             <SnackBar
                 ref={snackBarRef}
-                displayForm={DISPLAY[displayIndex].value as any}
-                duration={DURATION[durationIndex].value as any}
-                position={POSITION[positionIndex].value as any}
-                type={TYPE[typeIndex].value as any}
+                displayForm={DISPLAY[displayIndex].value}
+                duration={DURATION[durationIndex].value}
+                position={POSITION[positionIndex].value}
+                type={TYPE[typeIndex].value}
             />
         </PageContainer>
     )

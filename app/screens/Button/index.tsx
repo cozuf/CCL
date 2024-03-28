@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, PageContainer, Separator, TapSelector, Text } from "../../../src";
+import { Button, IButtonProps, PageContainer, Separator, TapSelector, Text } from "../../../src";
 import { View } from "react-native";
 
-const TYPE = [
+const TYPE: Array<IData<NonNullable<IButtonProps["type"]>>> = [
     {
         title: "Filled",
         value: "filled"
@@ -17,7 +17,7 @@ const TYPE = [
     }
 ]
 
-const ALIGNMENT = [
+const ALIGNMENT: Array<IData<NonNullable<IButtonProps["alignment"]>>> = [
     {
         title: "No-wrap",
         value: "no-wrap"
@@ -71,9 +71,9 @@ const ButtonPage = () => {
                 {
                     isCustom ?
                         <Button
-                            type={TYPE[typeIndex].value as any}
+                            type={TYPE[typeIndex].value}
                             title="Button"
-                            alignment={ALIGNMENT[alignmentIndex].value as any}
+                            alignment={ALIGNMENT[alignmentIndex].value}
                             disabled={DISABLED[activeIndex].value}
                             onPress={onPressButton}
                         >
@@ -83,9 +83,9 @@ const ButtonPage = () => {
                         </Button>
                         :
                         <Button
-                            type={TYPE[typeIndex].value as any}
+                            type={TYPE[typeIndex].value}
                             title="Button"
-                            alignment={ALIGNMENT[alignmentIndex].value as any}
+                            alignment={ALIGNMENT[alignmentIndex].value}
                             disabled={DISABLED[activeIndex].value}
                             onPress={onPressButton}
                         />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PageContainer, SelectBox, Separator, TapSelector } from "../../../src";
+import { ISelectBoxProps, PageContainer, SelectBox, Separator, TapSelector } from "../../../src";
 import { View } from "react-native";
 import { NavigationProp, ParamListBase, useNavigation } from "@react-navigation/native";
 
@@ -182,7 +182,7 @@ const DATA: Array<IListData<Product>> = [
     }
 ]
 
-const DISPLAY_TYPE = [
+const DISPLAY_TYPE: Array<IData<NonNullable<ISelectBoxProps<any>["displayType"]>>> = [
     {
         title: "BottomSheet",
         value: "bottomSheet"
@@ -192,7 +192,7 @@ const DISPLAY_TYPE = [
         value: "navigate"
     }
 ]
-const SELECTION_TYPE = [
+const SELECTION_TYPE: Array<IData<NonNullable<ISelectBoxProps<any>["selectionType"]>>> = [
     {
         title: "Single Select",
         value: "singleSelect"
@@ -287,9 +287,9 @@ const SelectBoxPage = () => {
         <PageContainer>
             <View style={{ height: 200, justifyContent: "center" }}>
                 <SelectBox
-                    displayType={DISPLAY_TYPE[displayTypeIndex].value as any}
+                    displayType={DISPLAY_TYPE[displayTypeIndex].value}
                     navigation={navigation}
-                    selectionType={SELECTION_TYPE[selectionTypeIndex].value as any}
+                    selectionType={SELECTION_TYPE[selectionTypeIndex].value}
                     data={regions}
                     onSubmit={onSubmitSelection}
                     disabled={DISABLED[disabledIndex].value}
