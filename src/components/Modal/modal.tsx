@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from "react";
+import React, { Component, FC, PropsWithChildren, ReactNode } from "react";
 import IModalProps from "./props";
 import { ActivityIndicator, Pressable, Modal as RNMddal, SafeAreaView, View, useWindowDimensions } from "react-native";
 import { useTheme } from "../../context";
@@ -6,8 +6,24 @@ import { Text } from "../Text";
 import { Button } from "../Button";
 import { Separator } from "../Separator";
 
-const Modal: FC<PropsWithChildren<IModalProps>> = ({ type = "default", onTouchOutside = () => { }, children, ...props }) => {
+const Modal: FC<PropsWithChildren<IModalProps>> = ({
+    type = "default",
+    onTouchOutside = () => { },
+    children,
+    title = "Title",
+    message = "Message",
+    onAcceptPress = () => { },
+    onRejectPress = () => { },
+    ...props }) => {
     const { colors } = useTheme()
+
+    const CHILD: IDictionary<NonNullable<IModalProps["type"]>, ReactNode> = {
+        "default": children,
+        "loading": <Loading />,
+        "messaging": <Messaging title={title} message={message} onAcceptPress={onAcceptPress} />,
+        "selection": <Selection title={title} message={message} onAcceptPress={onAcceptPress} onRejectPress={onRejectPress} />,
+    }
+
     return (
         <RNMddal
             animationType="fade"
@@ -19,11 +35,11 @@ const Modal: FC<PropsWithChildren<IModalProps>> = ({ type = "default", onTouchOu
                     flex: 1, backgroundColor: colors.modalOutside,
                     alignItems: "center", justifyContent: "center"
                 }}
-                onPress={onTouchOutside}>
+                onPress={type === "default" ? onTouchOutside : undefined}>
                 {/* @ts-ignore */}
                 <SafeAreaView edges={["top"]} />
                 <Pressable>
-                    <Selection />
+                    {CHILD[type]}
                 </Pressable>
                 {/* @ts-ignore */}
                 <SafeAreaView edges={["bottom"]} />
@@ -69,9 +85,14 @@ interface IMessagingProps {
      * 
      */
     message: string
+
+    /**
+     * 
+     */
+    onAcceptPress?: () => void
 }
 
-const Messaging: FC<IMessagingProps> = ({ title = "Title", message = "Message" }) => {
+const Messaging: FC<IMessagingProps> = ({ title, message, onAcceptPress }) => {
     const { width } = useWindowDimensions()
     const { colors, tokens } = useTheme()
     return (
@@ -93,6 +114,7 @@ const Messaging: FC<IMessagingProps> = ({ title = "Title", message = "Message" }
             <Separator />
             <Button
                 title="Tamam"
+                onPress={onAcceptPress}
             />
         </View>
     )
@@ -108,9 +130,19 @@ interface ISelectionProps {
      * 
      */
     message: string
+
+    /**
+     * 
+     */
+    onAcceptPress?: () => void
+
+    /**
+     * 
+     */
+    onRejectPress?: () => void
 }
 
-const Selection: FC<ISelectionProps> = ({ title = "Title", message = "Message" }) => {
+const Selection: FC<ISelectionProps> = ({ title, message, onAcceptPress, onRejectPress }) => {
     const { width } = useWindowDimensions()
     const { colors, tokens } = useTheme()
     return (
@@ -120,7 +152,6 @@ const Selection: FC<ISelectionProps> = ({ title = "Title", message = "Message" }
                 backgroundColor: colors.pageBackground,
                 borderRadius: tokens.radiuses.component,
                 padding: tokens.spaces.componentHorizontal,
-                // paddingVertical: tokens.spaces.componentVertical
             }}>
             <Text fontFamily="bold" fontSize={16} style={{ textAlign: "center" }}>
                 {title}
@@ -135,11 +166,13 @@ const Selection: FC<ISelectionProps> = ({ title = "Title", message = "Message" }
                     type="outlined"
                     title="İptal"
                     containerStyle={{ flex: 1 }}
+                    onPress={onRejectPress}
                 />
                 <Separator direction="horizontal" />
                 <Button
                     title="Tamam"
                     containerStyle={{ flex: 1 }}
+                    onPress={onAcceptPress}
                 />
             </View>
         </View>

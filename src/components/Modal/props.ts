@@ -12,6 +12,26 @@ interface IModalProps extends Omit<ModalProps, "transparent"> {
      */
     onTouchOutside?: () => void
 
+    /**
+     * 
+     */
+    title?: string
+
+    /**
+     * 
+     */
+    message?: string
+
+    /**
+     * 
+     */
+    onAcceptPress?: () => void
+
+    /**
+     * 
+     */
+    onRejectPress?: () => void
+
 }
 
 export default IModalProps
