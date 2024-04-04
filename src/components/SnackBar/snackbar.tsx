@@ -1,6 +1,6 @@
 import React, { FC, Fragment, forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import ISnackBarProps, { ISnackBarRef } from "./props";
-import { Animated, Easing, Pressable, StyleProp, View, ViewStyle, useWindowDimensions } from "react-native";
+import { Animated, Easing, Pressable, SafeAreaView, StyleProp, View, ViewStyle, useWindowDimensions } from "react-native";
 import { Text } from "../Text";
 import { Button } from "../Button";
 import { useTheme } from "../../context";
@@ -23,44 +23,52 @@ const SHOWING_TIME = 500
  */
 
 const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
-    const { type = "default", position = "bottom", duration = "long", displayForm = "bottomToTop" } = props
+    const { type = "default", position = "bottom", duration = "infinite", displayForm = "bottomToTop" } = props
 
     const { height, width } = useWindowDimensions()
     const { colors, tokens } = useTheme()
 
-    const left = useRef(new Animated.Value(displayForm === "leftToRight" ? -width : width)).current
-    const right = useRef(new Animated.Value(displayForm === "rightToLeft" ? -width : width)).current
-    const bottom = useRef(new Animated.Value(displayForm === "bottomToTop" ? -100 : 8)).current
+    const top = useRef(new Animated.Value(displayForm === "bottomToTop" && position === "top" ? -100 : 8)).current
+    const bottom = useRef(new Animated.Value(displayForm === "bottomToTop" && position === "bottom" ? -100 : 8)).current
     const opacity = useRef(new Animated.Value(0)).current
     const zIndex = useRef(new Animated.Value(-1)).current
     const scale = useRef(new Animated.Value(0)).current
 
+    const [state, setState] = useState<"SHOWING" | "SHOWED" | "CLOSING" | "CLOSED">("CLOSED")
 
-    // const [state, setState] = useState<"SHOWING" | "SHOWED" | "CLOSING" | "CLOSED">("CLOSED")
+    const [isTopStartComplete, setIsTopStartComplete] = useState<boolean>(false)
+    const [isTopFinishComplete, setIsTopFinishComplete] = useState<boolean>(true)
 
-    // const [isLeftStartComplete, setIsLeftStartComplete] = useState<boolean>(false)
-    // const [isLeftFinishComplete, setIsLeftFinishComplete] = useState<boolean>(true)
+    const [isBottomStartComplete, setIsBottomStartComplete] = useState<boolean>(false)
+    const [isBottomFinishComplete, setIsBottomFinishComplete] = useState<boolean>(true)
 
-    // const [isRightStartComplete, setIsRightStartComplete] = useState<boolean>(false)
-    // const [isRightFinishComplete, setIsRightFinishComplete] = useState<boolean>(true)
+    const [isOpacityStartComplete, setIsOpacityStartComplete] = useState<boolean>(false)
+    const [isOpacityFinishComplete, setIsOpacityFinishComplete] = useState<boolean>(true)
 
-    // const [isBottomStartComplete, setIsBottomStartComplete] = useState<boolean>(false)
-    // const [isBottomFinishComplete, setIsBottomFinishComplete] = useState<boolean>(true)
+    const [isZIndexStartComplete, setIsZIndexStartComplete] = useState<boolean>(false)
+    const [isZIndexFinishComplete, setIsZIndexFinishComplete] = useState<boolean>(true)
 
-    // const [isOpacityStartComplete, setIsOpacityStartComplete] = useState<boolean>(false)
-    // const [isOpacityFinishComplete, setIsOpacityFinishComplete] = useState<boolean>(true)
-
-    // const [isZIndexStartComplete, setIsZIndexStartComplete] = useState<boolean>(false)
-    // const [isZIndexFinishComplete, setIsZIndexFinishComplete] = useState<boolean>(true)
-
-    // const [isScaleStartComplete, setIsScaleStartComplete] = useState<boolean>(false)
-    // const [isScaleFinishComplete, setIsScaleFinishComplete] = useState<boolean>(true)
+    const [isScaleStartComplete, setIsScaleStartComplete] = useState<boolean>(false)
+    const [isScaleFinishComplete, setIsScaleFinishComplete] = useState<boolean>(true)
 
     useImperativeHandle(ref, () => ({
         show: show,
         hide: hide
     }));
 
+    useEffect(
+        () => {
+
+        },
+        [isTopStartComplete, isBottomStartComplete, isOpacityStartComplete, isZIndexStartComplete, isScaleStartComplete]
+    )
+
+    useEffect(
+        () => {
+
+        },
+        [isTopFinishComplete, isBottomFinishComplete, isOpacityFinishComplete, isZIndexFinishComplete, isScaleFinishComplete]
+    )
 
     //#region FADE
     const fadeIn = () => {
@@ -150,68 +158,10 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
     }
     //#endregion
 
-    //#region LEFT_TO_RIGHT
-    const fromLeft = () => {
-        Animated.timing(
-            left,
-            {
-                duration: SHOWING_TIME,
-                toValue: 0,
-                useNativeDriver: false,
-            }
-        ).start(({ finished }) => {
-            // setIsLeftStartComplete(finished)
-            // setIsLeftFinishComplete(!finished)
-        });
-    }
-    const toLeft = () => {
-        Animated.timing(
-            left,
-            {
-                duration: SHOWING_TIME,
-                toValue: -width,
-                useNativeDriver: false,
-            }
-        ).start(({ finished }) => {
-            // setIsLeftFinishComplete(finished)
-            // setIsLeftStartComplete(!finished)
-        });
-    }
-    //#endregion
-
-    //#region RIGHT_TO_LEFT
-    const fromRgiht = () => {
-        Animated.timing(
-            right,
-            {
-                duration: SHOWING_TIME,
-                toValue: 0,
-                useNativeDriver: false,
-            }
-        ).start(({ finished }) => {
-            // setIsRightStartComplete(finished)
-            // setIsRightFinishComplete(!finished)
-        });
-    }
-    const toRgiht = () => {
-        Animated.timing(
-            right,
-            {
-                duration: SHOWING_TIME,
-                toValue: -width,
-                useNativeDriver: false,
-            }
-        ).start(({ finished }) => {
-            // setIsRightFinishComplete(finished)
-            // setIsRightStartComplete(!finished)
-        });
-    }
-    //#endregion
-
     //#region BOTTOM_TO_TOP
     const comeUp = () => {
         Animated.timing(
-            bottom,
+            position === "top" ? top : bottom,
             {
                 duration: SHOWING_TIME,
                 toValue: 16, // TODO ios çentikli cihaz ve android için değeri düşün
@@ -223,7 +173,7 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
     }
     const goDown = () => {
         Animated.timing(
-            bottom,
+            position === "top" ? top : bottom,
             {
                 duration: SHOWING_TIME,
                 toValue: -(100),
@@ -242,23 +192,15 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
             scaleIn()
             return
         }
-        if (displayForm === "leftToRight") {
-            fadeIn()
-            fromLeft()
-            return
-        }
-        if (displayForm === "rightToLeft") {
-            fadeIn()
-            fromRgiht()
-            return
-        }
         if (displayForm === "bottomToTop") {
             fadeIn()
+            front()
             comeUp()
             return
         }
         if (displayForm === "hideToShow") {
             fadeIn()
+            front()
             return
         }
     }
@@ -271,53 +213,41 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
             return
         }
 
-        if (displayForm === "leftToRight") {
-            fadeOut()
-            toLeft()
-            return
-        }
-
-        if (displayForm === "rightToLeft") {
-            fadeOut()
-            toRgiht()
-            return
-        }
-
         if (displayForm === "bottomToTop") {
             fadeOut()
+            back()
             goDown()
             return
         }
 
         if (displayForm === "hideToShow") {
             fadeOut()
+            back()
             return
         }
     }
 
     const STYLE: IDictionary<NonNullable<ISnackBarProps["displayForm"]>, StyleProp<ViewStyle>> = {
-        "hideToShow": {
-            bottom: 0,
+        "hideToShow": [{
             left: 0,
             right: 0
         },
+        position === "top" ? { top: 0 } : { bottom: 0 }],
         "backToFront": {
             transform: [{ scale }],
-            zIndex
         },
-        "leftToRight": {
-            left
-        },
-        "rightToLeft": {
-            right
-        },
-        "bottomToTop": {
-            bottom
-        }
+        "bottomToTop": position === "top" ? { top } : { bottom }
     }
 
     return (
         <Fragment>
+            {
+                position === "top" ?
+                    //@ts-ignore
+                    <SafeAreaView edges={["top"]} />
+                    :
+                    null
+            }
             <AnimatedPressable
                 style={[
                     {
@@ -326,9 +256,10 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
                         height: 48,
                         paddingHorizontal: tokens.spaces.componentHorizontal,
                         opacity,
+                        zIndex
                     },
+                    position === "top" ? { top: 8 } : { bottom: 8 },
                     {
-                        bottom: 8,
                         left: 0,
                         right: 0
                     },
@@ -371,6 +302,13 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
                     />
                 </View>
             </AnimatedPressable>
+            {
+                position === "bottom" ?
+                    //@ts-ignore
+                    <SafeAreaView edges={["bottom"]} />
+                    :
+                    null
+            }
         </Fragment>
     )
 })

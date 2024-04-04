@@ -8,7 +8,7 @@ export interface ISnackBarRef {
 interface ISnackBarProps {
 
     /**
-     * @default short
+     * @default infinite
      */
     duration?: "short" | "medium" | "long" | "infinite",
 
@@ -20,7 +20,7 @@ interface ISnackBarProps {
     /**
      * @default hideToShow
      */
-    displayForm?: "hideToShow" | "backToFront" | "leftToRight" | "rightToLeft" | "bottomToTop"
+    displayForm?: "hideToShow" | "backToFront" | "bottomToTop"
 
     /**
      * @default default

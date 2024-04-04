@@ -40,14 +40,6 @@ const DISPLAY: Array<IData<NonNullable<ISnackBarProps["displayForm"]>>> = [
         value: "backToFront"
     },
     {
-        title: "LEFT TO RIGHT",
-        value: "leftToRight"
-    },
-    {
-        title: "RIGHT TO LEFT",
-        value: "rightToLeft"
-    },
-    {
         title: "BOTTOM TO TOP",
         value: "bottomToTop"
     }
@@ -66,12 +58,13 @@ const TYPE: Array<IData<NonNullable<ISnackBarProps["type"]>>> = [
         value: "error"
     }
 ]
+
 const SnackBarPage = () => {
     const snackBarRef = useRef<ISnackBarRef>(null)
 
     const [durationIndex, setDurationIndex] = useState<number>(2)
     const [positionIndex, setPositionIndex] = useState<number>(1)
-    const [displayIndex, setDisplayIndex] = useState<number>(4)
+    const [displayIndex, setDisplayIndex] = useState<number>(2)
     const [typeIndex, setTypeIndex] = useState<number>(0)
 
     const showSnackBar = () => {
