@@ -95,7 +95,7 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
     const renderValue = () => {
         if (list.some((v) => v.selected)) {
             return (
-                <Text numberOfLines={1}>
+                <Text fontFamily="bold" numberOfLines={1}>
                     {list.filter((v) => v.selected).map((v) => v.title).join(", ")}
                 </Text>
             )
@@ -103,7 +103,7 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
 
         if (placeholder) {
             return (
-                <Text>
+                <Text fontFamily="bold" style={{ color: colors.placeholder }}>
                     {placeholder}
                 </Text>
             )
