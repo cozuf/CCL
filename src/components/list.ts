@@ -8,6 +8,7 @@ const COMPONENT_LIST = [
     "Chip - input",
     "ChipGroup - input",
     "Divider",
+    "DateTimePicker",
     "Modal",
     "PageContainer",
     "RadioButton - input",

@@ -7,6 +7,7 @@ import CheckBox from "../screens/CheckBox";
 import CheckBoxGroup from "../screens/CheckBoxGroup";
 import Chip from "../screens/Chip";
 import ChipGroup from "../screens/ChipGroup";
+import DateTimePicker from "../screens/DateTimePicker";
 import Divider from "../screens/Divider";
 import Modal from "../screens/Modal";
 import PageContainer from "../screens/PageContainer";
@@ -28,6 +29,7 @@ const PAGES = {
     Card,
     CheckBox, CheckBoxGroup,
     Chip, ChipGroup,
+    DateTimePicker,
     Divider,
     Modal,
     PageContainer,

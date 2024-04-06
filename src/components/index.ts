@@ -22,6 +22,9 @@ export { Chip } from "./Chip"
 export type { IChipGroupProps } from "./ChipGroup"
 export { ChipGroup } from "./ChipGroup"
 
+export type { IDateTimePickerProps } from "./DateTimePicker"
+export { DateTimePicker } from "./DateTimePicker"
+
 export type { IDividerProps } from "./Divider"
 export { Divider } from "./Divider"
 

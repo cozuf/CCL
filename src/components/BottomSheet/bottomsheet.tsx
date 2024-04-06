@@ -80,7 +80,7 @@ const BottomSheet = forwardRef<IBottomSheetRef, PropsWithChildren<IBottomSheetPr
                         maxHeight: windowHeight * 0.8,
                         width: windowWidth,
                         bottom: animatedBottom,
-                        backgroundColor: colors.pageBackground,
+                        backgroundColor: colors.componentBackground,
                         borderTopLeftRadius: tokens.radiuses.semiLarge,
                         borderTopRightRadius: tokens.radiuses.semiLarge,
 

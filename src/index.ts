@@ -1,3 +1,9 @@
+export {
+    CheckIcon,
+    ChevronUpIcon,
+    CloseIcon
+} from "./assets"
+
 export type {
     IBadgeProps,
     IButtonProps,
@@ -8,6 +14,7 @@ export type {
     ICheckBoxGroupProps,
     IChipProps,
     IChipGroupProps,
+    IDateTimePickerProps,
     IDividerProps,
     IErrorBoundaryProps,
     IModalProps,
@@ -34,6 +41,7 @@ export {
     CheckBoxGroup,
     Chip,
     ChipGroup,
+    DateTimePicker,
     Divider,
     ErrorBoundary,
     FallbackComponent,
