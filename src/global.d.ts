@@ -26,6 +26,8 @@ declare global {
             shadow: ColorValue
 
             modalOutside: ColorValue
+
+            placeholder: ColorValue
         }
 
         interface FontScheme {

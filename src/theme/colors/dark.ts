@@ -11,7 +11,8 @@ const dark: CCL.ColorScheme = {
     buttonText: "rgb(255, 255, 255)",
     error: "rgb(255, 0, 0)",
     shadow: "rgb(255, 255, 255)",
-    modalOutside: "rgba(255, 255, 255, 0.3)"
+    modalOutside: "rgba(255, 255, 255, 0.3)",
+    placeholder: "rgba(90, 90, 94, 1)"
 }
 
 export default dark
