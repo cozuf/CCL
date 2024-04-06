@@ -147,6 +147,7 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
     return (
         <Fragment>
             <TouchableOpacity
+                activeOpacity={0.5}
                 disabled={disabled}
                 style={[
                     {
