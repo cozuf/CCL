@@ -57,7 +57,7 @@ const TextInputPage = () => {
     const [value, setvalue] = useState<string>("")
 
     const [disabledIndex, setDisabledIndex] = useState<number>(0)
-    const [withTitleIndex, setWithTitleIndex] = useState<number>(0)
+    const [withTitleIndex, setWithTitleIndex] = useState<number>(1)
     const [withPrefixIndex, setWithPrefixIndex] = useState<number>(0)
     const [withSuffixIndex, setWithSuffixIndex] = useState<number>(0)
     const [withErrorIndex, setWithErrorIndex] = useState<number>(0)
@@ -74,6 +74,7 @@ const TextInputPage = () => {
                     value={value}
                     onChangeText={setvalue}
                     error={WITH_ERROR[withErrorIndex].value}
+                    placeholder="Placeholder"
                 />
             </View>
             <View>
