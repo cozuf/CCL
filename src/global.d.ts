@@ -81,8 +81,13 @@ declare global {
             tokens: TokenScheme
         }
 
+        interface GlobalStateScheme {
+
+        }
+
         interface CCLScheme {
             theme: ThemeScheme
+            globalState: GlobalStateScheme
         }
     }
 

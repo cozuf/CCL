@@ -1,11 +1,14 @@
 import React, { FC, PropsWithChildren } from "react";
 import { ThemeProvider } from "../theme";
+import { GlobalStateProvider } from "../globalState";
 
-const CCLProvider: FC<PropsWithChildren<CCL.CCLScheme>> = ({ theme, children }) => {
+const CCLProvider: FC<PropsWithChildren<CCL.CCLScheme>> = ({ globalState, theme, children }) => {
     return (
-        <ThemeProvider {...theme}>
-            {children}
-        </ThemeProvider>
+        <GlobalStateProvider initialGobalState={globalState}>
+            <ThemeProvider {...theme}>
+                {children}
+            </ThemeProvider>
+        </GlobalStateProvider>
     )
 }
 
