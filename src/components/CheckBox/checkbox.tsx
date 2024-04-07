@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import ICheckProps from "./props";
-import { Image, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import { useTheme } from "../../context";
 import { Separator } from "../Separator";
 import { Text } from "../Text";
+import { CheckIcon } from "../../assets";
 
 const CheckBox: FC<ICheckProps> = ({
     selected,
@@ -17,12 +18,7 @@ const CheckBox: FC<ICheckProps> = ({
     containerStyle,
     contentContainerStyle
 }) => {
-
-    const checkBlackPath = require("../../assets/images/CheckBlack.png")
-    const checkWhitePath = require("../../assets/images/CheckWhite.png")
-
-    const { name, colors, tokens } = useTheme()
-    const source = name === "dark" ? checkBlackPath : checkWhitePath
+    const { colors, tokens } = useTheme()
 
     const onPressComponent = () => {
         if (typeof onSelect === "function") {
@@ -67,10 +63,7 @@ const CheckBox: FC<ICheckProps> = ({
                             }}>
                             {
                                 selected ?
-                                    <Image
-                                        source={source}
-                                        style={{ height: 16, width: 16 }}
-                                    />
+                                    <CheckIcon height={20} width={20} color={colors.componentBackground} />
                                     :
                                     null
                             }

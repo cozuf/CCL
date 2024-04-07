@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Chip, PageContainer, Separator, TapSelector, Text } from "../../../src";
+import { ChevronUpIcon, Chip, CloseIcon, PageContainer, Separator, TapSelector, Text } from "../../../src";
 import { Image, View } from "react-native";
 
 const DISABLED = [
@@ -68,11 +68,11 @@ const ChipPage = () => {
     const renderPrefix = WITH_PREFIX[prefixIndex].value ? (s: boolean, d: boolean) => {
         if (s) {
             return (
-                <Image source={require("../../../src/assets/images/ChevronUpWhite.png")} />
+                <ChevronUpIcon color={"red"} />
             )
         }
         return (
-            <Image source={require("../../../src/assets/images/ChevronUpBlack.png")} />
+            <ChevronUpIcon color={"green"} />
         )
     } : undefined
 
@@ -90,11 +90,11 @@ const ChipPage = () => {
     const renderSuffix = WITH_SUFFIX[suffixIndex].value ? (s: boolean, d: boolean) => {
         if (s) {
             return (
-                <Image source={require("../../../src/assets/images/CheckThinWhite.png")} />
+                <CloseIcon height={24} width={24} color={"red"} />
             )
         }
         return (
-            <Image source={require("../../../src/assets/images/CheckThinBlack.png")} />
+            <CloseIcon height={24} width={24} color={"green"} />
         )
     } : undefined
 

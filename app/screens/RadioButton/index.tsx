@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PageContainer, RadioButton, Separator, TapSelector, Text } from "../../../src";
+import { ChevronUpIcon, PageContainer, RadioButton, Separator, TapSelector, Text } from "../../../src";
 import { Image, View } from "react-native";
 
 const DISABLED = [
@@ -67,11 +67,11 @@ const RadioButtonPage = () => {
 
                                 if (s) {
                                     return (
-                                        <Image source={require("../../../src/assets/images/ChevronUpWhite.png")} />
+                                        <ChevronUpIcon color={"green"} />
                                     )
                                 }
                                 return (
-                                    <Image source={require("../../../src/assets/images/ChevronUpBlack.png")} />
+                                    <ChevronUpIcon color={"red"} />
                                 )
                             }
                             :

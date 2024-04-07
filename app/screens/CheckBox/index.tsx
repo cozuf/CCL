@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CheckBox, PageContainer, Separator, TapSelector, Text } from "../../../src";
+import { CheckBox, ChevronUpIcon, PageContainer, Separator, TapSelector, Text } from "../../../src";
 import { Image, View } from "react-native";
 
 const DISABLED = [
@@ -44,6 +44,7 @@ const CUSTOM_CONTENT = [
 ]
 
 const CheckBoxPage = () => {
+
     const [activeIndex, setActiveIndex] = useState<number>(0)
     const [selectedIndex, setSelectedIndex] = useState<number>(0)
     const [customIconIndex, setCustomIconIndex] = useState<number>(0)
@@ -58,11 +59,11 @@ const CheckBoxPage = () => {
 
             if (s) {
                 return (
-                    <Image source={require("../../../src/assets/images/ChevronUpWhite.png")} />
+                    <ChevronUpIcon color={"green"} />
                 )
             }
             return (
-                <Image source={require("../../../src/assets/images/ChevronUpBlack.png")} />
+                <ChevronUpIcon color={"red"} />
             )
         }
         :

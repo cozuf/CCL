@@ -1,9 +1,10 @@
 import React, { FC, PropsWithChildren, useRef, useState } from "react";
 import ICardProps from "./props";
-import { Animated, Easing, Image, StyleSheet, View } from "react-native";
+import { Animated, Easing, StyleSheet, View } from "react-native";
 import { useTheme } from "../../context";
 import { Separator } from "../Separator";
 import { Button } from "../Button";
+import { ChevronUpIcon } from "../../assets";
 
 const Card: FC<PropsWithChildren<ICardProps>> = ({ expandable, ...props }) => {
     return expandable ? <ExpandableCard {...props} /> : <DefaultCard {...props} />
@@ -63,11 +64,7 @@ const ExpandableCard: FC<PropsWithChildren<Omit<ICardProps, "expandable">>> = ({
     bodyContainerStyle,
     children
 }) => {
-    const chevronBlackPath = require("../../assets/images/ChevronUpBlack.png")
-    const chevronWhitePath = require("../../assets/images/ChevronUpWhite.png")
-
-    const { name, colors, tokens } = useTheme()
-    const source = name === "light" ? chevronBlackPath : chevronWhitePath
+    const { colors, tokens } = useTheme()
 
     const [open, setOpen] = useState(isExpanded);
     const animatedController = useRef(new Animated.Value(isExpanded ? 1 : 0)).current
@@ -157,11 +154,9 @@ const ExpandableCard: FC<PropsWithChildren<Omit<ICardProps, "expandable">>> = ({
                 >
                     {
                         icon ?
-                            icon :
-                            <Image
-                                source={source}
-                                style={{ height: 20, width: 20 }}
-                            />
+                            icon
+                            :
+                            <ChevronUpIcon height={24} width={24} color={colors.text} />
                     }
                 </Button>
             </Animated.View>
