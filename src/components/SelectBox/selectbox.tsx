@@ -64,7 +64,7 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
         }
     }
 
-    const onPressSlectBox = () => {
+    const onPressSelectBox = () => {
         if (displayType === "bottomSheet") {
             openBottomSheet()
             return
@@ -162,7 +162,7 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
                     },
                     containerStyle
                 ]}
-                onPress={onPressSlectBox}>
+                onPress={onPressSelectBox}>
                 {renderPrefix()}
                 <View
                     style={{ flex: 1, justifyContent: "center" }}>

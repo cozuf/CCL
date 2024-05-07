@@ -61,7 +61,6 @@ const Content: FC<IContentProps> = ({ selectionType, data, onSubmit = () => { } 
 
     return (
         <Fragment>
-
             {renderContent()}
             <Separator />
             <Button
