@@ -91,3 +91,6 @@ fastlane/saatte-is-51dfdd755c72.json
 *.dSYM.zip
 android/app/release/app-release.apk
 android/app/release/output-metadata.json
+
+#
+Gemfile.lock
