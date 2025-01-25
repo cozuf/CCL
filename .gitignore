@@ -21,6 +21,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 ios/.xcode.env.local
+ios/Podfile.lock
 
 # Android/IntelliJ
 #
@@ -39,6 +40,7 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+yarn.lock
 
 # fastlane
 #
@@ -51,12 +53,17 @@ yarn-error.log
 **/fastlane/Preview.html
 **/fastlane/screenshots
 **/fastlane/test_output
+fastlane/*.cer
+fastlane/*.p12
+fastlane/*.mobileprovision
+fastlane/*.p8
+fastlane/saatte-is-51dfdd755c72.json
 
 # Bundle artifact
 *.jsbundle
 
 # Ruby / CocoaPods
-/ios/Pods/
+**/Pods/
 /vendor/bundle/
 
 # Temporary files created by Metro to check the health of the file watcher
@@ -64,3 +71,23 @@ yarn-error.log
 
 # testing
 /coverage
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# environment
+.env
+
+# history
+.history
+
+# 
+
+*.dSYM.zip
+android/app/release/app-release.apk
+android/app/release/output-metadata.json
