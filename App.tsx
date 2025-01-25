@@ -1,72 +1,67 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
+import React, { FC, useEffect } from 'react';
+import { SafeAreaView, StatusBar, useColorScheme, NativeModules } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import Router from './app/navigation';
+import { CCLProvider, darkColors, lightColors, tokens, fonts, useTheme } from './src';
 
-import 'react-native-gesture-handler';
-import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import Router from './app/Navigation';
-import ThemeProvider, { useThemeContext } from './src/Context/ThemeContext';
-import GlobalStateProvider, { UseGlobalState } from './src/Context/GlobalStateContext';
+const { StatusBarManager } = NativeModules
 
-const App = () => {
+const Child: FC<any> = ({ }) => {
+  const { name } = useTheme()
+  const isDarkMode = name === "dark"
+
+  const backgroundStyle = {
+    flex: 1,
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
   return (
-    <GlobalStateProvider>
-      <ThemeProvider>
-        <NavigationContainer>
-          <Child />
-        </NavigationContainer>
-      </ThemeProvider>
-    </GlobalStateProvider>
-  );
-};
-
-export default App;
-
-const Child = () => {
-  const [theme] = useThemeContext();
-  const { common } = theme.colors;
-  const [state, setState] = UseGlobalState();
-  return (
-    <SafeAreaView
-      style={[styles.safeAreaContainer, { backgroundColor: common.statusbar }]}>
+    <NavigationContainer
+      theme={isDarkMode ? DarkTheme : DefaultTheme}>
+      {/* <SafeAreaView style={backgroundStyle}> */}
       <StatusBar
-        backgroundColor={common.statusbar}
-        barStyle={theme.name === 'Dark' ? 'light-content' : 'dark-content'}
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
       />
       <Router />
-    </SafeAreaView>
+      {/* </SafeAreaView> */}
+    </NavigationContainer>
+  )
+}
+
+const App = (): JSX.Element => {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  // const NavigationTheme: Theme = {
+  //   dark: isDarkMode,
+  //   colors: {
+  //     primary: isDarkMode ? 'rgb(0, 210, 170)' : 'rgb(255, 45, 85)',
+  //     background: isDarkMode ? 'rgb(13,13,13)' : 'rgb(242, 242, 242)',
+  //     card: isDarkMode ? 'rgb(0, 0, 0)' : 'rgb(255, 255, 255)',
+  //     text: isDarkMode ? 'rgb(227, 227, 225)' : 'rgb(28, 28, 30)',
+  //     border: 'rgb(199, 199, 204)',
+  //     notification: 'rgb(255, 69, 58)',
+  //   },
+  // };
+
+  useEffect(() => {
+    // StatusBarManager.getHeight((statusBarHeight: any) => {
+    //   // console.warn(statusBarHeight)
+    // })
+  }, [])
+
+  return (
+    <CCLProvider
+      theme={{
+        name: isDarkMode ? "dark" : "light",
+        colors: isDarkMode ? darkColors : lightColors,
+        fonts,
+        tokens
+      }}>
+      <Child />
+    </CCLProvider>
   );
-};
+}
 
-const styles = StyleSheet.create({
-  safeAreaContainer: {
-    flex: 1,
-  },
-});
-
-// TODO: Tüm comoponentlere testID ekle
-// TODO: Inner Style'ları kaldır
-// TODO: Listelemeli componentlerde searchable'yi unutma
-// TODO: SelectBox componentini tekrar gözden geçir navigationProps ile ilgili
-// TODO: Tüm comoponentlerde eksikleri tamamla (containerStyle vs.)
-// TODO: Tüm padding, borderWidth, borderRadius belirle color scheme gibi
-// TODO: CheckBoxGroup ve RadioButtonGroup alt borderları kaldır seperator olarak ver
-// TODO: Örnek Sayfalar da varyantları ekle
-// TODO: Düzenlemsi gereken componentleri unutma
-// TODO: Yapılacak componentler var (bottomsheet vs.)
-// Context Yapısını oluştur √
-// Tema Context √
-// TODO: Style Context
-// TODO: Language Context
-/**
- * theme.colors|styles|fonts
- * setTheme({colors,styles,fonts})
- */
+export default App;

@@ -1,0 +1,7 @@
+const SELECT_BOX_PAGE = "SELECT_BOX_PAGE"
+
+const CCL_PAGE_NAMES = {
+    SELECT_BOX_PAGE
+}
+
+export default CCL_PAGE_NAMES
