@@ -3,6 +3,7 @@ const COMPONENT_LIST = [
     "Button",
     "BottomSheet",
     "Card",
+    "Chat",
     "CheckBox - input",
     "CheckBoxGroup - input",
     "Chip - input",

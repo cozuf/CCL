@@ -3,6 +3,7 @@ import Badge from "../screens/Badge";
 import Button from "../screens/Button";
 import BottomSheet from "../screens/BottomSheet";
 import Card from "../screens/Card";
+import Chat from "../screens/Chat";
 import CheckBox from "../screens/CheckBox";
 import CheckBoxGroup from "../screens/CheckBoxGroup";
 import Chip from "../screens/Chip";
@@ -27,6 +28,7 @@ const PAGES = {
     Button,
     BottomSheet,
     Card,
+    Chat,
     CheckBox, CheckBoxGroup,
     Chip, ChipGroup,
     DateTimePicker,
