@@ -1,5 +1,3 @@
-import React from "react";
-
 interface ITapSelectorProps<ItemT> {
     /**
      * @default 0

@@ -1,4 +1,3 @@
-import React from "react";
 import { FlatListProps, ListRenderItem } from "react-native";
 
 interface ICheckBoxGroupProps<ItemT> extends Omit<FlatListProps<ItemT>, "data" | "renderItem"> {

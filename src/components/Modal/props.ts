@@ -1,4 +1,3 @@
-import React from "react";
 import { ModalProps } from "react-native";
 
 interface IModalProps extends Omit<ModalProps, "transparent"> {

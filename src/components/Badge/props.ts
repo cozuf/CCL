@@ -1,5 +1,5 @@
-import React from "react";
-import { ColorValue, StyleProp, ViewStyle } from "react-native";
+
+import { StyleProp, ViewStyle } from "react-native";
 import { ITextProps } from "../Text";
 
 interface IBadgeProps {

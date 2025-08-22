@@ -1,4 +1,3 @@
-import React from "react";
 import { ColorValue, StyleProp, ViewStyle } from "react-native";
 
 interface IDividerProps {

@@ -1,12 +1,16 @@
 import React, { FC, Fragment, useRef, useState } from "react";
 import ISelectBoxProps from "./props";
 import { TouchableOpacity, View } from "react-native";
-import { Separator } from "../Separator";
 import { Text } from "../Text";
 import { useTheme } from "../../context";
 import { CCL_PAGE_NAMES } from "../../pages";
 import { BottomSheet, IBottomSheetRef } from "../BottomSheet";
 import Content from "./content";
+import { ComponentPrefix } from "../Base/Prefix";
+import { ComponentSuffix } from "../Base/Suffix";
+import { ComponentTitle } from "../Base/Title";
+import { ComponentValue } from "../Base/Value";
+import { ComponentError } from "../Base/Error";
 
 const SelectBox: FC<ISelectBoxProps<any>> = ({
     data,
@@ -76,74 +80,6 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
         }
     }
 
-    const renderTitle = () => {
-        if (title) {
-            return (
-                <Fragment>
-                    <Text fontFamily="medium" style={{ color: isError ? colors.error : colors.componentTitle }}>
-                        {title}
-                    </Text>
-                    <Separator />
-                </Fragment>
-            )
-        }
-
-        return null
-    }
-
-    // FIXME Gösterim şekli düşünülmeli props ile dışarıya açılabilir
-    const renderValue = () => {
-        if (list.some((v) => v.selected)) {
-            return (
-                <Text fontFamily="bold" numberOfLines={1}>
-                    {list.filter((v) => v.selected).map((v) => v.title).join(", ")}
-                </Text>
-            )
-        }
-
-        if (placeholder) {
-            return (
-                <Text fontFamily="bold" style={{ color: colors.placeholder }}>
-                    {placeholder}
-                </Text>
-            )
-        }
-
-        return null
-    }
-
-    const renderPrefix = () => {
-        if (typeof prefixComponent === "function") {
-            return (
-                <Fragment>
-                    <View style={{ alignItems: "center", justifyContent: "center" }}>
-                        {prefixComponent()}
-                    </View>
-                    <Separator direction="horizontal" />
-                </Fragment>
-
-            )
-        }
-
-        return null
-    }
-
-    const renderSuffix = () => {
-        if (typeof suffixComponent === "function") {
-            return (
-                <Fragment>
-                    <View style={{ alignItems: "center", justifyContent: "center" }}>
-                        {suffixComponent()}
-                    </View>
-                    <Separator direction="horizontal" />
-                </Fragment>
-
-            )
-        }
-
-        return null
-    }
-
     return (
         <Fragment>
             <TouchableOpacity
@@ -163,14 +99,16 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
                     containerStyle
                 ]}
                 onPress={onPressSelectBox}>
-                {renderPrefix()}
+                <ComponentPrefix error={error} prefixComponent={prefixComponent} />
                 <View
                     style={{ flex: 1, justifyContent: "center" }}>
-                    {renderTitle()}
-                    {renderValue()}
+                    <ComponentTitle error={error} title={title} />
+                    {/* // FIXME Gösterim şekli düşünülmeli props ile dışarıya açılabilir */}
+                    <ComponentValue placeholder={placeholder} value={list.filter((v) => v.selected).map((v) => v.title).join(", ")} />
                 </View>
-                {renderSuffix()}
+                <ComponentSuffix error={error} suffixComponent={suffixComponent} />
             </TouchableOpacity>
+            <ComponentError error={error} />
             <BottomSheet
                 ref={bottomSheetRef}>
                 <Content
