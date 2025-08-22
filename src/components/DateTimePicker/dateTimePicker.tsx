@@ -1,14 +1,14 @@
 import React, { FC, Fragment, useRef, useState } from "react";
-import IDateTimePickerProps from "./props";
-import DatePicker from "react-native-date-picker";
 import { TouchableOpacity, View, useWindowDimensions } from "react-native";
-import { Separator } from "../Separator";
+import DatePicker from "react-native-date-picker";
+import IDateTimePickerProps from "./props";
 import { Text } from "../Text";
 import { useTheme } from "../../context";
 import { BottomSheet, IBottomSheetRef } from "../BottomSheet";
 import { Button } from "../Button";
 import { Modal } from "../Modal";
 import { CloseIcon } from "../../assets";
+import { ComponentError, ComponentPrefix, ComponentSuffix, ComponentTitle, ComponentValue } from "../Base";
 
 const DateTimePicker: FC<IDateTimePickerProps> = ({
     date,
@@ -54,76 +54,6 @@ const DateTimePicker: FC<IDateTimePickerProps> = ({
         if (displayType === "modal") {
             setVisible(false)
             return
-        }
-    }
-
-    const renderPrefix = () => {
-        if (prefixComponent !== undefined) {
-            return (
-                <Fragment>
-                    <View style={{ alignItems: "center", justifyContent: "center" }}>
-                        {prefixComponent}
-                    </View>
-                    <Separator direction="horizontal" />
-                </Fragment>
-            )
-        }
-        return null
-    }
-
-    const renderSuffix = () => {
-        if (suffixComponent !== undefined) {
-            return (
-                <Fragment>
-                    <Separator direction="horizontal" />
-                    <View style={{ alignItems: "center", justifyContent: "center" }}>
-                        {suffixComponent}
-                    </View>
-                </Fragment>
-            )
-        }
-    }
-
-    const renderTitle = () => {
-        if (title) {
-            return (
-                <Fragment>
-                    <Text fontFamily="medium" style={{ color: isError ? colors.error : colors.componentTitle }}>
-                        {title}
-                    </Text>
-                    <Separator />
-                </Fragment>
-            )
-        }
-    }
-
-    const renderValue = () => {
-        if (date) {
-            return (
-                <Text fontFamily="bold">
-                    {date.toISOString()}
-                </Text>
-            )
-        }
-        return (
-            <Text fontFamily="bold" style={{ color: colors.placeholder }}>
-                {placeholder}
-            </Text>
-        )
-    }
-
-    const renderError = () => {
-        if (isError) {
-            return (
-                <Fragment>
-                    <Separator />
-                    <View style={{ paddingHorizontal: tokens.spaces.componentHorizontal }}>
-                        <Text fontFamily="medium" style={{ color: colors.error }}>
-                            {error}
-                        </Text>
-                    </View>
-                </Fragment>
-            )
         }
     }
 
@@ -174,36 +104,15 @@ const DateTimePicker: FC<IDateTimePickerProps> = ({
                         containerStyle
                     ]}
                     onPress={openDisplayer}>
-                    {renderPrefix()}
+                    <ComponentPrefix error={error} prefixComponent={prefixComponent} />
                     <View style={{ flex: 1, justifyContent: "center" }}>
-                        {renderTitle()}
-                        {renderValue()}
+                        <ComponentTitle error={error} title={title} />
+                        <ComponentValue placeholder={placeholder} value={date?.toISOString()} />
                     </View>
-                    {renderSuffix()}
+                    <ComponentSuffix error={error} suffixComponent={suffixComponent} />
                 </TouchableOpacity>
-                {renderError()}
+                <ComponentError error={error} />
             </Fragment>
-            {
-                displayType === "bottomSheet" ?
-                    <BottomSheet
-                        ref={bottomSheetRef}>
-                        <View>
-                            {renderHeader()}
-                            <View>
-                                <DatePicker
-                                    {...props}
-                                    date={currentDate || new Date()}
-                                    onDateChange={setCurrentDate}
-                                    style={{ width: width - tokens.spaces.regular }}
-                                    theme={name}
-                                />
-                            </View>
-                            {renderSubmitButton()}
-                        </View>
-                    </BottomSheet>
-                    :
-                    null
-            }
             {
                 displayType === "modal" ?
                     <Modal
@@ -230,7 +139,25 @@ const DateTimePicker: FC<IDateTimePickerProps> = ({
                         </View>
                     </Modal>
                     :
-                    null
+                    displayType === "bottomSheet" ?
+                        <BottomSheet
+                            ref={bottomSheetRef}>
+                            <View>
+                                {renderHeader()}
+                                <View>
+                                    <DatePicker
+                                        {...props}
+                                        date={currentDate || new Date()}
+                                        onDateChange={setCurrentDate}
+                                        style={{ width: width - tokens.spaces.regular }}
+                                        theme={name}
+                                    />
+                                </View>
+                                {renderSubmitButton()}
+                            </View>
+                        </BottomSheet>
+                        :
+                        null
             }
         </Fragment>
     )

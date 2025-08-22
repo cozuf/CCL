@@ -1,9 +1,11 @@
 import React, { Fragment, forwardRef, useImperativeHandle, useRef } from "react";
 import ITextInputProps, { ITextInputRef } from "./props";
 import { Pressable, TextInput as RNTextInput, View } from "react-native";
-import { Separator } from "../Separator";
-import { Text } from "../Text";
 import { useTheme } from "../../context";
+import { ComponentPrefix } from "../Base/Prefix";
+import { ComponentSuffix } from "../Base/Suffix";
+import { ComponentError } from "../Base/Error";
+import { ComponentTitle } from "../Base/Title";
 
 const TextInput = forwardRef<ITextInputRef, ITextInputProps>((props, ref) => {
     const { title, disabled, fontFamily = "bold", prefixComponent, suffixComponent, error, containerStyle, style, ...rest } = props
@@ -36,46 +38,6 @@ const TextInput = forwardRef<ITextInputRef, ITextInputProps>((props, ref) => {
         } else {
             NativeTextInputRef.current?.focus();
         }
-    };
-
-    const renderPrefix = () => {
-        if (prefixComponent !== undefined) {
-            return (
-                <Fragment>
-                    <View style={{ alignItems: "center", justifyContent: "center" }}>
-                        {prefixComponent}
-                    </View>
-                    <Separator direction="horizontal" />
-                </Fragment>
-            )
-        }
-        return null
-    }
-
-    const renderSuffix = () => {
-        if (suffixComponent !== undefined) {
-            return (
-                <Fragment>
-                    <Separator direction="horizontal" />
-                    <View style={{ alignItems: "center", justifyContent: "center" }}>
-                        {suffixComponent}
-                    </View>
-                </Fragment>
-            )
-        }
-    }
-
-    const renderTitle = () => {
-        if (title) {
-            return (
-                <Fragment>
-                    <Text fontFamily="medium" style={{ color: isError ? colors.error : colors.componentTitle }}>
-                        {title}
-                    </Text>
-                    <Separator />
-                </Fragment>
-            )
-        }
     }
 
     const renderInput = () => {
@@ -106,21 +68,6 @@ const TextInput = forwardRef<ITextInputRef, ITextInputProps>((props, ref) => {
         )
     }
 
-    const renderError = () => {
-        if (isError) {
-            return (
-                <Fragment>
-                    <Separator />
-                    <View style={{ paddingHorizontal: tokens.spaces.componentHorizontal }}>
-                        <Text fontFamily="medium" style={{ color: colors.error }}>
-                            {error}
-                        </Text>
-                    </View>
-                </Fragment>
-            )
-        }
-    }
-
     return (
         <Fragment>
             <Pressable
@@ -139,114 +86,16 @@ const TextInput = forwardRef<ITextInputRef, ITextInputProps>((props, ref) => {
                     containerStyle
                 ]}
                 onPress={onChangeFocus}>
-                {renderPrefix()}
+                <ComponentPrefix error={error} prefixComponent={prefixComponent} />
                 <View style={{ flex: 1, justifyContent: "center" }}>
-                    {renderTitle()}
+                    <ComponentTitle error={error} title={title} />
                     {renderInput()}
                 </View>
-                {renderSuffix()}
+                <ComponentSuffix error={error} suffixComponent={suffixComponent} />
             </Pressable>
-            {renderError()}
+            <ComponentError error={error} />
         </Fragment>
     )
 })
-
-// const TextInput: FC<ITextInputProps> = ({ title, disabled, fontFamily = "bold", prefixComponent, suffixComponent, error, containerStyle, ...props }) => {
-//     const { colors, tokens, fonts } = useTheme()
-//     const isError = !!error
-
-//     const renderPrefix = () => {
-//         if (prefixComponent !== undefined) {
-//             return (
-//                 <Fragment>
-//                     <View style={{ alignItems: "center", justifyContent: "center" }}>
-//                         {prefixComponent}
-//                     </View>
-//                     <Separator direction="horizontal" />
-//                 </Fragment>
-//             )
-//         }
-//         return null
-//     }
-
-//     const renderSuffix = () => {
-//         if (suffixComponent !== undefined) {
-//             return (
-//                 <Fragment>
-//                     <Separator direction="horizontal" />
-//                     <View style={{ alignItems: "center", justifyContent: "center" }}>
-//                         {suffixComponent}
-//                     </View>
-//                 </Fragment>
-//             )
-//         }
-//     }
-
-//     const renderTitle = () => {
-//         if (title) {
-//             return (
-//                 <Fragment>
-//                     <Text fontFamily="medium" style={{ color: isError ? colors.error : colors.componentTitle }}>
-//                         {title}
-//                     </Text>
-//                     <Separator />
-//                 </Fragment>
-//             )
-//         }
-//     }
-
-//     const renderError = () => {
-//         if (isError) {
-//             return (
-//                 <Fragment>
-//                     <Separator />
-//                     <View style={{ paddingHorizontal: tokens.spaces.componentHorizontal }}>
-//                         <Text fontFamily="medium" style={{ color: colors.error }}>
-//                             {error}
-//                         </Text>
-//                     </View>
-//                 </Fragment>
-//             )
-//         }
-//     }
-
-//     return (
-//         <Fragment>
-//             <Pressable
-//                 disabled
-//                 style={[
-//                     {
-//                         flexDirection: "row",
-//                         backgroundColor: colors.componentBackground,
-//                         borderWidth: tokens.borders.component,
-//                         borderColor: isError ? colors.error : colors.componentBorder,
-//                         borderRadius: tokens.radiuses.component,
-//                         paddingHorizontal: tokens.spaces.componentHorizontal,
-//                         paddingVertical: tokens.spaces.componentVertical,
-//                         opacity: disabled ? 0.5 : 1
-//                     },
-//                     containerStyle
-//                 ]}>
-//                 {renderPrefix()}
-//                 <View style={{ flex: 1, justifyContent: "center" }}>
-//                     {renderTitle()}
-//                     <RNTextInput
-//                         value="value lara sdkfdas"
-//                         style={{
-//                             fontFamily: fonts[fontFamily] || fontFamily,
-//                             color: colors.componentValue,
-//                             padding: 0,
-//                             paddingVertical: 0,
-//                             includeFontPadding: false
-//                         }}
-//                         {...props}
-//                     />
-//                 </View>
-//                 {renderSuffix()}
-//             </Pressable>
-//             {renderError()}
-//         </Fragment>
-//     )
-// }
 
 export default TextInput

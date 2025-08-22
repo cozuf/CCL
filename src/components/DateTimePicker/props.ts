@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
 import { StyleProp, ViewStyle } from "react-native";
 import { DatePickerProps } from "react-native-date-picker";
+import { IComponentErrorProps, IComponentPrefixProps, IComponentSuffixProps, IComponentTitleProps } from "../Base";
 
-interface IDateTimePickerProps extends Omit<DatePickerProps, "date" | "onDateChange"> {
+interface IDateTimePickerProps extends Omit<DatePickerProps, "date" | "onDateChange" | "title">, IComponentTitleProps, IComponentPrefixProps, IComponentSuffixProps, IComponentErrorProps {
     /**
      * 
      */
@@ -31,27 +31,7 @@ interface IDateTimePickerProps extends Omit<DatePickerProps, "date" | "onDateCha
     /**
      * 
      */
-    title?: string
-
-    /**
-     * 
-     */
     disabled?: boolean
-
-    /**
-     * 
-     */
-    prefixComponent?: ReactNode
-
-    /**
-     * 
-     */
-    suffixComponent?: ReactNode
-
-    /**
-     * 
-     */
-    error?: string
 
     /**
      * 

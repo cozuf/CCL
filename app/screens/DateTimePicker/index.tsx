@@ -101,8 +101,8 @@ const DateTimePickerPage = () => {
                     mode={MODE[modeIndex].value}
                     displayType={DISPLAY_TYPE[displayTypeIndex].value}
                     disabled={DISABLED[disabledIndex].value}
-                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
-                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
+                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
+                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
                     title={WITH_TITLE[withTitleIndex].value}
                     error={WITH_ERROR[withErrorIndex].value}
                 />
