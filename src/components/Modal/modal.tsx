@@ -7,7 +7,7 @@ import { Button } from "../Button";
 import { Separator } from "../Separator";
 
 const Modal: FC<PropsWithChildren<IModalProps>> = ({
-    type = "default",
+    type = "custom",
     onTouchOutside = () => { },
     children,
     title = "Title",
@@ -17,8 +17,8 @@ const Modal: FC<PropsWithChildren<IModalProps>> = ({
     ...props }) => {
     const { colors } = useTheme()
 
-    const CHILD: IDictionary<NonNullable<IModalProps["type"]>, ReactNode> = {
-        "default": children,
+    const CHILD: Record<NonNullable<IModalProps["type"]>, ReactNode> = {
+        "custom": children,
         "loading": <Loading />,
         "messaging": <Messaging title={title} message={message} onAcceptPress={onAcceptPress} />,
         "selection": <Selection title={title} message={message} onAcceptPress={onAcceptPress} onRejectPress={onRejectPress} />,
@@ -35,7 +35,7 @@ const Modal: FC<PropsWithChildren<IModalProps>> = ({
                     flex: 1, backgroundColor: colors.modalOutside,
                     alignItems: "center", justifyContent: "center"
                 }}
-                onPress={type === "default" ? onTouchOutside : undefined}>
+                onPress={type === "custom" ? onTouchOutside : undefined}>
                 {/* @ts-ignore */}
                 <SafeAreaView edges={["top"]} />
                 <Pressable>
@@ -60,8 +60,8 @@ const Loading: FC<ILoadingProps> = ({ }) => {
     return (
         <View
             style={{
-                height: width / 2,
-                width: width / 2,
+                height: 160,
+                width: 160,
                 backgroundColor: colors.pageBackground,
                 borderRadius: tokens.radiuses.large,
                 alignItems: "center",
@@ -165,6 +165,7 @@ const Selection: FC<ISelectionProps> = ({ title, message, onAcceptPress, onRejec
                 <Button
                     type="outlined"
                     title="İptal"
+                    color="error"
                     containerStyle={{ flex: 1 }}
                     onPress={onRejectPress}
                 />
