@@ -12,7 +12,8 @@ const light: CCL.ColorScheme = {
     error: "rgb(255, 0, 0)",
     shadow: "rgb(0, 0, 0)",
     modalOutside: "rgba(0, 0, 0, 0.3)",
-    placeholder: "rgba(90, 90, 94, 1)"
+    placeholder: "rgba(90, 90, 94, 1)",
+    divider: "rgb(128, 128, 128)",
 }
 
 export default light
