@@ -18,6 +18,11 @@ interface IButtonProps extends Omit<TouchableOpacityProps, "style"> {
     alignment?: "no-wrap" | "wrap" | "free"
 
     /**
+     * @default primary
+     */
+    color?: keyof CCL.ColorScheme
+
+    /**
      * 
      */
     containerStyle?: StyleProp<ViewStyle>
