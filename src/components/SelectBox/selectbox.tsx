@@ -63,7 +63,7 @@ const SelectBox: FC<ISelectBoxProps<any>> = ({
         }
 
         if (displayType === "navigate") {
-            navigation.goBack()
+            navigation?.goBack()
             return
         }
     }

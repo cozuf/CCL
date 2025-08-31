@@ -41,6 +41,7 @@ const Content: FC<IContentProps> = ({ selectionType, data, onSubmit = () => { } 
                     data={list}
                     onSelect={(s, l) => { setList(l) }}
                     showsVerticalScrollIndicator={false}
+                    style={{ flexGrow: undefined }}
                 />
             )
         }
@@ -52,6 +53,7 @@ const Content: FC<IContentProps> = ({ selectionType, data, onSubmit = () => { } 
                     data={list}
                     onSelect={(s, i, l) => { setList(l) }}
                     showsVerticalScrollIndicator={false}
+                    style={{ flexGrow: undefined }}
                 />
             )
         }

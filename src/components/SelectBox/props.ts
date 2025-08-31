@@ -26,7 +26,7 @@ interface ISelectBoxProps<ItemT> extends IComponentTitleProps, IComponentValuePr
     /**
      * 
      */
-    navigation: NavigationProp<ParamListBase>
+    navigation?: NavigationProp<ParamListBase>
 
     /**
      * 
