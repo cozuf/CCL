@@ -19,6 +19,12 @@ interface IDateTimePickerProps extends Omit<DatePickerProps, "date" | "onDateCha
     displayType?: "bottomSheet" | "modal"
 
     /**
+     * moment format
+     * @default "DD - MM -YYYY"
+     */
+    displayFormat?: string
+
+    /**
      * 
      */
     onSubmit?: (selectedDate: Date) => void
