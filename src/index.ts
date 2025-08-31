@@ -29,7 +29,14 @@ export type {
     ITapSelectorProps,
     ITextProps,
     ITextInputProps,
-    ITextInputRef
+    ITextInputRef,
+
+    IComponentErrorProps,
+    IComponentPlaceholderProps,
+    IComponentTitleProps,
+    IComponentValueProps,
+    IComponentPrefixProps,
+    IComponentSuffixProps,
 } from "./components"
 
 export {
@@ -57,7 +64,14 @@ export {
     SnackBar,
     TapSelector,
     Text,
-    TextInput
+    TextInput,
+
+    ComponentError,
+    ComponentPlaceholder,
+    ComponentTitle,
+    ComponentValue,
+    ComponentPrefix,
+    ComponentSuffix,
 } from "./components"
 
 export {
