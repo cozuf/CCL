@@ -227,7 +227,7 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
         }
     }
 
-    const STYLE: IDictionary<NonNullable<ISnackBarProps["displayForm"]>, StyleProp<ViewStyle>> = {
+    const STYLE: Record<NonNullable<ISnackBarProps["displayForm"]>, StyleProp<ViewStyle>> = {
         "hideToShow": [{
             left: 0,
             right: 0
@@ -537,7 +537,7 @@ const ASD = forwardRef<ISnackBarRef, ISnackBarProps>((props, ref) => {
 //         }
 //     }
 
-//     const STYLE: IDictionary<NonNullable<ISnackBarProps["displayForm"]>, StyleProp<ViewStyle>> = {
+//     const STYLE: Record<NonNullable<ISnackBarProps["displayForm"]>, StyleProp<ViewStyle>> = {
 //         "hideToShow": {
 //             bottom: 0,
 //             left: 0,
