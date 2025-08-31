@@ -2,9 +2,9 @@ import { ModalProps } from "react-native";
 
 interface IModalProps extends Omit<ModalProps, "transparent"> {
     /**
-     * @default "default"
+     * @default "custom"
      */
-    type?: "default" | "loading" | "messaging" | "selection"
+    type?: "custom" | "loading" | "messaging" | "selection"
 
     /**
      * 
