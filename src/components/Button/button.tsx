@@ -6,58 +6,58 @@ import { Text } from "../Text";
 
 
 
-const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "filled", title, alignment = "no-wrap", children, containerStyle, ...props }) => {
+const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "filled", title, alignment = "no-wrap", color = "primary", containerStyle, children, ...props }) => {
     const { colors, tokens } = useTheme()
 
-    const BACKGROUND_COLOR: IDictionary<NonNullable<IButtonProps["type"]>, ColorValue> = {
-        "filled": colors.primary,
+    const BACKGROUND_COLOR: Record<NonNullable<IButtonProps["type"]>, ColorValue> = {
+        "filled": colors[color],
         "outlined": colors.componentBackground,
-        "simplified": colors.componentBackground
-    }
-
-    const BORDER_COLOR: IDictionary<NonNullable<IButtonProps["type"]>, ColorValue> = {
-        "filled": "transparent",
-        "outlined": colors.primary,
         "simplified": "transparent"
     }
 
-    const CONTENT_COLOR: IDictionary<NonNullable<IButtonProps["type"]>, ColorValue> = {
-        "filled": colors.buttonText,
-        "outlined": colors.primary,
-        "simplified": colors.primary
+    const BORDER_COLOR: Record<NonNullable<IButtonProps["type"]>, ColorValue> = {
+        "filled": "transparent",
+        "outlined": colors[color],
+        "simplified": "transparent"
     }
 
-    const BORDER_WIDTH: IDictionary<NonNullable<IButtonProps["type"]>, number> = {
+    const CONTENT_COLOR: Record<NonNullable<IButtonProps["type"]>, ColorValue> = {
+        "filled": colors.buttonText,
+        "outlined": colors[color],
+        "simplified": colors[color]
+    }
+
+    const BORDER_WIDTH: Record<NonNullable<IButtonProps["type"]>, number> = {
         "filled": 0,
         "outlined": tokens.borders.button,
         "simplified": 0
     }
 
-    const ALIGN_SELF: IDictionary<NonNullable<IButtonProps["alignment"]>, FlexStyle["alignSelf"]> = {
+    const ALIGN_SELF: Record<NonNullable<IButtonProps["alignment"]>, FlexStyle["alignSelf"]> = {
         "no-wrap": "stretch",
         "wrap": "baseline",
         "free": undefined
     }
 
-    const ALIGN_ITEMS: IDictionary<NonNullable<IButtonProps["alignment"]>, FlexStyle["alignItems"]> = {
+    const ALIGN_ITEMS: Record<NonNullable<IButtonProps["alignment"]>, FlexStyle["alignItems"]> = {
         "no-wrap": "center",
         "wrap": "center",
         "free": undefined
     }
 
-    const BORDER_RADIUS: IDictionary<NonNullable<IButtonProps["alignment"]>, number> = {
+    const BORDER_RADIUS: Record<NonNullable<IButtonProps["alignment"]>, number> = {
         "no-wrap": tokens.radiuses.component,
         "wrap": tokens.radiuses.component,
         "free": 0
     }
 
-    const PADDING_VERTICAL: IDictionary<NonNullable<IButtonProps["alignment"]>, number> = {
+    const PADDING_VERTICAL: Record<NonNullable<IButtonProps["alignment"]>, number> = {
         "no-wrap": tokens.spaces.componentVertical,
         "wrap": tokens.spaces.componentVertical,
         "free": 0
     }
 
-    const PADDING_HORIZONTAL: IDictionary<NonNullable<IButtonProps["alignment"]>, number> = {
+    const PADDING_HORIZONTAL: Record<NonNullable<IButtonProps["alignment"]>, number> = {
         "no-wrap": tokens.spaces.componentHorizontal,
         "wrap": tokens.spaces.componentHorizontal,
         "free": 0
