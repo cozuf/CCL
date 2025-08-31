@@ -1,6 +1,7 @@
 import React, { FC, Fragment, useRef, useState } from "react";
 import { TouchableOpacity, View, useWindowDimensions } from "react-native";
 import DatePicker from "react-native-date-picker";
+import moment from "moment";
 import IDateTimePickerProps from "./props";
 import { Text } from "../Text";
 import { useTheme } from "../../context";
@@ -13,6 +14,7 @@ import { ComponentError, ComponentPrefix, ComponentSuffix, ComponentTitle, Compo
 const DateTimePicker: FC<IDateTimePickerProps> = ({
     date,
     displayType = "bottomSheet",
+    displayFormat = "DD-MM-YYYY",
     onSubmit = () => { },
     onCancel = () => { },
     containerStyle,
@@ -107,7 +109,7 @@ const DateTimePicker: FC<IDateTimePickerProps> = ({
                     <ComponentPrefix error={error} prefixComponent={prefixComponent} />
                     <View style={{ flex: 1, justifyContent: "center" }}>
                         <ComponentTitle error={error} title={title} />
-                        <ComponentValue placeholder={placeholder} value={date?.toISOString()} />
+                        <ComponentValue placeholder={placeholder} value={date ? moment(date).format(displayFormat) : undefined} />
                     </View>
                     <ComponentSuffix error={error} suffixComponent={suffixComponent} />
                 </TouchableOpacity>
@@ -116,7 +118,7 @@ const DateTimePicker: FC<IDateTimePickerProps> = ({
             {
                 displayType === "modal" ?
                     <Modal
-                        type="default"
+                        type="custom"
                         visible={visible}
                         onTouchOutside={() => setVisible(false)}>
                         <View
