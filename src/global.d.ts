@@ -28,6 +28,8 @@ declare global {
             modalOutside: ColorValue
 
             placeholder: ColorValue
+
+            divider: ColorValue
         }
 
         interface FontScheme {
@@ -81,6 +83,10 @@ declare global {
             tokens: TokenScheme
         }
 
+        interface ModalScheme extends IModalProps {
+
+        }
+
         interface GlobalStateScheme {
 
         }
@@ -91,9 +97,7 @@ declare global {
         }
     }
 
-    type IDictionary<K extends string | number | symbol | boolean, V extends any> = {
-        [key in K]: V
-    }
+    type IStatusType = "INIT" | "LOADED" | "REFRESH" | "FAILED" | "MORE" | "UPDATE"
 
     interface IData<T> {
         title: string

@@ -19,10 +19,9 @@ interface IDividerProps {
     distance?: ViewStyle["height"] | ViewStyle["width"]
 
     /**
-     * // FIXME
-     * theme scheme "divider" key or any color value
+     * @default divider
      */
-    color?: ColorValue
+    color?: keyof CCL.ColorScheme
 
     /**
      * 
