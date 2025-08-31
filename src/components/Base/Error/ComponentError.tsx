@@ -11,9 +11,9 @@ const ComponentError: FC<IComponentErrorProps> = ({ error }) => {
     if (!!error) {
         return (
             <Fragment>
-                <Separator />
+                <Separator distance={4} />
                 <View style={{ paddingHorizontal: tokens.spaces.componentHorizontal }}>
-                    <Text fontFamily="medium" style={{ color: colors.error }}>
+                    <Text fontFamily="medium" fontSize={10} style={{ color: colors.error }}>
                         {error}
                     </Text>
                 </View>
