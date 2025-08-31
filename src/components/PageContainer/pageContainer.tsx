@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren } from "react";
-import { SafeAreaView, ScrollView, View } from "react-native"
+import { SafeAreaView, ScrollView, StyleProp, View, ViewStyle } from "react-native"
 import IPageContainerProps from "./props";
 import { useTheme } from "../../context";
 import { ErrorBoundary, FallbackComponent } from "../ErrorBoundary";
@@ -21,16 +21,21 @@ const Child: FC<PropsWithChildren<Omit<IPageContainerProps, "fallbackComponent">
 
     const kids = loading ? loadingComponent || <LoadingComponent /> : children
 
+    const style: StyleProp<ViewStyle> = {
+        flex: 1,
+        backgroundColor: colors.pageBackground
+    }
+
     if (type === "safeArea") {
         return (
-            <SafeAreaView style={{ flex: 1, backgroundColor: colors.pageBackground }} {...props}>
+            <SafeAreaView style={style} {...props}>
                 {kids}
             </SafeAreaView>
         )
     }
     if (type === "view") {
         return (
-            <View style={{ flex: 1, backgroundColor: colors.pageBackground }} {...props}>
+            <View style={style} {...props}>
                 {kids}
             </View>
         )
@@ -38,7 +43,7 @@ const Child: FC<PropsWithChildren<Omit<IPageContainerProps, "fallbackComponent">
     if (type === "safeView") {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <View style={{ flex: 1, backgroundColor: colors.pageBackground }} {...props}>
+                <View style={style} {...props}>
                     {kids}
                 </View>
             </SafeAreaView>
@@ -46,7 +51,7 @@ const Child: FC<PropsWithChildren<Omit<IPageContainerProps, "fallbackComponent">
     }
     if (type === "scroll") {
         return (
-            <ScrollView style={{ flex: 1, backgroundColor: colors.pageBackground }} {...props}>
+            <ScrollView style={style} {...props}>
                 {kids}
             </ScrollView>
         )
@@ -54,7 +59,7 @@ const Child: FC<PropsWithChildren<Omit<IPageContainerProps, "fallbackComponent">
     if (type === "safeScroll") {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <ScrollView style={{ flex: 1, backgroundColor: colors.pageBackground }} {...props}>
+                <ScrollView style={style} {...props}>
                     {kids}
                 </ScrollView>
             </SafeAreaView>
