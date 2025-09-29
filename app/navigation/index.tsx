@@ -11,7 +11,7 @@ const Router = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                animation: "ios",
+                animation: "ios_from_right",
                 headerTitleStyle: { fontFamily: fonts.bold },
                 headerBackTitleStyle: { fontFamily: fonts.semibold }
             }}>

@@ -20,8 +20,8 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-ios/.xcode.env.local
-ios/Podfile.lock
+**/.xcode.env.local
+**/Podfile.lock
 
 # Android/IntelliJ
 #
@@ -34,6 +34,7 @@ local.properties
 .cxx/
 *.keystore
 !debug.keystore
+.kotlin/
 
 # node.js
 #
@@ -53,11 +54,6 @@ yarn.lock
 **/fastlane/Preview.html
 **/fastlane/screenshots
 **/fastlane/test_output
-fastlane/*.cer
-fastlane/*.p12
-fastlane/*.mobileprovision
-fastlane/*.p8
-fastlane/saatte-is-51dfdd755c72.json
 
 # Bundle artifact
 *.jsbundle
@@ -79,9 +75,6 @@ fastlane/saatte-is-51dfdd755c72.json
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-
-# environment
-.env
 
 # history
 .history
