@@ -1,11 +1,10 @@
-import React, { FC, useEffect } from 'react';
-import { SafeAreaView, StatusBar, useColorScheme, NativeModules } from 'react-native';
+import React, { FC } from 'react';
+import { StatusBar, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import Router from './app/navigation';
 import { CCLProvider, darkColors, lightColors, tokens, fonts, useTheme } from './src';
 
-const { StatusBarManager } = NativeModules
 
 const Child: FC<any> = ({ }) => {
   const { name } = useTheme()
@@ -19,18 +18,16 @@ const Child: FC<any> = ({ }) => {
   return (
     <NavigationContainer
       theme={isDarkMode ? DarkTheme : DefaultTheme}>
-      {/* <SafeAreaView style={backgroundStyle}> */}
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <Router />
-      {/* </SafeAreaView> */}
     </NavigationContainer>
   )
 }
 
-const App = (): JSX.Element => {
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   // const NavigationTheme: Theme = {
@@ -45,14 +42,9 @@ const App = (): JSX.Element => {
   //   },
   // };
 
-  useEffect(() => {
-    // StatusBarManager.getHeight((statusBarHeight: any) => {
-    //   // console.warn(statusBarHeight)
-    // })
-  }, [])
-
   return (
     <CCLProvider
+      globalState={{}}
       theme={{
         name: isDarkMode ? "dark" : "light",
         colors: isDarkMode ? darkColors : lightColors,
