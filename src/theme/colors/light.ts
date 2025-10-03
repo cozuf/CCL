@@ -13,7 +13,7 @@ const light: CCL.ColorScheme = {
     success: "rgb(0, 128, 0)",
     shadow: "rgb(0, 0, 0)",
     modalOutside: "rgba(0, 0, 0, 0.3)",
-    placeholder: "rgba(90, 90, 94, 1)",
+    placeholder: "rgba(0, 0, 0, 0.2)",
     divider: "rgb(128, 128, 128)",
     transparent: "transparent"
 }
