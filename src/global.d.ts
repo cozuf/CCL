@@ -22,6 +22,7 @@ declare global {
             card: ColorValue
 
             error: ColorValue
+            success: ColorValue
 
             shadow: ColorValue
 
@@ -30,6 +31,8 @@ declare global {
             placeholder: ColorValue
 
             divider: ColorValue
+
+            transparent: ColorValue
         }
 
         interface FontScheme {

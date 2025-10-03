@@ -60,8 +60,8 @@ const Loading: FC<ILoadingProps> = ({ }) => {
     return (
         <View
             style={{
-                height: 160,
-                width: 160,
+                height: Math.min(160, width * 0.4),
+                width: Math.min(160, width * 0.4),
                 backgroundColor: colors.pageBackground,
                 borderRadius: tokens.radiuses.large,
                 alignItems: "center",
@@ -149,7 +149,7 @@ const Selection: FC<ISelectionProps> = ({ title, message, onAcceptPress, onRejec
         <View
             style={{
                 width: width * 0.8,
-                backgroundColor: colors.pageBackground,
+                backgroundColor: colors.componentBackground,
                 borderRadius: tokens.radiuses.component,
                 padding: tokens.spaces.componentHorizontal,
             }}>

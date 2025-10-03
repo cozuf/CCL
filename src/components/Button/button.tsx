@@ -4,14 +4,12 @@ import { ColorValue, FlexStyle, TouchableOpacity } from "react-native";
 import { useTheme } from "../../context";
 import { Text } from "../Text";
 
-
-
 const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "filled", title, alignment = "no-wrap", color = "primary", containerStyle, children, ...props }) => {
     const { colors, tokens } = useTheme()
 
     const BACKGROUND_COLOR: Record<NonNullable<IButtonProps["type"]>, ColorValue> = {
         "filled": colors[color],
-        "outlined": colors.componentBackground,
+        "outlined": "transparent",
         "simplified": "transparent"
     }
 
@@ -21,10 +19,10 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
         "simplified": "transparent"
     }
 
-    const CONTENT_COLOR: Record<NonNullable<IButtonProps["type"]>, ColorValue> = {
-        "filled": colors.buttonText,
-        "outlined": colors[color],
-        "simplified": colors[color]
+    const CONTENT_COLOR: Record<NonNullable<IButtonProps["type"]>, keyof CCL.ColorScheme> = {
+        "filled": "buttonText",
+        "outlined": color,
+        "simplified": color
     }
 
     const BORDER_WIDTH: Record<NonNullable<IButtonProps["type"]>, number> = {
@@ -87,7 +85,7 @@ const Button: FC<PropsWithChildren<IButtonProps> | IButtonProps> = ({ type = "fi
                     ?
                     children
                     :
-                    <Text fontFamily="medium" fontSize={14} style={{ color: CONTENT_COLOR[type] }}>
+                    <Text fontFamily="medium" fontSize={14} color={CONTENT_COLOR[type]} >
                         {title}
                     </Text>
             }

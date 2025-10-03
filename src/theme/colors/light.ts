@@ -10,10 +10,12 @@ const light: CCL.ColorScheme = {
     text: "rgb(28, 28, 30)",
     buttonText: "rgb(255, 255, 255)",
     error: "rgb(255, 0, 0)",
+    success: "rgb(0, 128, 0)",
     shadow: "rgb(0, 0, 0)",
     modalOutside: "rgba(0, 0, 0, 0.3)",
-    placeholder: "rgba(90, 90, 94, 1)",
+    placeholder: "rgba(0, 0, 0, 0.2)",
     divider: "rgb(128, 128, 128)",
+    transparent: "transparent"
 }
 
 export default light

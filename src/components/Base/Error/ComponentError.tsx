@@ -6,14 +6,14 @@ import { useTheme } from "../../../context";
 import IComponentErrorProps from "./props";
 
 const ComponentError: FC<IComponentErrorProps> = ({ error }) => {
-    const { colors, tokens } = useTheme()
+    const { tokens } = useTheme()
 
     if (!!error) {
         return (
             <Fragment>
                 <Separator distance={4} />
                 <View style={{ paddingHorizontal: tokens.spaces.componentHorizontal }}>
-                    <Text fontFamily="medium" fontSize={10} style={{ color: colors.error }}>
+                    <Text fontFamily="medium" fontSize={10} color="error">
                         {error}
                     </Text>
                 </View>

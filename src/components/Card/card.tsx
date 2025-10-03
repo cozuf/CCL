@@ -156,7 +156,7 @@ const ExpandableCard: FC<PropsWithChildren<Omit<ICardProps, "expandable">>> = ({
                         icon ?
                             icon
                             :
-                            <ChevronUpIcon height={24} width={24} color={colors.text} />
+                            <ChevronUpIcon height={24} width={24} color={"text"} />
                     }
                 </Button>
             </Animated.View>

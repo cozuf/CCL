@@ -68,8 +68,8 @@ const TextInputPage = () => {
                 <Separator distance={40} />
                 <TextInput
                     disabled={DISABLED[disabledIndex].value}
-                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
-                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
+                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
+                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
                     title={WITH_TITLE[withTitleIndex].value}
                     value={value}
                     onChangeText={setvalue}
