@@ -80,7 +80,7 @@ const DISPLAY_TYPE: Array<IData<IDateTimePickerProps["displayType"]>> = [
 
 const DateTimePickerPage = () => {
 
-    const [date, setDate] = useState<Date>()
+    const [date, setDate] = useState<Date>(new Date())
 
     const [modeIndex, setModeIndex] = useState<number>(0)
     const [disabledIndex, setDisabledIndex] = useState<number>(0)

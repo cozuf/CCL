@@ -19,7 +19,8 @@ const COMPONENT_LIST = [
     "SnackBar",
     "TapSelector",
     "Text",
-    "TextInput - input"
+    "TextInput - input",
+    "WheelPicker",
 ]
 
 export default COMPONENT_LIST
