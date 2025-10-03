@@ -1,8 +1,9 @@
 import React, { FC } from "react"
-import Svg, { Path, SvgProps } from "react-native-svg"
+import Svg, { Path } from "react-native-svg"
+import ISvgProps from "./props"
 import { useTheme } from "../../context"
 
-const Check: FC<SvgProps> = ({ color, ...props }) => {
+const Check: FC<ISvgProps> = ({ color = "primary", ...props }) => {
     const { colors } = useTheme()
     return (
         <Svg
@@ -14,7 +15,7 @@ const Check: FC<SvgProps> = ({ color, ...props }) => {
         >
             <Path
                 d="M8 20l9 8 15-16"
-                stroke={color || colors.primary}
+                stroke={colors[color]}
                 strokeWidth={8}
                 strokeLinecap="round"
                 strokeLinejoin="round"

@@ -1,7 +1,6 @@
 import React, { FC, Fragment, useRef, useState } from "react";
-import ISelectBoxProps from "./props";
 import { TouchableOpacity, View } from "react-native";
-import { Text } from "../Text";
+import ISelectBoxProps from "./props";
 import { useTheme } from "../../context";
 import { CCL_PAGE_NAMES } from "../../pages";
 import { BottomSheet, IBottomSheetRef } from "../BottomSheet";

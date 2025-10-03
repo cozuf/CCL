@@ -68,11 +68,11 @@ const ChipPage = () => {
     const renderPrefix = WITH_PREFIX[prefixIndex].value ? (s: boolean, d: boolean) => {
         if (s) {
             return (
-                <ChevronUpIcon color={"red"} />
+                <ChevronUpIcon color={"error"} />
             )
         }
         return (
-            <ChevronUpIcon color={"green"} />
+            <ChevronUpIcon color={"success"} />
         )
     } : undefined
 
@@ -90,11 +90,11 @@ const ChipPage = () => {
     const renderSuffix = WITH_SUFFIX[suffixIndex].value ? (s: boolean, d: boolean) => {
         if (s) {
             return (
-                <CloseIcon height={24} width={24} color={"red"} />
+                <CloseIcon height={24} width={24} color={"error"} />
             )
         }
         return (
-            <CloseIcon height={24} width={24} color={"green"} />
+            <CloseIcon height={24} width={24} color={"success"} />
         )
     } : undefined
 

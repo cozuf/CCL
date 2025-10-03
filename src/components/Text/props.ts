@@ -1,6 +1,12 @@
 import { TextStyle, TextProps, StyleProp } from "react-native"
 
 interface ITextProps extends Omit<TextProps, 'style'> {
+
+    /**
+     * @default "text"
+     */
+    color?: keyof CCL.ColorScheme
+
     /**
      * @default "regular"
      */

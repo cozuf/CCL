@@ -58,7 +58,8 @@ const Badge: FC<IBadgeProps> = ({ value, size = 16, containerStyle, textStyle })
             <Text
                 fontFamily={size < 20 ? "semibold" : "medium"}
                 fontSize={size * 0.6}
-                style={[{ color: colors.buttonText }, textStyle]}
+                color="buttonText"
+                style={textStyle}
             >
                 {VIEWING}
             </Text>

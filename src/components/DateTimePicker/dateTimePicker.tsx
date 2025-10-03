@@ -69,7 +69,7 @@ const DateTimePicker: FC<IDateTimePickerProps> = ({
                     {title}
                 </Text>
                 <Button alignment="free" title="X" type="simplified" onPress={closeDisplayer} >
-                    <CloseIcon height={24} width={24} color={colors.text} />
+                    <CloseIcon height={24} width={24} color={"text"} />
                 </Button>
             </View>)
     }

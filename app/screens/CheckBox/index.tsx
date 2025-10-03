@@ -59,11 +59,11 @@ const CheckBoxPage = () => {
 
             if (s) {
                 return (
-                    <ChevronUpIcon color={"green"} />
+                    <ChevronUpIcon color={"success"} />
                 )
             }
             return (
-                <ChevronUpIcon color={"red"} />
+                <ChevronUpIcon color={"error"} />
             )
         }
         :

@@ -26,11 +26,14 @@ interface IDateTimePickerProps extends Omit<DatePickerProps, "date" | "onDateCha
 
     /**
      * 
+     * @param selectedDate 
+     * @returns 
      */
     onSubmit?: (selectedDate: Date) => void
 
     /**
      * 
+     * @returns 
      */
     onCancel?: () => void
 

@@ -19,7 +19,7 @@ export const tokens: CCL.TokenScheme = {
         badge: 2,
         button: 2,
         component: 0,
-        textInputFocused: 2,
+        textInputFocused: 1,
         // 
         extraLight: 0.5,
         light: 1,

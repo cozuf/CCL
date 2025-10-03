@@ -3,7 +3,7 @@ import ITextProps from "./props";
 import { Text as RNText } from "react-native";
 import { useTheme } from "../../context";
 
-const Text: FC<PropsWithChildren<ITextProps>> = ({ fontFamily = "regular", fontSize = 14, style, children, ...props }) => {
+const Text: FC<PropsWithChildren<ITextProps>> = ({ fontFamily = "regular", fontSize = 14, color = "text", style, children, ...props }) => {
     const { fonts, colors } = useTheme()
 
     const defineStyle = (propStyle: any) => {
@@ -37,7 +37,7 @@ const Text: FC<PropsWithChildren<ITextProps>> = ({ fontFamily = "regular", fontS
     return (
         <RNText
             {...props}
-            style={[{ color: colors.text, fontFamily: fonts[fontFamily] || fontFamily, fontSize, includeFontPadding: false }, defineStyle(style)]}>
+            style={[{ color: colors[color], fontFamily: fonts[fontFamily] || fontFamily, fontSize, includeFontPadding: false }, defineStyle(style)]}>
             {children}
         </RNText>
     )

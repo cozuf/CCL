@@ -1,7 +1,13 @@
 export {
     CheckIcon,
     ChevronUpIcon,
-    CloseIcon
+    CloseIcon,
+    Eye,
+    EyeOff
+} from "./assets"
+
+export type {
+    ISvgProps
 } from "./assets"
 
 export type {
@@ -82,12 +88,14 @@ export {
 } from "./pages"
 
 export {
+    CCLProvider,
     GlobalStateProvider, useGlobalState, useSetGlobalState, withGlobalState,
-    ThemeProvider, useTheme, useSetTheme, withTheme,
     ModalProvider, useSetModal, withModal,
-    CCLProvider
+    ThemeProvider, useTheme, useSetTheme, withTheme,
 } from "./context"
+
+export type { IGLobalStateRef } from "./context"
 
 export { fonts, tokens, dark as darkColors, light as lightColors } from "./theme"
 
-export { createReducer } from "./utils"
+export { createReducer, delay, isObject, isIOS } from "./utils"
