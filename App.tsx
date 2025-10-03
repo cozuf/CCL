@@ -4,6 +4,7 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import Router from './app/navigation';
 import { CCLProvider, darkColors, lightColors, tokens, fonts, useTheme } from './src';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const Child: FC<any> = ({ }) => {

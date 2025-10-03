@@ -10,6 +10,9 @@ export { BottomSheet } from "./BottomSheet"
 export type { ICardProps } from "./Card"
 export { Card } from "./Card"
 
+export type { IChatProps } from "./Chat"
+export { Chat } from "./Chat"
+
 export type { ICheckBoxProps } from "./CheckBox"
 export { CheckBox } from "./CheckBox"
 

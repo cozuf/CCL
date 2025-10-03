@@ -41,6 +41,7 @@ const Main = () => {
                 keyExtractor={(_, i) => `${i}`}
                 bounces={false}
                 data={items}
+                showsVerticalScrollIndicator={false}
                 ListHeaderComponent={renderHeader}
                 renderItem={({ item, index }) => {
                     return (

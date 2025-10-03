@@ -52,6 +52,7 @@ const CheckBoxPage = () => {
 
     const onPressComponent = (v: any, s: boolean) => {
         console.error({ v, s })
+        setSelectedIndex((v) => v === 0 ? 1 : 0)
     }
 
     const renderPrefixComponent = CUSTOM_ICON[customIconIndex].value ?

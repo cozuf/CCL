@@ -3,6 +3,7 @@ const BADGE = "BADGE"
 const BUTTON = "BUTTON"
 const BOTTOMSHEET = "BOTTOMSHEET"
 const CARD = "CARD"
+const CHAT = "CHAT"
 const CHECKBOX = "CHECKBOX"
 const CHECKBOXGROUP = "CHECKBOXGROUP"
 const CHIP = "CHIP"
@@ -28,6 +29,7 @@ const PAGE_NAMES = {
     BUTTON,
     BOTTOMSHEET,
     CARD,
+    CHAT,
     CHECKBOX,
     CHECKBOXGROUP,
     CHIP,
