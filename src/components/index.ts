@@ -63,3 +63,23 @@ export { Text } from "./Text"
 
 export type { ITextInputProps, ITextInputRef } from "./TextInput"
 export { TextInput } from "./TextInput"
+
+export type { IWheelPickerProps } from "./WheelPicker"
+export { WheelPicker } from "./WheelPicker"
+
+export type {
+    IComponentErrorProps,
+    IComponentPlaceholderProps,
+    IComponentTitleProps,
+    IComponentValueProps,
+    IComponentPrefixProps,
+    IComponentSuffixProps
+} from "./Base"
+export {
+    ComponentError,
+    ComponentPlaceholder,
+    ComponentTitle,
+    ComponentValue,
+    ComponentPrefix,
+    ComponentSuffix
+} from "./Base"

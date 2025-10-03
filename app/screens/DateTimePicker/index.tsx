@@ -80,7 +80,7 @@ const DISPLAY_TYPE: Array<IData<IDateTimePickerProps["displayType"]>> = [
 
 const DateTimePickerPage = () => {
 
-    const [date, setDate] = useState<Date>()
+    const [date, setDate] = useState<Date>(new Date())
 
     const [modeIndex, setModeIndex] = useState<number>(0)
     const [disabledIndex, setDisabledIndex] = useState<number>(0)
@@ -101,8 +101,8 @@ const DateTimePickerPage = () => {
                     mode={MODE[modeIndex].value}
                     displayType={DISPLAY_TYPE[displayTypeIndex].value}
                     disabled={DISABLED[disabledIndex].value}
-                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
-                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
+                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
+                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
                     title={WITH_TITLE[withTitleIndex].value}
                     error={WITH_ERROR[withErrorIndex].value}
                 />

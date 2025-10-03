@@ -1,10 +1,8 @@
-import { NavigationProp, ParamListBase } from "@react-navigation/native";
-import React, { ReactNode } from "react";
 import { StyleProp, ViewStyle } from "react-native";
+import { NavigationProp, ParamListBase } from "@react-navigation/native";
+import { IComponentPlaceholderProps, IComponentPrefixProps, IComponentSuffixProps, IComponentTitleProps, IComponentValueProps } from "../Base";
 
-// TODO display type eklenebilir modal, bottomSheet, page gibi
-
-interface ISelectBoxProps<ItemT> {
+interface ISelectBoxProps<ItemT> extends IComponentTitleProps, IComponentValueProps, IComponentPrefixProps, IComponentSuffixProps, IComponentPlaceholderProps {
     /**
      * @default singleSelect
      */
@@ -28,37 +26,12 @@ interface ISelectBoxProps<ItemT> {
     /**
      * 
      */
-    navigation: NavigationProp<ParamListBase>
-
-    /**
-     * 
-     */
-    title?: string
-
-    /**
-     * 
-     */
-    placeholder?: string
+    navigation?: NavigationProp<ParamListBase>
 
     /**
      * 
      */
     disabled?: boolean
-
-    /**
-     * 
-     */
-    prefixComponent?: () => ReactNode
-
-    /**
-     * 
-     */
-    suffixComponent?: () => ReactNode
-
-    /**
-     * 
-     */
-    error?: string
 
     /**
      * 

@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface ISnackBarRef {
     show: () => void
     hide: () => void

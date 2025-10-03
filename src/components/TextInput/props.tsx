@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
 import { StyleProp, TextInputProps, ViewStyle } from "react-native";
+import { IComponentErrorProps, IComponentPrefixProps, IComponentSuffixProps, IComponentTitleProps } from "../Base";
 
 export interface ITextInputRef {
     focus: () => void
@@ -8,12 +8,7 @@ export interface ITextInputRef {
     isFocused: () => boolean
 }
 
-interface ITextInputProps extends TextInputProps {
-    /**
-     * 
-     */
-    title?: string
-
+interface ITextInputProps extends TextInputProps, IComponentTitleProps, IComponentPrefixProps, IComponentSuffixProps, IComponentErrorProps {
     /**
      * @default "bold"
      */
@@ -23,21 +18,6 @@ interface ITextInputProps extends TextInputProps {
      * 
      */
     disabled?: boolean
-
-    /**
-     * 
-     */
-    prefixComponent?: ReactNode
-
-    /**
-     * 
-     */
-    suffixComponent?: ReactNode
-
-    /**
-     * 
-     */
-    error?: string
 
     /**
      * 

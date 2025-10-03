@@ -1,4 +1,3 @@
-import React from "react";
 import { ColorValue, StyleProp, ViewStyle } from "react-native";
 
 interface IDividerProps {
@@ -20,10 +19,9 @@ interface IDividerProps {
     distance?: ViewStyle["height"] | ViewStyle["width"]
 
     /**
-     * // FIXME
-     * theme scheme "divider" key or any color value
+     * @default divider
      */
-    color?: ColorValue
+    color?: keyof CCL.ColorScheme
 
     /**
      * 

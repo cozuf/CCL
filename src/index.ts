@@ -29,7 +29,15 @@ export type {
     ITapSelectorProps,
     ITextProps,
     ITextInputProps,
-    ITextInputRef
+    ITextInputRef,
+    IWheelPickerProps,
+
+    IComponentErrorProps,
+    IComponentPlaceholderProps,
+    IComponentTitleProps,
+    IComponentValueProps,
+    IComponentPrefixProps,
+    IComponentSuffixProps,
 } from "./components"
 
 export {
@@ -57,7 +65,15 @@ export {
     SnackBar,
     TapSelector,
     Text,
-    TextInput
+    TextInput,
+    WheelPicker,
+
+    ComponentError,
+    ComponentPlaceholder,
+    ComponentTitle,
+    ComponentValue,
+    ComponentPrefix,
+    ComponentSuffix,
 } from "./components"
 
 export {
@@ -66,7 +82,9 @@ export {
 } from "./pages"
 
 export {
+    GlobalStateProvider, useGlobalState, useSetGlobalState, withGlobalState,
     ThemeProvider, useTheme, useSetTheme, withTheme,
+    ModalProvider, useSetModal, withModal,
     CCLProvider
 } from "./context"
 

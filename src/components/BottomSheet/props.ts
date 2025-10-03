@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface IBottomSheetRef {
     open: () => void
     close: () => void

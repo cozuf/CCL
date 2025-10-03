@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import { ReactElement } from "react";
 import { StyleProp, ViewStyle } from "react-native";
 
 interface IChipGroupProps<ItemT> {
