@@ -21,6 +21,7 @@ import SnackBar from "../screens/SnackBar";
 import TapSelector from "../screens/TapSelector";
 import Text from "../screens/Text";
 import TextInput from "../screens/TextInput";
+import WheelPicker from "../screens/WheelPicker";
 
 const PAGES = {
     Main,
@@ -42,7 +43,8 @@ const PAGES = {
     SnackBar,
     TapSelector,
     Text,
-    TextInput
+    TextInput,
+    WheelPicker,
 }
 
 export default PAGES

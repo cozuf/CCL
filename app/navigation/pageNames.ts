@@ -21,6 +21,7 @@ const SNACKBAR = "SNACKBAR"
 const TAPSELECTOR = "TAPSELECTOR"
 const TEXT = "TEXT"
 const TEXTINPUT = "TEXTINPUT"
+const WHEELPICKER = "WHEELPICKER"
 
 const PAGE_NAMES = {
     MAIN,
@@ -46,6 +47,7 @@ const PAGE_NAMES = {
     TAPSELECTOR,
     TEXT,
     TEXTINPUT,
+    WHEELPICKER,
 }
 
 export default PAGE_NAMES

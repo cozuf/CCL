@@ -38,6 +38,7 @@ const Router = () => {
             <Stack.Screen name={PAGE_NAMES.TAPSELECTOR} component={PAGES.TapSelector} />
             <Stack.Screen name={PAGE_NAMES.TEXT} component={PAGES.Text} />
             <Stack.Screen name={PAGE_NAMES.TEXTINPUT} component={PAGES.TextInput} />
+            <Stack.Screen name={PAGE_NAMES.WHEELPICKER} component={PAGES.WheelPicker} />
 
             <Stack.Screen name={CCL_PAGE_NAMES.SELECT_BOX_PAGE} component={CCL_PAGES.SelectBoxPage} />
         </Stack.Navigator>
