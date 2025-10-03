@@ -30,6 +30,7 @@ export type {
     ITextProps,
     ITextInputProps,
     ITextInputRef,
+    IWheelPickerProps,
 
     IComponentErrorProps,
     IComponentPlaceholderProps,
@@ -65,6 +66,7 @@ export {
     TapSelector,
     Text,
     TextInput,
+    WheelPicker,
 
     ComponentError,
     ComponentPlaceholder,
@@ -80,7 +82,9 @@ export {
 } from "./pages"
 
 export {
+    GlobalStateProvider, useGlobalState, useSetGlobalState, withGlobalState,
     ThemeProvider, useTheme, useSetTheme, withTheme,
+    ModalProvider, useSetModal, withModal,
     CCLProvider
 } from "./context"
 
