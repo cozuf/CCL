@@ -83,7 +83,7 @@ const PageContainerPage = () => {
     const CUSTOM_FALLBACK_COMPONENT = CUSTOM_FALLBACK[customFallbackIndex].value ?
         (
             <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-                <Text style={{ color: colors.error }}>
+                <Text color="error">
                     CUSTOM HATA VAR
                 </Text>
             </View>

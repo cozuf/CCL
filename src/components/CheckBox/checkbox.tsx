@@ -63,7 +63,7 @@ const CheckBox: FC<ICheckProps> = ({
                             }}>
                             {
                                 selected ?
-                                    <CheckIcon height={20} width={20} color={colors.componentBackground} />
+                                    <CheckIcon height={20} width={20} color={"componentBackground"} />
                                     :
                                     null
                             }

@@ -1,8 +1,9 @@
 import React, { FC } from "react"
-import Svg, { Path, SvgProps } from "react-native-svg"
+import Svg, { Path } from "react-native-svg"
+import ISvgProps from "./props"
 import { useTheme } from "../../context"
 
-const ChevronUp: FC<SvgProps> = ({ color, ...props }) => {
+const Close: FC<ISvgProps> = ({ color = "primary", ...props }) => {
     const { colors } = useTheme()
     return (
         <Svg
@@ -13,11 +14,11 @@ const ChevronUp: FC<SvgProps> = ({ color, ...props }) => {
             {...props}
         >
             <Path
-                d="M20 13.333c-.667 0-1.333.334-1.667.667l-11 11c-1 1-1 2.667 0 3.667s2.667 1 3.667 0l9-9 9 9c1 1 2.667 1 3.667 0s1-2.667 0-3.667L22 14.333c-.667-.666-1.333-1-2-1z"
-                fill={color || colors.primary}
+                d="M31.099 3.599a3.75 3.75 0 115.301 5.3L25.413 19.888a.156.156 0 000 .222L36.4 31.096a3.75 3.75 0 11-5.302 5.304L20.11 25.412a.156.156 0 00-.221 0L8.9 36.4a3.75 3.75 0 11-5.303-5.303L14.585 20.11a.158.158 0 00.046-.11.158.158 0 00-.046-.111L3.597 8.9A3.75 3.75 0 018.9 3.597l10.987 10.988a.158.158 0 00.111.046.158.158 0 00.11-.046l10.99-10.986z"
+                fill={colors[color]}
             />
         </Svg>
     )
 }
 
-export default ChevronUp
+export default Close

@@ -1,1 +1,3 @@
-export { CheckIcon, ChevronUpIcon, CloseIcon } from "./svg"
+export { CheckIcon, ChevronUpIcon, CloseIcon, Eye, EyeOff } from "./svg"
+
+export type { ISvgProps } from "./svg"
