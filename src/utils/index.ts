@@ -1,4 +1,7 @@
 import { isMoment } from "moment"
+import { Platform } from "react-native"
+
+export const isIOS = Platform.OS === "ios"
 
 export const createReducer = <T>(oldState: T, newState: DeepPartial<T>): T => ({ ...oldState, ...newState })
 

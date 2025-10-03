@@ -6,6 +6,7 @@ import { Text } from "../Text"
 import { TextInput } from "../TextInput"
 import { ChevronUpIcon, CloseIcon } from "../../assets"
 import { useTheme } from "../../context"
+import { isIOS } from "../../utils"
 
 const Chat: FC<IChatProps> = () => {
 
@@ -13,7 +14,7 @@ const Chat: FC<IChatProps> = () => {
     const { colors } = useTheme()
 
     return (
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined} keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 80} >
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior={isIOS ? "padding" : undefined} keyboardVerticalOffset={isIOS ? 100 : 80} >
 
             <FlatList
                 data={MESSAGES}
