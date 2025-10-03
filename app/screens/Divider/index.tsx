@@ -40,18 +40,18 @@ const DISTANCE = [
         value: 16
     }
 ]
-const COLOR = [
+const COLOR: Array<IData<keyof CCL.ColorScheme>> = [
     {
         title: "Green",
-        value: "green"
+        value: "success"
     },
     {
-        title: "Yellow",
-        value: "yellow"
+        title: "blue",
+        value: "primary"
     },
     {
-        title: "Orange",
-        value: "orange"
+        title: "Red",
+        value: "error"
     }
 ]
 

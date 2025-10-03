@@ -168,17 +168,17 @@ const ChipGroupPage = () => {
     return (
         <PageContainer>
             <View>
-                {
-                    list.filter((v) => v.selected).map(renderSelectedItemList)
-                }
-            </View>
-            <Separator distance={40} />
-            <View style={{}}>
                 <ChipGroup
                     data={DATA}
                     onSelect={onSelectItem}
                     containerStyle={{ justifyContent: "center" }}
                 />
+            </View>
+            <Separator distance={40} />
+            <View>
+                {
+                    list.filter((v) => v.selected).map(renderSelectedItemList)
+                }
             </View>
         </PageContainer>
     )
