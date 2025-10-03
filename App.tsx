@@ -44,18 +44,16 @@ const App = () => {
   // };
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <CCLProvider
-        globalState={{}}
-        theme={{
-          name: isDarkMode ? "dark" : "light",
-          colors: isDarkMode ? darkColors : lightColors,
-          fonts,
-          tokens
-        }}>
-        <Child />
-      </CCLProvider>
-    </SafeAreaView>
+    <CCLProvider
+      globalState={{}}
+      theme={{
+        name: isDarkMode ? "dark" : "light",
+        colors: isDarkMode ? darkColors : lightColors,
+        fonts,
+        tokens
+      }}>
+      <Child />
+    </CCLProvider>
   );
 }
 
