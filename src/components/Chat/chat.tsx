@@ -15,7 +15,6 @@ const Chat: FC<IChatProps> = () => {
 
     return (
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={isIOS ? "padding" : undefined} keyboardVerticalOffset={isIOS ? 100 : 80} >
-
             <FlatList
                 data={MESSAGES}
                 style={{ transform: [{ rotateX: "180deg" }] }}

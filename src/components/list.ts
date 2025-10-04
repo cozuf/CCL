@@ -12,6 +12,7 @@ const COMPONENT_LIST = [
     "DateTimePicker",
     "Modal",
     "PageContainer",
+    "PickerBox - input",
     "RadioButton - input",
     "RadioButtonGroup - input",
     "SegmentedButton - input",

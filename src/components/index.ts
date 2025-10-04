@@ -40,6 +40,9 @@ export { Modal } from "./Modal"
 export type { IPageContainerProps } from "./PageContainer";
 export { PageContainer, LoadingComponent } from "./PageContainer";
 
+export type { IPickerBoxProps } from "./PickerBox"
+export { PickerBox } from "./PickerBox"
+
 export type { IRadioButtonProps } from "./RadioButton";
 export { RadioButton } from "./RadioButton";
 

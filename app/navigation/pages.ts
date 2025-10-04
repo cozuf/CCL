@@ -12,6 +12,7 @@ import DateTimePicker from "../screens/DateTimePicker";
 import Divider from "../screens/Divider";
 import Modal from "../screens/Modal";
 import PageContainer from "../screens/PageContainer";
+import PickerBox from "../screens/PickerBox";
 import RadioButton from "../screens/RadioButton";
 import RadioButtonGroup from "../screens/RadioButtonGroup";
 import SegmentedButton from "../screens/SegmentedButton";
@@ -36,6 +37,7 @@ const PAGES = {
     Divider,
     Modal,
     PageContainer,
+    PickerBox,
     RadioButton, RadioButtonGroup,
     SegmentedButton,
     SelectBox,
