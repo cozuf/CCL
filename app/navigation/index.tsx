@@ -29,6 +29,7 @@ const Router = () => {
             <Stack.Screen name={PAGE_NAMES.DIVIDER} component={PAGES.Divider} />
             <Stack.Screen name={PAGE_NAMES.MODAL} component={withErrorBoundary(PAGES.Modal)} />
             <Stack.Screen name={PAGE_NAMES.PAGECONTAINER} component={PAGES.PageContainer} />
+            <Stack.Screen name={PAGE_NAMES.PICKERBOX} component={PAGES.PickerBox} />
             <Stack.Screen name={PAGE_NAMES.RADIOBUTTON} component={PAGES.RadioButton} />
             <Stack.Screen name={PAGE_NAMES.RADIOBUTTONGROUP} component={PAGES.RadioButtonGroup} />
             <Stack.Screen name={PAGE_NAMES.SEGMENTEDBUTTON} component={PAGES.SegmentedButton} />

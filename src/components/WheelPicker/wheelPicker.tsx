@@ -93,7 +93,6 @@ const WheelPicker: FC<IWheelPickerProps<any>> = ({ data = [], onChangeItem = () 
                 data={data}
                 keyExtractor={(_, i) => i.toString()}
                 showsVerticalScrollIndicator={false}
-                initialScrollIndex={scrollY}
                 snapToInterval={ITEM_HEIGHT}
                 decelerationRate="fast"
                 style={styles.flatlist}
