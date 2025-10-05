@@ -1,63 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Button, ISnackBarProps, ISnackBarRef, PageContainer, Separator, SnackBar, TapSelector } from "../../../src";
 import { View } from "react-native";
-
-const DURATION: Array<IData<NonNullable<ISnackBarProps["duration"]>>> = [
-    {
-        title: "SHORT",
-        value: "short"
-    },
-    {
-        title: "MEDIUM",
-        value: "medium"
-    },
-    {
-        title: "LONG",
-        value: "long"
-    },
-    {
-        title: "INFINITE",
-        value: "infinite"
-    }
-]
-const POSITION: Array<IData<NonNullable<ISnackBarProps["position"]>>> = [
-    {
-        title: "TOP",
-        value: "top"
-    },
-    {
-        title: "BOTTOM",
-        value: "bottom"
-    }
-]
-const DISPLAY: Array<IData<NonNullable<ISnackBarProps["displayForm"]>>> = [
-    {
-        title: "HIDE TO SHOW",
-        value: "hideToShow"
-    },
-    {
-        title: "BACK TO FRONT",
-        value: "backToFront"
-    },
-    {
-        title: "BOTTOM TO TOP",
-        value: "bottomToTop"
-    }
-]
-const TYPE: Array<IData<NonNullable<ISnackBarProps["type"]>>> = [
-    {
-        title: "DEFAULT",
-        value: "default"
-    },
-    {
-        title: "SUCCESS",
-        value: "success"
-    },
-    {
-        title: "ERROR",
-        value: "error"
-    }
-]
+import { Button, ISnackBarProps, ISnackBarRef, PageContainer, Separator, SnackBar, TapSelector } from "../../../src";
 
 const SnackBarPage = () => {
     const snackBarRef = useRef<ISnackBarRef>(null)
@@ -126,3 +69,63 @@ const SnackBarPage = () => {
 }
 
 export default SnackBarPage
+
+const DURATION: Array<IData<NonNullable<ISnackBarProps["duration"]>>> = [
+    {
+        title: "SHORT",
+        value: "short"
+    },
+    {
+        title: "MEDIUM",
+        value: "medium"
+    },
+    {
+        title: "LONG",
+        value: "long"
+    },
+    {
+        title: "INFINITE",
+        value: "infinite"
+    }
+]
+
+const POSITION: Array<IData<NonNullable<ISnackBarProps["position"]>>> = [
+    {
+        title: "TOP",
+        value: "top"
+    },
+    {
+        title: "BOTTOM",
+        value: "bottom"
+    }
+]
+
+const DISPLAY: Array<IData<NonNullable<ISnackBarProps["displayForm"]>>> = [
+    {
+        title: "HIDE TO SHOW",
+        value: "hideToShow"
+    },
+    {
+        title: "BACK TO FRONT",
+        value: "backToFront"
+    },
+    {
+        title: "BOTTOM TO TOP",
+        value: "bottomToTop"
+    }
+]
+
+const TYPE: Array<IData<NonNullable<ISnackBarProps["type"]>>> = [
+    {
+        title: "DEFAULT",
+        value: "default"
+    },
+    {
+        title: "SUCCESS",
+        value: "success"
+    },
+    {
+        title: "ERROR",
+        value: "error"
+    }
+]

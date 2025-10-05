@@ -1,58 +1,6 @@
 import React, { useState } from "react";
-import { Button, IButtonProps, PageContainer, Separator, TapSelector, Text } from "../../../src";
 import { View } from "react-native";
-
-const TYPE: Array<IData<NonNullable<IButtonProps["type"]>>> = [
-    {
-        title: "Filled",
-        value: "filled"
-    },
-    {
-        title: "Outlined",
-        value: "outlined"
-    },
-    {
-        title: "Simplified",
-        value: "simplified"
-    }
-]
-
-const ALIGNMENT: Array<IData<NonNullable<IButtonProps["alignment"]>>> = [
-    {
-        title: "No-wrap",
-        value: "no-wrap"
-    },
-    {
-        title: "Wrap",
-        value: "wrap"
-    },
-    {
-        title: "Free",
-        value: "free"
-    }
-]
-
-const CONTENT = [
-    {
-        title: "Title",
-        value: "title"
-    },
-    {
-        title: "Custom",
-        value: "custom"
-    }
-]
-
-const DISABLED = [
-    {
-        title: "Active",
-        value: false
-    },
-    {
-        title: "Disabled",
-        value: true
-    }
-]
+import { Button, IButtonProps, PageContainer, Separator, TapSelector, Text } from "../../../src";
 
 const ButtonPage = () => {
 
@@ -122,3 +70,55 @@ const ButtonPage = () => {
 }
 
 export default ButtonPage
+
+const TYPE: Array<IData<NonNullable<IButtonProps["type"]>>> = [
+    {
+        title: "Filled",
+        value: "filled"
+    },
+    {
+        title: "Outlined",
+        value: "outlined"
+    },
+    {
+        title: "Simplified",
+        value: "simplified"
+    }
+]
+
+const ALIGNMENT: Array<IData<NonNullable<IButtonProps["alignment"]>>> = [
+    {
+        title: "No-wrap",
+        value: "no-wrap"
+    },
+    {
+        title: "Wrap",
+        value: "wrap"
+    },
+    {
+        title: "Free",
+        value: "free"
+    }
+]
+
+const CONTENT = [
+    {
+        title: "Title",
+        value: "title"
+    },
+    {
+        title: "Custom",
+        value: "custom"
+    }
+]
+
+const DISABLED = [
+    {
+        title: "Active",
+        value: false
+    },
+    {
+        title: "Disabled",
+        value: true
+    }
+]

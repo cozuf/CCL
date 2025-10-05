@@ -1,7 +1,99 @@
 import React, { useState } from "react";
-import { ISelectBoxProps, PageContainer, SelectBox, Separator, TapSelector } from "../../../src";
 import { View } from "react-native";
 import { NavigationProp, ParamListBase, useNavigation } from "@react-navigation/native";
+import { ISelectBoxProps, PageContainer, SelectBox, Separator, TapSelector } from "../../../src";
+
+const SelectBoxPage = () => {
+    const navigation = useNavigation<NavigationProp<ParamListBase>>();
+
+    const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
+
+    const [displayTypeIndex, setDisplayTypeIndex] = useState<number>(0)
+    const [selectionTypeIndex, setSelectionTypeIndex] = useState<number>(0)
+    const [disabledIndex, setDisabledIndex] = useState<number>(0)
+    const [withTitleIndex, setWithTitleIndex] = useState<number>(1)
+    const [withPlaceholderIndex, setWithPlaceholderIndex] = useState<number>(1)
+    const [withPrefixIndex, setWithPrefixIndex] = useState<number>(0)
+    const [withSuffixIndex, setWithSuffixIndex] = useState<number>(0)
+    const [withErrorIndex, setWithErrorIndex] = useState<number>(0)
+
+    const onSubmitSelection = (selectedList: Array<IListData<Product>>, list: Array<IListData<Product>>) => {
+        // console.log({ selectedList })
+        // console.log({ list })
+        setRegions(list)
+    }
+
+    return (
+        <PageContainer>
+            <View style={{ height: 200, justifyContent: "center" }}>
+                <SelectBox
+                    displayType={DISPLAY_TYPE[displayTypeIndex].value}
+                    navigation={navigation}
+                    selectionType={SELECTION_TYPE[selectionTypeIndex].value}
+                    data={regions}
+                    onSubmit={onSubmitSelection}
+                    disabled={DISABLED[disabledIndex].value}
+                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
+                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
+                    title={WITH_TITLE[withTitleIndex].value}
+                    placeholder={WITH_PLACEHOLDER[withPlaceholderIndex].value}
+                    error={WITH_ERROR[withErrorIndex].value}
+                />
+            </View>
+            <View>
+                <TapSelector
+                    initialIndex={displayTypeIndex}
+                    data={DISPLAY_TYPE}
+                    onTap={(v, i) => { setDisplayTypeIndex(i) }}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={selectionTypeIndex}
+                    data={SELECTION_TYPE}
+                    onTap={(v, i) => { setSelectionTypeIndex(i) }}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={disabledIndex}
+                    data={DISABLED}
+                    onTap={(v, i) => setDisabledIndex(i)}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={withTitleIndex}
+                    data={WITH_TITLE}
+                    onTap={(v, i) => setWithTitleIndex(i)}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={withPlaceholderIndex}
+                    data={WITH_PLACEHOLDER}
+                    onTap={(v, i) => setWithPlaceholderIndex(i)}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={withPrefixIndex}
+                    data={WITH_PREFIX}
+                    onTap={(v, i) => setWithPrefixIndex(i)}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={withSuffixIndex}
+                    data={WITH_SUFFIX}
+                    onTap={(v, i) => setWithSuffixIndex(i)}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={withErrorIndex}
+                    data={WITH_ERROR}
+                    onTap={(v, i) => setWithErrorIndex(i)}
+                />
+            </View>
+        </PageContainer>
+    )
+}
+
+export default SelectBoxPage
 
 interface Product {
     id: number
@@ -192,6 +284,7 @@ const DISPLAY_TYPE: Array<IData<NonNullable<ISelectBoxProps<any>["displayType"]>
         value: "navigate"
     }
 ]
+
 const SELECTION_TYPE: Array<IData<NonNullable<ISelectBoxProps<any>["selectionType"]>>> = [
     {
         title: "Single Select",
@@ -202,6 +295,7 @@ const SELECTION_TYPE: Array<IData<NonNullable<ISelectBoxProps<any>["selectionTyp
         value: "multiSelect"
     }
 ]
+
 const DISABLED = [
     {
         title: "Active",
@@ -212,6 +306,7 @@ const DISABLED = [
         value: true
     }
 ]
+
 const WITH_TITLE = [
     {
         title: "Without Title",
@@ -222,6 +317,7 @@ const WITH_TITLE = [
         value: "Title"
     }
 ]
+
 const WITH_PLACEHOLDER = [
     {
         title: "Without Placeholder",
@@ -232,6 +328,7 @@ const WITH_PLACEHOLDER = [
         value: "Placeholder"
     }
 ]
+
 const WITH_PREFIX = [
     {
         title: "Without Prefix",
@@ -242,6 +339,7 @@ const WITH_PREFIX = [
         value: true
     }
 ]
+
 const WITH_SUFFIX = [
     {
         title: "Without Suffix",
@@ -252,6 +350,7 @@ const WITH_SUFFIX = [
         value: true
     }
 ]
+
 const WITH_ERROR = [
     {
         title: "Without Error",
@@ -262,95 +361,3 @@ const WITH_ERROR = [
         value: "Some Error"
     }
 ]
-
-const SelectBoxPage = () => {
-    const navigation = useNavigation<NavigationProp<ParamListBase>>();
-
-    const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
-
-    const [displayTypeIndex, setDisplayTypeIndex] = useState<number>(0)
-    const [selectionTypeIndex, setSelectionTypeIndex] = useState<number>(0)
-    const [disabledIndex, setDisabledIndex] = useState<number>(0)
-    const [withTitleIndex, setWithTitleIndex] = useState<number>(1)
-    const [withPlaceholderIndex, setWithPlaceholderIndex] = useState<number>(1)
-    const [withPrefixIndex, setWithPrefixIndex] = useState<number>(0)
-    const [withSuffixIndex, setWithSuffixIndex] = useState<number>(0)
-    const [withErrorIndex, setWithErrorIndex] = useState<number>(0)
-
-    const onSubmitSelection = (selectedList: Array<IListData<Product>>, list: Array<IListData<Product>>) => {
-        // console.log({ selectedList })
-        // console.log({ list })
-        setRegions(list)
-    }
-
-    return (
-        <PageContainer>
-            <View style={{ height: 200, justifyContent: "center" }}>
-                <SelectBox
-                    displayType={DISPLAY_TYPE[displayTypeIndex].value}
-                    navigation={navigation}
-                    selectionType={SELECTION_TYPE[selectionTypeIndex].value}
-                    data={regions}
-                    onSubmit={onSubmitSelection}
-                    disabled={DISABLED[disabledIndex].value}
-                    prefixComponent={WITH_PREFIX[withPrefixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "orange" }} /> : undefined}
-                    suffixComponent={WITH_SUFFIX[withSuffixIndex].value ? () => <View style={{ height: 40, width: 40, backgroundColor: "yellow" }} /> : undefined}
-                    title={WITH_TITLE[withTitleIndex].value}
-                    placeholder={WITH_PLACEHOLDER[withPlaceholderIndex].value}
-                    error={WITH_ERROR[withErrorIndex].value}
-                />
-            </View>
-            <View>
-                <TapSelector
-                    initialIndex={displayTypeIndex}
-                    data={DISPLAY_TYPE}
-                    onTap={(v, i) => { setDisplayTypeIndex(i) }}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={selectionTypeIndex}
-                    data={SELECTION_TYPE}
-                    onTap={(v, i) => { setSelectionTypeIndex(i) }}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={disabledIndex}
-                    data={DISABLED}
-                    onTap={(v, i) => setDisabledIndex(i)}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={withTitleIndex}
-                    data={WITH_TITLE}
-                    onTap={(v, i) => setWithTitleIndex(i)}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={withPlaceholderIndex}
-                    data={WITH_PLACEHOLDER}
-                    onTap={(v, i) => setWithPlaceholderIndex(i)}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={withPrefixIndex}
-                    data={WITH_PREFIX}
-                    onTap={(v, i) => setWithPrefixIndex(i)}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={withSuffixIndex}
-                    data={WITH_SUFFIX}
-                    onTap={(v, i) => setWithSuffixIndex(i)}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={withErrorIndex}
-                    data={WITH_ERROR}
-                    onTap={(v, i) => setWithErrorIndex(i)}
-                />
-            </View>
-        </PageContainer>
-    )
-}
-
-export default SelectBoxPage

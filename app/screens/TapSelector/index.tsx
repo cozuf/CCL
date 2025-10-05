@@ -1,21 +1,6 @@
 import React from "react";
 import { PageContainer, TapSelector } from "../../../src";
 
-const DATA: Array<IData<number>> = [
-    {
-        title: "Sade",
-        value: 0
-    },
-    {
-        title: "Orta",
-        value: 1
-    },
-    {
-        title: "Şekerli",
-        value: 2
-    }
-]
-
 const TapSelectorPage = () => {
 
     const onTap = (selectedItem: IData<number>, selectedIndex: number) => {
@@ -30,3 +15,18 @@ const TapSelectorPage = () => {
 }
 
 export default TapSelectorPage
+
+const DATA: Array<IData<number>> = [
+    {
+        title: "Sade",
+        value: 0
+    },
+    {
+        title: "Orta",
+        value: 1
+    },
+    {
+        title: "Şekerli",
+        value: 2
+    }
+]

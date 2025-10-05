@@ -1,6 +1,43 @@
 import React, { useEffect, useState } from "react";
-import { PageContainer, SegmentedButton, Separator, TapSelector } from "../../../src";
 import { View } from "react-native";
+import { PageContainer, SegmentedButton, Separator, TapSelector } from "../../../src";
+
+const SegmentedButtonPage = () => {
+    const [activeDataIndex, setActiveDataIndex] = useState<number>(0)
+
+    const [data, setData] = useState(DATA[activeDataIndex].value)
+
+    useEffect(() => {
+        setData(DATA[activeDataIndex].value)
+    }, [activeDataIndex])
+
+    const onPressSegmentedButton = (value: Product) => {
+        console.warn({ value })
+        setData((old) => old.map((v, i) => ({ ...v, selected: v.value.id === value.id })))
+    }
+
+    return (
+        <PageContainer>
+            <View style={{ height: 200, justifyContent: "center", paddingHorizontal: 16 }}>
+                <SegmentedButton
+                    data={data}
+                    initialIndex={0}
+                    onSelect={onPressSegmentedButton}
+                />
+            </View>
+            <View>
+                <TapSelector
+                    initialIndex={activeDataIndex}
+                    data={DATA}
+                    onTap={(v, i) => { setActiveDataIndex(i) }}
+                />
+                <Separator />
+            </View>
+        </PageContainer>
+    )
+}
+
+export default SegmentedButtonPage
 
 interface Product {
     id: string
@@ -165,40 +202,3 @@ const DATA = [
         value: FIVE_ITEM_DATA
     }
 ]
-
-const SegmentedButtonPage = () => {
-    const [activeDataIndex, setActiveDataIndex] = useState<number>(0)
-
-    const [data, setData] = useState(DATA[activeDataIndex].value)
-
-    useEffect(() => {
-        setData(DATA[activeDataIndex].value)
-    }, [activeDataIndex])
-
-    const onPressSegmentedButton = (value: Product) => {
-        console.warn({ value })
-        setData((old) => old.map((v, i) => ({ ...v, selected: v.value.id === value.id })))
-    }
-
-    return (
-        <PageContainer>
-            <View style={{ height: 200, justifyContent: "center", paddingHorizontal: 16 }}>
-                <SegmentedButton
-                    data={data}
-                    initialIndex={0}
-                    onSelect={onPressSegmentedButton}
-                />
-            </View>
-            <View>
-                <TapSelector
-                    initialIndex={activeDataIndex}
-                    data={DATA}
-                    onTap={(v, i) => { setActiveDataIndex(i) }}
-                />
-                <Separator />
-            </View>
-        </PageContainer>
-    )
-}
-
-export default SegmentedButtonPage

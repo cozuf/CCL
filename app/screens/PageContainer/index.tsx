@@ -1,68 +1,9 @@
 import React, { ErrorInfo, Fragment, useState } from "react";
-import { IPageContainerProps, PageContainer, Separator, TapSelector, Text, useTheme, withErrorBoundary } from "../../../src";
 import { View } from "react-native";
+import { IPageContainerProps, PageContainer, Separator, TapSelector, Text, withErrorBoundary } from "../../../src";
 import PageContainerFallback from "./error";
 
-const PAGE_CONTAINER_PAGE_TAG = "PAGE_CONTAINER_PAGE"
-
-const TYPE: Array<IData<NonNullable<IPageContainerProps["type"]>>> = [
-    {
-        title: "SafeView",
-        value: "safeView"
-    },
-    {
-        title: "SafeScroll",
-        value: "safeScroll"
-    },
-    {
-        title: "SafeArea",
-        value: "safeArea"
-    },
-    {
-        title: "View",
-        value: "view"
-    },
-    {
-        title: "Scroll",
-        value: "scroll"
-    }
-]
-
-const LOADING: Array<IData<NonNullable<IPageContainerProps["loading"]>>> = [
-    {
-        title: "Not Loading",
-        value: false
-    },
-    {
-        title: "Loading",
-        value: true
-    }
-]
-
-const CUSTOM_LOADING: Array<IData<NonNullable<IPageContainerProps["loading"]>>> = [
-    {
-        title: "Default",
-        value: false
-    },
-    {
-        title: "Custom",
-        value: true
-    }
-]
-
-const CUSTOM_FALLBACK: Array<IData<NonNullable<IPageContainerProps["loading"]>>> = [
-    {
-        title: "Default",
-        value: false
-    },
-    {
-        title: "Custom",
-        value: true
-    }
-]
-
 const PageContainerPage = () => {
-    const { colors } = useTheme()
 
     const [typeIndex, setTypeIndex] = useState<number>(0)
     const [loadingIndex, setLoadingIndex] = useState<number>(0)
@@ -131,3 +72,61 @@ const PageContainerPage = () => {
 }
 
 export default withErrorBoundary(PageContainerPage, <PageContainerFallback />, (e: Error, i: ErrorInfo) => { console.log(PAGE_CONTAINER_PAGE_TAG, { e, i }) })
+
+const PAGE_CONTAINER_PAGE_TAG = "PAGE_CONTAINER_PAGE"
+
+const TYPE: Array<IData<NonNullable<IPageContainerProps["type"]>>> = [
+    {
+        title: "SafeView",
+        value: "safeView"
+    },
+    {
+        title: "SafeScroll",
+        value: "safeScroll"
+    },
+    {
+        title: "SafeArea",
+        value: "safeArea"
+    },
+    {
+        title: "View",
+        value: "view"
+    },
+    {
+        title: "Scroll",
+        value: "scroll"
+    }
+]
+
+const LOADING: Array<IData<NonNullable<IPageContainerProps["loading"]>>> = [
+    {
+        title: "Not Loading",
+        value: false
+    },
+    {
+        title: "Loading",
+        value: true
+    }
+]
+
+const CUSTOM_LOADING: Array<IData<NonNullable<IPageContainerProps["loading"]>>> = [
+    {
+        title: "Default",
+        value: false
+    },
+    {
+        title: "Custom",
+        value: true
+    }
+]
+
+const CUSTOM_FALLBACK: Array<IData<NonNullable<IPageContainerProps["loading"]>>> = [
+    {
+        title: "Default",
+        value: false
+    },
+    {
+        title: "Custom",
+        value: true
+    }
+]

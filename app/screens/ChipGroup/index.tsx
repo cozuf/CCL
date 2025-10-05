@@ -1,6 +1,45 @@
 import React, { useState } from "react";
-import { ChipGroup, PageContainer, Separator, Text } from "../../../src";
 import { View } from "react-native";
+import { ChipGroup, PageContainer, Separator, Text } from "../../../src";
+
+const ChipGroupPage = () => {
+    const [list, setList] = useState<Array<IListData<Product>>>(DATA)
+
+    const onSelectItem = (selectedValue: Product, selected: boolean, newList: Array<IListData<Product>>) => {
+        // console.log({ selectedValue, selected, newList })
+        setList(newList)
+    }
+
+    const renderSelectedItemList = (v: IListData<Product>, i: number, a: Array<IListData<Product>>) => {
+        return (
+            <View key={`${i}`}>
+                <Text>
+                    {v.value.id} - {v.value.name}
+                </Text>
+            </View>
+        )
+    }
+
+    return (
+        <PageContainer>
+            <View>
+                <ChipGroup
+                    data={DATA}
+                    onSelect={onSelectItem}
+                    containerStyle={{ justifyContent: "center" }}
+                />
+            </View>
+            <Separator distance={40} />
+            <View>
+                {
+                    list.filter((v) => v.selected).map(renderSelectedItemList)
+                }
+            </View>
+        </PageContainer>
+    )
+}
+
+export default ChipGroupPage
 
 const TYPE_DATA: Array<IListData<string>> = [
     {
@@ -146,42 +185,3 @@ const DATA: Array<IListData<Product>> = [
         selectable: true
     }
 ]
-
-const ChipGroupPage = () => {
-    const [list, setList] = useState<Array<IListData<Product>>>(DATA)
-
-    const onSelectItem = (selectedValue: Product, selected: boolean, newList: Array<IListData<Product>>) => {
-        // console.log({ selectedValue, selected, newList })
-        setList(newList)
-    }
-
-    const renderSelectedItemList = (v: IListData<Product>, i: number, a: Array<IListData<Product>>) => {
-        return (
-            <View key={`${i}`}>
-                <Text>
-                    {v.value.id} - {v.value.name}
-                </Text>
-            </View>
-        )
-    }
-
-    return (
-        <PageContainer>
-            <View>
-                <ChipGroup
-                    data={DATA}
-                    onSelect={onSelectItem}
-                    containerStyle={{ justifyContent: "center" }}
-                />
-            </View>
-            <Separator distance={40} />
-            <View>
-                {
-                    list.filter((v) => v.selected).map(renderSelectedItemList)
-                }
-            </View>
-        </PageContainer>
-    )
-}
-
-export default ChipGroupPage

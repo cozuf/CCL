@@ -1,47 +1,6 @@
 import React, { useState } from "react";
+import { View } from "react-native";
 import { ChevronUpIcon, PageContainer, RadioButton, Separator, TapSelector, Text } from "../../../src";
-import { Image, View } from "react-native";
-
-const DISABLED = [
-    {
-        title: "Active",
-        value: false
-    },
-    {
-        title: "Disabled",
-        value: true
-    }
-]
-const SELECTED = [
-    {
-        title: "Selected",
-        value: true
-    },
-    {
-        title: "Not Selected",
-        value: false
-    }
-]
-const CUSTOM_ICON = [
-    {
-        title: "Default Icon",
-        value: false
-    },
-    {
-        title: "Custom Icon",
-        value: true
-    }
-]
-const CUSTOM_CONTENT = [
-    {
-        title: "Default Content",
-        value: false
-    },
-    {
-        title: "Custom Content",
-        value: true
-    }
-]
 
 const RadioButtonPage = () => {
     const [activeIndex, setActiveIndex] = useState<number>(0)
@@ -122,3 +81,47 @@ const RadioButtonPage = () => {
 }
 
 export default RadioButtonPage
+
+const DISABLED = [
+    {
+        title: "Active",
+        value: false
+    },
+    {
+        title: "Disabled",
+        value: true
+    }
+]
+
+const SELECTED = [
+    {
+        title: "Selected",
+        value: true
+    },
+    {
+        title: "Not Selected",
+        value: false
+    }
+]
+
+const CUSTOM_ICON = [
+    {
+        title: "Default Icon",
+        value: false
+    },
+    {
+        title: "Custom Icon",
+        value: true
+    }
+]
+
+const CUSTOM_CONTENT = [
+    {
+        title: "Default Content",
+        value: false
+    },
+    {
+        title: "Custom Content",
+        value: true
+    }
+]

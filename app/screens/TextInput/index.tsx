@@ -1,57 +1,6 @@
 import React, { useState } from "react";
-import { PageContainer, Separator, TapSelector, TextInput } from "../../../src";
 import { View } from "react-native";
-
-const DISABLED = [
-    {
-        title: "Active",
-        value: false
-    },
-    {
-        title: "Disabled",
-        value: true
-    }
-]
-const WITH_TITLE = [
-    {
-        title: "Without Title",
-        value: undefined
-    },
-    {
-        title: "With Title",
-        value: "Title"
-    }
-]
-const WITH_PREFIX = [
-    {
-        title: "Without Prefix",
-        value: false
-    },
-    {
-        title: "With Prefix",
-        value: true
-    }
-]
-const WITH_SUFFIX = [
-    {
-        title: "Without Suffix",
-        value: false
-    },
-    {
-        title: "With Suffix",
-        value: true
-    }
-]
-const WITH_ERROR = [
-    {
-        title: "Without Error",
-        value: undefined
-    },
-    {
-        title: "With Error",
-        value: "Some Error"
-    }
-]
+import { PageContainer, Separator, TapSelector, TextInput } from "../../../src";
 
 const TextInputPage = () => {
     const [value, setvalue] = useState<string>("")
@@ -113,3 +62,58 @@ const TextInputPage = () => {
 }
 
 export default TextInputPage
+
+const DISABLED = [
+    {
+        title: "Active",
+        value: false
+    },
+    {
+        title: "Disabled",
+        value: true
+    }
+]
+
+const WITH_TITLE = [
+    {
+        title: "Without Title",
+        value: undefined
+    },
+    {
+        title: "With Title",
+        value: "Title"
+    }
+]
+
+const WITH_PREFIX = [
+    {
+        title: "Without Prefix",
+        value: false
+    },
+    {
+        title: "With Prefix",
+        value: true
+    }
+]
+
+const WITH_SUFFIX = [
+    {
+        title: "Without Suffix",
+        value: false
+    },
+    {
+        title: "With Suffix",
+        value: true
+    }
+]
+
+const WITH_ERROR = [
+    {
+        title: "Without Error",
+        value: undefined
+    },
+    {
+        title: "With Error",
+        value: "Some Error"
+    }
+]

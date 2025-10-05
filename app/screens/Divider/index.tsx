@@ -2,59 +2,6 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { Divider, PageContainer, Separator, TapSelector } from "../../../src";
 
-const DIRECTION = [
-    {
-        title: "vertical",
-        value: "vertical"
-    },
-    {
-        title: "horizontal",
-        value: "horizontal"
-    }
-]
-const SPACE = [
-    {
-        title: "default 8",
-        value: undefined
-    },
-    {
-        title: "16",
-        value: 16
-    },
-    {
-        title: "24",
-        value: 24
-    }
-]
-const DISTANCE = [
-    {
-        title: "default 4",
-        value: undefined
-    },
-    {
-        title: "8",
-        value: 8
-    },
-    {
-        title: "16",
-        value: 16
-    }
-]
-const COLOR: Array<IData<keyof CCL.ColorScheme>> = [
-    {
-        title: "Green",
-        value: "success"
-    },
-    {
-        title: "blue",
-        value: "primary"
-    },
-    {
-        title: "Red",
-        value: "error"
-    }
-]
-
 const DividerPage = () => {
 
     const [directionIndex, setDirectionIndex] = useState<number>(0)
@@ -107,3 +54,59 @@ const DividerPage = () => {
 }
 
 export default DividerPage
+
+const DIRECTION = [
+    {
+        title: "vertical",
+        value: "vertical"
+    },
+    {
+        title: "horizontal",
+        value: "horizontal"
+    }
+]
+
+const SPACE = [
+    {
+        title: "default 8",
+        value: undefined
+    },
+    {
+        title: "16",
+        value: 16
+    },
+    {
+        title: "24",
+        value: 24
+    }
+]
+
+const DISTANCE = [
+    {
+        title: "default 4",
+        value: undefined
+    },
+    {
+        title: "8",
+        value: 8
+    },
+    {
+        title: "16",
+        value: 16
+    }
+]
+
+const COLOR: Array<IData<keyof CCL.ColorScheme>> = [
+    {
+        title: "Green",
+        value: "success"
+    },
+    {
+        title: "blue",
+        value: "primary"
+    },
+    {
+        title: "Red",
+        value: "error"
+    }
+]
