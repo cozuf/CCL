@@ -13,7 +13,7 @@ const Main = () => {
     const items = COMPONENT_LIST.map((v) => ({
         label: v,
         isInput: v.includes("input"),
-        path: v.replace(" - input", "").toUpperCase()
+        path: v.replace(" - input", "").replace(/([a-z])([A-Z])/g, "$1_$2").toUpperCase()
     }))
 
     const onPressComponent = (path: string) => {
@@ -27,7 +27,6 @@ const Main = () => {
                     type="simplified"
                     title={`Tema - ${name} - Değiştir`}
                     onPress={() => {
-
                         setTheme({ name: name === "light" ? "dark" : "light", colors: name === "light" ? darkColors : light })
                     }}
                 />
