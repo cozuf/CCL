@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useEffect, useRef, useState } from "react";
+import React, { FC, Fragment, useRef, useState } from "react";
 import { TouchableOpacity, useWindowDimensions, View } from "react-native";
 import { ComponentError, ComponentPrefix, ComponentSuffix, ComponentTitle, ComponentValue } from "../Base";
 import IPickerBoxProps from "./props";

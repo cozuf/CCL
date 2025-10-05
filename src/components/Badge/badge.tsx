@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import IBadgeProps from "./props";
 import { Platform, StyleProp, View, ViewStyle } from "react-native";
+import IBadgeProps from "./props";
 import { useTheme } from "../../context";
 import { Text } from "../Text";
 

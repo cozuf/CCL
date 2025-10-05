@@ -102,4 +102,4 @@ export type { IGLobalStateRef } from "./context"
 
 export { fonts, tokens, dark as darkColors, light as lightColors } from "./theme"
 
-export { createReducer, delay, isObject, isIOS } from "./utils"
+export { createReducer, delay, isObject, isIOS, isAndroid } from "./utils"
