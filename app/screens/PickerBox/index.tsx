@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { IPickerBoxProps, PageContainer, PickerBox, Separator, TapSelector } from "../../../src";
 
-
 const SelectBoxPage = () => {
     const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
 
@@ -15,7 +14,7 @@ const SelectBoxPage = () => {
     const [withErrorIndex, setWithErrorIndex] = useState<number>(0)
 
     const onSubmitSelection = (selectedItem: IListData<Product>) => {
-        console.log({ selectedItem })
+        // console.log({ selectedItem })
         setRegions((old) => old.map((v) => ({ ...v, selected: v.value === selectedItem.value })))
     }
 
@@ -82,7 +81,6 @@ const SelectBoxPage = () => {
 }
 
 export default SelectBoxPage
-
 
 interface Product {
     id: number

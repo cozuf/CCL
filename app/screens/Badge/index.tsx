@@ -1,6 +1,41 @@
 import React, { useState } from "react";
-import { Badge, Button, PageContainer, Separator, TapSelector } from "../../../src";
 import { View } from "react-native";
+import { Badge, Button, PageContainer, Separator, TapSelector } from "../../../src";
+
+const BadgePage = () => {
+    const [valueIndex, setValueIndex] = useState<number>(0)
+    const [sizeIndex, setSızeIndex] = useState<number>(0)
+
+    return (
+        <PageContainer>
+            <View style={{ height: 200, alignItems: "center", justifyContent: "center" }}>
+                <View>
+                    <Badge
+                        value={VALUE[valueIndex].value}
+                        size={SIZE[sizeIndex].value}
+                    />
+                    <Button title="Yusuf" />
+                </View>
+            </View>
+            <Separator />
+            <View>
+                <TapSelector
+                    initialIndex={valueIndex}
+                    data={VALUE}
+                    onTap={(v, i) => { setValueIndex(i) }}
+                />
+                <Separator />
+                <TapSelector
+                    initialIndex={sizeIndex}
+                    data={SIZE}
+                    onTap={(v, i) => { setSızeIndex(i) }}
+                />
+            </View>
+        </PageContainer>
+    )
+}
+
+export default BadgePage
 
 const VALUE = [
     {
@@ -43,38 +78,3 @@ const SIZE = [
         value: 40
     }
 ]
-
-const BadgePage = () => {
-    const [valueIndex, setValueIndex] = useState<number>(0)
-    const [sizeIndex, setSızeIndex] = useState<number>(0)
-
-    return (
-        <PageContainer>
-            <View style={{ height: 200, alignItems: "center", justifyContent: "center" }}>
-                <View>
-                    <Badge
-                        value={VALUE[valueIndex].value}
-                        size={SIZE[sizeIndex].value}
-                    />
-                    <Button title="Yusuf" />
-                </View>
-            </View>
-            <Separator />
-            <View>
-                <TapSelector
-                    initialIndex={valueIndex}
-                    data={VALUE}
-                    onTap={(v, i) => { setValueIndex(i) }}
-                />
-                <Separator />
-                <TapSelector
-                    initialIndex={sizeIndex}
-                    data={SIZE}
-                    onTap={(v, i) => { setSızeIndex(i) }}
-                />
-            </View>
-        </PageContainer>
-    )
-}
-
-export default BadgePage

@@ -1,47 +1,6 @@
 import React, { useState } from "react";
+import { View } from "react-native";
 import { CheckBox, ChevronUpIcon, PageContainer, Separator, TapSelector, Text } from "../../../src";
-import { Image, View } from "react-native";
-
-const DISABLED = [
-    {
-        title: "Active",
-        value: false
-    },
-    {
-        title: "Disabled",
-        value: true
-    }
-]
-const SELECTED = [
-    {
-        title: "Selected",
-        value: true
-    },
-    {
-        title: "Not Selected",
-        value: false
-    }
-]
-const CUSTOM_ICON = [
-    {
-        title: "Default Icon",
-        value: false
-    },
-    {
-        title: "Custom Icon",
-        value: true
-    }
-]
-const CUSTOM_CONTENT = [
-    {
-        title: "Default Content",
-        value: false
-    },
-    {
-        title: "Custom Content",
-        value: true
-    }
-]
 
 const CheckBoxPage = () => {
 
@@ -124,3 +83,47 @@ const CheckBoxPage = () => {
 }
 
 export default CheckBoxPage
+
+const DISABLED = [
+    {
+        title: "Active",
+        value: false
+    },
+    {
+        title: "Disabled",
+        value: true
+    }
+]
+
+const SELECTED = [
+    {
+        title: "Selected",
+        value: true
+    },
+    {
+        title: "Not Selected",
+        value: false
+    }
+]
+
+const CUSTOM_ICON = [
+    {
+        title: "Default Icon",
+        value: false
+    },
+    {
+        title: "Custom Icon",
+        value: true
+    }
+]
+
+const CUSTOM_CONTENT = [
+    {
+        title: "Default Content",
+        value: false
+    },
+    {
+        title: "Custom Content",
+        value: true
+    }
+]

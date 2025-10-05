@@ -1,82 +1,6 @@
 import React, { useState } from "react";
-import { DateTimePicker, IDateTimePickerProps, PageContainer, Separator, TapSelector } from "../../../src";
 import { View } from "react-native";
-import { DatePickerProps } from "react-native-date-picker";
-
-const DISABLED = [
-    {
-        title: "Active",
-        value: false
-    },
-    {
-        title: "Disabled",
-        value: true
-    }
-]
-const WITH_TITLE = [
-    {
-        title: "Without Title",
-        value: undefined
-    },
-    {
-        title: "With Title",
-        value: "Title"
-    }
-]
-const WITH_PREFIX = [
-    {
-        title: "Without Prefix",
-        value: false
-    },
-    {
-        title: "With Prefix",
-        value: true
-    }
-]
-const WITH_SUFFIX = [
-    {
-        title: "Without Suffix",
-        value: false
-    },
-    {
-        title: "With Suffix",
-        value: true
-    }
-]
-const WITH_ERROR = [
-    {
-        title: "Without Error",
-        value: undefined
-    },
-    {
-        title: "With Error",
-        value: "Some Error"
-    }
-]
-const MODE: Array<IData<IDateTimePickerProps["mode"]>> = [
-    {
-        title: "Datetime",
-        value: "datetime"
-    },
-    {
-        title: "Date",
-        value: "date"
-    },
-    {
-        title: "Time",
-        value: "time"
-    }
-]
-const DISPLAY_TYPE: Array<IData<IDateTimePickerProps["displayType"]>> = [
-    {
-        title: "BottomSheet",
-        value: "bottomSheet"
-    },
-    {
-        title: "Modal",
-        value: "modal"
-    }
-]
+import { DateTimePicker, IDateTimePickerProps, PageContainer, Separator, TapSelector } from "../../../src";
 
 const DateTimePickerPage = () => {
 
@@ -156,3 +80,84 @@ const DateTimePickerPage = () => {
 }
 
 export default DateTimePickerPage
+
+const DISABLED = [
+    {
+        title: "Active",
+        value: false
+    },
+    {
+        title: "Disabled",
+        value: true
+    }
+]
+
+const WITH_TITLE = [
+    {
+        title: "Without Title",
+        value: undefined
+    },
+    {
+        title: "With Title",
+        value: "Title"
+    }
+]
+
+const WITH_PREFIX = [
+    {
+        title: "Without Prefix",
+        value: false
+    },
+    {
+        title: "With Prefix",
+        value: true
+    }
+]
+
+const WITH_SUFFIX = [
+    {
+        title: "Without Suffix",
+        value: false
+    },
+    {
+        title: "With Suffix",
+        value: true
+    }
+]
+
+const WITH_ERROR = [
+    {
+        title: "Without Error",
+        value: undefined
+    },
+    {
+        title: "With Error",
+        value: "Some Error"
+    }
+]
+
+const MODE: Array<IData<IDateTimePickerProps["mode"]>> = [
+    {
+        title: "Datetime",
+        value: "datetime"
+    },
+    {
+        title: "Date",
+        value: "date"
+    },
+    {
+        title: "Time",
+        value: "time"
+    }
+]
+
+const DISPLAY_TYPE: Array<IData<IDateTimePickerProps["displayType"]>> = [
+    {
+        title: "BottomSheet",
+        value: "bottomSheet"
+    },
+    {
+        title: "Modal",
+        value: "modal"
+    }
+]

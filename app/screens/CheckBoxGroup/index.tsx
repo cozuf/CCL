@@ -1,6 +1,70 @@
 import React, { useState } from "react";
-import { CheckBoxGroup, PageContainer, Separator, TapSelector, Text } from "../../../src";
 import { ListRenderItem, View } from "react-native";
+import { CheckBoxGroup, PageContainer, Separator, TapSelector, Text } from "../../../src";
+
+const CheckBoxGroupPage = () => {
+    const [customItemIndex, setCustomItemIndex] = useState<number>(0)
+
+    const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
+
+    const onSelectItem = (selectedValue: Product, selected: boolean, newList: Array<IListData<Product>>) => {
+        // console.log({ selectedValue, selected, newList })
+        setRegions(newList)
+    }
+
+    const renderItem: ListRenderItem<IListData<Product>> | undefined = CUSTOM_ITEM[customItemIndex].value ? ({ item }) => {
+        return (
+            <View
+                style={{
+                    // width: 200,
+                    flexDirection: "row",
+                    marginHorizontal: 8,
+                    padding: 8,
+                    borderRadius: 16,
+                    backgroundColor: "white"
+                }}>
+                <View style={{
+                    flex: 1,
+                    justifyContent: "center",
+                }}>
+                    <Text>
+                        {item.title}
+                    </Text>
+                </View>
+                <View style={{
+                    height: 32,
+                    width: 32,
+                    borderRadius: 8,
+                    backgroundColor: item.selected ? "red" : "blue"
+                }}
+                />
+            </View>
+        )
+    } : undefined
+
+    return (
+        <PageContainer>
+            <View>
+                <TapSelector
+                    initialIndex={customItemIndex}
+                    data={CUSTOM_ITEM}
+                    onTap={(v, i) => { setCustomItemIndex(i) }}
+                />
+                <Separator />
+            </View>
+            <View>
+                <CheckBoxGroup
+                    data={regions}
+                    onSelect={onSelectItem}
+                    renderItem={renderItem}
+                // numColumns={2}
+                />
+            </View>
+        </PageContainer>
+    )
+}
+
+export default CheckBoxGroupPage
 
 interface Product {
     id: number
@@ -137,67 +201,3 @@ const CUSTOM_ITEM = [
         value: true
     }
 ]
-
-const CheckBoxGroupPage = () => {
-    const [customItemIndex, setCustomItemIndex] = useState<number>(0)
-
-    const [regions, setRegions] = useState<Array<IListData<Product>>>(DATA)
-
-    const onSelectItem = (selectedValue: Product, selected: boolean, newList: Array<IListData<Product>>) => {
-        // console.log({ selectedValue, selected, newList })
-        setRegions(newList)
-    }
-
-    const renderItem: ListRenderItem<IListData<Product>> | undefined = CUSTOM_ITEM[customItemIndex].value ? ({ item }) => {
-        return (
-            <View
-                style={{
-                    // width: 200,
-                    flexDirection: "row",
-                    marginHorizontal: 8,
-                    padding: 8,
-                    borderRadius: 16,
-                    backgroundColor: "white"
-                }}>
-                <View style={{
-                    flex: 1,
-                    justifyContent: "center",
-                }}>
-                    <Text>
-                        {item.title}
-                    </Text>
-                </View>
-                <View style={{
-                    height: 32,
-                    width: 32,
-                    borderRadius: 8,
-                    backgroundColor: item.selected ? "red" : "blue"
-                }}
-                />
-            </View>
-        )
-    } : undefined
-
-    return (
-        <PageContainer>
-            <View>
-                <TapSelector
-                    initialIndex={customItemIndex}
-                    data={CUSTOM_ITEM}
-                    onTap={(v, i) => { setCustomItemIndex(i) }}
-                />
-                <Separator />
-            </View>
-            <View>
-                <CheckBoxGroup
-                    data={regions}
-                    onSelect={onSelectItem}
-                    renderItem={renderItem}
-                    // numColumns={2}
-                />
-            </View>
-        </PageContainer>
-    )
-}
-
-export default CheckBoxGroupPage

@@ -2,34 +2,6 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { PageContainer, Separator, TapSelector } from "../../../src";
 
-const DIRECTION = [
-    {
-        title: "Vertical",
-        value: "vertical"
-    },
-    {
-        title: "Horizontal",
-        value: "horizontal"
-    }
-]
-const DISTANCE = [
-    {
-        title: "4",
-        value: 4
-    },
-    {
-        title: "default 8",
-        value: undefined
-    },
-    {
-        title: "16",
-        value: 16
-    },
-    {
-        title: "32",
-        value: 32
-    }
-]
 const SeparatorPage = () => {
     const [directionIndex, setDirectionIndex] = useState<number>(0)
     const [distanceIndex, setDistanceIndex] = useState<number>(0)
@@ -66,3 +38,33 @@ const SeparatorPage = () => {
 }
 
 export default SeparatorPage
+
+const DIRECTION = [
+    {
+        title: "Vertical",
+        value: "vertical"
+    },
+    {
+        title: "Horizontal",
+        value: "horizontal"
+    }
+]
+
+const DISTANCE = [
+    {
+        title: "4",
+        value: 4
+    },
+    {
+        title: "default 8",
+        value: undefined
+    },
+    {
+        title: "16",
+        value: 16
+    },
+    {
+        title: "32",
+        value: 32
+    }
+]

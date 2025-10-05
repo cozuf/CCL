@@ -1,37 +1,6 @@
 import React, { useState } from "react";
-import { Card, PageContainer, Separator, TapSelector, Text } from "../../../src";
 import { View } from "react-native";
-
-const DISABLED = [
-    {
-        title: "Active",
-        value: false
-    },
-    {
-        title: "Disabled",
-        value: true
-    }
-]
-const EXPANDABLE = [
-    {
-        title: "Expandable",
-        value: true
-    },
-    {
-        title: "Not Expandable",
-        value: false
-    }
-]
-const EXPANDED = [
-    {
-        title: "Expanded",
-        value: true
-    },
-    {
-        title: "Not Expanded",
-        value: false
-    }
-]
+import { Card, PageContainer, Separator, TapSelector, Text } from "../../../src";
 
 const CardPage = () => {
     const [disabledIndex, setDisabledIndex] = useState<number>(0)
@@ -95,3 +64,36 @@ const CardPage = () => {
 }
 
 export default CardPage
+
+const DISABLED = [
+    {
+        title: "Active",
+        value: false
+    },
+    {
+        title: "Disabled",
+        value: true
+    }
+]
+
+const EXPANDABLE = [
+    {
+        title: "Expandable",
+        value: true
+    },
+    {
+        title: "Not Expandable",
+        value: false
+    }
+]
+
+const EXPANDED = [
+    {
+        title: "Expanded",
+        value: true
+    },
+    {
+        title: "Not Expanded",
+        value: false
+    }
+]

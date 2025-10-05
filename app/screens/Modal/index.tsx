@@ -1,27 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Button, IModalProps, Modal, PageContainer, Separator, TapSelector } from "../../../src";
 
-
-const TYPE: Array<IData<NonNullable<IModalProps["type"]>>> = [
-    {
-        title: "Default",
-        value: "default"
-    },
-    {
-        title: "Loading",
-        value: "loading"
-    },
-    {
-        title: "Messaging",
-        value: "messaging"
-    },
-    {
-        title: "Selection",
-        value: "selection"
-    }
-]
-
-
 const ModalPage = () => {
     const [visible, setVisible] = useState<boolean>(false)
 
@@ -75,3 +54,22 @@ const ModalPage = () => {
 }
 
 export default ModalPage
+
+const TYPE: Array<IData<NonNullable<IModalProps["type"]>>> = [
+    {
+        title: "Custom",
+        value: "custom"
+    },
+    {
+        title: "Loading",
+        value: "loading"
+    },
+    {
+        title: "Messaging",
+        value: "messaging"
+    },
+    {
+        title: "Selection",
+        value: "selection"
+    }
+]
