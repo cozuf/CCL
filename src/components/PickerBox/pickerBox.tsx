@@ -9,7 +9,7 @@ import { Separator } from "../Separator";
 import { Button } from "../Button";
 import { Modal } from "../Modal";
 
-const PickerBox: FC<IPickerBoxProps<any>> = ({ data, onSubmit, displayType, disabled, containerStyle, error, placeholder, prefixComponent, suffixComponent, title, value }) => {
+const PickerBox: FC<IPickerBoxProps<any>> = ({ data, onSubmit, displayType = "bottomSheet", disabled, containerStyle, error, placeholder, prefixComponent, suffixComponent, title, value }) => {
     const { width } = useWindowDimensions()
     const { colors, tokens } = useTheme()
     const bottomSheetRef = useRef<IBottomSheetRef>(null)
