@@ -32,6 +32,8 @@ declare global {
 
             divider: ColorValue
 
+            skeleton: ColorValue
+
             transparent: ColorValue
         }
 

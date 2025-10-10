@@ -18,6 +18,7 @@ import RadioButtonGroup from "../screens/RadioButtonGroup";
 import SegmentedButton from "../screens/SegmentedButton";
 import SelectBox from "../screens/SelectBox";
 import Separator from "../screens/Separator";
+import Skeleton from "../screens/Skeleton";
 import SnackBar from "../screens/SnackBar";
 import TapSelector from "../screens/TapSelector";
 import Text from "../screens/Text";
@@ -42,6 +43,7 @@ const PAGES = {
     SegmentedButton,
     SelectBox,
     Separator,
+    Skeleton,
     SnackBar,
     TapSelector,
     Text,

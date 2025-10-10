@@ -58,6 +58,9 @@ export { SelectBox } from "./SelectBox";
 export type { ISeparatorProps } from "./Separator";
 export { Separator } from "./Separator";
 
+export type { ISkeletonProps } from "./Skeleton";
+export { Skeleton } from "./Skeleton";
+
 export type { ISnackBarProps, ISnackBarRef } from "./SnackBar";
 export { SnackBar } from "./SnackBar";
 
