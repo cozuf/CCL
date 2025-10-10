@@ -15,6 +15,7 @@ const WheelPicker: FC<IWheelPickerProps<any>> = ({ data = [], onChangeItem = () 
         setTimeout(() => {
             const INDEX = data.findIndex((v) => v.selected)
             listRef.current?.scrollToIndex({ index: INDEX !== -1 ? INDEX : 0, animated: false });
+            onChangeItem(data[INDEX !== -1 ? INDEX : 0])
         }, 50);
     }, []);
 
