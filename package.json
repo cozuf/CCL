@@ -35,6 +35,8 @@
     "bundle": "cd android && ./gradlew clean && ./gradlew bundleRelease && open ./app/build/outputs/bundle/release/",
     "release:android": "npx react-native run-android --mode=release",
     "release:ios": "npx react-native run-ios --mode Release",
+    "connected:device": "xcrun xctrace list devices",
+    "real:device:ios": "npx react-native run-ios --device",
     "custom-fonts": "npx react-native-asset"
   },
   "dependencies": {

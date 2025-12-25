@@ -14,10 +14,15 @@ const Chat: FC<IChatProps> = () => {
     const { colors } = useTheme()
 
     return (
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={isIOS ? "padding" : undefined} keyboardVerticalOffset={isIOS ? 100 : 80} >
+        <KeyboardAvoidingView
+            style={{ flex: 1 }}
+            behavior={isIOS ? "padding" : undefined}
+            keyboardVerticalOffset={isIOS ? 100 : 80}
+        >
             <FlatList
                 data={MESSAGES}
-                style={{ transform: [{ rotateX: "180deg" }] }}
+                inverted
+                // style={{ transform: [{ rotateX: "180deg" }] }}
                 contentContainerStyle={{ flexGrow: 1 }}
                 renderItem={({ item, index }) => (
                     <View>
@@ -29,7 +34,7 @@ const Chat: FC<IChatProps> = () => {
                                 {
                                     maxWidth: width * 0.8,
                                     backgroundColor: colors.card,
-                                    transform: [{ rotateX: "180deg" }],
+                                    // transform: [{ rotateX: "180deg" }],
                                     justifyContent: "center",
                                     borderRadius: 8,
                                     paddingHorizontal: 8,
@@ -37,14 +42,14 @@ const Chat: FC<IChatProps> = () => {
                                 }
                             }
                             >
-                                <Text fontFamily="medium" fontSize={16}>
+                                <Text fontFamily="medium" fontSize={14}>
                                     {item.message}
                                 </Text>
                                 <View
                                     style={{
                                         alignItems: item.user.id === 1 ? "flex-end" : "flex-start",
                                     }}>
-                                    <Text>
+                                    <Text fontSize={12}>
                                         12:24
                                     </Text>
                                 </View>
@@ -53,7 +58,11 @@ const Chat: FC<IChatProps> = () => {
                         {
                             index === (MESSAGES.length - 1) || MESSAGES[index + 1].createdAt.getDate() !== item.createdAt.getDate() ?
                                 <View>
-                                    <View style={{ alignItems: "center", transform: [{ rotateX: "180deg" }], }}>
+                                    <View style={{
+                                        alignItems: "center",
+                                        // transform: [{ rotateX: "180deg" }]
+                                    }}>
+                                        <Separator />
                                         <Text>
                                             {item.createdAt.getDate()}
                                         </Text>
@@ -64,21 +73,24 @@ const Chat: FC<IChatProps> = () => {
                                 null
                         }
                     </View>
-                )}
+                )
+                }
                 ItemSeparatorComponent={() => <Separator />}
-                ListHeaderComponent={<Separator />}
-            // ListFooterComponent={
-            //     <View>
-            //         <ActivityIndicator />
-            //     </View>
-            // }
-            // refreshControl={
-            //     <RefreshControl
-            //         refreshing
-            //         tintColor={"#FF0000"}
-            //         colors={["#FF0000"]}
-            //     />
-            // }
+                ListHeaderComponent={< Separator />}
+                ListFooterComponent={
+                    <View>
+                        <ActivityIndicator />
+                    </View>
+                }
+                refreshControl={
+                    <RefreshControl
+                        refreshing
+                        // ios
+                        tintColor={colors.primary}
+                        // android
+                        colors={[colors.primary, colors.error, colors.text]}
+                    />
+                }
             />
             <View style={{ padding: 4, flexDirection: "row", alignItems: "center" }}>
                 <CloseIcon height={24} width={24} />
